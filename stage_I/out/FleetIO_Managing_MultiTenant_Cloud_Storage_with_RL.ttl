@@ -1,0 +1,172 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_14f254bd a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_1ec9dc05 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_231667dc a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_320b7abb a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_b0f6d141 a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth." .
+
+ssd:axiom_da9e99d1 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_e2cb819f a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/25b81cefc96040d3b882d9820a62d56b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "FleetIO decreases the tail latency of I/O requests by 1.5× on average." .
+
+<http://example.org/ssd/assertion/30c70a3f74b0433fbb2a1d68276d6a7a> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Cloud platforms have been virtualizing storage devices like flash-based solid-state drives (SSDs) to make effective use of storage resources." .
+
+<http://example.org/ssd/assertion/44a6d43bc41a4ca19e87fc6fbfb74b43> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "FleetIO uses a time window (2 seconds by default) to track the RL states." .
+
+<http://example.org/ssd/assertion/458c040fbaf646558a6f9c157415003b> a ssd:Assertion ;
+    ssd:confidence 0.75 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "FleetIO formulates the RL reward function based on the measured I/O throughput and the SLO violations of issued I/O requests." .
+
+<http://example.org/ssd/assertion/6cc9e7606d07482488a05574ecd66374> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "We implement FleetIO on a real programmable SSD board and evaluate it with diverse cloud applications." .
+
+<http://example.org/ssd/assertion/769def6b152842d58bfd1413a896d9bd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "FleetIO categorizes the workloads into different types based on their I/O access patterns." .
+
+<http://example.org/ssd/assertion/e0b1917402c3414a8660cb529386666a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "FleetIO improves the overall storage utilization of the shared SSD by up to 1.4×." .
+
+<http://example.org/ssd/assertion/e3b096f5a16c4cb1b195fabd3632fd72> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E4_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "FleetIO clusters workloads into different types (e.g., latency-sensitive and bandwidth-intensive) based on the collected I/O traces at runtime." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> rdfs:label "AccessPattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> rdfs:label "QueueDepth" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> rdfs:label "ReadWriteMix" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:hasWorkloadProfile ssd:E4_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:hasQueueDepth <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

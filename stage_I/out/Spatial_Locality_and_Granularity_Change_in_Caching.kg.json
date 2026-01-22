@@ -1,0 +1,70 @@
+{
+  "paper_id": "Spatial_Locality_and_Granularity_Change_in_Caching",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E5",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E6",
+      "label": "Granularity-Change Caching Problem",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "hasBlockSize",
+      "o": "E5",
+      "evidence": "For example, SRAM caches typically consist of 64 B “lines”, DRAM of 2-4 KB “rows”, and flash/disk of 4 KB “pages”.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "hasBlockSize rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize."
+  ],
+  "mappings": [
+    {
+      "label": "BlockSize",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "Block size is directly mentioned as a characteristic of workload profiles."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Spatial Locality and Granularity Change in Caching.pdf"
+}

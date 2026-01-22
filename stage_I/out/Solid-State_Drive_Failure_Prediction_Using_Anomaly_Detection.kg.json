@@ -1,0 +1,126 @@
+{
+  "paper_id": "electronics14071433",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "MC1_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E7",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E8",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The proposed model is tested on a publicly available Alibaba SSD dataset, where the six highest-ranked SMART features were identified.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "This drive model has a capacity of 1920 GB and is built using the 3D TLC NAND technology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasStructure",
+      "o": "E6",
+      "evidence": "This drive model has a capacity of 1920 GB and is built using the 3D TLC NAND technology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "Most of these data are stored in data centers, which are specialized facilities that house computer systems used for sharing applications and data.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "monitors",
+      "o": "E7",
+      "evidence": "SSDs employ a built-in SMART (Self-Monitoring, Analysis, and Reporting Technology) system to predict failures when certain operating parameters exceed predefined thresholds.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "SMART attributes that fall into the power and environment category depend on exterior causes.",
+      "confidence": 0.7
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasStructure rdfs:domain SSD; rdfs:range FlashTechnology/Structure.",
+    "monitors rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a factor in the environment."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Solid-State Drive Failure Prediction Using Anomaly Detection.pdf"
+}

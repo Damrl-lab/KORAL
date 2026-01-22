@@ -1,0 +1,108 @@
+{
+  "paper_id": "2024_USENIX_ATC_MSFRD",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Telemetry",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "MSFRD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms"
+    },
+    {
+      "id": "E5",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The MSFRD is evaluated on real Telemetry datasets collected from large-scale SSDs in data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "The MSFRD is evaluated on real Telemetry datasets collected from large-scale SSDs in data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The SSDs carry various businesses and workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "Compared with the existing schemes, MSFRD improves precision by 23.8% and recall by 38.9% on average for failure prediction.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned in the context of Telemetry attributes."
+    },
+    {
+      "label": "Telemetry",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "parent",
+      "notes": "Telemetry is a broad category encompassing various SMART attributes."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "MSFRD_Mutation_Similarity_based_SSD_Failure_Rating_and_Diagnosis_for_Complex_and_Volatile_Production_Environments.pdf"
+}

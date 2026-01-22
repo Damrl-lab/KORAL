@@ -1,0 +1,400 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_17bf8082 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_3b2aa098 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_81717062 a owl:Axiom ;
+    rdfs:comment "degradedBy rdfs:domain SSD; rdfs:range PowerLossProtection." .
+
+ssd:axiom_8856eec4 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_f6928e32 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/002e4c90e9964471b745af2479339e61> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E4_SSD_1 ;
+    dct:source "SSD#1 ‘bricked’— that is, can no longer be detected by the controller—and thus became completely useless." .
+
+<http://example.org/ssd/assertion/0240ea46d3f7425d80f93e42a6e3c136> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E10_SSD_7 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/0274030420b94f2594ae6cf60d558944> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E9_SSD_6 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/073428f88a2946eea01838bab0d9dd26> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E17_SSD_14 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/12abaebe86444950897261b01d0adeb0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    dct:source "Modern storage technology (SSDs, No-SQL databases, commoditized RAID hardware, etc.) bring new reliability challenges to the already complicated storage stack." .
+
+<http://example.org/ssd/assertion/3629ebd6d9034c1e91bc809b2775ed24> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E20_Concurrent_Random_Writes ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    dct:source "The main goal of applying workloads to each SSDs for this work is to trigger as many internal operations as possible." .
+
+<http://example.org/ssd/assertion/3c2d3ed143294db68b57d8ee4fdc1d42> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E14_SSD_11 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 11." .
+
+<http://example.org/ssd/assertion/3cb1cee8ca7440f79a475d083423cab4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E18_SSD_15 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/445239ae722749a39f03e6da4d676c66> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E15_SSD_12 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 12." .
+
+<http://example.org/ssd/assertion/4956756a1c8945dbabdba34b4b53f4bc> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E14_SSD_11 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/5e88bcca6ddc493194dd6b6ec6d51a34> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E13_SSD_10 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/611913272048472189b19c63260ec641> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E18_SSD_15 ;
+    dct:source "We observed shorn writes on three drives: SSDs no. 15." .
+
+<http://example.org/ssd/assertion/67171898a9214a599be0586d1519b0a7> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E11_SSD_8 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/7550242c39f048a0ab3db07e8799ee17> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E5_SSD_2 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/7ce1c30cb7fd4e10b1709002a442fe53> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E17_SSD_14 ;
+    dct:source "We observed shorn writes on three drives: SSDs no. 14." .
+
+<http://example.org/ssd/assertion/848f889b5f884dada54dd1caa7a74455> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E6_SSD_3 ;
+    dct:source "SSD#3 exhibited non-recoverable metadata corruption after a mere eight power faults." .
+
+<http://example.org/ssd/assertion/89106e15ace445f48edb65f0a52744e0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E4_SSD_1 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/901616730d2749639ba24acb26cd8aca> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E12_SSD_9 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/93794bf9a14e42bcac9027c45693479c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E6_SSD_3 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/9be955d7ccef493ba4cf43ade8d6f516> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E8_SSD_5 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/a238b8a463684452834e96fb34a9a3e3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E5_SSD_2 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 2." .
+
+<http://example.org/ssd/assertion/a7955bf268b6443aa51d2615bfa1d7c4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E7_SSD_4 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/b035841e262c4726b2b828a4f73f1284> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E10_SSD_7 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 7." .
+
+<http://example.org/ssd/assertion/b2c0c76aa1ad459b891d14fb0ef44358> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E7_SSD_4 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 4." .
+
+<http://example.org/ssd/assertion/b7346af13ebf46c5aaf14cf85c79d420> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E8_SSD_5 ;
+    dct:source "We observed shorn writes on three drives: SSDs no. 5." .
+
+<http://example.org/ssd/assertion/cbb76d4f364b4393a52076903aaf7314> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E11_SSD_8 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 8." .
+
+<http://example.org/ssd/assertion/ccfdd831cd2340fc9bae59105e0da45a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E16_SSD_13 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/d10906b3b32f4b85a22630247c6c0dbf> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E15_SSD_12 ;
+    dct:source "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total." .
+
+<http://example.org/ssd/assertion/f3e15f1e0006432992b558375e5e15e3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E16_SSD_13 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 13." .
+
+<http://example.org/ssd/assertion/ff21bb41b37c495b880fe56173dcd42f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E12_SSD_9 ;
+    dct:source "We have detected unserializable writes in eight tested SSDs, including no. 9." .
+
+ssd:E13_SSD_10 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#10" ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E9_SSD_6 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#6" ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:E10_SSD_7 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#7" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E11_SSD_8 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#8" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E12_SSD_9 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#9" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E14_SSD_11 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#11" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E15_SSD_12 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#12" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E16_SSD_13 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#13" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E17_SSD_14 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#14" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E18_SSD_15 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#15" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E20_Concurrent_Random_Writes a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "Concurrent Random Writes" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:E4_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#1" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E5_SSD_2 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#2" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E6_SSD_3 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#3" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E7_SSD_4 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#4" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E8_SSD_5 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD#5" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> rdfs:label "PowerLossProtection" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:hasWorkloadProfile ssd:E20_Concurrent_Random_Writes ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+

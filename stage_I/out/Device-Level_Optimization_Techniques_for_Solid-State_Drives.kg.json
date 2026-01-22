@@ -1,0 +1,302 @@
+{
+  "paper_id": "Device-Level Optimization Techniques for Solid-State Drives: A Survey",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E5",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E7",
+      "label": "ZNS",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS"
+    },
+    {
+      "id": "E8",
+      "label": "LDPC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E9",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E10",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E11",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E12",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E13",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E14",
+      "label": "Ransomware Defense",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security"
+    },
+    {
+      "id": "E15",
+      "label": "OCSSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The push for greater capacity has led to MLC and TLC flash-based SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "The push for greater capacity has led to MLC and TLC flash-based SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesInterface",
+      "o": "E6",
+      "evidence": "NVMe operates directly over the high-speed PCI express (PCIe) bus, supporting tens of thousands of highly parallel command queues.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesNamespace",
+      "o": "E7",
+      "evidence": "emerging architectures like zoned namespace (ZNS) SSDs and flexible data placement (FDP).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesErrorCorrection",
+      "o": "E8",
+      "evidence": "Advanced error correction coding schemes, particularly low-density parity-check (LDPC) codes, have become essential for maintaining data integrity in high-density NAND flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesMediaManagement",
+      "o": "E9",
+      "evidence": "The SSD controller, acting as the brain of the device, manages critical functions including address mapping, garbage collection, and wear leveling.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesMediaManagement",
+      "o": "E10",
+      "evidence": "The SSD controller, acting as the brain of the device, manages critical functions including address mapping, garbage collection, and wear leveling.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasMetric",
+      "o": "E11",
+      "evidence": "The push for greater capacity has led to MLC and TLC flash-based SSDs. Storing more bits per cell, however, comes at a steep cost to endurance.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasMetric",
+      "o": "E12",
+      "evidence": "Reliability concerns stem from program/erase (P/E) cycling effects, read disturb phenomena, and data retention issues.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasMetric",
+      "o": "E13",
+      "evidence": "Solid-state drives (SSDs) have revolutionized data storage with their high performance, energy efficiency, and reliability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasSecurityFeature",
+      "o": "E14",
+      "evidence": "Ransomware represents a critical and evolving security threat, consistently adapting to bypass existing defenses and compromise data availability and integrity.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesNamespace",
+      "o": "E15",
+      "evidence": "open-channel SSDs (OCSSDs), which expose low-level physical flash management to the host system.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "usesInterface rdfs:domain SSD; rdfs:range InterfaceType.",
+    "usesNamespace rdfs:domain SSD; rdfs:range ZonedNamespaces.",
+    "usesErrorCorrection rdfs:domain SSD; rdfs:range DataPath/Error Correction (ECC).",
+    "usesMediaManagement rdfs:domain SSD; rdfs:range MediaManagement.",
+    "hasMetric rdfs:domain SSD; rdfs:range MetricsHealthAndState.",
+    "hasSecurityFeature rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/Security."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct match under EnvironmentalAndOperationalContext/ExternalFactors."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is a direct match under FlashTechnology/CellType."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a direct match under FlashTechnology/CellType."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a direct match under InterfaceType."
+    },
+    {
+      "label": "ZNS",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "mapping_decision": "exact",
+      "notes": "ZNS is a direct match under ZonedNamespaces."
+    },
+    {
+      "label": "LDPC",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "LDPC is a direct match under DataPath/Error Correction (ECC)."
+    },
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear Leveling is a direct match under MediaManagement."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is a direct match under MediaManagement."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Endurance is a direct match under MetricsHealthAndState."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a direct match under MetricsHealthAndState."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Performance is a direct match under MetricsHealthAndState."
+    },
+    {
+      "label": "Ransomware Defense",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security",
+      "mapping_decision": "near",
+      "notes": "Ransomware Defense is closely related to Security under ConfigurationAndAdvancedParadigms."
+    },
+    {
+      "label": "OCSSD",
+      "entity_id": "E15",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "mapping_decision": "near",
+      "notes": "OCSSD is related to ZonedNamespaces as it involves exposing flash management to the host."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Device-Level Optimization Techniques for Solid-State Drives.pdf"
+}

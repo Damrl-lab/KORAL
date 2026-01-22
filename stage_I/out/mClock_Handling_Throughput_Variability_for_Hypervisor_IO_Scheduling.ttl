@@ -1,0 +1,230 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:E16_EXP1 a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot>,
+        owl:Thing ;
+    rdfs:label "EXP1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot> .
+
+ssd:axiom_04548545 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_28057804 a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth." .
+
+ssd:axiom_5677d5b1 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:axiom_5c5a0ea7 a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_785ddeb8 a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain HostSystem; rdfs:range I/O Scheduler." .
+
+ssd:axiom_883ea134 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_9022f2a3 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_ad5f4fc8 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_bcd17814 a owl:Axiom ;
+    rdfs:comment "hasAverageLatency rdfs:domain HostSystem; rdfs:range Performance/Average Latency." .
+
+ssd:axiom_d2382d05 a owl:Axiom ;
+    rdfs:comment "hasIOPS rdfs:domain HostSystem; rdfs:range Performance/IOPS." .
+
+ssd:axiom_ec900878 a owl:Axiom ;
+    rdfs:comment "hasThroughput rdfs:domain HostSystem; rdfs:range Performance/Throughput." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/02354c16fbe5432c9291a9810332bc10> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E15_WP1 ;
+    dct:source "The host was configured to keep 32 IOs pending per LUN at the array, which is the default setting." .
+
+<http://example.org/ssd/assertion/0a4fffd681b4435fbfb39d590ba31141> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E15_WP1 ;
+    dct:source "OLTP sends 8KB random IOs, 75% reads, and keeps 16 IOs pending at all times." .
+
+<http://example.org/ssd/assertion/1e08866ae8fa45119a8668fe69c4dbf9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E13_VMware_ESX_Server ;
+    dct:source "We implemented mClock by modifying the SCSI scheduling layer in the IO stack of VMware ESX server hypervisor to construct our prototype." .
+
+<http://example.org/ssd/assertion/2cf220d1fbb2404fb0f7bcab7a6e93f0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E14_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Our results indicate that these rich QoS controls are quite effective in isolating VM performance and providing better application latency." .
+
+<http://example.org/ssd/assertion/4f25a23d4828491ca2d589757e7c462d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E15_WP1 ;
+    dct:source "OLTP sends 8KB random IOs, 75% reads, and keeps 16 IOs pending at all times." .
+
+<http://example.org/ssd/assertion/986124ecfe914bcb8b722913e16f1ecd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:hasIOPS ;
+    ssd:subject ssd:E13_VMware_ESX_Server ;
+    dct:source "The storage device had a capacity of about 1600 random reads per second." .
+
+<http://example.org/ssd/assertion/992f08236e474882a34d1e57ebed1aa1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E14_EC1 ;
+    dct:source "The increasing trend towards server virtualization has elevated hypervisors to first class entities in today’s data-centers." .
+
+<http://example.org/ssd/assertion/b80bc4c21c1d4def88f87082e0f80339> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:hasThroughput ;
+    ssd:subject ssd:E13_VMware_ESX_Server ;
+    dct:source "The storage device had a capacity of about 1600 random reads per second." .
+
+<http://example.org/ssd/assertion/c70b5f8ec4af44bc80a01a6bd64039d1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:hasAverageLatency ;
+    ssd:subject ssd:E13_VMware_ESX_Server ;
+    dct:source "RD and OLTP are latency-sensitive workloads, requiring a response time under 30ms." .
+
+<http://example.org/ssd/assertion/e936cf2bbeba4ee0aa4f40fab6cca74f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E15_WP1 ;
+    dct:source "OLTP sends 8KB random IOs, 75% reads, and keeps 16 IOs pending at all times." .
+
+<http://example.org/ssd/assertion/ea25ac0805bd48e081dcb35c47bf0e3c> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object ssd:E15_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E14_EC1 ;
+    dct:source "The system administrator has carefully provisioned the resources (CPU and memory) needed by VM5, so that it can serve at least 400 orders per second." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E14_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> rdfs:label "Enterprise Server" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> rdfs:label "I/O Scheduler" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> rdfs:label "16KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> rdfs:label "QD32" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy> rdfs:label "Read-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Average Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+ssd:E13_VMware_ESX_Server a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem>,
+        owl:Thing ;
+    rdfs:label "VMware ESX Server" ;
+    ssd:hasAverageLatency <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:hasIOPS <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:hasThroughput <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem> .
+
+ssd:E14_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:hasWorkloadProfile ssd:E15_WP1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E15_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> ;
+    ssd:hasQueueDepth <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

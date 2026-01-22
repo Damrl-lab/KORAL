@@ -1,0 +1,146 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_29bea611 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_83c93a6a a owl:Axiom ;
+    rdfs:comment "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1b8ee2821d684b8f85d842bbb1be233c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Unexpected%2520Power%2520Loss%2520Count%2520%2520%255BID%253A%2520174%255D> ;
+    ssd:predicate ssd:hasSMARTAttribute ;
+    ssd:subject ssd:E9_DriveState ;
+    dct:source "Number of unclean shutdowns, i.e., removal of power without STANDBY IMMEDIATE as the last command." .
+
+<http://example.org/ssd/assertion/35ec99f916de44faba825ee0e0266860> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext_Instance ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E9_DriveState ;
+    dct:source "The data set contains events covering over 200k hard disks, with daily updates about their status." .
+
+<http://example.org/ssd/assertion/84373de19f4e43b2aab8d9c943153dd2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Wear%2520Leveling%2520Count%2520%2520%255BID%253A%2520173%255D> ;
+    ssd:predicate ssd:hasSMARTAttribute ;
+    ssd:subject ssd:E9_DriveState ;
+    dct:source "Counts the maximum worst erase count on any block." .
+
+<http://example.org/ssd/assertion/8e7d0ebee76c49ae8aaba72c2d3e586d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext_Instance ;
+    dct:source "The DEBS GC 2024 adopts a large dataset made available by Backblaze." .
+
+<http://example.org/ssd/assertion/adcfecfca5d141a8aed7874125297ff9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Read%2520%2520%255BID%253A%2520242%255D> ;
+    ssd:predicate ssd:hasSMARTAttribute ;
+    ssd:subject ssd:E9_DriveState ;
+    dct:source "Total count of LBAs read." .
+
+<http://example.org/ssd/assertion/c96952fa33bf457395a9b04da7c14571> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Written%2520%2520%255BID%253A%2520241%255D> ;
+    ssd:predicate ssd:hasSMARTAttribute ;
+    ssd:subject ssd:E9_DriveState ;
+    dct:source "Total count of LBAs written." .
+
+<http://example.org/ssd/assertion/daaec1d1e7a241b4aa7f33fb4ac36a8e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D> ;
+    ssd:predicate ssd:hasSMARTAttribute ;
+    ssd:subject ssd:E9_DriveState ;
+    dct:source "Device temperature in Celsius degrees." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+ssd:E2_EnvironmentalAndOperationalContext_Instance a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext_Instance" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Wear%2520Leveling%2520Count%2520%2520%255BID%253A%2520173%255D> rdfs:label "SSD_Wear_Leveling_Count" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Wear%2520Leveling%2520Count%2520%2520%255BID%253A%2520173%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D> rdfs:label "Temperature_Celsius" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Read%2520%2520%255BID%253A%2520242%255D> rdfs:label "Total_LBAs_Read" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Read%2520%2520%255BID%253A%2520242%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Written%2520%2520%255BID%253A%2520241%255D> rdfs:label "Total_LBAs_Written" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Written%2520%2520%255BID%253A%2520241%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Unexpected%2520Power%2520Loss%2520Count%2520%2520%255BID%253A%2520174%255D> rdfs:label "Unexpected_Power_Loss_Count" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Unexpected%2520Power%2520Loss%2520Count%2520%2520%255BID%253A%2520174%255D> .
+
+ssd:E9_DriveState a tax:SSD,
+        owl:Thing ;
+    rdfs:label "DriveState" ;
+    ssd:hasSMARTAttribute <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Wear%2520Leveling%2520Count%2520%2520%255BID%253A%2520173%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Read%2520%2520%255BID%253A%2520242%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%2520LBAs%2520Written%2520%2520%255BID%253A%2520241%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Unexpected%2520Power%2520Loss%2520Count%2520%2520%255BID%253A%2520174%255D> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext_Instance ;
+    rdfs:isDefinedBy tax:SSD .
+

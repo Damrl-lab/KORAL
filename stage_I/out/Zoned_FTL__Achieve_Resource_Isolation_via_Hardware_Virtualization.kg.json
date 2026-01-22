@@ -1,0 +1,136 @@
+{
+  "paper_id": "Zoned_FTL_2021",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "ZFTL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E4",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E6",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E7",
+      "label": "FIO",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO"
+    },
+    {
+      "id": "E8",
+      "label": "Multi-tenancy Environment",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E8",
+      "evidence": "The evaluation results demonstrate that ZFTL barely impacts the raw performance while delivering up to 1.51x better throughput and reduce the 99th percentile latency by up to 79.4% in a multi-tenancy environment.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E6",
+      "evidence": "NVMe Solid-State Drives (SSDs) offer unprecedented throughput and response time for data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "The evaluation results demonstrate that ZFTL barely impacts the raw performance while delivering up to 1.51x better throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "The evaluation results demonstrate that ZFTL barely impacts the raw performance while delivering up to 1.51x better throughput and reduce the 99th percentile latency by up to 79.4% in a multi-tenancy environment.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "validatedBy",
+      "o": "E7",
+      "evidence": "We evaluate the effectiveness of ZFTL on various combinations of data-intensive and latency-critical workloads.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Performance.",
+    "validatedBy rdfs:domain SSD; rdfs:range ValidationAndBenchmarks."
+  ],
+  "mappings": [
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned in the paper."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned in the paper."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned in the paper."
+    },
+    {
+      "label": "FIO",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Zoned FTL_ Achieve Resource Isolation via Hardware Virtualization.pdf"
+}

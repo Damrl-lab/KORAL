@@ -1,0 +1,123 @@
+{
+  "paper_id": "Neighbor-Cell Assisted Error Correction for MLC NAND Flash Memories",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "ProgramInterference",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "Neighbor-Cell Assisted Correction (NAC)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E7",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "NAND flash memory is widely used in diverse applications, ranging from mobile electronics to enterprise servers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": {
+        "@value": "Random",
+        "unit": "AccessPattern"
+      },
+      "evidence": "NAND flash memory is widely used in diverse applications, ranging from mobile electronics to enterprise servers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Our simulations show that NAC effectively improves flash memory lifetime by 33% while having no (at nominal lifetime) or very modest (less than 5% at extended lifetime) performance overhead.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Our simulations show that NAC effectively improves flash memory lifetime by 33% while having no (at nominal lifetime) or very modest (less than 5% at extended lifetime) performance overhead.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "Unfortunately, using a single read reference voltage to determine a cell's logical value becomes increasingly difficult due to the phenomenon of program interference.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "ProgramInterference",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "parent",
+      "notes": "Program interference affects error correction, mapped under ECC."
+    },
+    {
+      "label": "Neighbor-Cell Assisted Correction (NAC)",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "NAC is a specific error correction method."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Neighbor-Cell Assisted Error Correction for MLC NAND Flash Memories.pdf"
+}

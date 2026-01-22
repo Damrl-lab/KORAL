@@ -1,0 +1,122 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0d912175 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic/ThermalManagement/Thermal Throttling; rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC)." .
+
+ssd:axiom_39df4ee6 a owl:Axiom ;
+    rdfs:comment "impacts rdfs:domain InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC)." .
+
+ssd:axiom_5b402c51 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_97487635 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/349a01f673fa40c78f04fb231b2e17ad> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    dct:source "Furthermore, an adaptive Vblcountermeasure is proposed for 3D NAND memory arrays, which can significantly minimize the NWI of triple-level cells (TLC) in all state combinations." .
+
+<http://example.org/ssd/assertion/656fe4abfb5844e48d0b80ed951ba1dd> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E5_Channel_Potential ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject ssd:E3_Neighbor_Wordline_Interference ;
+    dct:source "This suggests that a higher bitline voltage (Vbl) transmitted by the channel potential can restore the local DIBL effect, which is ever weakened by NWI." .
+
+<http://example.org/ssd/assertion/c0a3c480000547ac9b448e14a6b67d9b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    dct:source "NAND flash memory, as a non-volatile memory device, is the most widely used data storage method in modern sensor systems due to its fast access." .
+
+<http://example.org/ssd/assertion/f6fe5e55dce14a0db03337a680a2361e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_Neighbor_Wordline_Interference ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_Adaptive_Bitline_Voltage ;
+    dct:source "Furthermore, an adaptive Vblcountermeasure is proposed for 3D NAND memory arrays, which can significantly minimize the NWI of triple-level cells (TLC) in all state combinations." .
+
+ssd:E4_Adaptive_Bitline_Voltage a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%2520Throttling>,
+        owl:Thing ;
+    rdfs:label "Adaptive Bitline Voltage" ;
+    ssd:improves ssd:E3_Neighbor_Wordline_Interference ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%2520Throttling> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E5_Channel_Potential a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        owl:Thing ;
+    rdfs:label "Channel Potential" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+ssd:E6_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E3_Neighbor_Wordline_Interference a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        owl:Thing ;
+    rdfs:label "Neighbor Wordline Interference" ;
+    ssd:impacts ssd:E5_Channel_Potential ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D NAND Flash Memory" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder ssd:E6_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+

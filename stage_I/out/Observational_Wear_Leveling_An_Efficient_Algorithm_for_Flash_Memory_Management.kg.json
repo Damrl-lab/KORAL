@@ -1,0 +1,86 @@
+{
+  "paper_id": "DAC_2012_Wang_Wong",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E4",
+      "label": "OWL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E5",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "In recent years, flash-based storage is becoming a viable alternative in embedded systems and enterprise servers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "OWL can improve wear evenness by as much as 29.9% and 43.2% compared to two state-of-the-art wear leveling algorithms, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "In this paper, we shall reconsider the problem of write endurance, and propose a novel wear leveling algorithm called observational wear leveling (OWL).",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/MetricsHealthAndState/Endurance."
+  ],
+  "mappings": [
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses wear leveling algorithms, which directly maps to the taxonomy."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "The paper addresses write endurance, which is a direct match to the taxonomy."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Observational Wear Leveling An Efficient Algorithm for Flash Memory Management.pdf"
+}

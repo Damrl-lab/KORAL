@@ -1,0 +1,119 @@
+{
+  "paper_id": "Offline Deduplication-Aware Block Separation for Solid State Disk",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E5",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E6",
+      "label": "Page Copy Operations",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "In experiments with SSD simulator, the proposed block separation technique reduces the page copy cost during garbage collection by 20–61% compared to the normal offline deduplication.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "Three storage access workloads are used for evaluation, kernel compile, webmail, and application update.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": {
+        "@value": "4KB",
+        "unit": "KB"
+      },
+      "evidence": "The chunk size is same to the page size in flash memory (4KB or 8KB).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "The block separation scheme significantly reduces the page copy operations compared with the normal offline technique.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "The block separation scheme shows lower latencies than those of the normal offline scheme.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasInstance",
+      "o": "E6",
+      "evidence": "The block separation scheme significantly reduces the page copy operations compared with the normal offline technique.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "hasInstance rdfs:domain InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range Instance."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is a direct match under MediaManagement."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Average Latency is a direct match under Performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Offline Deduplication-Aware Block Separation for Solid-State Drives.pdf"
+}

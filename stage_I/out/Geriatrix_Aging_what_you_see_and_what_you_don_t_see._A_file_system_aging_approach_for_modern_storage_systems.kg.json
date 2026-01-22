@@ -1,0 +1,114 @@
+{
+  "paper_id": "2018_USENIX_ATC_Geriatrix",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E4",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E5",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E6",
+      "label": "Geriatrix",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E7",
+      "label": "Fragmentation",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "File system performance on modern primary storage devices (Flash-based SSDs) is greatly affected by aging of the free space.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E3",
+      "evidence": "File system performance on modern primary storage devices (Flash-based SSDs) is greatly affected by aging of the free space.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "degrades",
+      "o": "E5",
+      "evidence": "Geriatrix induces larger throughput reductions than for Impressions.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "induces",
+      "o": "E7",
+      "evidence": "Geriatrix aggressively induces free space fragmentation and thereby even ages any underlying device remapping structures.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasFileSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range File System.",
+    "induces rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling."
+  ],
+  "mappings": [
+    {
+      "label": "File System",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "File System is directly mentioned in the context of SSD performance."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is explicitly mentioned as being affected by Geriatrix."
+    },
+    {
+      "label": "Fragmentation",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "parent",
+      "notes": "Fragmentation is related to wear leveling and media management."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Geriatrix Aging what you see and what you don't see. A file system aging approach for modern storage systems.pdf"
+}

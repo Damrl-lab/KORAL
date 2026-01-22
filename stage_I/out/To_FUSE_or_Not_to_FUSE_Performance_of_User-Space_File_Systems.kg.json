@@ -1,0 +1,281 @@
+{
+  "paper_id": "FAST17_Vangoor",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E6",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E8",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E9",
+      "label": "32KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB"
+    },
+    {
+      "id": "E10",
+      "label": "128KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB"
+    },
+    {
+      "id": "E11",
+      "label": "QD1",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1"
+    },
+    {
+      "id": "E12",
+      "label": "QD32",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32"
+    },
+    {
+      "id": "E13",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E14",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E15",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Our experiments indicate that depending on the workload and hardware used, performance degradation caused by FUSE can be completely imperceptible or as high as 83% even when optimized; and relative CPU utilization can increase by 31%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We used a wide variety of micro- and macro-workloads, and different hardware using basic and optimized configurations of FUSE.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "Sequential Read using 1 thread on 1 file.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "Random Read using 1 thread on 1 file.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "The performance of sequential read [rows #1–12] are well within the Green class for both HDD and SSD.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E7",
+      "evidence": "In general, Stackfs performs visibly worse for metadata-intensive and macro workloads [rows #37–45] than for data-intensive workloads [rows #1–36].",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E8",
+      "evidence": "We experimented with 4KB, 32KB, 128KB, and 1MB I/O sizes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E9",
+      "evidence": "We experimented with 4KB, 32KB, 128KB, and 1MB I/O sizes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E10",
+      "evidence": "We experimented with 4KB, 32KB, 128KB, and 1MB I/O sizes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E11",
+      "evidence": "Sequential Read using 1 thread on 1 file.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E12",
+      "evidence": "Sequential Read using 32 threads on 32 files.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E13",
+      "evidence": "We found that depending on the workload and hardware, FUSE can perform as well as Ext4, but in the worst cases can be 3× slower.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E14",
+      "evidence": "We found that depending on the workload and hardware, FUSE can perform as well as Ext4, but in the worst cases can be 3× slower.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E15",
+      "evidence": "Our experiments indicate that depending on the workload and hardware used, performance degradation caused by FUSE can be completely imperceptible or as high as 83% even when optimized.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Sequential",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "Sequential access pattern is directly mentioned in the paper."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is directly mentioned in the paper."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Read-heavy workload is inferred from the context of sequential read operations."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy workload is inferred from the context of metadata-intensive workloads."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is directly mentioned in the paper."
+    },
+    {
+      "label": "32KB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB",
+      "mapping_decision": "exact",
+      "notes": "32KB block size is directly mentioned in the paper."
+    },
+    {
+      "label": "128KB",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB",
+      "mapping_decision": "exact",
+      "notes": "128KB block size is directly mentioned in the paper."
+    },
+    {
+      "label": "QD1",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 1 is inferred from single-threaded operations."
+    },
+    {
+      "label": "QD32",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 32 is inferred from multi-threaded operations."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "To FUSE or Not to FUSE Performance of User-Space File Systems.pdf"
+}

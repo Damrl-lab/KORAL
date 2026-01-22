@@ -1,0 +1,138 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_885d78b1 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_8ea42caa a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_8f4162ae a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState." .
+
+ssd:axiom_95e3f874 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/26692518690c404389ae4064ca9d6410> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_SRC_SSD_Cache ;
+    dct:source "In case of lifetime, our results show that SRC reduces the erase count of the SSD drives by an average of 47% compared to the RAID-5 scheme." .
+
+<http://example.org/ssd/assertion/6f7d786ce188426994b9a565745286e5> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E6_EC1 ;
+    dct:source "Our experimental results using different realistic I/O workloads show using the SRC scheme is on average 59% better than the conventional SSD cache scheme supporting RAID-5." .
+
+<http://example.org/ssd/assertion/e692e3dadf5f464fad3cb112c23a7b87> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_SRC_SSD_Cache ;
+    dct:source "Our experimental results using different realistic I/O workloads show using the SRC scheme is on average 59% better than the conventional SSD cache scheme supporting RAID-5." .
+
+<http://example.org/ssd/assertion/eb18e8bbe1c94cd5bb2b0708104246ec> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SRC_SSD_Cache ;
+    dct:source "Our experimental results using different realistic I/O workloads show using the SRC scheme is on average 59% better than the conventional SSD cache scheme supporting RAID-5." .
+
+<http://example.org/ssd/assertion/f752310a9dd2477e89d680d50a223f1d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_SRC_SSD_Cache ;
+    dct:source "Recently, TLC flash memory chips that store three bits per cell are being considered as SSD components due to their low cost." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> rdfs:label "RAID5" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> rdfs:label "SLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> .
+
+ssd:E7_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E6_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasWorkloadProfile ssd:E7_WP1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Lifetime" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E1_SRC_SSD_Cache a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SRC_SSD_Cache" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:operatesUnder ssd:E6_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+

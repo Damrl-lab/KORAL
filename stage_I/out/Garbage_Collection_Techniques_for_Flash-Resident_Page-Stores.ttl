@@ -1,0 +1,158 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0debb33a a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection." .
+
+ssd:axiom_de9d8059 a owl:Axiom ;
+    rdfs:comment "addresses rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1dec3a2d91534970a4eb7a692441fc34> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    ssd:predicate ssd:isA ;
+    ssd:subject ssd:E6_NAND_Flash ;
+    dct:source "In recent years, usage of storage devices based on NAND flash memory such as eMMCs (embedded multimedia card) and SDDs (solid state drives) has been increasing at an exponential rate." .
+
+<http://example.org/ssd/assertion/32590265833a4bcea691f73bfa36a7fc> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "Storage devices based on flash memory have replaced hard disk drives (HDDs) due to their superior performance." .
+
+<http://example.org/ssd/assertion/35b3e55fea924beb87c0c7491a895bbb> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:addresses ;
+    ssd:subject ssd:E4_Logarithmic_Gecko ;
+    dct:source "We propose two complementary techniques, called Lazy Gecko and Logarithmic Gecko, which address these issues." .
+
+<http://example.org/ssd/assertion/39bbd6ba112b41f69d3d17b53ba3280a> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "In log-based hybrid schemes, the blocks in the SSD are divided into two types: data blocks and log blocks." .
+
+<http://example.org/ssd/assertion/3da790cc79d345578e458a8a25807eba> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:addresses ;
+    ssd:subject ssd:E3_Lazy_Gecko ;
+    dct:source "We propose two complementary techniques, called Lazy Gecko and Logarithmic Gecko, which address these issues." .
+
+<http://example.org/ssd/assertion/a5c34870c4e84f00b98f8903eda1daf4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "The FTL also performs wear-leveling to ensure blocks across the device wear out at the same rate." .
+
+<http://example.org/ssd/assertion/aa2ed6a7660141db8337eeaf151c9026> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "SSDs use a software layer called the flash translation layer (FTL) to manage these characteristics." .
+
+<http://example.org/ssd/assertion/ff096cc7a3e5442f9db523b67ef2cedb> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:isA ;
+    ssd:subject ssd:E9_DFTL ;
+    dct:source "Flash-resident page-associative schemes, particularly DFTL and LazyFTL, have been acknowledged as the most efficient among the schemes." .
+
+ssd:E3_Lazy_Gecko a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "Lazy Gecko" ;
+    ssd:addresses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:E4_Logarithmic_Gecko a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "Logarithmic Gecko" ;
+    ssd:addresses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:E6_NAND_Flash a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology>,
+        owl:Thing ;
+    rdfs:label "NAND Flash" ;
+    ssd:isA <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> .
+
+ssd:E9_DFTL a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "DFTL" ;
+    ssd:isA <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> rdfs:label "Over-Provisioning" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Wear Leveling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> rdfs:label "FlashTechnology" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Garbage Collection" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+

@@ -1,0 +1,195 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_3c488512 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_42332c43 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState." .
+
+ssd:axiom_4944ca14 a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range MediaManagement." .
+
+ssd:axiom_6a1c60c3 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_907563d4 a owl:Axiom ;
+    rdfs:comment "isImplementedIn rdfs:domain InternalFirmwareAndLogic; rdfs:range SSD." .
+
+ssd:axiom_c0d9059b a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_d1af6cf4 a owl:Axiom ;
+    rdfs:comment "isPartOf rdfs:domain HostSystem; rdfs:range SSD." .
+
+ssd:axiom_d9405bc3 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/271f67b316f548c7a88685a6c3b97f7c> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "As more SSDs are deployed in data-centers and enterprise platforms, there has been a continued need to improve SSD performance." .
+
+<http://example.org/ssd/assertion/39e7418f20994204b350b16c2ce3b878> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> ;
+    dct:source "We perform a comprehensive analysis of interference in real MQ-SSDs, and find four major interference sources: (1) the intensity of requests sent by each application, (2) differences in request access patterns, (3) the ratio of reads to writes, and (4) garbage collection." .
+
+<http://example.org/ssd/assertion/3d758d0f9374469c814fe212b13095c9> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "As more SSDs are deployed in data-centers and enterprise platforms, there has been a continued need to improve SSD performance." .
+
+<http://example.org/ssd/assertion/794194fd59074c15b86af72ae9bb48a3> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> ;
+    dct:source "We perform a comprehensive analysis of interference in real MQ-SSDs, and find four major interference sources: (1) the intensity of requests sent by each application, (2) differences in request access patterns, (3) the ratio of reads to writes, and (4) garbage collection." .
+
+<http://example.org/ssd/assertion/a664ea079b15477e8fb770bd2cadc331> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "To alleviate unfairness in MQ-SSDs, we propose the Flash-Level INterference-aware scheduler (FLIN)." .
+
+<http://example.org/ssd/assertion/b0356a8594854662bf4b2aa3e3407caa> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object tax:SSD ;
+    ssd:predicate ssd:isPartOf ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> ;
+    dct:source "These new protocols make use of a concept known as the multi-queue SSD (MQ-SSD), where the SSD has direct access to the application-level I/O request queues." .
+
+<http://example.org/ssd/assertion/cfa79fa15731484baed6acdcf1d16a3b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E5_FLIN ;
+    dct:source "Compared to a state-of-the-art I/O scheduler, FLIN improves the fairness and performance of a wide range of enterprise and datacenter storage workloads, with an average improvement of 70% and 47%, respectively." .
+
+<http://example.org/ssd/assertion/de88048ea0734ee79d6c32b578f78655> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E5_FLIN ;
+    dct:source "Compared to a state-of-the-art I/O scheduler, FLIN improves the fairness and performance of a wide range of enterprise and datacenter storage workloads, with an average improvement of 70% and 47%, respectively." .
+
+<http://example.org/ssd/assertion/ef25b1373e1f42b8ad4382ceed62b18d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object tax:SSD ;
+    ssd:predicate ssd:isImplementedIn ;
+    ssd:subject ssd:E5_FLIN ;
+    dct:source "FLIN is implemented fully within the SSD controller firmware, requiring no new hardware, and has negligible (<0.06%) storage cost." .
+
+<http://example.org/ssd/assertion/fd6a75a9e4d643f690a0d249d7093227> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject tax:SSD ;
+    dct:source "Modern solid-state drives (SSDs) use new host–interface protocols, such as NVMe, to provide applications with fast access to storage." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> rdfs:label "I/O Scheduler" ;
+    ssd:isPartOf tax:SSD ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:E5_FLIN a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "FLIN" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:isImplementedIn tax:SSD ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> rdfs:label "Enterprise Server" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> rdfs:label "AccessPattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> rdfs:label "ReadWriteMix" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Garbage Collection" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState> rdfs:label "Fairness" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    rdfs:isDefinedBy tax:SSD .
+

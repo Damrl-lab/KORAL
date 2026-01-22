@@ -1,0 +1,136 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_08afc425 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_a701ec4b a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_f424f4cf a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/02cdefd6142a4f0c856b74a5634be1fa> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:EC1_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:SSD1_SSD ;
+    dct:source "How stable is the performance of your flash-based Solid State Drives (SSDs)?" .
+
+<http://example.org/ssd/assertion/120b8f6745394c9eb24b75ba9efe014f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:WP1_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:EC1_EnvironmentalAndOperationalContext ;
+    dct:source "Managing write-amplification boils down to managing the surplus physical space, called over-provisioned space." .
+
+<http://example.org/ssd/assertion/3be358ca60984f14aaabc801eae399fe> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> ;
+    dct:source "There is a direct relationship between write-amplification and over-provisioning." .
+
+<http://example.org/ssd/assertion/6cb729193270417f8f46e5f9f0e3b5c6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:objectLiteral "Random" ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:WP1_WorkloadProfile ;
+    dct:source "We focus on a uniformly distributed random workload, where an application write targets any logical address with an equal probability." .
+
+<http://example.org/ssd/assertion/9331af81acf345c7a6d8a96505771730> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "0.15" ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    dct:source "Approximately 15% more migrations take place in the LRU policy compared to the greedy policy until write-amplification converges." .
+
+<http://example.org/ssd/assertion/c8a034397f114dbe8d2c1c3aad5a96d3> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:SSD1_SSD ;
+    dct:source "Our evaluation shows that Wolf is robust to workloads change, with an improvement factor of 2 with respect to the state-of-the-art." .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:SSD1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> ;
+    ssd:operatesUnder ssd:EC1_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Garbage Collection" ;
+    ssd:degradedBy "0.15" ;
+    ssd:unit "fraction" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:EC1_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:WP1_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:WP1_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern "Random" ;
+    ssd:unit "AccessPattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> rdfs:label "Over-Provisioning" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> rdfs:label "Write-Amplification" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+

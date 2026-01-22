@@ -1,0 +1,151 @@
+{
+  "paper_id": "SSD_Failure_Prediction_2022",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E7",
+      "label": "FailurePredictionMethod1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E8",
+      "label": "FailurePredictionMethod2",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The experimental results show that both methods improve the performance and accuracy of SSD failure prediction subject to certain environmental and testing conditions.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "As the most mainstream data-set at present, S.M.A.R.T. data collected from multiple SSD-based DCs at Alibaba is used for this study.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "monitoredBy",
+      "o": "E4",
+      "evidence": "The publicly available S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) data-set is analysed, pre-processed, and then used as a basis for examining three classification models which could be employed to predict SSD failures.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "The experimental results show that both methods improve the performance and accuracy of SSD failure prediction.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "The experimental results show that both methods improve the performance and accuracy of SSD failure prediction.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "SSD failure prediction would help to improve the system reliability.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "SSD failure prediction would help to improve the system reliability.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "monitoredBy rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Performance.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSDs in the context of data centers."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "The paper uses S.M.A.R.T. data for monitoring SSDs."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses improving SSD performance."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses improving SSD reliability."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SSD_Failure_Prediction_Based_on_Classification_Models_and_Data_Engineering.pdf"
+}

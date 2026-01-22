@@ -1,0 +1,133 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_125d7aa7 a owl:Axiom ;
+    rdfs:comment "degrades rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_4c431ebb a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_868d5d61 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/WorkloadProfile." .
+
+ssd:axiom_992ea209 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_fa57a2f7 a owl:Axiom ;
+    rdfs:comment "impacts rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Endurance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/322b24a47f774bccb6be575c37c75f34> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_NAND_Flash ;
+    dct:source "A 16OP 64Gb single-level cell (SLC) SGVC 3D NAND test chip [5] is used to study the read disturb property." .
+
+<http://example.org/ssd/assertion/3af49a4de2984689a710bbe7f5b278ca> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E1_3D_NAND_Flash ;
+    dct:source "In this application the NAND Flash needs to sustain continuous read over the entire product life time." .
+
+<http://example.org/ssd/assertion/6179c249f7034bd39486f030da70cad2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_NAND_Flash ;
+    dct:source "The coming era of artificial intelligence (AI) and the combination with internet of things (IoT) will require a large number of edge computing inference devices." .
+
+<http://example.org/ssd/assertion/8fa415c986c74e1da358f3a701e90ef1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject ssd:E5_Read_Disturb ;
+    dct:source "We need to drastically improve read disturb of NAND Flash to support edge computing need." .
+
+<http://example.org/ssd/assertion/b6d08afd31574bd19bc87269f7b0a1e9> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E5_Read_Disturb ;
+    dct:source "One of the critical technology challenge of 3D NAND Flash for inference application is the read disturb, because in this application the NAND Flash needs to sustain continuous read over the entire product life time." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E5_Read_Disturb a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Read Disturb" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:impacts <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E1_3D_NAND_Flash a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> ;
+    ssd:hasWorkloadProfile <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment> rdfs:label "Edge Device/IoT" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> rdfs:label "Read-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> rdfs:label "SLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> .
+

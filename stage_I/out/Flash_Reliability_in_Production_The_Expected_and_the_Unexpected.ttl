@@ -1,0 +1,142 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_4d15bfe9 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_5998e643 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0e001cdce6024dc1ad21fca57ebfe3c2> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object ssd:E8_RBER ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E7_Uncorrectable_Error ;
+    dct:source "RBER is not a good indicator for the likelihood of uncorrectable errors and that RBER grows linearly rather than exponentially with PE cycles." .
+
+<http://example.org/ssd/assertion/180772cfc8e0428d85338bc5725cb211> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_Uncorrectable_Error ;
+    ssd:predicate ssd:isNotMeaningful ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    dct:source "The widely used metric UBER (uncorrectable bit error rate) is not a meaningful metric, since we see no correlation between the number of reads and the number of uncorrectable errors." .
+
+<http://example.org/ssd/assertion/36289aaefd15486abd519a9f5e47b495> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E9_SSD_1 ;
+    dct:source "The data spans many millions of drive days, ten different drive models, different flash technologies (MLC, eMLC and SLC) and feature sizes (ranging from 24nm to 50nm)." .
+
+<http://example.org/ssd/assertion/762c897bc5f1480c9be0ea9af1ce316a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E9_SSD_1 ;
+    dct:source "This paper provides a large-scale field study covering many millions of drive days, ten different drive models, different flash technologies (MLC, eMLC, SLC) over 6 years of production use in Google’s data centers." .
+
+<http://example.org/ssd/assertion/78a399c325e440ed9997d9323c5fb1d6> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E10_SSD_2 ;
+    dct:source "We see no evidence that higher-end SLC drives are more reliable than MLC drives within typical drive lifetimes." .
+
+<http://example.org/ssd/assertion/8273c5ce3ddb4ce0ba137c3c3dea33b7> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E9_SSD_1 ;
+    dct:source "We study a wide range of reliability characteristics and come to a number of unexpected conclusions. For example, raw bit error rates (RBER) grow at a much slower rate with wear-out than the exponential rate commonly assumed and, more importantly, they are not predictive of uncorrectable errors or other error modes." .
+
+ssd:E10_SSD_2 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD_2" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E8_RBER a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER>,
+        owl:Thing ;
+    rdfs:label "RBER" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+
+ssd:E7_Uncorrectable_Error a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER>,
+        owl:Thing ;
+    rdfs:label "Uncorrectable Error" ;
+    ssd:correlatesWith ssd:E8_RBER ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+
+ssd:E9_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD_1" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> rdfs:label "SLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC",
+        "eMLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> rdfs:label "UBER" ;
+    ssd:isNotMeaningful ssd:E7_Uncorrectable_Error ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+

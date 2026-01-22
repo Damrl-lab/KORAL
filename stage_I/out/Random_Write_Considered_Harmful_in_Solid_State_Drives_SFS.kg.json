@@ -1,0 +1,156 @@
+{
+  "paper_id": "SFS: Random Write Considered Harmful in Solid State Drives",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E4",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E5",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "Block Erase Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E8",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We have implemented a prototype SFS by modifying Linux-based NILFS2 and compared it with three state-of-the-art file systems using several realistic workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasAccessPattern",
+      "o": "E3",
+      "evidence": "Moreover, random writes can shorten the limited lifespan of SSDs because they incur more NAND block erases per write.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "Even in modern SSDs, the disparity between random and sequential write bandwidth is more than tenfold.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasReadWriteMix",
+      "o": "E5",
+      "evidence": "SFS outperforms the traditional LFS by up to 2.5 times in terms of throughput.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "SFS outperforms the traditional LFS by up to 2.5 times in terms of throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "reduces",
+      "o": "E7",
+      "evidence": "Additionally, in comparison to modern file systems such as ext4 and btrfs, it drastically reduces the block erase count inside the SSD by up to 7.5 times.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "Moreover, random writes can shorten the limited lifespan of SSDs because they incur more NAND block erases per write.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasAccessPattern rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/AccessPattern.",
+    "hasReadWriteMix rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/ReadWriteMix."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Mapped to Random under AccessPattern as it directly refers to random write operations."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Mapped to Sequential under AccessPattern as it directly refers to sequential write operations."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "Mapped to Write-Heavy under ReadWriteMix as it refers to workloads with a high write intensity."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Mapped to Throughput under Performance as it refers to data transfer rates."
+    },
+    {
+      "label": "Block Erase Count",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Endurance as it relates to the number of block erases affecting SSD lifespan."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Random Write Considered Harmful in Solid State Drives (SFS).pdf"
+}

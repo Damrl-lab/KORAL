@@ -1,0 +1,108 @@
+{
+  "paper_id": "arXiv:2012.12373v1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E7",
+      "label": "Reported Uncorrectable Errors",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors  [ID: 187]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%20Uncorrectable%20Errors%20%20%5BID%3A%20187%5D"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "We analyze Self-Monitoring, Analysis and Reporting Technology (SMART) traces from five different HDD models from the Backblaze data center [49] and the logs of three multi-level cell (MLC) models of SSDs collected at a Google data center.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E4",
+      "evidence": "We analyze Self-Monitoring, Analysis and Reporting Technology (SMART) traces from five different HDD models from the Backblaze data center [49] and the logs of three multi-level cell (MLC) models of SSDs collected at a Google data center.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "The logs of three multi-level cell (MLC) models of SSDs collected at a Google data center.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasSMARTAttribute",
+      "o": "E7",
+      "evidence": "In addition to the raw features, we also consider the cumulative effect of SMART 187 (Reported Uncorrectable Errors).",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "MLC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is explicitly mentioned as the cell type for the SSD models."
+    },
+    {
+      "label": "Reported Uncorrectable Errors",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors  [ID: 187]",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SMART 187, which corresponds to Reported Uncorrectable Errors."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "The_Life_and_Death_of_SSDs_and_HDDs_Similarities_Differences_and_Prediction_Models.pdf"
+}

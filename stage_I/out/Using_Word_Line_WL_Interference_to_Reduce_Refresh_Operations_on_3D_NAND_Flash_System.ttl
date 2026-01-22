@@ -1,0 +1,140 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_8c77ef3e a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_90611a42 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_c6d9e90c a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_fcb9658b a owl:Axiom ;
+    rdfs:comment "improvedBy rdfs:domain MetricsHealthAndState/Performance; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1ca22c80d57f4865bf06e37b4039bbab> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_3D_NAND_Flash ;
+    dct:source "With the observation that retention time can be extended by WL interference, this paper first proposes to extend retention time with WL interference practically." .
+
+<http://example.org/ssd/assertion/2baddc6566cc4e34bc0a10dedd4b7a2c> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_3D_NAND_Flash ;
+    dct:source "Compared with previous work, as a result of refresh reduction, the read and write response time are decreased by 34.2% and 46.5% respectively." .
+
+<http://example.org/ssd/assertion/9a4904f324db484b8e202200ef9a646f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_3D_NAND_Flash ;
+    dct:source "The effectiveness of proposed technique is firstly verified with A 64L 3D TLC NAND flash test chip from YMTC." .
+
+<http://example.org/ssd/assertion/a2bb7f1d5594470aa92c21464214c54f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_3D_NAND_Flash ;
+    dct:source "The effectiveness of proposed technique is firstly verified with A 64L 3D TLC NAND flash test chip from YMTC." .
+
+<http://example.org/ssd/assertion/a80a68eb0a324a63839e6d6aac272395> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:objectLiteral "0.342" ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    dct:source "Compared with previous work, as a result of refresh reduction, the read and write response time are decreased by 34.2% and 46.5% respectively." .
+
+<http://example.org/ssd/assertion/c1c3083a05614d4e8fdb45780c4fa3fc> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:objectLiteral "0.465" ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    dct:source "Compared with previous work, as a result of refresh reduction, the read and write response time are decreased by 34.2% and 46.5% respectively." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Read Response Time",
+        "Write Response Time" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+ssd:E3_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> rdfs:label "Retention Time" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E2_3D_NAND_Flash a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:operatesUnder ssd:E3_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    ssd:improvedBy "0.342",
+        "0.465" ;
+    ssd:unit "fraction" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+

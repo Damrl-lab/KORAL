@@ -1,0 +1,164 @@
+{
+  "paper_id": "DAC: A dynamic active and collaborative cache management scheme for solid state disks",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E10",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Recently, NAND Flash-based NVMe SSDs are widely applied in data storage systems thanks to low latency, high random-access performance, small size, and low power consumption.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Recently, NAND Flash-based NVMe SSDs are widely applied in data storage systems thanks to low latency, high random-access performance, small size, and low power consumption.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "The I/Os-access conflicts deteriorate the SSD performance and enlarge the response time under write-intensive workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "The I/Os-access conflicts deteriorate the SSD performance and enlarge the response time under write-intensive workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "The results unveil that our DAC shortens the response time by up to 60.8% with an average optimization rate of 24.4%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "When it comes to response-time cliff, the maximum improvement offered by DAC reaches approximately 68.71%;",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "NAND Flash memory-based SSDs have been widely used in modern storage systems to improve the performance and energy consumption.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "NAND Flash memory-based SSDs have been widely used in modern storage systems to improve the performance and energy consumption.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is explicitly mentioned as the interface type."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy workload is explicitly mentioned."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "DAC Dynamic Active and Collaborative Cache Management for SSDs.pdf"
+}

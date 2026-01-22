@@ -1,0 +1,128 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_6c26f4dd a owl:Axiom ;
+    rdfs:comment "hasPCIe rdfs:domain SSD; rdfs:range PCIe." .
+
+ssd:axiom_7e8746b7 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_b4b052ce a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_e980a536 a owl:Axiom ;
+    rdfs:comment "implements rdfs:domain SSD; rdfs:range ComputationalStorage." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/4f3e3121267648c3bd40bad32b708819> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E2_Computational_Storage_Device ;
+    dct:source "Fig. 3 shows the modern architecture for SSDs with a Non-Volatile Memory Express (NVMe) being used as the logical-device interface." .
+
+<http://example.org/ssd/assertion/60abf12f98a440fb98fcdefd2ed9e440> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> ;
+    ssd:predicate ssd:implements ;
+    ssd:subject ssd:E2_Computational_Storage_Device ;
+    dct:source "The focus of this research is to review ISP, where data is retrieved from drives before intermediate results are forwarded to computational nodes." .
+
+<http://example.org/ssd/assertion/aa506e6d300d4543a8fcb9f77cf46a55> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> ;
+    ssd:predicate ssd:hasPCIe ;
+    ssd:subject ssd:E2_Computational_Storage_Device ;
+    dct:source "Biscuit utilizes ARM Cortex-R7 real-time embedded processors distributed among the SSD firmware and user runtime in addition to hardware pattern matchers to offload and run tasks in place. These ARM cores were initially used for SSD procedures and even though this may have led to some performance leverage, the authors failed to show the effect on performance when both user applications and host I/O requests are running simultaneously." .
+
+<http://example.org/ssd/assertion/d9d0712b8d754eea867488025342de94> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_Computational_Storage_Device ;
+    dct:source "Embedding processing engines inside Solid-State Drives (SSDs), transforming them to Computational Storage Devices (CSDs), provides the needed data processing solution." .
+
+<http://example.org/ssd/assertion/fa82a92a1a4b4ac0892aeb41cebaad57> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_Computational_Storage_Device ;
+    dct:source "Embedding processing engines inside Solid-State Drives (SSDs), transforming them to Computational Storage Devices (CSDs), provides the needed data processing solution." .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> rdfs:label "In-Storage Computing" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> rdfs:label "Enterprise Server" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> rdfs:label "PCIe Gen3" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> .
+
+ssd:E2_Computational_Storage_Device a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage>,
+        owl:Thing ;
+    rdfs:label "Computational Storage Device" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:hasPCIe <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> ;
+    ssd:implements <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage> .
+

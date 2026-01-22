@@ -1,0 +1,141 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_fb4b245f a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_fdedcb2d a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/6b58482b44d64f64948fba034456daba> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "NAND flash memory is widely used in consumer electronics, personal computers, and enterprise data storage servers." .
+
+<http://example.org/ssd/assertion/6dc1cbb4702146d48ab47d5fcfa42d07> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E7_Retention_Errors ;
+    dct:source "The most prevalent source of flash memory errors is retention errors, which are mainly caused by leakage of charges." .
+
+<http://example.org/ssd/assertion/7cafc28edf1e4602a30e5d1b4674227c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "NAND flash chip capacity has also increased due to aggressive technology scaling and development of multi-level cell (MLC) technology." .
+
+<http://example.org/ssd/assertion/8db18c29b52f4db08e905b8f84420666> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:objectLiteral "120" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "To accelerate the data retention failures in flash memory, we baked the memory chips containing data at high temperature (120°C) for 6 h total." .
+
+<http://example.org/ssd/assertion/c4aa0940b2524386b2a0d90ac9969327> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "We use this insight to construct a machine learning model to predict the blocks which have less endurance, using the characterization data of new unused flash memory chip(s)." .
+
+<http://example.org/ssd/assertion/f624535bca1f4b38bba4036952320dbc> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject ssd:E7_Retention_Errors ;
+    dct:source "Such bit-errors impact the endurance and reliability of a flash memory." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E7_Retention_Errors a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        owl:Thing ;
+    rdfs:label "Retention Errors" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:impacts <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+ssd:E2_MLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "MLC_SSD_1" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasTemperature "120" ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+

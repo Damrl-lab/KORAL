@@ -1,0 +1,171 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_826af0d5 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_8f0e2720 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_b3e69576 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_cf6ce273 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:axiom_d601cd98 a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_e1cab1bb a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_e9290854 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/2df3988c402747e886e720af13a69ae8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We evaluate our approach in the Linux kernel on a commodity server with multicore CPUs, using Post-Mark, SPECsfs2008, TPC-C, and TPC-H." .
+
+<http://example.org/ssd/assertion/353c59fb42ec4bbeb3e47b318c93fbe0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "Preliminary results show that transparent online block-level compression is a viable option for improving effective storage capacity, it can improve I/O performance up to 80% by reducing I/O traffic and seek distance." .
+
+<http://example.org/ssd/assertion/5d43b9ec679342169608b24fe28e9630> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "PostMark is a file-system benchmark that simulates a mail server that uses the maildir file organization." .
+
+<http://example.org/ssd/assertion/61dfc7fa00c04e609c78dc42382c4898> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We evaluate our approach in the Linux kernel on a commodity server with multicore CPUs, using Post-Mark, SPECsfs2008, TPC-C, and TPC-H." .
+
+<http://example.org/ssd/assertion/7edda6856b5546bab75eb14616185eb4> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "For instance, ZBD achieves 55% better performance in PostMark than NTFS." .
+
+<http://example.org/ssd/assertion/9437d6be7f554b3387d3167f60a780bb> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "TPC-C exhibits reads that are small (usually 4KB) and random, leading to disproportionally high I/O read volume." .
+
+<http://example.org/ssd/assertion/a85f3d2f6d324b9e8f66513b203f1fc7> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "We use four popular benchmarks, running over an XFS file-system with block-size set to 4KB." .
+
+<http://example.org/ssd/assertion/d61b302e77874a2bbd8246b6ffdd61f3> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "In general, mail servers benefit little from data caching in DRAM, since it is common for the size of the mail-store to exceed that of the server’s DRAM by at least one order of magnitude, and, moreover, the I/O workload is write-dominated." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> rdfs:label "Enterprise Server" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> rdfs:label "4KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:hasWorkloadProfile ssd:E4_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E4_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

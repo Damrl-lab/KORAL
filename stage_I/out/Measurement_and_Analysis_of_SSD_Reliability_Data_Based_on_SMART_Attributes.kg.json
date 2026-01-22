@@ -1,0 +1,120 @@
+{
+  "paper_id": "electronics_2019_8_1357",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E5",
+      "label": "NAND Writes",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/NAND Writes (1GiB)  [ID: 249]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/NAND%20Writes%20%281GiB%29%20%20%5BID%3A%20249%5D"
+    },
+    {
+      "id": "E6",
+      "label": "Uncorrectable Errors",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E7",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "we then studied lifetime SSD reliability characteristics based on 1.5 PB of data.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "we then conducted the endurance test and collected the reliability data for the entire life cycle of the 3D TLC SSD in the laboratory environment with reference to the JEDEC standard.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "50",
+        "unit": "C"
+      },
+      "evidence": "For a long period of time, the temperature fluctuates steadily in a range of 40°C–50°C.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "The priority of 3D TLC SSDs in data center storage is becoming higher and higher.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasNANDWrites",
+      "o": "E5",
+      "evidence": "The accumulative P/E cycles of an SSD can be estimated according to the amount of data written to an SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasUncorrectableErrors",
+      "o": "E6",
+      "evidence": "The uncorrectable errors do not occur immediately when SSDs are put into use and they will suddenly increase to a large number when an SSD is close to its endurance limit.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasDeploymentEnvironment rdfs:domain SSD; rdfs:range SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment.",
+    "hasNANDWrites rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/SMARTAttribute/NAND Writes (1GiB)  [ID: 249].",
+    "hasUncorrectableErrors rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Reliability/UBER."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned and mapped to the taxonomy."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Measurement and Analysis of SSD Reliability Data Based on SMART Attributes.pdf"
+}

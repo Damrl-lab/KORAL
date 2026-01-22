@@ -1,0 +1,94 @@
+{
+  "paper_id": "Understanding SSD Reliability in Large-Scale Cloud Systems",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "UltraDMA CRC Error Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA CRC Error Count  [ID: 199]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%20CRC%20Error%20Count%20%20%5BID%3A%20199%5D"
+    },
+    {
+      "id": "E4",
+      "label": "OS-Level Error Events",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E5",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "In this paper, we take a holistic view to examine the reliability of SSD-based storage systems in Alibaba's datacenters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "In this paper, we take a holistic view to examine the reliability of SSD-based storage systems in Alibaba's datacenters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "Certain cloud services may cause unbalanced usage of SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "correlatesWith",
+      "o": "E4",
+      "evidence": "SSDs heavily affected by UCRC (UltraDMA CRC) errors are 2.7x more likely to lead to OS-level error events.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "correlatesWith rdfs:domain SMARTAttribute; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "UltraDMA CRC Error Count",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA CRC Error Count  [ID: 199]",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses UltraDMA CRC errors, which directly maps to the SMART attribute."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Understanding SSD Reliability in Large-Scale Cloud Systems (Alibaba).pdf"
+}

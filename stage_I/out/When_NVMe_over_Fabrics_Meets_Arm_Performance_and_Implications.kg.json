@@ -1,0 +1,128 @@
+{
+  "paper_id": "NVMe_over_Fabrics_Meets_Arm",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E3",
+      "label": "NVMeoF",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%20%28RoCE%2C%20TCP%2C%20FC%29"
+    },
+    {
+      "id": "E4",
+      "label": "Arm-based Storage Server",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E5",
+      "label": "95th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "NIC Optimization",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/PowerManagement/Active Power",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement/Active%20Power"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "It is highly appealing to integrate the two promising technologies together to build an efficient Arm-based storage server with NVMeoF.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E5",
+      "evidence": "With appropriate NIC optimizations, we have observed a throughput increase by up to 42.5% and a decrease of the 95th percentile tail latency by up to 14.6%.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "With appropriate NIC optimizations, we have observed a throughput increase by up to 42.5% and a decrease of the 95th percentile tail latency by up to 14.6%.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "In contrast to the common expectation, the NIC optimization, such as interrupt moderation, can substantially reduce the 95th percentile tail latency by up to 14.6% while improving the throughput by up to 42.5%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "In contrast to the common expectation, the NIC optimization, such as interrupt moderation, can substantially reduce the 95th percentile tail latency by up to 14.6% while improving the throughput by up to 42.5%.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC); rdfs:range SSD/MetricsHealthAndState/Performance/99th Percentile Latency.",
+    "improves rdfs:domain SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC); rdfs:range SSD/MetricsHealthAndState/Performance/Throughput."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a standard interface type for SSDs."
+    },
+    {
+      "label": "NVMeoF",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC)",
+      "mapping_decision": "exact",
+      "notes": "NVMeoF is a specific interconnect technology for SSDs."
+    },
+    {
+      "label": "95th Percentile Latency",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "parent",
+      "notes": "Mapped to the closest available performance metric."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a standard performance metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "When NVMe over Fabrics Meets Arm Performance and Implications.pdf"
+}

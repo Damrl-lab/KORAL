@@ -1,0 +1,137 @@
+{
+  "paper_id": "Enabling Accurate and Practical Online Flash Channel Modeling for Modern MLC NAND Flash Memory",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "MLC_NAND_Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "P/E_Cycles",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E7",
+      "label": "ThresholdVoltageDistributionModel",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E8",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E9",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Our evaluations for two of these applications show that our model (1) helps improve flash memory lifetime by 48.9%, and/or (2) enables the flash device to safely sustain 69.9% more write operations than manufacturer specifications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "All tests are performed at room temperature with a 5-second dwell time.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "We program and erase these blocks to 11 different wear levels, up to 20K P/E cycles, using known pseudo-random data.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "Using our experimental characterization of state-of-the-art 1X-nm (i.e., 15–19nm) MLC NAND flash chips, we show that our model is highly accurate.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "We propose a new, low-complexity flash memory model, built upon a modified version of the Student’s t-distribution and the power law, that captures the threshold voltage distribution and predicts future distribution shifts as wear increases.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Our evaluations for two of these applications show that our model (1) helps improve flash memory lifetime by 48.9%, and/or (2) enables the flash device to safely sustain 69.9% more write operations than manufacturer specifications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Our evaluations for two of these applications show that our model (1) helps improve flash memory lifetime by 48.9%, and/or (2) enables the flash device to safely sustain 69.9% more write operations than manufacturer specifications.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as room temperature in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Enabling Accurate and Practical Online Flash Channel Modeling for Modern MLC NAND Flash Memory.pdf"
+}

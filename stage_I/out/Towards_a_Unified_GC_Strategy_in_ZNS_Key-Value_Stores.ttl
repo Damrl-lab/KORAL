@@ -1,0 +1,148 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_25f68bc4 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_3093e5b4 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ZonedNamespaces." .
+
+ssd:axiom_ce74750c a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/284eba0fa49c4040afd79e72c243f010> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_ZNS_SSD_1 ;
+    dct:source "Zoned Namespace (ZNS) SSDs are gaining traction for eliminating in-device GC and enabling application-aware data management." .
+
+<http://example.org/ssd/assertion/524711718bf445adab564b5b7f0405d8> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E3_BlobDB ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E4_ZenFS ;
+    dct:source "BlobDB adopts ZenFS [12], [13], a user-level file system designed to bridge RocksDB with ZNS." .
+
+<http://example.org/ssd/assertion/6e16e7ba6047403292cf1770215e217f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EC1 ;
+    dct:source "WL(A) : 80% update & 20% insert (Write-only)" .
+
+<http://example.org/ssd/assertion/a125069a1dc141f7952c14e4bcd95dde> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E7_Same_Victim_GC ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_BlobDB ;
+    dct:source "To address this, this paper proposes Same-Victim GC, aligning the victims and sizes of both GCs." .
+
+<http://example.org/ssd/assertion/d7f01899600f41a0a10ef2eeeb18d647> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E7_Same_Victim_GC ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E6_BAZA ;
+    dct:source "To achieve Same-Victim GC, we introduce the BlobDB-Aware Zone Allocation (BAZA) algorithm." .
+
+<http://example.org/ssd/assertion/d83d2c75034343219ff1a966e8681e7b> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E7_Same_Victim_GC ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E5_ZCutoff ;
+    dct:source "Additionally, for further improvement, we proposed ZCutoff, which adjusts the size of BlobDB’s GC to match the size of ZC." .
+
+ssd:E1_ZNS_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "ZNS_SSD_1" ;
+    ssd:operatesUnder ssd:E2_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_ZenFS a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "ZenFS" ;
+    ssd:supports ssd:E3_BlobDB ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E5_ZCutoff a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "ZCutoff" ;
+    ssd:improves ssd:E7_Same_Victim_GC ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:E6_BAZA a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "BAZA" ;
+    ssd:improves ssd:E7_Same_Victim_GC ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E2_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasWorkloadProfile <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E3_BlobDB a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "BlobDB" ;
+    ssd:improves ssd:E7_Same_Victim_GC ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+ssd:E7_Same_Victim_GC a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "Same-Victim GC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+

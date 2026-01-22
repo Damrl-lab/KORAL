@@ -1,0 +1,146 @@
+{
+  "paper_id": "BlockFlex_Enabling_Storage_Harvesting",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "BlockFlex",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E7",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E8",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "We develop BlockFlex with programmable solid-state drives (SSDs) and demonstrate its efficiency with various datacenter workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "We develop BlockFlex with programmable solid-state drives (SSDs) and demonstrate its efficiency with various datacenter workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "We develop BlockFlex with programmable solid-state drives (SSDs) and demonstrate its efficiency with various datacenter workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "BlockFlex can improve the performance of evictable VMs running with batch-processing workloads by 1.68× on average.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "BlockFlex can improve the performance of evictable VMs running with batch-processing workloads by 1.68× on average.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E8",
+      "evidence": "We develop BlockFlex with programmable solid-state drives (SSDs) and demonstrate its efficiency with various datacenter workloads.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly mentions datacenter workloads."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in performance metrics."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in performance metrics."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions programmable SSDs, which are often TLC."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "BlockFlex Enabling Storage Harvesting with Software-defined Flash.pdf"
+}

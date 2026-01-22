@@ -1,0 +1,209 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_09747471 a owl:Axiom ;
+    rdfs:comment "hasConfiguration rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms." .
+
+ssd:axiom_3d42fae7 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_42c32de6 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_7b1b8264 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_da8f6874 a owl:Axiom ;
+    rdfs:comment "hasPerformanceMetric rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/002757e2fa2c4c1caa38b3fadd6e276f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E8_WorkloadProfile_1 ;
+    dct:source "Data can be read from and written to anywhere on the device, hence supporting random and sequential I/O operations." .
+
+<http://example.org/ssd/assertion/1f2aca41fa9e44a0aea691ec74255bd6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:hasPerformanceMetric ;
+    ssd:subject ssd:E1_ZNS_SSD_1 ;
+    dct:source "Today, flash-based solid-state drives (SSDs) can support very low latencies (i.e., a few microseconds), and multi GiB/s bandwidth with millions of I/O operations per second." .
+
+<http://example.org/ssd/assertion/3d642e74a537423ab7fdb03ce9df9885> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E8_WorkloadProfile_1 ;
+    dct:source "We evaluate the impact of garbage collection on SSD performance under diverse write workloads." .
+
+<http://example.org/ssd/assertion/68e2f971bd744aa8accae05c5ba838da> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E8_WorkloadProfile_1 ;
+    dct:source "We measure the throughput of sequential write, append, and random read operations using 4 KiB requests both within a single (Fig. 4a) and across multiple zones (Fig. 4b)." .
+
+<http://example.org/ssd/assertion/7020fb7c3b534f84bff6d4c23acbb6be> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext_1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_ZNS_SSD_1 ;
+    dct:source "We systematically characterize the performance (i.e., latency, bandwidth, and parallelism management) of a commercially available NVMe ZNS device." .
+
+<http://example.org/ssd/assertion/8c7fb31cb9134ddd9b74e1432d40b818> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E8_WorkloadProfile_1 ;
+    dct:source "We use QD 32 as the performance saturates in the experiment at this point." .
+
+<http://example.org/ssd/assertion/9d766722b9ef42ba8a3a4f8dcd5d1764> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:hasPerformanceMetric ;
+    ssd:subject ssd:E1_ZNS_SSD_1 ;
+    dct:source "ZNS promises a low and stable tail latency [11] and a high device longevity, and, hence, addresses the needs of modern big-data workloads." .
+
+<http://example.org/ssd/assertion/a1cb3fb8abcb411e832f01321056f4e1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_ZNS_SSD_1 ;
+    dct:source "The focus of this work is on NVMe devices that support ZNS, which are commercially available today." .
+
+<http://example.org/ssd/assertion/adac24b253d54eea896e06849c1e042a> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E8_WorkloadProfile_1 ;
+    dct:source "Data can be read from and written to anywhere on the device, hence supporting random and sequential I/O operations." .
+
+<http://example.org/ssd/assertion/adafd05b5ddb429194598c8e1d12bc7a> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E8_WorkloadProfile_1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext_1 ;
+    dct:source "ZNS promises a low and stable tail latency [11] and a high device longevity, and, hence, addresses the needs of modern big-data workloads." .
+
+<http://example.org/ssd/assertion/b63edd9b73974da69342a1d84a63203c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> ;
+    ssd:predicate ssd:hasConfiguration ;
+    ssd:subject ssd:E1_ZNS_SSD_1 ;
+    dct:source "The recent emergence of NVMe flash devices with Zoned Namespace support, ZNS SSDs, represents a significant new advancement in flash storage." .
+
+<http://example.org/ssd/assertion/bcd160bf7fde4f2d800f9307fbe5a535> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:hasPerformanceMetric ;
+    ssd:subject ssd:E1_ZNS_SSD_1 ;
+    dct:source "Today, flash-based solid-state drives (SSDs) can support very low latencies (i.e., a few microseconds), and multi GiB/s bandwidth with millions of I/O operations per second." .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:E2_EnvironmentalAndOperationalContext_1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext_1" ;
+    ssd:hasWorkloadProfile ssd:E8_WorkloadProfile_1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> rdfs:label "ZonedNamespaces" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> rdfs:label "Sequential" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> rdfs:label "4KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> rdfs:label "QD32" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+ssd:E1_ZNS_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "ZNS_SSD_1" ;
+    ssd:hasConfiguration <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:hasPerformanceMetric <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext_1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E8_WorkloadProfile_1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile_1" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:hasQueueDepth <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

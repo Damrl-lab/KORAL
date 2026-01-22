@@ -1,0 +1,131 @@
+{
+  "paper_id": "P33.MR-1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D TLC NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E5",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "Data Recovery Technique",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E7",
+      "label": "Retention Errors",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "3D charge-trapping (CT) type NAND flash memory has become a major high-density mass storage technology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasStructure",
+      "o": "E4",
+      "evidence": "3D charge-trapping (CT) type NAND flash memory has become a major high-density mass storage technology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "3D charge-trapping (CT) type NAND flash memory has become a major high-density mass storage technology.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "The proposed IP technique surpasses the word-line interference (WI) technique in various ways, such as data recovery capability, retention, and the erasable neighboring wordline.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "improvedBy",
+      "o": {
+        "@value": "0.2"
+      },
+      "evidence": "The proposed IP technique surpasses the word-line interference (WI) technique in various ways, such as data recovery capability, retention, and the erasable neighboring wordline.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "When the error correction code (ECC) is unable to correct the read data owing to the retention loss by the lateral charge migration and vertical charge escape, the data recovery technique directly correct most of the errors.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasStructure rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure.",
+    "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D is explicitly mentioned as the structure type."
+    },
+    {
+      "label": "Error Correction (ECC)",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "ECC is explicitly mentioned as a data path technique."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A_Novel_Data_Recovery_Technique_for_3D_TLC_NAND_Flash_Memory_Using_Intercell_Program.pdf"
+}

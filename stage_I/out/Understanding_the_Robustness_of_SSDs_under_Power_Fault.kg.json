@@ -1,0 +1,389 @@
+{
+  "paper_id": "FAST13_USENIX",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "PowerLossProtection",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PowerLossProtection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PowerLossProtection"
+    },
+    {
+      "id": "E4",
+      "label": "SSD#1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "SSD#2",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "SSD#3",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "SSD#4",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "SSD#5",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E9",
+      "label": "SSD#6",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E10",
+      "label": "SSD#7",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E11",
+      "label": "SSD#8",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E12",
+      "label": "SSD#9",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E13",
+      "label": "SSD#10",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E14",
+      "label": "SSD#11",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E15",
+      "label": "SSD#12",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E16",
+      "label": "SSD#13",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E17",
+      "label": "SSD#14",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E18",
+      "label": "SSD#15",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E19",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E20",
+      "label": "Concurrent Random Writes",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "SSD#1 ‘bricked’— that is, can no longer be detected by the controller—and thus became completely useless.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "SSD#3 exhibited non-recoverable metadata corruption after a mere eight power faults.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 4.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We observed shorn writes on three drives: SSDs no. 5.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 7.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 8.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 9.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E13",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 11.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 12.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E16",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E16",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We have detected unserializable writes in eight tested SSDs, including no. 13.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E17",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E17",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We observed shorn writes on three drives: SSDs no. 14.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E18",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By creating an automatic failure testing framework, we subjected 15 SSDs from 5 different vendors to more than three thousand fault injection cycles in total.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E18",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "We observed shorn writes on three drives: SSDs no. 15.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E19",
+      "evidence": "Modern storage technology (SSDs, No-SQL databases, commoditized RAID hardware, etc.) bring new reliability challenges to the already complicated storage stack.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E20",
+      "evidence": "The main goal of applying workloads to each SSDs for this work is to trigger as many internal operations as possible.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "degradedBy rdfs:domain SSD; rdfs:range PowerLossProtection.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "PowerLossProtection",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PowerLossProtection",
+      "mapping_decision": "exact",
+      "notes": "PowerLossProtection is directly mentioned in the context of SSD failures under power faults."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is a specific type of FlashTechnology mentioned in the paper."
+    },
+    {
+      "label": "SLC",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "mapping_decision": "exact",
+      "notes": "SLC is a specific type of FlashTechnology mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Understanding the Robustness of SSDs under Power Fault.pdf"
+}

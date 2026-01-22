@@ -1,0 +1,227 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_450e5047 a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_8bba9219 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:axiom_d15405b6 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_d352c22a a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_f3df8ac5 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_f512a8bb a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_fb3d4550 a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth." .
+
+ssd:axiom_fde0b44e a owl:Axiom ;
+    rdfs:comment "degrades rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/42bde1a5110d49358a6dd97e0376aff3> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E3_WP1 ;
+    dct:source "Considering that the most popular request size of diverse applications and native file systems is 4KB ∼16KB, the performance degradation of online RS coding may not be acceptable in many computing domains." .
+
+<http://example.org/ssd/assertion/4a0ead87d3d24b41ae470695d9534184> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E3_WP1 ;
+    dct:source "RS(10,4) coding gives 33% lower bandwidth and 50% latency than 3-replication for read operations respectively." .
+
+<http://example.org/ssd/assertion/4bede18edb464f58b7f0b685421dbf7b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E3_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject tax:SSD ;
+    dct:source "We examine the distributed storage system by evaluating diverse I/O-intensive workloads with two popular RS configurations, RS(6,3) and RS(10,4) used by Google and Facebook file systems." .
+
+<http://example.org/ssd/assertion/6b869415194447f1ad5a6750f94cac6e> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E10_QD256 ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E3_WP1 ;
+    dct:source "We observed that the queue depth of 256 is the best for diverse workloads, and therefore applied the queue depth to all evaluation scenarios performed by this work." .
+
+<http://example.org/ssd/assertion/735ba8eb70da4ee291d25e308f259671> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject tax:SSD ;
+    dct:source "The latency and bandwidth of SSDs in such distributed storage systems are approximately 2 ×shorter and higher than those of enterprise HDDs, while SSDs consume much less power than HDDs." .
+
+<http://example.org/ssd/assertion/9d5057ebc4f14b108350697f9675d4de> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Recently, high performance computing (HPC) and data center (DC) systems have begun to adopt distributed storage systems comprising powerful computing resources with arrays of many solid state drives (SSDs) instead of traditional spinning hard disk drives (HDDs)." .
+
+<http://example.org/ssd/assertion/a1e1b02900bf45b29e77c715edd51739> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E3_WP1 ;
+    dct:source "Figures 5a and 5b show the throughput and latency of sequential writes with various block sizes ranging from 1KB to 128KB, respectively." .
+
+<http://example.org/ssd/assertion/b4385b22547c48ca8bce581ec259fc11> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E3_WP1 ;
+    dct:source "Figure 8 shows the read performance of 3-replication, RS(6,3) and RS(10,4) with random I/O accesses." .
+
+<http://example.org/ssd/assertion/b6322c0d85314c1897db48fd51fd5da7> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E3_WP1 ;
+    dct:source "RS(10,4) coding exhibits 86% lower bandwidth and 7.6 × longer latency than 3-replication for write operations." .
+
+<http://example.org/ssd/assertion/c497eabfe9ed49f89ac08ef074ac0a20> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E3_WP1 ;
+    dct:source "Figures 5a and 5b show the throughput and latency of sequential writes with various block sizes ranging from 1KB to 128KB, respectively." .
+
+<http://example.org/ssd/assertion/e1b87451b0964b6d9cdbf4edd30a45cb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject tax:SSD ;
+    dct:source "The latency and bandwidth of SSDs in such distributed storage systems are approximately 2 ×shorter and higher than those of enterprise HDDs, while SSDs consume much less power than HDDs." .
+
+<http://example.org/ssd/assertion/e64297568bde4b8d93702c02350debd1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "RS(10,4) coding gives 33% lower bandwidth and 50% latency than 3-replication for read operations respectively." .
+
+<http://example.org/ssd/assertion/eda3200e49ed4f0dbebf61c217803555> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "RS(10,4) coding exhibits 86% lower bandwidth and 7.6 × longer latency than 3-replication for write operations." .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E10_QD256 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth>,
+        owl:Thing ;
+    rdfs:label "QD256" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> rdfs:label "Sequential" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB> rdfs:label "128KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> rdfs:label "4KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy> rdfs:label "Read-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Average Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:hasWorkloadProfile ssd:E3_WP1 ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E3_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:hasQueueDepth ssd:E10_QD256 ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

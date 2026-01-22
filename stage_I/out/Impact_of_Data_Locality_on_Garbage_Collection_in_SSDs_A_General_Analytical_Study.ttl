@@ -1,0 +1,143 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_109a2b88 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_a2e290a2 a owl:Axiom ;
+    rdfs:comment "impacts rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection." .
+
+ssd:axiom_fdd3bbb2 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/26ad587a961d47d7ac2036d0166d7157> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "Random" ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "The analysis of general GC algorithms becomes challenging when taking into account the heterogeneity of storage workloads." .
+
+<http://example.org/ssd/assertion/703ec73ea6cc4548a9806ebd832cb392> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> ;
+    dct:source "We develop probabilistic models to address two fundamental issues: (1) What is the impact of data locality on the performance of locality-oblivious GC?" .
+
+<http://example.org/ssd/assertion/7d254562a863476fb879ed7e276e5773> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    dct:source "The performance of GC, which is quantified by cleaning cost or write amplification, is critical to the overall performance of SSDs." .
+
+<http://example.org/ssd/assertion/992ffd3e47c94d0ca6168bab18b7ecde> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "Write-Heavy" ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "Since read requests do not affect the GC performance, we focus on write requests only." .
+
+<http://example.org/ssd/assertion/bddce66c87d941e08adfdc98d6bc383b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "We further conduct extensive trace-driven simulations on real-world workloads to validate the findings of our models." .
+
+<http://example.org/ssd/assertion/d59bbfc596834c1bba531071e65f0320> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We further conduct extensive trace-driven simulations on real-world workloads to validate the findings of our models." .
+
+<http://example.org/ssd/assertion/ec5fdbfe9de44c09a96179c19ab8e9d8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    dct:source "The performance of GC, which is quantified by cleaning cost or write amplification, is critical to the overall performance of SSDs." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> rdfs:label "Data Locality" ;
+    ssd:impacts <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E3_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:impacts a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:E3_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern "Random" ;
+    ssd:hasReadWriteMix "Write-Heavy" ;
+    ssd:unit "AccessPattern",
+        "ReadWriteMix" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Garbage Collection",
+        "Write Amplification" ;
+    ssd:impacts <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+

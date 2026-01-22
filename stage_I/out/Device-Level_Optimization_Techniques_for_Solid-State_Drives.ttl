@@ -1,0 +1,225 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_45441939 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_66a4e242 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_71b19369 a owl:Axiom ;
+    rdfs:comment "hasMetric rdfs:domain SSD; rdfs:range MetricsHealthAndState." .
+
+ssd:axiom_a5332098 a owl:Axiom ;
+    rdfs:comment "hasSecurityFeature rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/Security." .
+
+ssd:axiom_afa2871a a owl:Axiom ;
+    rdfs:comment "usesMediaManagement rdfs:domain SSD; rdfs:range MediaManagement." .
+
+ssd:axiom_c3d12206 a owl:Axiom ;
+    rdfs:comment "usesInterface rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_cd1982d5 a owl:Axiom ;
+    rdfs:comment "usesErrorCorrection rdfs:domain SSD; rdfs:range DataPath/Error Correction (ECC)." .
+
+ssd:axiom_d3d7ce88 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_d54e9752 a owl:Axiom ;
+    rdfs:comment "usesNamespace rdfs:domain SSD; rdfs:range ZonedNamespaces." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0afd5206e5794c67b8eee3f062179532> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E15_OCSSD ;
+    ssd:predicate ssd:usesNamespace ;
+    ssd:subject tax:SSD ;
+    dct:source "open-channel SSDs (OCSSDs), which expose low-level physical flash management to the host system." .
+
+<http://example.org/ssd/assertion/0dc260582ce541ea9e8bf217d42d4e7e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:hasMetric ;
+    ssd:subject tax:SSD ;
+    dct:source "Solid-state drives (SSDs) have revolutionized data storage with their high performance, energy efficiency, and reliability." .
+
+<http://example.org/ssd/assertion/1b2402401b464d14b476c63b21a39c50> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:hasMetric ;
+    ssd:subject tax:SSD ;
+    dct:source "Reliability concerns stem from program/erase (P/E) cycling effects, read disturb phenomena, and data retention issues." .
+
+<http://example.org/ssd/assertion/262af2a051384e9ca330fa8baf0f781e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:usesInterface ;
+    ssd:subject tax:SSD ;
+    dct:source "NVMe operates directly over the high-speed PCI express (PCIe) bus, supporting tens of thousands of highly parallel command queues." .
+
+<http://example.org/ssd/assertion/41b6d900bb5e4933ba7ff841fd333e98> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:usesMediaManagement ;
+    ssd:subject tax:SSD ;
+    dct:source "The SSD controller, acting as the brain of the device, manages critical functions including address mapping, garbage collection, and wear leveling." .
+
+<http://example.org/ssd/assertion/464d039f866c46f98ddaa4024e67e4dd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> ;
+    ssd:predicate ssd:usesNamespace ;
+    ssd:subject tax:SSD ;
+    dct:source "emerging architectures like zoned namespace (ZNS) SSDs and flexible data placement (FDP)." .
+
+<http://example.org/ssd/assertion/56b1150beff64c67aca4565db2f695a2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:hasMetric ;
+    ssd:subject tax:SSD ;
+    dct:source "The push for greater capacity has led to MLC and TLC flash-based SSDs. Storing more bits per cell, however, comes at a steep cost to endurance." .
+
+<http://example.org/ssd/assertion/5fbf2442275e48768d15a8a7a4ca3941> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:usesMediaManagement ;
+    ssd:subject tax:SSD ;
+    dct:source "The SSD controller, acting as the brain of the device, manages critical functions including address mapping, garbage collection, and wear leveling." .
+
+<http://example.org/ssd/assertion/791773883f514b7e83f84ea867029933> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:usesErrorCorrection ;
+    ssd:subject tax:SSD ;
+    dct:source "Advanced error correction coding schemes, particularly low-density parity-check (LDPC) codes, have become essential for maintaining data integrity in high-density NAND flash." .
+
+<http://example.org/ssd/assertion/8c9baed91bd94bc395f63bf8dd7e4e1d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "The push for greater capacity has led to MLC and TLC flash-based SSDs." .
+
+<http://example.org/ssd/assertion/9db05894e57c4d6fbc51ad97f6dc9a3e> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E14_Ransomware_Defense ;
+    ssd:predicate ssd:hasSecurityFeature ;
+    ssd:subject tax:SSD ;
+    dct:source "Ransomware represents a critical and evolving security threat, consistently adapting to bypass existing defenses and compromise data availability and integrity." .
+
+<http://example.org/ssd/assertion/b2e1b68b9214472593f682ea3cbcee41> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "The push for greater capacity has led to MLC and TLC flash-based SSDs." .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E14_Ransomware_Defense a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security>,
+        owl:Thing ;
+    rdfs:label "Ransomware Defense" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security> .
+
+ssd:E15_OCSSD a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces>,
+        owl:Thing ;
+    rdfs:label "OCSSD" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> rdfs:label "ZNS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "LDPC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Garbage Collection" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Wear Leveling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "Reliability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> rdfs:label "QLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:hasMetric <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:hasSecurityFeature ssd:E14_Ransomware_Defense ;
+    ssd:usesErrorCorrection <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:usesInterface <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:usesMediaManagement <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:usesNamespace ssd:E15_OCSSD,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> ;
+    rdfs:isDefinedBy tax:SSD .
+

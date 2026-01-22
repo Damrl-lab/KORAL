@@ -1,0 +1,134 @@
+{
+  "paper_id": "102149",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Firmware Update",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Firmware%20Update"
+    },
+    {
+      "id": "E6",
+      "label": "TRIM",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM"
+    },
+    {
+      "id": "E7",
+      "label": "SATA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E8",
+      "label": "Greedy-50%",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We further test this method for robustness against changes in external factors such as temperature and supplied power.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "We train our classifier to ensure our ability to detect changes at a range of common operating temperatures between 25C and 50C.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Our analysis is designed to be performed on disks that are in an offline mode.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E7",
+      "evidence": "For communication with the host, the SSD can utilize the traditional Serial Advanced Technology Attachment (SATA) connector.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasFirmwareVersion",
+      "o": "E8",
+      "evidence": "The set of buffer erasure probabilities examined includes 0%, 12.5%, 25%, 37.5%, 50%, 75%, and 100%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasMaintenance",
+      "o": "E5",
+      "evidence": "One of the most important tasks in the risk mitigation process is to deploy up-to-date, authenticated firmware that patches known vulnerabilities.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasMaintenance",
+      "o": "E6",
+      "evidence": "Current draw measurements have also been combined with both time and frequency analysis to classify read versus write operations and infer the presence of TRIM-initiated physical data removal.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasFirmwareVersion rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic.",
+    "hasMaintenance rdfs:domain SSD; rdfs:range Maintenance."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned and measured in the experiments."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Detecting Firmware Modification on Solid-State Drives via Current Draw Analysis.pdf"
+}

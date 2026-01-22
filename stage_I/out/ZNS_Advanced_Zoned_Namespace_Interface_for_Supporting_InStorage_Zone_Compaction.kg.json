@@ -1,0 +1,180 @@
+{
+  "paper_id": "ZNS+: Advanced Zoned Namespace Interface for Supporting In-Storage Zone Compaction",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "ZNS+ SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E4",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E5",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "ZNS",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS"
+    },
+    {
+      "id": "E8",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E9",
+      "label": "Segment Compaction",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We implemented the ZNS+ SSD at an SSD emulator and a real SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "The write amplification by GC can also be eliminated, which will allow triple-level cell (TLC) or quad-level cell (QLC) SSDs with low endurance to proliferate.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The file system performance of the proposed ZNS+ storage system was 1.33–2.91 times better than that of the normal ZNS-based storage system.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "The NVMe zoned namespace (ZNS) is emerging as a new storage interface.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E3",
+      "evidence": "The log-structured file system (LFS) is required to access ZNS solid-state drives (SSDs).",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "hasFeature",
+      "o": "E7",
+      "evidence": "The NVMe zoned namespace (ZNS) is emerging as a new storage interface.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "The file system performance of the proposed ZNS+ storage system was 1.33–2.91 times better than that of the normal ZNS-based storage system.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E9",
+      "p": "isPartOf",
+      "o": "E1",
+      "evidence": "The ZNS+ also allows each zone to be overwritten with sparse sequential write requests, which enables the LFS to use threaded logging-based block reclamation instead of segment compaction.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "uses rdfs:domain SSD; rdfs:range SSD/EnvironmentalAndOperationalContext/HostSystem.",
+    "hasFeature rdfs:domain SSD; rdfs:range SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces.",
+    "isPartOf rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD."
+  ],
+  "mappings": [
+    {
+      "label": "File System",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses the use of log-structured file systems with ZNS SSDs."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper refers to the NVMe zoned namespace interface."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions TLC as a type of flash technology used in SSDs."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in throughput with ZNS+."
+    },
+    {
+      "label": "ZNS",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "mapping_decision": "exact",
+      "notes": "The paper is centered around the ZNS interface."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in IOPS with ZNS+."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "ZNS+ Advanced Zoned Namespace Interface for Supporting InStorage Zone Compaction.pdf"
+}

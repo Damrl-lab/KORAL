@@ -1,0 +1,141 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_1df73d4b a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_85d569be a owl:Axiom ;
+    rdfs:comment "hasPowerManagement rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/PowerManagement." .
+
+ssd:axiom_878eb319 a owl:Axiom ;
+    rdfs:comment "hasThermalManagement rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/ThermalManagement." .
+
+ssd:axiom_b251bcd1 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType." .
+
+ssd:axiom_f7d82c40 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/2bd52e5c030a482e8d3a06346af2c295> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_NVMe_SSD_1 ;
+    dct:source "The throughput and latency of an NVMe SSD in different power consumption modes is analysed." .
+
+<http://example.org/ssd/assertion/461e2032d65c4e5597d46fdb90af0ab0> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_NVMe_SSD_1 ;
+    dct:source "Achieving such pinnacles in terms of speed of operation, throughput, latency and volumes hints at trade-offs with power utilization." .
+
+<http://example.org/ssd/assertion/976bb3fe1e0547fe8b49d113bc267456> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement> ;
+    ssd:predicate ssd:hasThermalManagement ;
+    ssd:subject ssd:E1_NVMe_SSD_1 ;
+    dct:source "Hence, the thermal management also becomes important for the longevity and performance of the drive." .
+
+<http://example.org/ssd/assertion/a2d356aaaa794dc4b5c5eb291c12cf2d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_NVMe_SSD_1 ;
+    dct:source "The paper majorly discusses SSDs with NVMe over PCIe (PCI Express) interface that are capable of operating at much higher speeds by leveraging the potential of SSDs." .
+
+<http://example.org/ssd/assertion/b827e58e6e5442f19d261632d8d5c470> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement> ;
+    ssd:predicate ssd:hasPowerManagement ;
+    ssd:subject ssd:E1_NVMe_SSD_1 ;
+    dct:source "The NVMe specifications have therefore introduced methods for power management, which smartly adjust and patrol the power consumption at both PCIe and NVMe interfaces, thus optimizing the system’s power consumption dynamically." .
+
+<http://example.org/ssd/assertion/ce4f800082884c8fa12d7818f5ecade4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_NVMe_SSD_1 ;
+    dct:source "Power management within an NVMe SSD would imply scrupulous considerations of the milieu." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E2_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement> rdfs:label "Power Management" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement> rdfs:label "Thermal Management" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> rdfs:label "PCIe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> .
+
+ssd:E1_NVMe_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "NVMe_SSD_1" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> ;
+    ssd:hasPowerManagement <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement> ;
+    ssd:hasThermalManagement <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:operatesUnder ssd:E2_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+

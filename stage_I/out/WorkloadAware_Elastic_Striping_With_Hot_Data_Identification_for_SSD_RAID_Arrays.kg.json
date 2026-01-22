@@ -1,0 +1,177 @@
+{
+  "paper_id": "IEEE_TCAD_2017_36_5_815",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD_RAID",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "RAID-5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E3",
+      "label": "RAID-6",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E6",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E7",
+      "label": "RAID-level Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E8",
+      "label": "Average Response Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E10",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "To address this problem, we follow the idea of elastic striping and propose a workload-aware scheme (WAS) to reduce the RAID-level GC cost so as to improve the performance and endurance of SSD RAID.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E5",
+      "evidence": "In particular, even if we only classify data chunks into two types, our scheme WAS(2) shown in Fig.7(a) can still reduce up to 70.6% of chunk writes compared with eSAP under Financial1 workload, and it reduces 30.0%–43.2% of chunk writes for other four workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": "E6",
+      "evidence": "We set the chunk size as 4 KB, and so the stripe size is 32 KB as we have eight SSDs in the RAID.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E2",
+      "evidence": "We implement a prototype system on RAID-5 and RAID-6 arrays composed of commercial SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E3",
+      "evidence": "We implement a prototype system on RAID-5 and RAID-6 arrays composed of commercial SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Experimental results show that compared to original elastic striping, our scheme reduces 30.0%–70.6% (and 23.9%–63.2%) of chunk writes under the RAID-5 (and RAID-6) settings, and also reduces the average response time by 60.9%–79.3% (and 56.8%–80.9%) for RAID-5 (and RAID-6), respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Besides, our scheme also improves the endurance and reliability of SSD RAID compared to original elastic striping.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "Besides, our scheme also improves the endurance and reliability of SSD RAID compared to original elastic striping.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "However, it necessitates an RAID-level garbage collection (GC) process, which may incur a very high cost due to the mixture of hot and cold data chunks.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasReadWriteMix rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix.",
+    "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize."
+  ],
+  "mappings": [
+    {
+      "label": "RAID-level Garbage Collection",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "RAID-level GC is a specific type of Garbage Collection."
+    },
+    {
+      "label": "Average Response Time",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "Average response time is a measure of latency."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Endurance is a direct metric under SSD/MetricsHealthAndState."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a direct metric under SSD/MetricsHealthAndState."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "WorkloadAware Elastic Striping With Hot Data Identification for SSD RAID Arrays.pdf"
+}

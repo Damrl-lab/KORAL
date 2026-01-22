@@ -1,0 +1,173 @@
+{
+  "paper_id": "ElasticRAID_2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ElasticRAID_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E5",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E6",
+      "label": "RAID5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E7",
+      "label": "RAID10",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID10",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID10"
+    },
+    {
+      "id": "E8",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E9",
+      "label": "FIO",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "We implemented a Linux software-based elastic RAID prototype that supports dynamic conversion between RAID 5 and RAID 10.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Compared with a baseline software-based RAID 5, under sufficient runtime data compressibility that enables the conversion from RAID 5 to RAID 10 over 60% of user data, the elastic RAID could improve the 4KB random write IOPS by 42% and 4KB random read IOPS in degraded mode by 46%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E5",
+      "evidence": "Compared with a baseline software-based RAID 5, under sufficient runtime data compressibility that enables the conversion from RAID 5 to RAID 10 over 60% of user data, the elastic RAID could improve the 4KB random write IOPS by 42% and 4KB random read IOPS in degraded mode by 46%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "We implemented a Linux software-based elastic RAID prototype that supports dynamic conversion between RAID 5 and RAID 10.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E7",
+      "evidence": "We implemented a Linux software-based elastic RAID prototype that supports dynamic conversion between RAID 5 and RAID 10.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E8",
+      "evidence": "Compared with a baseline software-based RAID 5, under sufficient runtime data compressibility that enables the conversion from RAID 5 to RAID 10 over 60% of user data, the elastic RAID could improve the 4KB random write IOPS by 42% and 4KB random read IOPS in degraded mode by 46%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "validatedBy",
+      "o": "E9",
+      "evidence": "We applied the widely used FIO (flexible I/O tester) tool to generate heavy I/O workloads and collect the IOPS and tail latency results.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext; rdfs:range BlockSize.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range RAIDAndRedundancy.",
+    "improves rdfs:domain SSD; rdfs:range Performance.",
+    "validatedBy rdfs:domain SSD; rdfs:range ValidationAndBenchmarks."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the paper."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned in the paper."
+    },
+    {
+      "label": "RAID5",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "mapping_decision": "exact",
+      "notes": "RAID 5 is explicitly mentioned in the paper."
+    },
+    {
+      "label": "RAID10",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID10",
+      "mapping_decision": "exact",
+      "notes": "RAID 10 is explicitly mentioned in the paper."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is explicitly mentioned in the paper."
+    },
+    {
+      "label": "FIO",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "mapping_decision": "exact",
+      "notes": "FIO is explicitly mentioned as a validation tool in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Implementing RAID over SSDs with Built-in Transparent Compression.pdf"
+}

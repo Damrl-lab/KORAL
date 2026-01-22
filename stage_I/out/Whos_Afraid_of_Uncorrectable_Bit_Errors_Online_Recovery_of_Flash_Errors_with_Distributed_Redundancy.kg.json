@@ -1,0 +1,123 @@
+{
+  "paper_id": "2019_USENIX_ATC_Who's_Afraid_of_Uncorrectable_Bit_Errors",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "UBER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E4",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E5",
+      "label": "DIRECT",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "HDFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/File Systems (NTFS, ext4, XFS, APFS)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%20Systems%20%28NTFS%2C%20ext4%2C%20XFS%2C%20APFS%29"
+    },
+    {
+      "id": "E7",
+      "label": "ZippyDB",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/File Systems (NTFS, ext4, XFS, APFS)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%20Systems%20%28NTFS%2C%20ext4%2C%20XFS%2C%20APFS%29"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Flash storage is the main storage medium in datacenters for hot data.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "QLC was recently introduced as the next generation flash cell technology.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E5",
+      "evidence": "DIRECT helps extend flash lifetimes.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E3",
+      "evidence": "DIRECT enables HDFS to tolerate a 10,000–100,000× higher bit error rate without experiencing application-visible errors.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "implementedIn",
+      "o": "E6",
+      "evidence": "We implemented DIRECT on two real-world storage systems: ZippyDB and HDFS.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "implementedIn",
+      "o": "E7",
+      "evidence": "We implemented DIRECT on two real-world storage systems: ZippyDB and HDFS.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improvedBy rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Reliability/UBER.",
+    "implementedIn rdfs:domain InternalFirmwareAndLogic; rdfs:range EcosystemAndIntegrationContext/HostIOStack/File Systems (NTFS, ext4, XFS, APFS)."
+  ],
+  "mappings": [
+    {
+      "label": "UBER",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "exact",
+      "notes": "UBER is directly mentioned as a reliability metric in the paper."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is explicitly discussed as a flash technology type."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Whos Afraid of Uncorrectable Bit Errors Online Recovery of Flash Errors with Distributed Redundancy.pdf"
+}

@@ -1,0 +1,152 @@
+{
+  "paper_id": "Venice: Improving Solid-State Drive Parallelism at Low Cost via Conflict-Free Accesses",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Venice_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E9",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E10",
+      "label": "FlashTechnology",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E11",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "Our experimental results show that Venice 1) improves performance by an average of 2.65 ×/1.67× over a baseline performance-optimized/cost-optimized SSD design across a wide range of workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "Our experimental results show that Venice 1) improves performance by an average of 2.65 ×/1.67× over a baseline performance-optimized/cost-optimized SSD design across a wide range of workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E11",
+      "evidence": "1TB, 3D TLC NAND Flash, 8-GB/s External I/O bandwidth (4-lane PCIe Gen4);",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Venice improves SSD throughput over Baseline SSD/pSSD/pnSSD/NoSSD by 176%/120%/113%/102% in the performance-optimized SSD and 76%/58%/61%/51% in the cost-optimized SSD configuration.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "For src1_0 , Venice reduces the tail latency by 32%/31%/30%/27% over Baseline SSD/pSSD/pnSSD/NoSSD.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the paper."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "Read-heavy workload is implied by the focus on read requests."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Venice Improving SSD Parallelism via Conflict-Free Accesses.pdf"
+}

@@ -1,0 +1,147 @@
+{
+  "paper_id": "PLMC_2021",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E6",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E7",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E8",
+      "label": "99.99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "Predictable Latency Mode (PLM)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/NVMeFeatures",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/NVMeFeatures"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This paper presents the first study of the PLM feature in a single-host environment and its extension to multi-host settings.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "Typical data center environment concentrates storage in a small number of 'storage servers' that are accessed by all the hosts.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Fig. 1 shows the latency distribution of a recent Intel NAND SSD device (Intel DC P4610 SSD) with a workload of 70%-read and 30%-write of 4KB blocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E5",
+      "evidence": "The existing PLM mechanism, as currently defined, focuses only on read IO latency improvement.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": "E6",
+      "evidence": "Fig. 1 shows the latency distribution of a recent Intel NAND SSD device (Intel DC P4610 SSD) with a workload of 70%-read and 30%-write of 4KB blocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E7",
+      "evidence": "The ongoing replacement of hard drives (HDDs) by solid-state drives (SSDs) with NVMe (Non-Volatile Memory Express) interface in the enterprise has enabled much higher performance and low end-to-end storage latencies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Our simulation experiments show that the proposed PLMC can achieve 82% improvement in 99.99% tail latency compared to a bare SSD without PLM feature.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E9",
+      "evidence": "The NVMe 1.4 specification (NVMe v1.4) introduces the predictable latency mode (PLM) feature for NVMe SSDs to achieve deterministic latency.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "improves rdfs:domain SSD; rdfs:range Performance.",
+    "uses rdfs:domain SSD; rdfs:range NVMeFeatures."
+  ],
+  "mappings": [
+    {
+      "label": "99.99th Percentile Latency",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "parent",
+      "notes": "99.99th percentile is a specific case of 99th Percentile Latency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Predictable Tail Latency Mode (PLM) Coordinator for Multi-Host Environments.pdf"
+}

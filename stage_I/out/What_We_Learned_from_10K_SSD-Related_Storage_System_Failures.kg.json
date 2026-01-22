@@ -1,0 +1,147 @@
+{
+  "paper_id": "2019_USENIX_ATC_Xu",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E5",
+      "label": "SATA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E6",
+      "label": "UCRC",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA CRC Error Count  [ID: 199]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%20CRC%20Error%20Count%20%20%5BID%3A%20199%5D"
+    },
+    {
+      "id": "E7",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "SSD_Alibaba",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E8",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "We study the reliability of SSD-based storage systems deployed in Alibaba Cloud, which cover near half a million SSDs and span over three years of usage under representative cloud services.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "We study SSD-based large-scale storage systems deployed in 7 datacenters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "28",
+        "unit": "C"
+      },
+      "evidence": "We are able to verify that the poor rack architecture can increase the temperature of idle SSDs by up to 28 C.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Note that all five models in our dataset are using SATA interfaces and based on MLC NAND cells.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasInterfaceType",
+      "o": "E5",
+      "evidence": "Note that all five models in our dataset are using SATA interfaces and based on MLC NAND cells.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "correlatesWith",
+      "o": "E6",
+      "evidence": "We discover a strong correlation between one type of RASR failures (i.e., those caused by faulty interconnection) and one type of device errors (i.e., Ultra-DMA CRC or UCRC).",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as a factor affecting SSD reliability."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is directly mentioned as the cell type used in the SSDs studied."
+    },
+    {
+      "label": "SATA",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "mapping_decision": "exact",
+      "notes": "SATA is directly mentioned as the interface type used in the SSDs studied."
+    },
+    {
+      "label": "UCRC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA CRC Error Count  [ID: 199]",
+      "mapping_decision": "exact",
+      "notes": "UCRC is directly mentioned as a SMART attribute correlated with failures."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "What We Learned from 10K SSD-Related Storage System Failures.pdf"
+}

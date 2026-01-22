@@ -1,0 +1,125 @@
+{
+  "paper_id": "21st_USENIX_FAST23_Lu",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "99.99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "PERSEUS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "PERSEUS has been deployed in our cloud for over ten months, monitoring an increasing number of drives up to around 300K by now.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "PERSEUS is applicable to a wide range of services and devices (with minor or no adjustment) in the Alibaba cloud data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "30",
+        "unit": "C"
+      },
+      "evidence": "One fail-slow HDD suffered from temperature throttling due to high environmental temperature.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The daemons calculate the average statistics every 15 seconds and record them as time-series data entries.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "improvedBy",
+      "o": {
+        "@value": "0.48"
+      },
+      "evidence": "By isolating and/or replacing the identified fail-slow drives, we significantly reduce the node-level tail latency. The 95th, 99th, and 99.99th write latencies drop by 31%, 46%, and 48%, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "PERSEUS managed to find 304 fail-slow cases. Isolating them can reduce the (node-level) 99.99th tail latency by 48%.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as an environmental factor."
+    },
+    {
+      "label": "99.99th Percentile Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in 99.99th percentile latency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Perseus_A_Fail_Slow_Detection_Framework_for_Cloud_Storage_Systems.pdf"
+}

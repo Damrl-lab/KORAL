@@ -1,0 +1,158 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_03afabbb a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_1860809c a owl:Axiom ;
+    rdfs:comment "validatedBy rdfs:domain SSD; rdfs:range ValidationAndBenchmarks." .
+
+ssd:axiom_21a78602 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range RAIDAndRedundancy." .
+
+ssd:axiom_4b0bc491 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_578585ad a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext; rdfs:range BlockSize." .
+
+ssd:axiom_b7562440 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1ea2481015964440a2c3610e0e4a5619> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E2_ElasticRAID_SSD ;
+    dct:source "Compared with a baseline software-based RAID 5, under sufficient runtime data compressibility that enables the conversion from RAID 5 to RAID 10 over 60% of user data, the elastic RAID could improve the 4KB random write IOPS by 42% and 4KB random read IOPS in degraded mode by 46%." .
+
+<http://example.org/ssd/assertion/3c241e59e9ab4c57b4deea3ec7e76b0f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID10> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_ElasticRAID_SSD ;
+    dct:source "We implemented a Linux software-based elastic RAID prototype that supports dynamic conversion between RAID 5 and RAID 10." .
+
+<http://example.org/ssd/assertion/a615d73c9d9542e891ebad79b2e42606> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> ;
+    ssd:predicate ssd:validatedBy ;
+    ssd:subject ssd:E2_ElasticRAID_SSD ;
+    dct:source "We applied the widely used FIO (flexible I/O tester) tool to generate heavy I/O workloads and collect the IOPS and tail latency results." .
+
+<http://example.org/ssd/assertion/bad4c7d4c1874d9eaec05d3ae23b7479> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "Compared with a baseline software-based RAID 5, under sufficient runtime data compressibility that enables the conversion from RAID 5 to RAID 10 over 60% of user data, the elastic RAID could improve the 4KB random write IOPS by 42% and 4KB random read IOPS in degraded mode by 46%." .
+
+<http://example.org/ssd/assertion/e52b13910e3147ed8e09148be7cbe055> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_ElasticRAID_SSD ;
+    dct:source "We implemented a Linux software-based elastic RAID prototype that supports dynamic conversion between RAID 5 and RAID 10." .
+
+<http://example.org/ssd/assertion/f4ce3fef307b468cacce24bd56c21fd2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "Compared with a baseline software-based RAID 5, under sufficient runtime data compressibility that enables the conversion from RAID 5 to RAID 10 over 60% of user data, the elastic RAID could improve the 4KB random write IOPS by 42% and 4KB random read IOPS in degraded mode by 46%." .
+
+<http://example.org/ssd/assertion/f76356ba9a1940c9ae8fb17e178d6d93> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_ElasticRAID_SSD ;
+    dct:source "We implemented a Linux software-based elastic RAID prototype that supports dynamic conversion between RAID 5 and RAID 10." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID10> rdfs:label "RAID10" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID10> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> rdfs:label "RAID5" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> .
+
+<http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> rdfs:label "FIO" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> rdfs:label "4KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+ssd:E3_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:hasWorkloadProfile <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E2_ElasticRAID_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "ElasticRAID_SSD" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID10>,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> ;
+    ssd:operatesUnder ssd:E3_EnvironmentalAndOperationalContext ;
+    ssd:validatedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> ;
+    rdfs:isDefinedBy tax:SSD .
+

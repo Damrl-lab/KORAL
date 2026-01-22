@@ -1,0 +1,174 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_12ee8c26 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:axiom_5247f9fa a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_5d07598a a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_bf03ae03 a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_db8138e0 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_f0791722 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_f2664ad2 a owl:Axiom ;
+    rdfs:comment "hasPCIe rdfs:domain SSD; rdfs:range PCIe." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/35e5c85cd64b4481b3e438d775c1d4a2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_TC_CSD ;
+    dct:source "This work envisions flash-cached storage systems using TC-CSD as the caching device." .
+
+<http://example.org/ssd/assertion/56c2e2c498064c97ba44e5cb377970f5> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> ;
+    ssd:predicate ssd:hasPCIe ;
+    ssd:subject ssd:E2_TC_CSD ;
+    dct:source "Operating with PCIe Gen3×4 interface, this SSD can achieve 3.2GB/s sequential throughput." .
+
+<http://example.org/ssd/assertion/5d62964058c94079a9e6264170898566> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E2_TC_CSD ;
+    dct:source "Operating with PCIe Gen3×4 interface, this SSD can achieve 3.2GB/s sequential throughput." .
+
+<http://example.org/ssd/assertion/6a6226c3c62b426cb6161f5ee0dafbf9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_TC_CSD ;
+    dct:source "This SSD can achieve 650K (520K) random 4KB read (write) IOPS (IO per second) over 100% LBA span." .
+
+<http://example.org/ssd/assertion/7effaa937e6244f89701b082c9b40371> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "This could degrade the caching device capacity usage efficiency, especially under workloads dominated by small-size random data access." .
+
+<http://example.org/ssd/assertion/bec1511b711944aaa3c62a387b3a44e3> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "Moreover, accessing compressed data chunk on the caching device involves fetching a large data chunk and carrying out CPU-based decompression." .
+
+<http://example.org/ssd/assertion/c41cb45f7155427c8bd821538ab54728> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "TC-CSD internally performs hardware-based per-4KB data compression/decompression." .
+
+<http://example.org/ssd/assertion/eec14c1291a04589aa8bcd8fb4dda0fd> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_TC_CSD ;
+    dct:source "Operating with PCIe Gen3×4 interface, this SSD can achieve 3.2GB/s sequential throughput." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E3_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E4_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> rdfs:label "4KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> rdfs:label "PCIe Gen3" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> .
+
+ssd:E4_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:E2_TC_CSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "TC-CSD" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType> ;
+    ssd:hasPCIe <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:operatesUnder ssd:E3_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+

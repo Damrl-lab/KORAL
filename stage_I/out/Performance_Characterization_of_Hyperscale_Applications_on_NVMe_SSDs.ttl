@@ -1,0 +1,181 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:E9_Samsung_843T a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung 843T" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:axiom_180ed697 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_a0abae47 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_c97c6f96 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_e8cd0d27 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext; rdfs:range BlockSize." .
+
+ssd:axiom_f8e628f3 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_fcc34bcd a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0172fab800fa4cc8bc34873b1f52c7cb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_NVMe_SSD ;
+    dct:source "Considering absolute latencies, our analysis indicates that NVMe SSD consumes 4.5× less time for random reads compared to the SATA SSD." .
+
+<http://example.org/ssd/assertion/521a4952ac6f456299477e8bb92ad6f6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E8_Samsung_XS1715 ;
+    dct:source "Considering absolute latencies, our analysis indicates that NVMe SSD consumes 4.5× less time for random reads compared to the SATA SSD." .
+
+<http://example.org/ssd/assertion/6f92e09cc1204e65a8119f0d9c29bfb7> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E10_EnvironmentalAndOperationalContext ;
+    dct:source "NVMe devices under test were able to sustain a maximum throughput of 750 K IOPS of 4 KB random read accesses." .
+
+<http://example.org/ssd/assertion/a6b0c3427dcb4166b623e5a611934b51> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E10_EnvironmentalAndOperationalContext ;
+    dct:source "NVMe drives are expected to be particularly beneficial for I/O intensive applications in datacenter installations." .
+
+<http://example.org/ssd/assertion/a80fb1110fed419991f55825ebcbe325> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_NVMe_SSD ;
+    dct:source "NVMe devices under test were able to sustain a maximum throughput of 750 K IOPS of 4 KB random read accesses, compared to 100K IOPS for SATA SSDs." .
+
+<http://example.org/ssd/assertion/b4b341717ff340d9b72e412bf35d5d15> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_NVMe_SSD ;
+    dct:source "Typical PCIe based SSDs are 4 PCIe generation 3 devices and support up to 4 GB/s." .
+
+<http://example.org/ssd/assertion/c45b82c658674515a9b25698bce83a45> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E10_EnvironmentalAndOperationalContext ;
+    dct:source "The measured random read latency for the SATA SSD (Samsung 843T) we tested at low loads is 500μs." .
+
+<http://example.org/ssd/assertion/f9523bd0fa7645768e50c6a13bdd03fb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E10_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_NVMe_SSD ;
+    dct:source "NVMe drives are expected to be particularly beneficial for I/O intensive applications in datacenter installations." .
+
+<http://example.org/ssd/assertion/fbe47263a05f49f7a8eb5c222de4da40> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E8_Samsung_XS1715 ;
+    dct:source "NVMe devices under test were able to sustain a maximum throughput of 750 K IOPS of 4 KB random read accesses, compared to 100K IOPS for SATA SSDs." .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E8_Samsung_XS1715 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung XS1715" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> rdfs:label "4KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> rdfs:label "PCIe Gen3" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> .
+
+ssd:E1_NVMe_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "NVMe SSD" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:operatesUnder ssd:E10_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E10_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:hasWorkloadProfile <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Average Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+

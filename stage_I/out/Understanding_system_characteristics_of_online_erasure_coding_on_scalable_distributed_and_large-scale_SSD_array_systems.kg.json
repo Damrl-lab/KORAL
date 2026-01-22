@@ -1,0 +1,287 @@
+{
+  "paper_id": "Understanding_System_Characteristics_of_Online_Erasure_Coding_on_Scalable_Distributed_and_Large-Scale_SSD_Array_Systems",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E6",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E8",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E9",
+      "label": "128KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB"
+    },
+    {
+      "id": "E10",
+      "label": "QD256",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E11",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E12",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E13",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E14",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Recently, high performance computing (HPC) and data center (DC) systems have begun to adopt distributed storage systems comprising powerful computing resources with arrays of many solid state drives (SSDs) instead of traditional spinning hard disk drives (HDDs).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We examine the distributed storage system by evaluating diverse I/O-intensive workloads with two popular RS configurations, RS(6,3) and RS(10,4) used by Google and Facebook file systems.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "Figures 5a and 5b show the throughput and latency of sequential writes with various block sizes ranging from 1KB to 128KB, respectively.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "Figure 8 shows the read performance of 3-replication, RS(6,3) and RS(10,4) with random I/O accesses.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "RS(10,4) coding gives 33% lower bandwidth and 50% latency than 3-replication for read operations respectively.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E7",
+      "evidence": "RS(10,4) coding exhibits 86% lower bandwidth and 7.6 × longer latency than 3-replication for write operations.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E8",
+      "evidence": "Considering that the most popular request size of diverse applications and native file systems is 4KB ∼16KB, the performance degradation of online RS coding may not be acceptable in many computing domains.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E9",
+      "evidence": "Figures 5a and 5b show the throughput and latency of sequential writes with various block sizes ranging from 1KB to 128KB, respectively.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E10",
+      "evidence": "We observed that the queue depth of 256 is the best for diverse workloads, and therefore applied the queue depth to all evaluation scenarios performed by this work.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "The latency and bandwidth of SSDs in such distributed storage systems are approximately 2 ×shorter and higher than those of enterprise HDDs, while SSDs consume much less power than HDDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E12",
+      "evidence": "The latency and bandwidth of SSDs in such distributed storage systems are approximately 2 ×shorter and higher than those of enterprise HDDs, while SSDs consume much less power than HDDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E13",
+      "evidence": "RS(10,4) coding gives 33% lower bandwidth and 50% latency than 3-replication for read operations respectively.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E14",
+      "evidence": "RS(10,4) coding exhibits 86% lower bandwidth and 7.6 × longer latency than 3-replication for write operations.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "improves rdfs:domain SSD; rdfs:range Performance.",
+    "degrades rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSDs in the context of data centers."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "The paper evaluates sequential write performance."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "The paper evaluates random read performance."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses read-heavy workloads."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses write-heavy workloads."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions 4KB as a common block size."
+    },
+    {
+      "label": "128KB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB",
+      "mapping_decision": "exact",
+      "notes": "The paper evaluates performance with 128KB block size."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses throughput improvements."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses average latency improvements."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses latency in the context of 99th percentile."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses IOPS in the context of performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Understanding_system_characteristics_of_online_erasure_coding_on_scalable_distributed_and_large-scale_SSD_array_systems.pdf"
+}

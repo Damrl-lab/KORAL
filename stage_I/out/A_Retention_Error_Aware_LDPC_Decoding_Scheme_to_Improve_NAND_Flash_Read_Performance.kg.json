@@ -1,0 +1,130 @@
+{
+  "paper_id": "REAL: A Retention Error Aware LDPC Decoding Scheme to Improve NAND Flash Read Performance",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Read Performance",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E8",
+      "label": "LDPC",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E9",
+      "label": "Retention Errors",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E10",
+      "label": "Numerical-Correlation Characteristic",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "NAND flash with the advantages of high performance, large storage capacity, low power consumption, shock resistance, and non-volatility is widely used in various computer systems and consumer electronics products as a storage device.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The proposed REAL scheme can reduce the LDPC decoding latency by 26.44% and 33.05%, compared with the Logarithm Domain Min-Sum (LD-MS) and Probability Domain BP (PD-BP) schemes, respectively.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E10",
+      "evidence": "It has been observed that flash retention errors show the so-called numerical-correlation characteristic (i.e., the 0-1 bits stored in the flash cell affect each other with the leakage of the charge) in each flash cell.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "correlatesWith rdfs:domain SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)."
+  ],
+  "mappings": [
+    {
+      "label": "MLC",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is a specific type of flash technology cell type."
+    },
+    {
+      "label": "Retention Errors",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "parent",
+      "notes": "Retention errors are a type of error correction issue."
+    },
+    {
+      "label": "Numerical-Correlation Characteristic",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "parent",
+      "notes": "Numerical-correlation characteristic is related to error correction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Retention Error Aware LDPC Decoding Scheme to Improve NAND Flash Read Performance.pdf"
+}

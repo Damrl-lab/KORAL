@@ -1,0 +1,178 @@
+{
+  "paper_id": "HDD_Failure_Prediction_2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "HDD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "Reported Uncorrectable Errors",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors  [ID: 187]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%20Uncorrectable%20Errors%20%20%5BID%3A%20187%5D"
+    },
+    {
+      "id": "E6",
+      "label": "Command Timeout",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Command Timeout  [ID: 188]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Command%20Timeout%20%20%5BID%3A%20188%5D"
+    },
+    {
+      "id": "E7",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E8",
+      "label": "Temperature  [ID: 194]",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Temperature  [ID: 194]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%20%20%5BID%3A%20194%5D"
+    },
+    {
+      "id": "E9",
+      "label": "Uncorrectable Sector Count (Offline)",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Uncorrectable Sector Count (Offline)  [ID: 198]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Uncorrectable%20Sector%20Count%20%28Offline%29%20%20%5BID%3A%20198%5D"
+    },
+    {
+      "id": "E10",
+      "label": "UltraDMA CRC Error Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA CRC Error Count  [ID: 199]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%20CRC%20Error%20Count%20%20%5BID%3A%20199%5D"
+    },
+    {
+      "id": "E11",
+      "label": "Machine Learning Model",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory"
+    },
+    {
+      "id": "E12",
+      "label": "Random Forest",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory"
+    },
+    {
+      "id": "E13",
+      "label": "SVM",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The boom in cloud computing, online services and big data applications, have moved data storage resources away from individual computers into large capacity data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "The boom in cloud computing, online services and big data applications, have moved data storage resources away from individual computers into large capacity data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "includes",
+      "o": "E5",
+      "evidence": "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "includes",
+      "o": "E6",
+      "evidence": "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "includes",
+      "o": "E8",
+      "evidence": "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "includes",
+      "o": "E9",
+      "evidence": "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "includes",
+      "o": "E10",
+      "evidence": "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E11",
+      "p": "uses",
+      "o": "E12",
+      "evidence": "In the development of this work, two machine learning algorithms were used for the classification task such as Random Forests and SVM (Support Vector Machine).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "uses",
+      "o": "E13",
+      "evidence": "In the development of this work, two machine learning algorithms were used for the classification task such as Random Forests and SVM (Support Vector Machine).",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "includes rdfs:domain SMARTAttribute; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a factor in SMART attributes."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Predicting_Hard_Disk_Drive_Faults_Failures_and_Associated_Misbehaviors.pdf"
+}

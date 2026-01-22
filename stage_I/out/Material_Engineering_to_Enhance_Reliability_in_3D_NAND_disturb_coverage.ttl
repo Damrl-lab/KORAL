@@ -1,0 +1,135 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_4b9714da a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState." .
+
+ssd:axiom_9589609f a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_a80bf842 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/164917b79f2540bab8ffcdb2c0eb6410> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Despite the advanced reprogramming scheme and key memory controller technologies such as error correction code, wear leveling, and garbage collection to extend the limited cycle endurance of cells." .
+
+<http://example.org/ssd/assertion/1eae1c8d95cd4df791f0de76d9ffb111> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "Particularly, solid-state drive (SSD)-based data centers that leverage NAND flash memory are crucial for facilitating the computing paradigm." .
+
+<http://example.org/ssd/assertion/c429bfa9c1264014b2209e67cbd96e84> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E3_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Particularly, solid-state drive (SSD)-based data centers that leverage NAND flash memory are crucial for facilitating the computing paradigm." .
+
+<http://example.org/ssd/assertion/d509efbf766446caac99c5a1b9f2e9c9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "The adoption of triple-level cell (TLC: 3-bit per cell) technology in 3D NAND flash memory has further increased density." .
+
+<http://example.org/ssd/assertion/e5276e3c197e487caec63820947d34a0> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "This review aims to offer insights into the engineering strategies for materials and device structures to improve the reliability necessary for developing high-density 3D NAND flash memories." .
+
+<http://example.org/ssd/assertion/f3bf25ee694641a39e3f43ae180a62ec> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Recent advancements in 3D NAND flash memory are driven by the need for higher storage density and faster data access speed." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E3_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "Reliability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E1_3D_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash Memory" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:operatesUnder ssd:E3_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+

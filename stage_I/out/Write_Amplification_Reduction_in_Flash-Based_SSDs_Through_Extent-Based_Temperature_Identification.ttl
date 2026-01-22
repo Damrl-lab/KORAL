@@ -1,0 +1,133 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_096cdea6 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_4d50a1f3 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/MetricsHealthAndState/Performance." .
+
+ssd:axiom_8ff5d456 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/633aa8ed9571496a963555ce547d5168> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_MHF ;
+    ssd:predicate ssd:comparedTo ;
+    ssd:subject ssd:E2_ETI ;
+    dct:source "We compare it with two recently proposed hot data identification algorithms, Multiple Hash Functions and Multiple Bloom Filters, keeping the remainder of the FTL / cleaning algorithm unchanged." .
+
+<http://example.org/ssd/assertion/65256782263b4789bb837982567731a1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "We implement and evaluate this technology in simulation, using a page-mapped FTL with Greedy cleaning and separate hot and cold write frontiers." .
+
+<http://example.org/ssd/assertion/b23ff9a89c2748f0b8be05cad1c7f412> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_ETI ;
+    dct:source "In almost all cases write amplification was lower with the extent-based algorithm; although in some cases the improvement was modest, in others it was as much as 20%." .
+
+<http://example.org/ssd/assertion/c3cc1ab81f5e4838b8026c6adb6e6d4f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E6_EnvironmentalAndOperationalContext ;
+    dct:source "We implement and evaluate this technology in simulation, using a page-mapped FTL with Greedy cleaning and separate hot and cold write frontiers." .
+
+<http://example.org/ssd/assertion/e671e5e0d2024d8f958b36e64e5a076e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_MBF ;
+    ssd:predicate ssd:comparedTo ;
+    ssd:subject ssd:E2_ETI ;
+    dct:source "We compare it with two recently proposed hot data identification algorithms, Multiple Hash Functions and Multiple Bloom Filters, keeping the remainder of the FTL / cleaning algorithm unchanged." .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E4_MHF a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "MHF" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E5_MBF a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "MBF" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E7_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E6_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E2_ETI a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "ETI" ;
+    ssd:comparedTo ssd:E4_MHF,
+        ssd:E5_MBF ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E6_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E7_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Write Amplification" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+

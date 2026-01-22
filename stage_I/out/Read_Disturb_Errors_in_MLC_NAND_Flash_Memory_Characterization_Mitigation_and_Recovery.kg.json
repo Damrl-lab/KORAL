@@ -1,0 +1,139 @@
+{
+  "paper_id": "Read_Disturb_Errors_in_MLC_NAND_Flash_Memory",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "MLC_NAND_Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Read Disturb",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E5",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E6",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E7",
+      "label": "Vpass Tuning",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E8",
+      "label": "Read Disturb Recovery (RDR)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "NAND flash memory currently sees widespread usage as a storage device, having been incorporated into systems ranging from mobile devices and client computers to datacenter storage.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We evaluate Vpass Tuning with I/O traces collected from a wide range of real workloads with different use cases.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "degradedBy",
+      "o": "E4",
+      "evidence": "A key contributor to this reduced reliability is read disturb, where a read to one row of cells impacts the threshold voltages of unread flash cells in different rows of the same block.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "impacts",
+      "o": "E5",
+      "evidence": "Such disturbances may shift the threshold voltages of these unread cells to different logical states than originally programmed, leading to read errors that hurt endurance.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E7",
+      "p": "degrades",
+      "o": "E5",
+      "evidence": "Using real workload traces, our evaluations show that this technique increases flash memory endurance by an average of 21%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Our evaluations show that this recovery technique reduces the raw bit error rate by 36%.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "degradedBy rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement.",
+    "impacts rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Endurance.",
+    "improves rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Endurance.",
+    "improves rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC)."
+  ],
+  "mappings": [
+    {
+      "label": "Read Disturb",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Read disturb is a type of media management issue affecting endurance."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Endurance is directly mentioned in the context of read disturb effects."
+    },
+    {
+      "label": "Error Correction (ECC)",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "ECC is explicitly discussed as a mechanism for error correction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Read Disturb Errors in MLC NAND Flash Memory Characterization, Mitigation, and Recovery.pdf"
+}

@@ -1,0 +1,107 @@
+{
+  "paper_id": "Write Amplification Reduction in Flash-Based SSDs Through Extent-Based Temperature Identification",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ETI",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E3",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E4",
+      "label": "MHF",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E5",
+      "label": "MBF",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E6",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "We implement and evaluate this technology in simulation, using a page-mapped FTL with Greedy cleaning and separate hot and cold write frontiers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "We implement and evaluate this technology in simulation, using a page-mapped FTL with Greedy cleaning and separate hot and cold write frontiers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "In almost all cases write amplification was lower with the extent-based algorithm; although in some cases the improvement was modest, in others it was as much as 20%.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E2",
+      "p": "comparedTo",
+      "o": "E4",
+      "evidence": "We compare it with two recently proposed hot data identification algorithms, Multiple Hash Functions and Multiple Bloom Filters, keeping the remainder of the FTL / cleaning algorithm unchanged.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "comparedTo",
+      "o": "E5",
+      "evidence": "We compare it with two recently proposed hot data identification algorithms, Multiple Hash Functions and Multiple Bloom Filters, keeping the remainder of the FTL / cleaning algorithm unchanged.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Write Amplification",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Write Amplification is a performance metric related to SSD efficiency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Write Amplification Reduction in Flash-Based SSDs Through Extent-Based Temperature Identification.pdf"
+}

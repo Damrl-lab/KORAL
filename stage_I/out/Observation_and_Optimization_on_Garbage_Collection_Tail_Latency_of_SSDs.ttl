@@ -1,0 +1,153 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_4edcc1cc a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_89a5f240 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_c1ef07a5 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/09a17f37640f4d6cafa96e49100d93a1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E8_Workload_Profile_1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E7_Environmental_Context_1 ;
+    dct:source "Comprehensive experiments with real-world workloads have been performed on the SSDsim simulator." .
+
+<http://example.org/ssd/assertion/2a4184d93a6c40099147cf6a9b02939a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_SSD_1 ;
+    dct:source "The recent development of 3D flash memories has promoted the widespread application of SSDs." .
+
+<http://example.org/ssd/assertion/2f39d6ddcddc4905b214d8753e5fc197> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_Performance_Cliff ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    dct:source "Garbage collection (GC) as a time-consuming but necessary operation in flash memories largely affects the performance." .
+
+<http://example.org/ssd/assertion/7143a2069e494531a9dd6fbbbf10a65c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E4_Performance_Cliff ;
+    dct:source "This directly induces the sharp increase of tail latency that is often used as the evaluation of Quality of Service (QoS) by the industry." .
+
+<http://example.org/ssd/assertion/bb41d0d6754146829433921c6a880f61> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:objectLiteral "16KB" ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E8_Workload_Profile_1 ;
+    dct:source "Page size 4 k 16 k" .
+
+<http://example.org/ssd/assertion/bddb1be44a494338b17adb32816a2b5f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_Environmental_Context_1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD_1 ;
+    dct:source "Comprehensive experiments with real-world workloads have been performed on the SSDsim simulator." .
+
+<http://example.org/ssd/assertion/c44bbef5aa1644fb96ebe610c3407a6f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E6_PreGC ;
+    dct:source "Experimental results show that PreGC can efficiently relieve the performance cliff by reducing the tail latency from the 90th to 99.99th percentiles." .
+
+ssd:E6_PreGC a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "PreGC" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E1_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD_1" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:operatesUnder ssd:E7_Environmental_Context_1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_Performance_Cliff a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        owl:Thing ;
+    rdfs:label "Performance Cliff" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:E7_Environmental_Context_1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "Environmental Context 1" ;
+    ssd:hasWorkloadProfile ssd:E8_Workload_Profile_1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E8_Workload_Profile_1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "Workload Profile 1" ;
+    ssd:hasBlockSize "16KB" ;
+    ssd:unit "KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D Flash Memory" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Garbage Collection" ;
+    ssd:degrades ssd:E4_Performance_Cliff ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "Tail Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+

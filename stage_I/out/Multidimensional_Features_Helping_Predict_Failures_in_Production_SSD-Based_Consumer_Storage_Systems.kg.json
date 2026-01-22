@@ -1,0 +1,217 @@
+{
+  "paper_id": "DATE2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Consumer Laptop/Desktop",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Consumer Laptop/Desktop",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Consumer%20Laptop/Desktop"
+    },
+    {
+      "id": "E3",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E6",
+      "label": "M.2",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2"
+    },
+    {
+      "id": "E7",
+      "label": "3D TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E8",
+      "label": "FirmwareVersion",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion"
+    },
+    {
+      "id": "E9",
+      "label": "SMART",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E10",
+      "label": "WindowsEvent",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance"
+    },
+    {
+      "id": "E11",
+      "label": "BlueScreenofDeath",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "We study nearly 2.3 million SSDs from 12 drive models based on a dataset of SMART logs, trouble tickets, and error logs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "The data of consumer storage systems (CSS, e.g., Office/Desktop Computers, Laptops) are as important as data of enterprise storage systems.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E7",
+      "evidence": "The dataset consists of nearly 2.3 million M.2 SSDs based on 3D TLC NAND flash that supports the NVM Express protocol.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasInterfaceType",
+      "o": "E5",
+      "evidence": "The dataset consists of nearly 2.3 million M.2 SSDs based on 3D TLC NAND flash that supports the NVM Express protocol.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasFormFactor",
+      "o": "E6",
+      "evidence": "The dataset consists of nearly 2.3 million M.2 SSDs based on 3D TLC NAND flash that supports the NVM Express protocol.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasFirmwareVersion",
+      "o": "E8",
+      "evidence": "FirmwareVersion, WindowsEvent, and BlueScreenofDeath (SFWB) are closely related to SSD failures.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "monitoredBy",
+      "o": "E9",
+      "evidence": "SMART attributes are widely utilized to predict HDD failures.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "monitoredBy",
+      "o": "E10",
+      "evidence": "Some WindowsEvents (W) are early signals of SSD failures.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "monitoredBy",
+      "o": "E11",
+      "evidence": "Some BlueScreenofDeath (B) logs are early signals of SSD failures.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasFormFactor rdfs:domain SSD; rdfs:range FormFactor.",
+    "hasFirmwareVersion rdfs:domain SSD; rdfs:range Controller/FirmwareVersion.",
+    "monitoredBy rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Consumer Laptop/Desktop",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Consumer Laptop/Desktop",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses consumer-grade SSDs in laptops and desktops."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is mentioned as the interface type for the SSDs studied."
+    },
+    {
+      "label": "M.2",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2",
+      "mapping_decision": "exact",
+      "notes": "M.2 is specified as the form factor for the SSDs."
+    },
+    {
+      "label": "3D TLC",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "3D TLC is the flash technology used in the SSDs."
+    },
+    {
+      "label": "FirmwareVersion",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "mapping_decision": "exact",
+      "notes": "FirmwareVersion is discussed as a factor related to SSD failures."
+    },
+    {
+      "label": "SMART",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMART attributes are used for monitoring SSD health."
+    },
+    {
+      "label": "WindowsEvent",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance",
+      "mapping_decision": "parent",
+      "notes": "WindowsEvent is related to maintenance and error logging."
+    },
+    {
+      "label": "BlueScreenofDeath",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance",
+      "mapping_decision": "parent",
+      "notes": "BlueScreenofDeath is related to maintenance and error logging."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Multidimensional_Features_Helping_Predict_Failures_in_Production_SSD-Based_Consumer_Storage_Systems.pdf"
+}

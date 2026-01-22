@@ -1,0 +1,183 @@
+{
+  "paper_id": "13th_USENIX_FAST_2015_F2FS",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "F2FS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E2",
+      "label": "Mobile System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Mobile Device",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Mobile%20Device"
+    },
+    {
+      "id": "E3",
+      "label": "Server System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E4",
+      "label": "EXT4",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E5",
+      "label": "BTRFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E6",
+      "label": "NILFS2",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E7",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E8",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E9",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E10",
+      "label": "SATA SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E11",
+      "label": "PCIe SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Experimental results highlight the desirable performance of F2FS; on a state-of-the-art mobile system, it outperforms EXT4 under synthetic workloads by up to 3.1× (iozone) and 2× (SQLite).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "On a server system, F2FS is shown to perform better than EXT4 by up to 2.5× (SATA SSD) and 1.8× (PCIe SSD).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "F2FS reduces the elapsed time by 20% (Facebook-app) and 40% (Twitter-app) compared to EXT4.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "F2FS shows significantly better performance than other file systems and outperforms EXT4 by up to 2×.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "NILFS2 achieves similar performance with a nearly identical amount of data writes compared to EXT4.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The detrimental effects of random writes could be reduced by the log-structured file system (LFS) approach.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "The oltp workload generates a large number of random writes and fsync calls on a single 800MB database file.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E9",
+      "evidence": "F2FS turns over 90% of 4KB random writes into 512KB sequential writes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E10",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "In the case of the server system, we harness a SATA SSD and a (higher-speed) PCIe SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "In the case of the server system, we harness a SATA SSD and a (higher-speed) PCIe SSD.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the paper."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy workload is explicitly mentioned in the paper."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "F2FS A New File System for Flash Storage.pdf"
+}

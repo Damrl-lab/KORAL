@@ -1,0 +1,187 @@
+{
+  "paper_id": "Machine Learning Models for SSD and HDD Reliability Prediction",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E5",
+      "label": "LithographyNode",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LithographyNode",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LithographyNode"
+    },
+    {
+      "id": "E6",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E7",
+      "label": "SSD_MLC_A",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "SSD_MLC_B",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E9",
+      "label": "SSD_MLC_D",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E10",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "The SSD dataset consists of daily performance logs for three multi-level cell (MLC) SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "The SSD dataset consists of daily performance logs for three multi-level cell (MLC) SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "The SSD dataset consists of daily performance logs for three multi-level cell (MLC) SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "The SSD dataset consists of daily performance logs for three multi-level cell (MLC) SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The SSD dataset consists of daily performance logs for three multi-level cell (MLC) SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The SSD dataset consists of daily performance logs for three multi-level cell (MLC) SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The SSD dataset consists of daily performance logs for three multi-level cell (MLC) SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasLithographyNode",
+      "o": {
+        "@value": "50",
+        "unit": "nm"
+      },
+      "evidence": "All three models are manufactured by the same vendor and have a 480GB capacity and a lithography on the order of 50nm.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasLithographyNode",
+      "o": {
+        "@value": "50",
+        "unit": "nm"
+      },
+      "evidence": "All three models are manufactured by the same vendor and have a 480GB capacity and a lithography on the order of 50nm.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "hasLithographyNode",
+      "o": {
+        "@value": "50",
+        "unit": "nm"
+      },
+      "evidence": "All three models are manufactured by the same vendor and have a 480GB capacity and a lithography on the order of 50nm.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasLithographyNode rdfs:domain SSD; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly mentions a Google data center."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "The paper refers to multi-level cell (MLC) SSD models."
+    },
+    {
+      "label": "LithographyNode",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LithographyNode",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies a lithography node of 50nm."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Machine_Learning_Models_for_SSD_and_HDD_Reliability_Prediction.pdf"
+}

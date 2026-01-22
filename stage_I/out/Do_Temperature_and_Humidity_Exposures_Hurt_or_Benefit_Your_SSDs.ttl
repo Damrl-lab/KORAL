@@ -1,0 +1,155 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0c7feee8 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_171fa505 a owl:Axiom ;
+    rdfs:comment "hasRelativeHumidity rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_c0b2f798 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_e39529c6 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1714ab7175fc437189adb81eaaaf9d50> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object ssd:E7_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EC1 ;
+    dct:source "The FIO is configured to use the 'libaio' I/O engine, with an I/O depth of 16, 50:50 read/write ratio, and I/O sizes of 4KB to 1MB." .
+
+<http://example.org/ssd/assertion/3bfbf95b134f4f6582d50c8fcf7c3ded> a ssd:Assertion ;
+    ssd:confidence 0.75 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E6_MLC_SSD_1 ;
+    dct:source "Although the TLC SSDs show a very little performance degradation, the 99th tail latency of the MLC SSDs can increase up to 18%." .
+
+<http://example.org/ssd/assertion/50b69de089f54c038818173098c9eacb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E6_MLC_SSD_1 ;
+    dct:source "We found that runtime temperature changes mostly affects the TLC SSDs." .
+
+<http://example.org/ssd/assertion/922dc3470c324e2899913606fb3a15ca> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E5_TLC_SSD_1 ;
+    dct:source "Counter-intuitively, we observed that the tail latencies improved 50% after SSDs were exposed to abrupt temperature and humidity changes." .
+
+<http://example.org/ssd/assertion/a01c09fc92634dc9be45f306ff8899fa> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "50" ;
+    ssd:predicate ssd:hasRelativeHumidity ;
+    ssd:subject ssd:E2_EC1 ;
+    dct:source "We observed a high positive impact on the SSD bandwidth at 60°C." .
+
+<http://example.org/ssd/assertion/a49fd735c23e428d82ae9fcb50154dce> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "60" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E2_EC1 ;
+    dct:source "We observed a high positive impact on the SSD bandwidth at 60°C." .
+
+<http://example.org/ssd/assertion/d9999c91d2cd496ca3dbaa12f754c06c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E5_TLC_SSD_1 ;
+    dct:source "We found that runtime temperature changes mostly affects the TLC SSDs." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity> rdfs:label "Humidity" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E5_TLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "TLC_SSD_1" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:operatesUnder ssd:E2_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E6_MLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "MLC_SSD_1" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:operatesUnder ssd:E2_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E7_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+ssd:E2_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasRelativeHumidity "50" ;
+    ssd:hasTemperature "60" ;
+    ssd:hasWorkloadProfile ssd:E7_WP1 ;
+    ssd:unit "C",
+        "RH" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+

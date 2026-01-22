@@ -1,0 +1,151 @@
+{
+  "paper_id": "Chakraborttii2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E6",
+      "label": "Humidity",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity"
+    },
+    {
+      "id": "E7",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "We analyze drive observations from over 30,000 SSDs from Google’s data center spanning six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "We analyze drive observations from over 30,000 SSDs from Google’s data center spanning six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Recent research has shown that the locality of storage devices has a strong correlation with failures due to similar environmental factors, such as relative humidity and temperature.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasTemperature",
+      "o": "E5",
+      "evidence": "Recent research has shown that the locality of storage devices has a strong correlation with failures due to similar environmental factors, such as relative humidity and temperature.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasRelativeHumidity",
+      "o": "E6",
+      "evidence": "Recent research has shown that the locality of storage devices has a strong correlation with failures due to similar environmental factors, such as relative humidity and temperature.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Our GAN-based approach improves the performance of failed drive predictions by 12% compared to the state-of-the-art.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Predicting SSD failures helps with procuring drives in advance to avoid capacity bottlenecks.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasRelativeHumidity rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as an environmental factor affecting SSD failures."
+    },
+    {
+      "label": "Humidity",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "mapping_decision": "exact",
+      "notes": "Humidity is explicitly mentioned as an environmental factor affecting SSD failures."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Performance improvement is mentioned in the context of failure prediction."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "parent",
+      "notes": "Reliability is improved by predicting SSD failures to avoid capacity bottlenecks."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Leveraging_Temporality_of_Data_to_Improve_Failure_Predictions_for_Solid_State_Drives_in_Data_Centers.pdf"
+}

@@ -1,0 +1,166 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_253494ce a owl:Axiom ;
+    rdfs:comment "hasHostSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range HostSystem." .
+
+ssd:axiom_6501ee6b a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_6fb5e712 a owl:Axiom ;
+    rdfs:comment "degrades rdfs:domain ConfigurationAndAdvancedParadigms; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_774d5c7a a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic/DataPath; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_b0c022a5 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_ef9f1a7d a owl:Axiom ;
+    rdfs:comment "causes rdfs:domain InternalFirmwareAndLogic/DataPath; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1d84cabf33f74cccb87bba8788e990e0> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> ;
+    ssd:predicate ssd:hasHostSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "To prevent performance degradation caused by fragmentation, file systems utilize various techniques." .
+
+<http://example.org/ssd/assertion/23e7c4a494204f2ca655ec5ffc5d1ef2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We propose an NVMe command extension combined with a page-to-die allocation algorithm designed to ensure that contiguous blocks always land on successive dies." .
+
+<http://example.org/ssd/assertion/3c394bc6201e4bc3bd62b9da6d4f88f2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:causes ;
+    ssd:subject ssd:E7_Die_Level_Collisions ;
+    dct:source "This randomness escalates the chances of die-level collisions, causing deteriorated read performance later." .
+
+<http://example.org/ssd/assertion/7b37c97a231c4ef0b038c22725ca45b3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E5_Fragmentation ;
+    dct:source "A few studies reported that fragmentation still adversely affects the performance of flash solid-state disks (SSDs) particularly through request splitting." .
+
+<http://example.org/ssd/assertion/a74bef6f66c64fee9f382d36b7c15afa> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E8_Page_to_Die_Mapping ;
+    ssd:predicate ssd:causes ;
+    ssd:subject ssd:E9_Overwrites ;
+    dct:source "We also reveal that this may happen when a file is overwritten." .
+
+<http://example.org/ssd/assertion/aa009bf50da84daeac2f529c03e0f93a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "This research investigates the fragmentation-induced performance degradation across three levels: kernel I/O path, host-storage interface, and flash memory accesses in SSDs." .
+
+<http://example.org/ssd/assertion/cf135eb256524a95bc333fb23a786af3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E8_Page_to_Die_Mapping ;
+    dct:source "We propose an NVMe command extension combined with a page-to-die allocation algorithm designed to ensure that contiguous blocks always land on successive dies." .
+
+ssd:E5_Fragmentation a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms>,
+        owl:Thing ;
+    rdfs:label "Fragmentation" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms> .
+
+ssd:E7_Die_Level_Collisions a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath>,
+        owl:Thing ;
+    rdfs:label "Die-Level Collisions" ;
+    ssd:causes <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath> .
+
+ssd:E9_Overwrites a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms>,
+        owl:Thing ;
+    rdfs:label "Overwrites" ;
+    ssd:causes ssd:E8_Page_to_Die_Mapping ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms> .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasHostSystem <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E8_Page_to_Die_Mapping a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath>,
+        owl:Thing ;
+    rdfs:label "Page-to-Die Mapping" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> rdfs:label "File System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Read Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+

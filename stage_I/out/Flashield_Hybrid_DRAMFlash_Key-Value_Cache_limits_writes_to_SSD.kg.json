@@ -1,0 +1,122 @@
+{
+  "paper_id": "Flashield: a Hybrid Key-value Cache that Controls Flash Write Amplification",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Flashield",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E6",
+      "label": "Memcachier",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack"
+    },
+    {
+      "id": "E7",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We describe Flashield’s design and implementation, and evaluate it on real-world traces from a widely used caching service, Memcachier.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "Compared to state-of-the-art systems that suffer a write amplification of 2.5× or more, Flashield maintains a median write amplification of 0.5×.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "degradedBy",
+      "o": "E5",
+      "evidence": "In particular, the next generation of flash technology (QLC), can endure 30× fewer writes than the existing technology (TLC).",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The durability of flash has limited its adoption in write-heavy use cases, such as key-value caching.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection.",
+    "degradedBy rdfs:domain SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasWorkloadProfile rdfs:domain SSD; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Write Amplification",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a result of garbage collection processes."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy is a specific workload profile."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Flashield Hybrid DRAMFlash Key-Value Cache (limits writes to SSD).pdf"
+}

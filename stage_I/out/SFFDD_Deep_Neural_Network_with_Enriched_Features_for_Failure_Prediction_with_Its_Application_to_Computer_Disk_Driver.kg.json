@@ -1,0 +1,305 @@
+{
+  "paper_id": "SFFDD_Deep_Neural_Network_with_Enriched_Features_for_Failure_Prediction",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "Humidity",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E7",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E8",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E9",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E10",
+      "label": "HostSystem",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem"
+    },
+    {
+      "id": "E11",
+      "label": "SATA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E12",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E13",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E14",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E15",
+      "label": "FailurePrediction",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/DerivedIndicators",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/DerivedIndicators"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We apply the proposed method on the early predict failure of computer disk drive in order to improve storage systems availability and avoid data loss.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasRelativeHumidity",
+      "o": {
+        "@value": "50",
+        "unit": "RH"
+      },
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasReadWriteMix",
+      "o": "E7",
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasBlockSize",
+      "o": "E8",
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasQueueDepth",
+      "o": "E9",
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E11",
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasSMARTAttribute",
+      "o": "E12",
+      "evidence": "The dataset for all disk models is used and only nine raw S.M.A.R.T metrics are used to build the model: 5, 12, 187, 188, 189, 190, 198, 199 and 200.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformance",
+      "o": "E13",
+      "evidence": "The classification accuracy is largely improved with the enriched features, named smart features.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasReliability",
+      "o": "E14",
+      "evidence": "The classification accuracy is largely improved with the enriched features, named smart features.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasFailurePrediction",
+      "o": "E15",
+      "evidence": "We apply the proposed method on the early predict failure of computer disk drive in order to improve storage systems availability and avoid data loss.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasRelativeHumidity rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "hasPerformance rdfs:domain SSD; rdfs:range Performance.",
+    "hasReliability rdfs:domain SSD; rdfs:range Reliability.",
+    "hasFailurePrediction rdfs:domain SSD; rdfs:range DerivedIndicators."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a factor in the dataset."
+    },
+    {
+      "label": "Humidity",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "mapping_decision": "exact",
+      "notes": "Humidity is directly mentioned as a factor in the dataset."
+    },
+    {
+      "label": "WorkloadProfile",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "mapping_decision": "exact",
+      "notes": "Workload profile is a key aspect of the operational context."
+    },
+    {
+      "label": "AccessPattern",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Access pattern is part of the workload profile."
+    },
+    {
+      "label": "ReadWriteMix",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "Read/write mix is part of the workload profile."
+    },
+    {
+      "label": "BlockSize",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "Block size is part of the workload profile."
+    },
+    {
+      "label": "QueueDepth",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "mapping_decision": "exact",
+      "notes": "Queue depth is part of the workload profile."
+    },
+    {
+      "label": "SATA",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "mapping_decision": "exact",
+      "notes": "SATA is the interface type used in the dataset."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMART attributes are used for failure prediction."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Performance metrics are improved by smart features."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a key concern in failure prediction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SFFDD_Deep_Neural_Network_with_Enriched_Features_for_Failure_Prediction with_Its_Application_to_Computer_Disk_Driver.pdf"
+}

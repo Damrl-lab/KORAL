@@ -1,0 +1,141 @@
+{
+  "paper_id": "DEBS2024_GC",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext_Instance",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "SSD_Wear_Leveling_Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/SSD Wear Leveling Count  [ID: 173]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%20Wear%20Leveling%20Count%20%20%5BID%3A%20173%5D"
+    },
+    {
+      "id": "E5",
+      "label": "Unexpected_Power_Loss_Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Unexpected Power Loss Count  [ID: 174]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Unexpected%20Power%20Loss%20Count%20%20%5BID%3A%20174%5D"
+    },
+    {
+      "id": "E6",
+      "label": "Temperature_Celsius",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Temperature  [ID: 194]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%20%20%5BID%3A%20194%5D"
+    },
+    {
+      "id": "E7",
+      "label": "Total_LBAs_Written",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Total LBAs Written  [ID: 241]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%20LBAs%20Written%20%20%5BID%3A%20241%5D"
+    },
+    {
+      "id": "E8",
+      "label": "Total_LBAs_Read",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Total LBAs Read  [ID: 242]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%20LBAs%20Read%20%20%5BID%3A%20242%5D"
+    },
+    {
+      "id": "E9",
+      "label": "DriveState",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E9",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The data set contains events covering over 200k hard disks, with daily updates about their status.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E1",
+      "evidence": "The DEBS GC 2024 adopts a large dataset made available by Backblaze.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "hasSMARTAttribute",
+      "o": "E4",
+      "evidence": "Counts the maximum worst erase count on any block.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasSMARTAttribute",
+      "o": "E5",
+      "evidence": "Number of unclean shutdowns, i.e., removal of power without STANDBY IMMEDIATE as the last command.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasSMARTAttribute",
+      "o": "E6",
+      "evidence": "Device temperature in Celsius degrees.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasSMARTAttribute",
+      "o": "E7",
+      "evidence": "Total count of LBAs written.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasSMARTAttribute",
+      "o": "E8",
+      "evidence": "Total count of LBAs read.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses telemetry data from datacenters."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "parent",
+      "notes": "SMART attributes are a key focus of the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "The_DEBS_2024_Grand_Challenge_Telemetry_Data_for_Hard_Drive_Failure_Prediction.pdf"
+}

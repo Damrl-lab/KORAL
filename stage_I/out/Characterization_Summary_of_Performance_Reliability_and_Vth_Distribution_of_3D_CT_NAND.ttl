@@ -1,0 +1,197 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_1120e5cc a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth." .
+
+ssd:axiom_2ba6c4cc a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:axiom_56d7a3e6 a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_7f0354db a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_a3640d0b a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_c3eb650f a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_fb95bd88 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0aefb4bb69ac461f9520396e0057cc49> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E8_WP1 ;
+    dct:source "We deploy the sequential full-block read operation, the same as Reference [25]." .
+
+<http://example.org/ssd/assertion/1007697c25aa4ef6acfe28955a69de5b> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E8_WP1 ;
+    dct:source "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively." .
+
+<http://example.org/ssd/assertion/17023484ea4e49ab814a5455336bec8b> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_3D_CT_NAND_Flash ;
+    dct:source "CT cell can improve the endurance and reliability and reduce the operation latency." .
+
+<http://example.org/ssd/assertion/18dbce7db0c54fae9017c319cc4c5c84> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_3D_CT_NAND_Flash ;
+    dct:source "In recent years, 3D NAND flash memory has been gradually widely used in solid-state drive (SSD) benefiting from its high storage capacity." .
+
+<http://example.org/ssd/assertion/316aa998295f4975a021e80bf2a903de> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "85" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    dct:source "We bake the flash chips to accelerate the speed of DR time at 85°C." .
+
+<http://example.org/ssd/assertion/3e3175312d91477e89c673bbb829364e> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E8_WP1 ;
+    dct:source "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively." .
+
+<http://example.org/ssd/assertion/51765cdc977f434a942a7d0619fc92df> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object ssd:E8_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    dct:source "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively." .
+
+<http://example.org/ssd/assertion/55dbb0737fab4070a8bb748a554fd89f> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_3D_CT_NAND_Flash ;
+    dct:source "CT cell can improve the endurance and reliability and reduce the operation latency." .
+
+<http://example.org/ssd/assertion/8098916ffa1d41a59c7f538054fafaea> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E5_Vth_Distribution ;
+    ssd:predicate ssd:hasStateSnapshot ;
+    ssd:subject ssd:E2_3D_CT_NAND_Flash ;
+    dct:source "We then analyze the Vth shift with interferences." .
+
+<http://example.org/ssd/assertion/8c296788017e433e9976b4ba8e7808e5> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E8_WP1 ;
+    dct:source "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E5_Vth_Distribution a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot>,
+        owl:Thing ;
+    rdfs:label "Vth Distribution" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> rdfs:label "AccessPattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> rdfs:label "BlockSize" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> rdfs:label "QueueDepth" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> rdfs:label "ReadWriteMix" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "Reliability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+ssd:E2_3D_CT_NAND_Flash a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D>,
+        owl:Thing ;
+    rdfs:label "3D CT NAND Flash" ;
+    ssd:hasStateSnapshot ssd:E5_Vth_Distribution ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasTemperature "85" ;
+    ssd:hasWorkloadProfile ssd:E8_WP1 ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E8_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> ;
+    ssd:hasQueueDepth <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

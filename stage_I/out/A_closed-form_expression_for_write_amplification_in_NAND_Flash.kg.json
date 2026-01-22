@@ -1,0 +1,158 @@
+{
+  "paper_id": "Agarwal_Marrow_2010",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E4",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E5",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning"
+    },
+    {
+      "id": "E6",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E7",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E8",
+      "label": "Write Amplification",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This paper presents a novel probabilistic model to analytically quantify the impact of over-provisioning on write amplification under a uniformly-distributed random workload and a greedy garbage collection policy.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "The analysis assumes a simplistic model of the NAND-flash memory, in which, all the incoming host data is hot.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "The analysis assumes a simplistic model of the NAND-flash memory, in which, all the incoming host data is hot.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "The impact of garbage collection on write amplification is influenced by the following factors: the level of over-provisioning, the choice of reclaiming policy, and the types of workloads.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E6",
+      "evidence": "The greedy reclaiming policy leads to the lowest contribution to write amplification with independently, randomly, uniformly distributed writes of hot data only.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E7",
+      "evidence": "Therefore, in flash, write amplification corresponds to the additional writes caused by garbage collection and by wear leveling.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E8",
+      "p": "correlatesWith",
+      "o": "E5",
+      "evidence": "The over-provisioning or conversely the utilization is closely tied to write amplification due to garbage collection.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning.",
+    "improvedBy rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement.",
+    "correlatesWith rdfs:domain MetricsHealthAndState/Performance; rdfs:range ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "The paper describes a uniformly-distributed random workload."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper assumes all incoming host data is hot, indicating a write-heavy workload."
+    },
+    {
+      "label": "Over-Provisioning",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses over-provisioning as a factor influencing write amplification."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses garbage collection policies affecting write amplification."
+    },
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions wear leveling as a factor in write amplification."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A_closed-form_expression_for_write_amplification_in_NAND_Flash.pdf"
+}

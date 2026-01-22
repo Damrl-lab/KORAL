@@ -1,0 +1,127 @@
+{
+  "paper_id": "ITC2023_00039",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "Humidity",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity"
+    },
+    {
+      "id": "E5",
+      "label": "GAN-ASTSeq",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Defect Detection Rate",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Usually, Integrated Circuits (ICs) are placed on a load board and tested in parallel under controlled conditions (e.g., temperature, humidity, etc).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "The SSD MST environment is configured like a server room with multiple test racks, and each rack services multiple SSDs testing.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasRelativeHumidity",
+      "o": {
+        "@value": "50",
+        "unit": "RH"
+      },
+      "evidence": "The SSD MST environment is configured like a server room with multiple test racks, and each rack services multiple SSDs testing.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E5",
+      "evidence": "It reduces the temporal cost by 80.2% (i.e., improves the efficiency by 4 ×) while maintaining an outstanding detection rate of defects.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "It reduces the temporal cost by 80.2% (i.e., improves the efficiency by 4 ×) while maintaining an outstanding detection rate of defects.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Moreover, our approach improves the manufacturing self-test productivity and efficiency significantly, with a reduction of 80.2% in terms of temporal cost.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasRelativeHumidity rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a controlled condition in the test environment."
+    },
+    {
+      "label": "Humidity",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "mapping_decision": "exact",
+      "notes": "Humidity is directly mentioned as a controlled condition in the test environment."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Improving_Productivity_and_Efficiency_of_SSD_Manufacturing_Self-Test_Process_by_Learning-Based_Proactive_Defect_Prediction.pdf"
+}

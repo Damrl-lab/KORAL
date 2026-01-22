@@ -1,0 +1,146 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_6a750059 a owl:Axiom ;
+    rdfs:comment "exhibits rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:axiom_9f0eb985 a owl:Axiom ;
+    rdfs:comment "improvedBy rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/4561c9f0b2f74a6cbe73e683e4e522db> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:exhibits ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "3D NAND flash memory experiences early retention loss, a new phenomenon where the number of errors due to charge leakage increases quickly within several hours after programming." .
+
+<http://example.org/ssd/assertion/b8c5d5f8a69240dc890e5d92c2a62af2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:exhibits ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "3D NAND flash memory exhibits layer-to-layer process variation, a new phenomenon specific to the 3D nature of the device." .
+
+<http://example.org/ssd/assertion/c0cceefaf17347ac902e9581e1655215> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E5_LaVAR ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Our first technique, LayerVariation Aware Reading (LaVAR), reduces the effect of layer-to-layer process variation by fine-tuning the read reference voltage separately for each layer." .
+
+<http://example.org/ssd/assertion/cf24b8662d9c4b568792777ef0755a65> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_ReMAR ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Our third technique, Retention Model Aware Reading (ReMAR), reduces retention errors in 3D NAND flash memory by tracking the retention time of the data using our new retention model." .
+
+<http://example.org/ssd/assertion/d323fd75600045bdb809e590179d98c6> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_LI_RAID ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Our second technique, Layer-Interleaved Redundant Array of Independent Disks (LI-RAID), uses information about layer-to-layer process variation to intelligently group pages under the RAID error recovery technique." .
+
+<http://example.org/ssd/assertion/d67a1efbb63b41dc9ce1045cf1ac76c9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:exhibits ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "3D NAND flash memory experiences retention interference, a new phenomenon where the rate at which charge leaks from a flash cell is dependent on the amount of charge stored in neighboring flash cells." .
+
+<http://example.org/ssd/assertion/d8c8846277334e17b5b18b4a88347cb8> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E8_ReNAC ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Our fourth technique, Retention Interference Aware Neighbor-Cell Assisted Correction (ReNAC), adapts the read reference voltage to the amount of retention interference a page has experienced." .
+
+ssd:E5_LaVAR a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        owl:Thing ;
+    rdfs:label "LaVAR" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+ssd:E6_LI_RAID a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5>,
+        owl:Thing ;
+    rdfs:label "LI-RAID" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> .
+
+ssd:E7_ReMAR a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "ReMAR" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:E8_ReNAC a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "ReNAC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "Layer-to-Layer Process Variation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+ssd:E1_3D_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash Memory" ;
+    ssd:exhibits <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:improvedBy ssd:E5_LaVAR,
+        ssd:E6_LI_RAID,
+        ssd:E7_ReMAR,
+        ssd:E8_ReNAC ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Early Retention Loss",
+        "Retention Interference" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+

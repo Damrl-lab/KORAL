@@ -1,0 +1,202 @@
+{
+  "paper_id": "High-performance and Scalable Software-based NVMe Virtualization Mechanism with I/O Queues Passthrough",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "LightIOV",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E4",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E6",
+      "label": "SPDK-Vhost",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "VFIO",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E9",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E10",
+      "label": "QD1",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "NVMe SSDs are widely deployed in data centers such as AWS, Alibaba Cloud, Microsoft Azure, and Google Cloud.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "Results from our experiments show that LightIOV can provide comparable performance to VFIO, with an IOPS of 97.6%-100.2% of VFIO.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "LightIOV achieves 31.4% lower latency than SPDK-Vhost when running 200 VMs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E5",
+      "evidence": "The key idea behind LightIOV is NVMe hardware I/O queues passthrough.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "comparedTo",
+      "o": "E6",
+      "evidence": "LightIOV achieves 31.4% lower latency than SPDK-Vhost when running 200 VMs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "comparedTo",
+      "o": "E7",
+      "evidence": "Results from our experiments show that LightIOV can provide comparable performance to VFIO, with an IOPS of 97.6%-100.2% of VFIO.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": {
+        "@value": "Random",
+        "unit": "AccessPattern"
+      },
+      "evidence": "We ran 4k-randread-1-1 on these VMs and measured the average latency and overall throughput of all VMs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasBlockSize",
+      "o": "E9",
+      "evidence": "We ran 4k-randread-1-1 on these VMs and measured the average latency and overall throughput of all VMs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasQueueDepth",
+      "o": "E10",
+      "evidence": "We ran 4k-randread-1-1 on these VMs and measured the average latency and overall throughput of all VMs.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "hasWorkloadProfile rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions deployment in data centers."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper provides specific IOPS metrics."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses latency improvements."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper focuses on NVMe interface."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "The paper describes random access patterns."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies a 4KB block size."
+    },
+    {
+      "label": "QD1",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies a queue depth of 1."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "LightIOV- High‑performance and Scalable Software‑based NVMe Virtualization.pdf"
+}

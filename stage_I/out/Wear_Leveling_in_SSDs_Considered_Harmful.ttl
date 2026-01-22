@@ -1,0 +1,135 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_05e0ec0c a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning; rdfs:range SSD/MetricsHealthAndState/Endurance." .
+
+ssd:axiom_0b23855f a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_6c3d1525 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_9ab482af a owl:Axiom ;
+    rdfs:comment "degrades rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/MetricsHealthAndState/Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/07a9ad25c35d4560a6792c41a2f5ca2b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "We extend FTLSim for our experiments. This prior work validates the analytical model for SSD performance and thus focuses on accurately modeling SSD-internal statistics, rather than SSD-external performance such as latency and throughput." .
+
+<http://example.org/ssd/assertion/2095881280d24245a5a0179bd7dd2306> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E7_EnvironmentalAndOperationalContext ;
+    dct:source "All I/Os are small random writes, but the distribution is controlled by two parameters." .
+
+<http://example.org/ssd/assertion/4068779a3eca4e91b366b6fbceff32e8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_Write_Amplification ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    dct:source "Our experiments find that WL algorithms produce a counter-productive result where the erase counts diverge, increasing the spread rather than reducing it." .
+
+<http://example.org/ssd/assertion/ac6dd75e33934c44a38440368311a4ae> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_Capacity_Variance ;
+    dct:source "Our experimental results show that capacity variance allows up to 84% more writes to the SSD with wear leveling, and up to 2.94× more writes without WL." .
+
+<http://example.org/ssd/assertion/b102f9c94a6946869a19e920cf4acb11> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "We set the endurance limit to 500 erases, a typical level for QLC." .
+
+ssd:E4_Capacity_Variance a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning>,
+        owl:Thing ;
+    rdfs:label "Capacity Variance" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning> .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E3_Write_Amplification a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        owl:Thing ;
+    rdfs:label "Write Amplification" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Wear Leveling" ;
+    ssd:degrades ssd:E3_Write_Amplification ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:E7_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:operatesUnder ssd:E7_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random Access Pattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> rdfs:label "QLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> .
+

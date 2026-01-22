@@ -1,0 +1,91 @@
+{
+  "paper_id": "Optimality_of_Greedy_GC_for_SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E3",
+      "label": "Write Amplification",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "evidence": "The cost of a GC process is typically measured in terms of its write amplification, i.e., the number of blocks internally written by the SSD divided by the number of write requests of the host.",
+      "confidence": 0.9,
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E4",
+      "label": "GREEDY",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "evidence": "In this paper we consider the greedy GC strategy (called GREEDY) which always selects the block with the smallest number of valid pages as victim block.",
+      "confidence": 0.9,
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E5",
+      "label": "Random Access Pattern",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "evidence": "GREEDY minimizes the write amplification for random access patterns without temporal locality.",
+      "confidence": 0.9,
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "minimizes",
+      "o": "E3",
+      "evidence": "GREEDY minimizes the write amplification for random access patterns without temporal locality.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "GREEDY minimizes the write amplification for random access patterns without temporal locality.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "minimizes rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is explicitly discussed in the context of SSDs."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Write Amplification is a performance metric related to internal writes."
+    },
+    {
+      "label": "Random Access Pattern",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Random Access Pattern is directly mentioned in the context of workload profiles."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "On_the_Optimality_of_the_Greedy_Garbage_Collection_Strategy_for_SSDs.pdf"
+}

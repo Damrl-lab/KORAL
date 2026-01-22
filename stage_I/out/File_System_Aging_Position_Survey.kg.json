@@ -1,0 +1,192 @@
+{
+  "paper_id": "arXiv:2401.08858v1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E2",
+      "label": "ext4",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E3",
+      "label": "Btrfs",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E4",
+      "label": "XFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E5",
+      "label": "ZFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E6",
+      "label": "F2FS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E7",
+      "label": "BetrFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E8",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E9",
+      "label": "HDD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E10",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E11",
+      "label": "Read Performance",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E12",
+      "label": "Fragmentation",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E13",
+      "label": "Aging",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "For example, ext4 shows over a 2× slowdown after 1200 git pulls.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "Btrfs and ZFS slow down similarly after 1300 and 1600 pulls, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "XFS and ZFS achieve a scan throughput of only 19–40MiB/s.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "ZFS over 60 minutes; BetrFS, on the other hand, took less than a minute.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "F2FS took over 50 minutes and ZFS over 60 minutes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "BetrFS typically outperforms the other file systems in our benchmarks.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "correlatesWith",
+      "o": "E12",
+      "evidence": "Even on SSDs, which do not perform mechanical seeks, a decline in logical block locality can harm performance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E12",
+      "evidence": "Reading these files requires additional seeks, and on hard drives, a few seeks can have an outsized effect on performance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E13",
+      "p": "impacts",
+      "o": "E11",
+      "evidence": "We argue that these slowdowns are caused by poor layout.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "degrades rdfs:domain SSD/EnvironmentalAndOperationalContext/HostSystem/File System; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "improves rdfs:domain SSD/EnvironmentalAndOperationalContext/HostSystem/File System; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "correlatesWith rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection.",
+    "impacts rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "File System",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "File systems are a core component of the host system."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Performance is a key metric in the study."
+    },
+    {
+      "label": "Fragmentation",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Fragmentation is related to garbage collection and impacts performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "File System Aging (Position Survey).pdf"
+}

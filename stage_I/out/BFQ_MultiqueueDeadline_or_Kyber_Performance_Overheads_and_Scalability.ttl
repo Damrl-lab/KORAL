@@ -1,0 +1,172 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_136be8c4 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_21bf8d72 a owl:Axiom ;
+    rdfs:comment "hasPerformanceMetric rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_7e6ff52a a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_c33549d7 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_d54c7288 a owl:Axiom ;
+    rdfs:comment "degrades rdfs:domain I/O Scheduler; rdfs:range Performance." .
+
+ssd:axiom_f7fb0cc0 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain I/O Scheduler; rdfs:range Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/040f251af9254f2b9cca6ec7ca678f47> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E8_BFQ ;
+    dct:source "Kyber and BFQ can deliver 99.3% lower P99 latency than None or MQ-Deadline schedulers in the presence of multiple interfering workloads." .
+
+<http://example.org/ssd/assertion/4e8280ad035448eca60634f8e4781e0f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Flash SSDs have become the de-facto choice to deliver high I/O performance to modern data-intensive workloads." .
+
+<http://example.org/ssd/assertion/808d18bf719047adb2683a93e0e5d3fd> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:hasPerformanceMetric ;
+    ssd:subject tax:SSD ;
+    dct:source "Modern flash-based NVMe solid-state drives (SSDs) are able to deliver millions of I/O operations per second (IOPS)." .
+
+<http://example.org/ssd/assertion/a18032e8381f4ee6b613695f80b29773> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:hasPerformanceMetric ;
+    ssd:subject tax:SSD ;
+    dct:source "Kyber and BFQ can deliver 99.3% lower P99 latency than None or MQ-Deadline schedulers in the presence of multiple interfering workloads." .
+
+<http://example.org/ssd/assertion/abf4bbe1e116488bbaf210032b53237b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E9_MQ_Deadline ;
+    dct:source "Kyber and BFQ can deliver 99.3% lower P99 latency than None or MQ-Deadline schedulers in the presence of multiple interfering workloads." .
+
+<http://example.org/ssd/assertion/be9b836730584eaf843972ec19a00d2d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject tax:SSD ;
+    dct:source "Modern flash-based NVMe solid-state drives (SSDs) are able to deliver millions of I/O operations per second (IOPS)." .
+
+<http://example.org/ssd/assertion/cbbb386ec29a401498bd4a53c1a74916> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E7_Kyber ;
+    dct:source "Kyber and BFQ can deliver 99.3% lower P99 latency than None or MQ-Deadline schedulers in the presence of multiple interfering workloads." .
+
+<http://example.org/ssd/assertion/f1121b61f1bf485dba4b884d37364ab1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E3_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We focus on two kinds of applications in this work, latency-sensitive and throughput-bound." .
+
+ssd:E7_Kyber a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler>,
+        owl:Thing ;
+    rdfs:label "Kyber" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:E8_BFQ a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler>,
+        owl:Thing ;
+    rdfs:label "BFQ" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:E9_MQ_Deadline a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler>,
+        owl:Thing ;
+    rdfs:label "MQ-Deadline" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E3_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E3_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:hasPerformanceMetric <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+

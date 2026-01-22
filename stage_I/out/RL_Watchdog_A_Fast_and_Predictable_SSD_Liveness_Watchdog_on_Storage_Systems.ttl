@@ -1,0 +1,229 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_029af028 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:axiom_22f6ec66 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_6149011d a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_88c23461 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_9f8ef3d2 a owl:Axiom ;
+    rdfs:comment "supportsFileSystem rdfs:domain Operating System; rdfs:range File System." .
+
+ssd:axiom_a3f174e7 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_bebd7f2c a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_bf534c1a a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_e6871199 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/006816ad77c3476abf927baa6178b826> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "We use eight threads using a 20 GB file per thread and a 4 KB request size." .
+
+<http://example.org/ssd/assertion/20d44bf5c1b24c1d8ba26bdd352c5836> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "This paper focuses on NVMe SSDs since they have increasingly been adopted in various storage systems." .
+
+<http://example.org/ssd/assertion/246942dec65c40349025578d0ae210ee> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "70" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Unfortunately, even if these mechanisms can recover written data or committed transactions, when a sudden SSD failure caused by various faults (e.g., SSD controller/power faults [36,71], high SSD temperature [45,59,67], loose interconnects by vibration [18], and a faulty PCIe slot [33]) occurs, preventing data loss in running applications (i.e., the host system is alive) is still a challenge." .
+
+<http://example.org/ssd/assertion/41005ac25db54a1b8fb497c9a9b786c6> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "We use eight threads using a 20 GB file per thread and a 4 KB request size." .
+
+<http://example.org/ssd/assertion/4f270ba8c287475fa5353b86d11e7d79> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> ;
+    ssd:predicate ssd:supportsFileSystem ;
+    ssd:subject ssd:E9_Linux_Kernel ;
+    dct:source "Figure 1 shows that the application can either recognize a failure later (e.g., XFS or F2FS) or fail to recognize the failure (e.g., EXT4 or raw RAID device) on a single SSD or RAID configuration." .
+
+<http://example.org/ssd/assertion/64f0af9649a6497d8fc4ac8be976572c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We implement RLW with three techniques in a Linux kernel 6.0.0 and evaluate it in a single SSD and RAID using realistic power fault injection." .
+
+<http://example.org/ssd/assertion/69f1b6f0b553427db26a5068c17536ab> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E9_Linux_Kernel ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We implement RLW with three techniques in a Linux kernel 6.0.0 and evaluate it in a single SSD and RAID using realistic power fault injection." .
+
+<http://example.org/ssd/assertion/86221c7eadea4a6fa78e63d5fc12392d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> ;
+    ssd:predicate ssd:supportsFileSystem ;
+    ssd:subject ssd:E9_Linux_Kernel ;
+    dct:source "Figure 1 shows that the application can either recognize a failure later (e.g., XFS or F2FS) or fail to recognize the failure (e.g., EXT4 or raw RAID device) on a single SSD or RAID configuration." .
+
+<http://example.org/ssd/assertion/8b6d60cb4af744a4a8680189d1887655> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "The experimental results reveal that RLW reduces the data loss by up to 96.7% compared with the existing scheme, and its accuracy in predicting failure points reaches up to 99.8%." .
+
+<http://example.org/ssd/assertion/9cfabfb6b0c94f78953d7fbc1543b6d5> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We run micro/macro benchmarks and a real-world application (i.e., RocksDB) on two NVMe SSD models." .
+
+<http://example.org/ssd/assertion/a7c74e75cb7d4c2781d86148745560d5> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> ;
+    ssd:predicate ssd:supportsFileSystem ;
+    ssd:subject ssd:E9_Linux_Kernel ;
+    dct:source "Figure 1 shows that the application can either recognize a failure later (e.g., XFS or F2FS) or fail to recognize the failure (e.g., EXT4 or raw RAID device) on a single SSD or RAID configuration." .
+
+<http://example.org/ssd/assertion/f27844038fbf4e5f9d00e3c979127565> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "The experimental results reveal that RLW reduces the data loss by up to 96.7% compared with the existing scheme, and its accuracy in predicting failure points reaches up to 99.8%." .
+
+<http://example.org/ssd/assertion/f3cd629aa4aa498a84a95878b85d2d69> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "We use eight threads using a 20 GB file per thread and a 4 KB request size." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> rdfs:label "4KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasTemperature "70" ;
+    ssd:hasWorkloadProfile ssd:E4_WorkloadProfile ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext,
+        ssd:E9_Linux_Kernel ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:E9_Linux_Kernel a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System>,
+        owl:Thing ;
+    rdfs:label "Linux Kernel" ;
+    ssd:supportsFileSystem <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> rdfs:label "EXT4",
+        "F2FS",
+        "XFS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+

@@ -1,0 +1,106 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_52293b37 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_ca4b32e1 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD." .
+
+ssd:axiom_da4eb561 a owl:Axiom ;
+    rdfs:comment "degradedBy rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning." .
+
+ssd:axiom_e57f9023 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0208d0eebe7d48bcb1e7884884c81e05> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "This paper gives an improved analytic expression for write amplification in NAND flash memory by finding the probability of a page being invalid over the block selected for garbage collection." .
+
+<http://example.org/ssd/assertion/29adf643e98b45e0aa7eab114147e2e4> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E2_MLC_SSD_1 ;
+    ssd:predicate ssd:improves ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    dct:source "Write amplification reduces the flash memory's lifetime and therefore should be minimized." .
+
+<http://example.org/ssd/assertion/81691a40b3a349b5975471a429edd955> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    dct:source "Increasing the amount of overprovisioning decreases write amplification." .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E2_MLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "MLC_SSD_1" ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> rdfs:label "Over-Provisioning" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Write Amplification" ;
+    ssd:degradedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning> ;
+    ssd:improves ssd:E2_MLC_SSD_1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+

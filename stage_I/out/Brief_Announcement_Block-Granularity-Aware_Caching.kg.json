@@ -1,0 +1,95 @@
+{
+  "paper_id": "Brief Announcement: Block-Granularity-Aware Caching",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E5",
+      "label": "CachingPolicies",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    },
+    {
+      "id": "E6",
+      "label": "BGA Caching Model",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    },
+    {
+      "id": "E7",
+      "label": "Item-Block Layered Partitioning",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "hasBlockSize",
+      "o": {
+        "@value": "4",
+        "unit": "KB"
+      },
+      "evidence": "SRAM caches typically consist of 64 B “lines”, DRAM of 2-4 KB “rows”, and flash/disk of 4 KB “pages”.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "We design and analyze Item-Block Layered Partitioning, a practical BGA caching policy, and we prove an upper bound that is much tighter than any policy that considers only a single granularity.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "BlockSize",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "Block size is explicitly mentioned as 4KB in the paper."
+    },
+    {
+      "label": "CachingPolicies",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "mapping_decision": "exact",
+      "notes": "Caching policies are discussed in the context of BGA Caching."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Brief Announcement Block-Granularity-Aware Caching.pdf"
+}

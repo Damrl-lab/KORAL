@@ -1,0 +1,154 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0a9490ff a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Performance." .
+
+ssd:axiom_2c136a19 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_2f30fcf7 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_597b178c a owl:Axiom ;
+    rdfs:comment "monitoredBy rdfs:domain SSD; rdfs:range SMARTAttribute." .
+
+ssd:axiom_d931c330 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Reliability." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1def5660d99d44d6b575b25711751e5d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "The experimental results show that both methods improve the performance and accuracy of SSD failure prediction subject to certain environmental and testing conditions." .
+
+<http://example.org/ssd/assertion/2a05a25aa6ad442badd48ea33783450c> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E8_FailurePredictionMethod2 ;
+    dct:source "SSD failure prediction would help to improve the system reliability." .
+
+<http://example.org/ssd/assertion/2fb8b7d3b68a40c8821381091ea3bcad> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E7_FailurePredictionMethod1 ;
+    dct:source "SSD failure prediction would help to improve the system reliability." .
+
+<http://example.org/ssd/assertion/58a2b6eeeb53487e9d63a3bf22e345a5> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "As the most mainstream data-set at present, S.M.A.R.T. data collected from multiple SSD-based DCs at Alibaba is used for this study." .
+
+<http://example.org/ssd/assertion/71d1ffe21f1945c997f21e6ac96b2467> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E7_FailurePredictionMethod1 ;
+    dct:source "The experimental results show that both methods improve the performance and accuracy of SSD failure prediction." .
+
+<http://example.org/ssd/assertion/92d6967b48064c9abf364928822158ef> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E8_FailurePredictionMethod2 ;
+    dct:source "The experimental results show that both methods improve the performance and accuracy of SSD failure prediction." .
+
+<http://example.org/ssd/assertion/ecd348dcbed645479d3381d48b5ce16a> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:predicate ssd:monitoredBy ;
+    ssd:subject tax:SSD ;
+    dct:source "The publicly available S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) data-set is analysed, pre-processed, and then used as a basis for examining three classification models which could be employed to predict SSD failures." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E7_FailurePredictionMethod1 a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "FailurePredictionMethod1" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:E8_FailurePredictionMethod2 a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "FailurePredictionMethod2" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:monitoredBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "Reliability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+

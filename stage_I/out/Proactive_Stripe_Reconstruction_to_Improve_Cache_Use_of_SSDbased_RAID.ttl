@@ -1,0 +1,182 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_094ff3cb a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_46c8ec73 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_74169563 a owl:Axiom ;
+    rdfs:comment "hasCache rdfs:domain SSD; rdfs:range CacheAndBuffers." .
+
+ssd:axiom_8e3d4342 a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/RAIDAndRedundancy." .
+
+ssd:axiom_944709b4 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_9ba01d7a a owl:Axiom ;
+    rdfs:comment "reduces rdfs:domain InternalFirmwareAndLogic; rdfs:range InternalFirmwareAndLogic/MediaManagement." .
+
+ssd:axiom_c08e78e8 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/03d7eacc2faa4f0a99ec8ba90da68dc3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_SSD_RAID_System ;
+    dct:source "Specifically,thewidespreadadoptionofTrinary-LevelCell(TLC)and Quad-Level Cell (QLC) has decreased the per-unit cost of SSDs." .
+
+<http://example.org/ssd/assertion/3e423c5554ee452081018fe2375be781> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E1_SSD_RAID_System ;
+    dct:source "Parity-basedRedundantArrayofInexpensiveDisks(RAID)arrayscomposedfromSSDsareintroducedtoaddresscorrelatedfailures." .
+
+<http://example.org/ssd/assertion/6a4ab7a48a624a5499321e31baa950fa> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_Parity_Cache ;
+    ssd:predicate ssd:hasCache ;
+    ssd:subject ssd:E1_SSD_RAID_System ;
+    dct:source "a DRAM cache is commonly equipped accompanying with the RAID controller, called the parity cache." .
+
+<http://example.org/ssd/assertion/6e061245b1e64444bfc35d1db96775e7> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_SSD_RAID_System ;
+    dct:source "Experimental results show that ourproposalcanreducethenumberofparitychunkupdatesinSSDsby 2.3%andoverallI/Olatencyby 12.2%onaverage." .
+
+<http://example.org/ssd/assertion/9e9e87ad344846e5bbfff946bcf1cf6f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E10_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E9_EnvironmentalAndOperationalContext ;
+    dct:source "Experimental results show that ourproposalcanreducethenumberofparitychunkupdatesinSSDsby 2.3%andoverallI/Olatencyby 12.2%onaverage, compared tostate-of-the-artparitycache management techniques." .
+
+<http://example.org/ssd/assertion/dc9ad781864647c3b8fa69376e0eef73> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_Parity_Chunk_Updates ;
+    ssd:predicate ssd:reduces ;
+    ssd:subject ssd:E3_Proactive_Stripe_Reconstruction ;
+    dct:source "ourproposalcanreducethenumberofparitychunkupdatesinSSDsby 2.3%." .
+
+<http://example.org/ssd/assertion/e137452fc9154c9fa54d7c21deff4fd8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E9_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD_RAID_System ;
+    dct:source "Solid-StateDrives(SSDs)basedonNANDflasharewidelydeployedinembeddeddevices,personal computers,anddatacenters." .
+
+<http://example.org/ssd/assertion/f38ac1153bbc4d81ba0024e26442584c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E8_Cache_Use_Efficiency ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_Proactive_Stripe_Reconstruction ;
+    dct:source "To better improve the use efficiency of the parity cache, this paper proposes a stripe reconstruction approach to minimize the number of parity updates on SSDs." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E10_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:E3_Proactive_Stripe_Reconstruction a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Proactive_Stripe_Reconstruction" ;
+    ssd:improves ssd:E8_Cache_Use_Efficiency ;
+    ssd:reduces ssd:E7_Parity_Chunk_Updates ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E4_Parity_Cache a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache>,
+        owl:Thing ;
+    rdfs:label "Parity_Cache" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache> .
+
+ssd:E7_Parity_Chunk_Updates a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Parity_Chunk_Updates" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E8_Cache_Use_Efficiency a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies/Write-Through>,
+        owl:Thing ;
+    rdfs:label "Cache_Use_Efficiency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies/Write-Through> .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E9_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E10_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> rdfs:label "RAID5" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "IOLatency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> rdfs:label "QLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> .
+
+ssd:E1_SSD_RAID_System a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD_RAID_System" ;
+    ssd:hasCache ssd:E4_Parity_Cache ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:operatesUnder ssd:E9_EnvironmentalAndOperationalContext ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> ;
+    rdfs:isDefinedBy tax:SSD .
+

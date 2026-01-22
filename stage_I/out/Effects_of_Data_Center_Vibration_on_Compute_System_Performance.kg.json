@@ -1,0 +1,222 @@
+{
+  "paper_id": "SSD_Vibration_Impact_Study",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Vibration",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration"
+    },
+    {
+      "id": "E4",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E6",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E9",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E10",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E11",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasExternalFactor",
+      "o": "E3",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E8",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E9",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E10",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "These tests revealed that ambient vibration inherent in a world-class, raised floor data center caused performance degradation of up to 246% for random reads and up to 88% degradation for random writes for an enterprise class storage system.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range ExternalFactors.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "degrades rdfs:domain ExternalFactors; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Vibration",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration",
+      "mapping_decision": "exact",
+      "notes": "Vibration is explicitly mentioned as an external factor affecting performance."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly tested and mentioned in the paper."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Read-heavy workload is implied by the focus on random reads."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Performance degradation is a general term encompassing various metrics."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a specific performance metric affected by vibration."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a specific performance metric affected by vibration."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Average latency is a specific performance metric affected by vibration."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "99th percentile latency is a specific performance metric affected by vibration."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Effects of Data Center Vibration on Compute System Performance.pdf"
+}

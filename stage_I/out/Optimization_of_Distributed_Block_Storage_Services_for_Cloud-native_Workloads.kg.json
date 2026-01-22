@@ -1,0 +1,221 @@
+{
+  "paper_id": "FastStore_Optimization_of_Distributed_Block_Storage_Services_for_Cloud_Computing",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E6",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E7",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E8",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E9",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E10",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E11",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E12",
+      "label": "FastStore",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E13",
+      "label": "BlueStore",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E14",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E15",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E12",
+      "p": "operatesUnder",
+      "o": "E14",
+      "evidence": "FastStore eliminates unnecessary mechanisms and optimizes the allocation method for objects used in block services.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "hasWorkloadProfile",
+      "o": "E15",
+      "evidence": "FastStore doubles sequential writing performance, and its random write performance is 40% higher than that of BlueStore.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "FastStore doubles sequential writing performance, and its random write performance is 40% higher than that of BlueStore.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "FastStore doubles sequential writing performance, and its random write performance is 40% higher than that of BlueStore.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "FastStore doubles sequential writing performance, and its random write performance is 40% higher than that of BlueStore.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "degrades",
+      "o": "E9",
+      "evidence": "FastStore doubles sequential writing performance, and its random write performance is 40% higher than that of BlueStore.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "The sequential reading performance of FastStore is up to 10 times faster than Ceph.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "Furthermore, the tail latency is reduced by 70%-80%, resulting in decreased performance fluctuation.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Sequential",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Directly matches the taxonomy path for access pattern."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Directly matches the taxonomy path for access pattern."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "Directly matches the taxonomy path for read/write mix."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "Directly matches the taxonomy path for performance metric."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Directly matches the taxonomy path for performance metric."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "Directly matches the taxonomy path for performance metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Optimization of Distributed Block Storage Services for Cloud-native Workloads.pdf"
+}

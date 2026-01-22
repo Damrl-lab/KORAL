@@ -1,0 +1,115 @@
+{
+  "paper_id": "10.1109/TNS.2017.2764852",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Radiation",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation"
+    },
+    {
+      "id": "E3",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E4",
+      "label": "SLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC"
+    },
+    {
+      "id": "E5",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "SEU Sensitivity",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "We evaluated the effects of heavy ion and proton irradiation for a 3D NAND flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasExternalFactor",
+      "o": "E2",
+      "evidence": "We evaluated the effects of heavy ion and proton irradiation for a 3D NAND flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The 3D NAND showed similar single-event upset (SEU) sensitivity to a planar NAND of identical density in the multiple-cell level (MLC) storage mode.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The 3D NAND showed significantly reduced SEU susceptibility in single-level-cell (SLC) storage mode.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The SLC mode of the 3D NAND offers significant improvement in the SEU tolerance relative to the MLC mode.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Radiation.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Radiation",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "mapping_decision": "exact",
+      "notes": "Radiation effects are a key focus of the paper."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is explicitly mentioned as a storage mode."
+    },
+    {
+      "label": "SLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "mapping_decision": "exact",
+      "notes": "SLC is explicitly mentioned as a storage mode."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Heavy Ion and Proton-Induced Single Event Upset Characteristics of a 3D NAND Flash Memory.pdf"
+}

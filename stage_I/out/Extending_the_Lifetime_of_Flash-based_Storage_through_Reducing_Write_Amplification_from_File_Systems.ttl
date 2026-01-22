@@ -1,0 +1,157 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_093bd48a a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_6bf39688 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_6f60e19b a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_9566de6e a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/398939fea33043498babaf7a1c70d7bd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_OFTL_SSD ;
+    dct:source "The endurance problem of flash memory, however, is still a challenge and is getting worse as storage density increases with the adoption of multi-level cells (MLC)." .
+
+<http://example.org/ssd/assertion/3cd4f08c66e64ae5ac07a1eefdf88994> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_OFTL_SSD ;
+    dct:source "The write size reduction not only extends the lifetime of the flash-based storage, but also improves the performance." .
+
+<http://example.org/ssd/assertion/6b602a8d199143629059c6bb48e40027> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "Flash memory has gained in popularity as storage devices for both enterprise and embedded systems because of its high performance, low energy and reduced cost." .
+
+<http://example.org/ssd/assertion/99d99a5d3b48493bb05c8d69c12a9d53> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "Flash memory has gained in popularity as storage devices for both enterprise and embedded systems because of its high performance, low energy and reduced cost." .
+
+<http://example.org/ssd/assertion/e008ea5444304f7793d9ece248f88a10> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_OFTL_SSD ;
+    dct:source "Flash memory has gained in popularity as storage devices for both enterprise and embedded systems because of its high performance, low energy and reduced cost." .
+
+<http://example.org/ssd/assertion/e528c2c548d549eda815c8d3298379f7> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E9_Write_Amplification ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_OFTL_SSD ;
+    dct:source "Experiments show that an OFTL-based system, OFSS, offers a write amplification reduction of 47.4% ~ 89.4% in SYNC mode and 19.8% ~ 64.0% in ASYNC mode compared with ext3, ext2, and btrfs on an up-to-date page-level FTL." .
+
+<http://example.org/ssd/assertion/f99d20c631354cbe8f2d4c1e8c49991c> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_OFTL_SSD ;
+    dct:source "As mainstream design moves from single level cell (SLC) to multi-/triple-level cells (MLC/TLC), flash-based storage is witnessing an increase of capacity and a reduction of per-bit cost." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> rdfs:label "File System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E9_Write_Amplification a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Write Amplification" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> rdfs:label "Enterprise Server" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded> rdfs:label "Embedded System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E3_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%2520Server>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E2_OFTL_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "OFTL_SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:improves ssd:E9_Write_Amplification,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:operatesUnder ssd:E3_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+

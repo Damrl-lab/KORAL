@@ -1,0 +1,111 @@
+{
+  "paper_id": "SSD_Failures_in_the_Field",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "EXP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "In this work, we study the failure characteristics of 30,000 drives from a Google data center spanning six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "In this work, we study the failure characteristics of 30,000 drives from a Google data center spanning six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "We study this through analysis of a selection of daily performance logs for three multi-level cell (MLC) models collected at a Google production data center over the course of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "We characterize the workload conditions that lead to failures and illustrate that their root causes differ from common expectation but remain difficult to discern.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasAccessPattern",
+      "o": {
+        "@value": "Mixed"
+      },
+      "evidence": "We characterize the workload conditions that lead to failures and illustrate that their root causes differ from common expectation but remain difficult to discern.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The study was conducted in a Google data center."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifically mentions MLC models."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SSD Failures in the Field_ Symptoms, Causes, and Prediction Models.pdf"
+}

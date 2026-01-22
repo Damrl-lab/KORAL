@@ -1,0 +1,187 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_59a82f70 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Performance." .
+
+ssd:axiom_90710cc1 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:axiom_9c469af7 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_9cd12aa8 a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth." .
+
+ssd:axiom_b68c65aa a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_cc450fff a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_d4456fbb a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/8f232de3119a4f5da0cf0904ab966027> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "We implement LeaFTL with a validated SSD simulator WiscSim[27]and evaluate its efficiency with a variety of popular storage workloads." .
+
+<http://example.org/ssd/assertion/a0b81f708fb5498fab6ed0098c463aa6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E11_LeaFTL ;
+    dct:source "Our evaluation with various storage workloads demonstrates that LeaFTL saves the memory consumption of the mapping table by 2.9× and improves the storage performance by 1.4× on average, in comparison with state-of-the-art FTL schemes." .
+
+<http://example.org/ssd/assertion/a4a115076d024706a58739137bfc8cb6> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E3_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Our evaluation with various storage workloads demonstrates that LeaFTL saves the memory consumption of the mapping table by 2.9× and improves the storage performance by 1.4× on average, in comparison with state-of-the-art FTL schemes." .
+
+<http://example.org/ssd/assertion/bd1e960421064478b476bd071eb50a91> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "Our evaluation with various storage workloads demonstrates that LeaFTL saves the memory consumption of the mapping table by 2.9× and improves the storage performance by 1.4× on average, in comparison with state-of-the-art FTL schemes." .
+
+<http://example.org/ssd/assertion/c3c90e0a1c7a4583b4d05386b519a5cf> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "LeaFTL can learn various data access patterns and turn them into index segments for reducing the storage cost of the mapping table." .
+
+<http://example.org/ssd/assertion/c4e886ee863a44c887fd959f5ae3a5df> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E11_LeaFTL ;
+    dct:source "Our evaluation with various storage workloads demonstrates that LeaFTL saves the memory consumption of the mapping table by 2.9× and improves the storage performance by 1.4× on average, in comparison with state-of-the-art FTL schemes." .
+
+<http://example.org/ssd/assertion/cadc935dc1444b0da2d211675caed46d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E11_LeaFTL ;
+    dct:source "Our evaluation with various storage workloads demonstrates that LeaFTL saves the memory consumption of the mapping table by 2.9× and improves the storage performance by 1.4× on average, in comparison with state-of-the-art FTL schemes." .
+
+<http://example.org/ssd/assertion/dc1cd979b6a64d27825bec43e69495d7> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "LeaFTL can learn various data access patterns and turn them into index segments for reducing the storage cost of the mapping table." .
+
+<http://example.org/ssd/assertion/fa069018b0f54a9cbd2c12ac27546429> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "We implement LeaFTL with a validated SSD simulator WiscSim[27]and evaluate its efficiency with a variety of popular storage workloads." .
+
+ssd:E1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E11_LeaFTL a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "LeaFTL" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E3_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> rdfs:label "AccessPattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> rdfs:label "BlockSize" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> rdfs:label "QueueDepth" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> rdfs:label "ReadWriteMix" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Average Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+ssd:E3_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> ;
+    ssd:hasQueueDepth <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

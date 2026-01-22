@@ -1,0 +1,155 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_06678582 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern." .
+
+ssd:axiom_3a67c000 a owl:Axiom ;
+    rdfs:comment "ensures rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:axiom_42d9278d a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:axiom_58de53fb a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance." .
+
+ssd:axiom_8dd9c033 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Endurance." .
+
+ssd:axiom_8f715dc8 a owl:Axiom ;
+    rdfs:comment "isCompatibleWith rdfs:domain SSD; rdfs:range SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/27cc17c826724e59b6b456581faab623> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_CSWL_RAID ;
+    dct:source "Under the workload of random access pattern, parity stripes suffer from much more updates." .
+
+<http://example.org/ssd/assertion/3103bb02a6484389a8647c574ca58c14> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:ensures ;
+    ssd:subject ssd:E9_Age_Driven_Parity_Distribution ;
+    dct:source "We introduce an age-driven parity distribution scheme to guarantee wear leveling among flash SSDs." .
+
+<http://example.org/ssd/assertion/a698a93d940a4767869ed0013dbd27f2> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> ;
+    ssd:predicate ssd:isCompatibleWith ;
+    ssd:subject ssd:E2_CSWL_RAID ;
+    dct:source "When it is used in RAID6, we call it CSWL-RAID6." .
+
+<http://example.org/ssd/assertion/ac14f0d9fbb345069bae83e10321c15f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_CSWL_RAID ;
+    dct:source "CSWL can significantly improve both the life span and performance of SSD-based RAID." .
+
+<http://example.org/ssd/assertion/dea97b5db5a143bead7b16184ee8e65f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E9_Age_Driven_Parity_Distribution ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E2_CSWL_RAID ;
+    dct:source "We therefore propose cross-SSD wear leveling (CSWL) to enhance the endurance of entire SSD-based RAID systems." .
+
+<http://example.org/ssd/assertion/f378557d2e18403d9251eccd9f20424d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> ;
+    ssd:predicate ssd:isCompatibleWith ;
+    ssd:subject ssd:E2_CSWL_RAID ;
+    dct:source "When CSWL is used in RAID5, we call it CSWL-RAID5." .
+
+<http://example.org/ssd/assertion/f98e8e2bf5c44f1998911df6547ebdbe> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_CSWL_RAID ;
+    dct:source "CSWL can significantly improve both the life span and performance of SSD-based RAID." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E9_Age_Driven_Parity_Distribution a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "Age-Driven Parity Distribution" ;
+    ssd:ensures <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Wear Leveling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:E2_CSWL_RAID a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5>,
+        owl:Thing ;
+    rdfs:label "CSWL-RAID" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:isCompatibleWith <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:uses ssd:E9_Age_Driven_Parity_Distribution ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> rdfs:label "RAID5",
+        "RAID6" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> .
+

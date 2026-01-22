@@ -1,0 +1,191 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0773bb3a a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_0e0c4159 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_14a981b1 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_4ef9088c a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern." .
+
+ssd:axiom_7e836783 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_9c2e8ca5 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/37ee27681b5f4178aaa348086d9e8224> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E3_Samsung_MXP ;
+    dct:source "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB." .
+
+<http://example.org/ssd/assertion/6c661adfb0e0451582d71320db32ab1e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E7_WorkloadProfile ;
+    dct:source "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB." .
+
+<http://example.org/ssd/assertion/77174832fb724396a7834bb65c82bbfa> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E7_WorkloadProfile ;
+    dct:source "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB." .
+
+<http://example.org/ssd/assertion/7f9872c041234680ba21cc159e964bfe> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E4_Samsung_840 ;
+    dct:source "The specification of 840 tells us that the device uses TLC NAND Flash memory." .
+
+<http://example.org/ssd/assertion/878366e5b3d74d64b8dbb4111994429b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E2_Toshiba_Q_Pro ;
+    dct:source "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB." .
+
+<http://example.org/ssd/assertion/ac67015967894682bf11c85e767a4321> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_Toshiba_Q_Pro ;
+    dct:source "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB." .
+
+<http://example.org/ssd/assertion/b532c91dcd6a4feb8f5b6f143c626218> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E6_EnvironmentalAndOperationalContext ;
+    dct:source "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB." .
+
+<http://example.org/ssd/assertion/ebdc1268295449acbaaf460593e01db5> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E2_Toshiba_Q_Pro ;
+    dct:source "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB." .
+
+<http://example.org/ssd/assertion/fe5a9ffedd78401cb09a3d99e9bfe16a> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E5_Intel_X_25M ;
+    dct:source "Intel X-25M has 10 channels; Samsung MXP has 8; Toshiba Q Pro has 4; and Samsung 840 has 8 channels." .
+
+ssd:E3_Samsung_MXP a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung_MXP" ;
+    ssd:operatesUnder ssd:E6_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_Samsung_840 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung_840" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E5_Intel_X_25M a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Intel_X-25M" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E2_Toshiba_Q_Pro a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Toshiba_Q_Pro" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:operatesUnder ssd:E6_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> rdfs:label "Sequential" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB> rdfs:label "32KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E7_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Energy Consumption",
+        "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:E6_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E7_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+

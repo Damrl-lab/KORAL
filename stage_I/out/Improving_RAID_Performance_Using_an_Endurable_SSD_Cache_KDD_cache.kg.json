@@ -1,0 +1,158 @@
+{
+  "paper_id": "Improving RAID Performance Using an Endurable SSD Cache",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E5",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E6",
+      "label": "RAID5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E7",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E8",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E9",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "In this paper, we propose an efficient SSD-based caching solution to overcome the small write problem of RAID storage while taking the SSD’s write endurance issue into account.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "The SSD caching layer is more write intensive than the primary storage because both writes in the workloads and reads that miss the cache can cause SSD write operations.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E4",
+      "evidence": "The SSD caching layer is more write intensive than the primary storage because both writes in the workloads and reads that miss the cache can cause SSD write operations.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E5",
+      "evidence": "The page size of the cache and the two NVRAM buffers are all set to 4KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E7",
+      "evidence": "The flash memory can be classified into Single-Level-Cell (SLC), Multi-Level-Cell (MLC), and Triple-Level-Cell (TLC) flash.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Results show that KDD effectively reduces the small write penalty while significantly improving the lifetime of the SSD-based cache.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Results show that KDD effectively reduces the small write penalty while significantly improving the lifetime of the SSD-based cache.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType."
+  ],
+  "mappings": [
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "Directly corresponds to the workload description in the paper."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "Matches the block size used in the experiments."
+    },
+    {
+      "label": "RAID5",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "mapping_decision": "exact",
+      "notes": "RAID5 is explicitly mentioned as the configuration used."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is mentioned as a type of flash memory used."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Improving RAID Performance Using an Endurable SSD Cache (KDD cache).pdf"
+}

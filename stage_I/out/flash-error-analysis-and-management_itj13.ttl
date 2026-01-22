@@ -1,0 +1,131 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_1548ce9c a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Endurance." .
+
+ssd:axiom_67c5705a a owl:Axiom ;
+    rdfs:comment "mitigates rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)." .
+
+ssd:axiom_dbf5a385 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_dfe869f1 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_e375a3b0 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/032c91c8cd9e4b80af3ceb5cd7d632d4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:mitigates ;
+    ssd:subject ssd:E7_Flash_Correct_and_Refresh__FCR_ ;
+    dct:source "Based on our experimental characterization results that show that the retention errors are the most dominant errors, we have developed a suite of techniques to mitigate the effects of such errors, called Flash Correct-and-Refresh (FCR)." .
+
+<http://example.org/ssd/assertion/39cd48c41bd246338e06bdb414d91d12> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "FCR can provide 46x flash memory lifetime improvement at only 1.5 percent energy overhead." .
+
+<http://example.org/ssd/assertion/40edb29263d3445abced8321bb1302ea> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:objectLiteral "125" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "Long-term retention errors are characterized by baking the flash memory in the oven under 125° C." .
+
+<http://example.org/ssd/assertion/b6fcd897d7ee4361aad762b59f1b3e64> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "In our research, we experimentally measure, characterize, analyze, and model error patterns in nanoscale flash memories." .
+
+ssd:E7_Flash_Correct_and_Refresh__FCR_ a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "Flash Correct-and-Refresh (FCR)" ;
+    ssd:mitigates <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E2_MLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "MLC_SSD_1" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasTemperature "125" ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "Retention Error" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+

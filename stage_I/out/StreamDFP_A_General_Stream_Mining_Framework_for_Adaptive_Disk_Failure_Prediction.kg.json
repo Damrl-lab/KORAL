@@ -1,0 +1,122 @@
+{
+  "paper_id": "StreamDFP",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E6",
+      "label": "Reported Uncorrectable Errors",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors  [ID: 187]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%20Uncorrectable%20Errors%20%20%5BID%3A%20187%5D"
+    },
+    {
+      "id": "E7",
+      "label": "Command Timeout",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Command Timeout  [ID: 188]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Command%20Timeout%20%20%5BID%3A%20188%5D"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Our evaluation on production workloads (e.g., SMART logs from Backblaze [1]) justifies the effectiveness of machine learning.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "MAINTAINING storage reliability is a critical yet challenging requirement for modern cloud-scale data centers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "We explore the prediction of imminent disk failures based on machine learning as a proactive fault tolerance mechanism.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "includes",
+      "o": "E6",
+      "evidence": "We further study the changes of several critical SMART attributes defined by Backblaze, which provide strong indicators for disk failures.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E5",
+      "p": "includes",
+      "o": "E7",
+      "evidence": "We further study the changes of several critical SMART attributes defined by Backblaze, which provide strong indicators for disk failures.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "includes rdfs:domain SMARTAttribute; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses storage reliability in cloud-scale data centers."
+    },
+    {
+      "label": "Reported Uncorrectable Errors",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors  [ID: 187]",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions this as a critical SMART attribute."
+    },
+    {
+      "label": "Command Timeout",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Command Timeout  [ID: 188]",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions this as a critical SMART attribute."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "StreamDFP_A_General_Stream_Mining_Framework_for_Adaptive_Disk_Failure_Prediction.pdf"
+}

@@ -1,0 +1,194 @@
+{
+  "paper_id": "Performance Characterization of Hyperscale Applications on NVMe SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "NVMe SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E4",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E5",
+      "label": "PCIe Gen3",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3"
+    },
+    {
+      "id": "E6",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E7",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "Samsung XS1715",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E9",
+      "label": "Samsung 843T",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E10",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "NVMe drives are expected to be particularly beneficial for I/O intensive applications in datacenter installations.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "NVMe drives are expected to be particularly beneficial for I/O intensive applications in datacenter installations.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "The measured random read latency for the SATA SSD (Samsung 843T) we tested at low loads is 500μs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E10",
+      "p": "hasBlockSize",
+      "o": "E4",
+      "evidence": "NVMe devices under test were able to sustain a maximum throughput of 750 K IOPS of 4 KB random read accesses.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E5",
+      "evidence": "Typical PCIe based SSDs are 4 PCIe generation 3 devices and support up to 4 GB/s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "NVMe devices under test were able to sustain a maximum throughput of 750 K IOPS of 4 KB random read accesses, compared to 100K IOPS for SATA SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Considering absolute latencies, our analysis indicates that NVMe SSD consumes 4.5× less time for random reads compared to the SATA SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "NVMe devices under test were able to sustain a maximum throughput of 750 K IOPS of 4 KB random read accesses, compared to 100K IOPS for SATA SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Considering absolute latencies, our analysis indicates that NVMe SSD consumes 4.5× less time for random reads compared to the SATA SSD.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext; rdfs:range BlockSize.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned as a deployment environment."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned."
+    },
+    {
+      "label": "PCIe Gen3",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "mapping_decision": "exact",
+      "notes": "PCIe Gen3 is explicitly mentioned."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is explicitly mentioned as a performance metric."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Average latency is explicitly mentioned as a performance metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Performance Characterization of Hyperscale Applications on NVMe SSDs.pdf"
+}

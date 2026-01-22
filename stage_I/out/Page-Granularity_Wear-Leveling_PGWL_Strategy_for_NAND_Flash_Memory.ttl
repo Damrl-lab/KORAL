@@ -1,0 +1,177 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2663f9ca a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability." .
+
+ssd:axiom_8910b07f a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC)." .
+
+ssd:axiom_8e5dfe78 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_b47156df a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Endurance." .
+
+ssd:axiom_bad87c1e a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:axiom_d2e20c83 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_e1ef89c9 a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/DataPath/Bad Block Management." .
+
+ssd:axiom_f57f6554 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/2282d21106f3431596975da8a6635092> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E4_NAND_Flash_Memory ;
+    dct:source "Experimental results show that PGWL can extend the lifetime of 2 /C2-nm NAND flash memory by 88.3% compared with traditional bad block management (BBM)." .
+
+<http://example.org/ssd/assertion/3eb7a095fdc0439ba3339d76a76e14b9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_NAND_Flash_Memory ;
+    dct:source "Experimental results show that PGWL can extend the lifetime of 2 /C2-nm NAND flash memory by 88.3% compared with traditional bad block management (BBM)." .
+
+<http://example.org/ssd/assertion/403f59b303f1454a8f5c0bcaf37289e9> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_NAND_Flash_Memory ;
+    dct:source "We present a practical average RBER prediction model to evaluate the reliability of flash pages using the system clock of the sink node." .
+
+<http://example.org/ssd/assertion/61d09da525a04c4886c80cd425fd0022> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E4_NAND_Flash_Memory ;
+    dct:source "NAND flash memory is often employed in sink nodes because of its excellent characteristics." .
+
+<http://example.org/ssd/assertion/66f944909aa8479b9ad1e34a3dbf7ac4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E4_NAND_Flash_Memory ;
+    dct:source "Wear leveling is a vital technique for improving the effective endurance of NAND flash memory." .
+
+<http://example.org/ssd/assertion/727cdaa9d7a24e8dafe65c89c0d094e1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E4_NAND_Flash_Memory ;
+    dct:source "When weak pages are found, they should be relieved to increase the number of P/E cycles that the error correction code (ECC) can tolerate." .
+
+<http://example.org/ssd/assertion/cad1faf408db4ed89662a3396d4557b2> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E3_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "The PGWL strategy enables self-adaptive leveling of the RBER growths of different pages in real time by introducing page-granularity wear leveling instead of block-granularity wear leveling to exploit the lifetime potency of each page in a block." .
+
+<http://example.org/ssd/assertion/d6694a52bd9944578e0239afb93d423a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E4_NAND_Flash_Memory ;
+    dct:source "NAND flash memory is often employed in sink nodes because of its excellent characteristics." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E3_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E3_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management> rdfs:label "Bad Block Management" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "Error Correction (ECC)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Wear Leveling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> rdfs:label "Endurance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "Reliability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+ssd:E4_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "NAND Flash Memory" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    rdfs:isDefinedBy tax:SSD .
+

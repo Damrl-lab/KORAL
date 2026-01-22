@@ -1,0 +1,116 @@
+{
+  "paper_id": "Open-Channel SSD (What is it Good For)",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Open-Channel SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "OX Controller",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "LightLSM",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E6",
+      "label": "ZNS",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Open-Channel SSDs have gained acceptance in data centers (e.g., Alibaba) and for computational storage (e.g., Pliops).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "On a dual-plane TLC drive, the size of a RocksDB block must be a multiple of 96KB.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "controls",
+      "o": "E1",
+      "evidence": "We have worked with two generations of Open-Channel SSDs in the context of our work on the OX Controller.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E5",
+      "p": "manages",
+      "o": "E1",
+      "evidence": "LightLSM exposes Open-Channel SSDs as a RocksDB environment supporting SSTable flush and block reads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "compatibleWith",
+      "o": "E6",
+      "evidence": "ZNS can be implemented as an application-specific Flash Translation Layer on top of Open-Channel SSDs.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "controls rdfs:domain Controller; rdfs:range SSD.",
+    "manages rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD.",
+    "compatibleWith rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ZonedNamespaces."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions data centers as a deployment environment for Open-Channel SSDs."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses TLC as a type of flash technology used in Open-Channel SSDs."
+    },
+    {
+      "label": "ZNS",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses ZNS as a compatible interface with Open-Channel SSDs."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "CIDR Open-Channel SSD (What is it Good For).pdf"
+}

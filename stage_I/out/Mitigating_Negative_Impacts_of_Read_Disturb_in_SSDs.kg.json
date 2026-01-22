@@ -1,0 +1,165 @@
+{
+  "paper_id": "3410332",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E8",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "Read Error Rate",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E10",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E11",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The accumulated read operations on SSD blocks may lead to more read disturb errors, which must affect the reliability of SSDs by suffering from uncorrectable bit errors beyond the capacity of ECCs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "Through a series of emulation tests on several realistic disk traces, we demonstrate that the proposed mechanisms can noticeably yield performance improvements on the metrics of read error rate and I/O latency.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasReadWriteMix",
+      "o": "E7",
+      "evidence": "The accumulated read operations on SSD blocks may lead to more read disturb errors, which must affect the reliability of SSDs by suffering from uncorrectable bit errors beyond the capacity of ECCs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E11",
+      "evidence": "Consequently, flash density increases are then driven by Trinary-level cell (TLC) or even Quad-level cell (QLC) (3 or 4 bits/cell) combined with vertical stacking of NAND memory planes.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "As measurements indicate, our proposal can afford a better performance improvement on the metrics of average read latency, read error rate, and I/O long-tail latency.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "As measurements indicate, our proposal can afford a better performance improvement on the metrics of average read latency, read error rate, and I/O long-tail latency.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "As measurements indicate, our proposal can afford a better performance improvement on the metrics of average read latency, read error rate, and I/O long-tail latency.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Read Error Rate",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses read error rate in the context of reliability."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in average read latency."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions improvements in long-tail latency, which aligns with 99th percentile latency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Mitigating Negative Impacts of Read Disturb in SSDs.pdf"
+}

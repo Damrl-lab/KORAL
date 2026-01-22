@@ -1,0 +1,127 @@
+{
+  "paper_id": "arXiv:1504.00229v1",
+  "entities": [
+    {
+      "id": "SSD1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "EC1",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "WP1",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "OP1",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning"
+    },
+    {
+      "id": "WA1",
+      "label": "Write-Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "GC1",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "SSD1",
+      "p": "operatesUnder",
+      "o": "EC1",
+      "evidence": "How stable is the performance of your flash-based Solid State Drives (SSDs)?",
+      "confidence": 0.9
+    },
+    {
+      "s": "EC1",
+      "p": "hasWorkloadProfile",
+      "o": "WP1",
+      "evidence": "Managing write-amplification boils down to managing the surplus physical space, called over-provisioned space.",
+      "confidence": 0.8
+    },
+    {
+      "s": "WP1",
+      "p": "hasAccessPattern",
+      "o": {
+        "@value": "Random",
+        "unit": "AccessPattern"
+      },
+      "evidence": "We focus on a uniformly distributed random workload, where an application write targets any logical address with an equal probability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "SSD1",
+      "p": "improves",
+      "o": "WA1",
+      "evidence": "Our evaluation shows that Wolf is robust to workloads change, with an improvement factor of 2 with respect to the state-of-the-art.",
+      "confidence": 0.85
+    },
+    {
+      "s": "WA1",
+      "p": "correlatesWith",
+      "o": "OP1",
+      "evidence": "There is a direct relationship between write-amplification and over-provisioning.",
+      "confidence": 0.9
+    },
+    {
+      "s": "GC1",
+      "p": "degradedBy",
+      "o": {
+        "@value": "0.15",
+        "unit": "fraction"
+      },
+      "evidence": "Approximately 15% more migrations take place in the LRU policy compared to the greedy policy until write-amplification converges.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Over-Provisioning",
+      "entity_id": "OP1",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "mapping_decision": "exact",
+      "notes": "Over-Provisioning is directly discussed in the context of managing write-amplification."
+    },
+    {
+      "label": "Write-Amplification",
+      "entity_id": "WA1",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Write-Amplification is a key concept discussed in relation to Over-Provisioning and Garbage Collection."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "GC1",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is directly related to write-amplification and over-provisioning."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Modelling and Managing SSD Write-amplification.pdf"
+}

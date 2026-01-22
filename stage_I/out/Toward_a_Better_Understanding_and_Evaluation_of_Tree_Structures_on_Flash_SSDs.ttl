@@ -1,0 +1,201 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2c90510c a owl:Axiom ;
+    rdfs:comment "hasStructure rdfs:domain FlashTechnology; rdfs:range Structure." .
+
+ssd:axiom_5073c550 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_7ac8fec9 a owl:Axiom ;
+    rdfs:comment "usesMediaManagement rdfs:domain SSD; rdfs:range MediaManagement." .
+
+ssd:axiom_a632cb03 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_a9e8ef73 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_df676309 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_df7e3876 a owl:Axiom ;
+    rdfs:comment "hasFlashTechnology rdfs:domain SSD; rdfs:range FlashTechnology." .
+
+ssd:axiom_f4103959 a owl:Axiom ;
+    rdfs:comment "hasPerformanceMetric rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/21ab5b81db7d4594a6fca37afd16926a> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:usesMediaManagement ;
+    ssd:subject tax:SSD ;
+    dct:source "SSDs perform internal garbage collection that leads to write amplification." .
+
+<http://example.org/ssd/assertion/2bd028becf654487972ab40e888ca663> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E4_WorkloadProfile ;
+    dct:source "We consider a write-only workload, where one user thread updates existing KV pairs according to a uniform random distribution." .
+
+<http://example.org/ssd/assertion/3687fd78bf42410db906e4c5920c2785> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We consider a write-only workload, where one user thread updates existing KV pairs according to a uniform random distribution." .
+
+<http://example.org/ssd/assertion/43be1c44d0d348cabf0f05a5949d40eb> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:predicate ssd:hasStructure ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    dct:source "While SSDs with novel technologies such as 3D Xpoint offer significant advantages, they are not expected to replace flash-based SSDs anytime soon." .
+
+<http://example.org/ssd/assertion/5f8521d5c8444682829e92507574b3d7> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Flash solid-state drives (SSDs) are widely used to deploy persistent data storage in data centers." .
+
+<http://example.org/ssd/assertion/69db18bc585045d8ba898793be24e089> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Flash solid-state drives (SSDs) are widely used to deploy persistent data storage in data centers." .
+
+<http://example.org/ssd/assertion/a7c40da40b664d6b9644e4047f6b6b3f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:hasPerformanceMetric ;
+    ssd:subject ssd:E12_RocksDB ;
+    dct:source "RocksDB achieves the highest throughput on SSD3, and a higher throughput on SSD1 than on SSD2." .
+
+<http://example.org/ssd/assertion/b12bc58194ba4b59846bd5c8b7069134> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    ssd:predicate ssd:hasFlashTechnology ;
+    ssd:subject tax:SSD ;
+    dct:source "While SSDs with novel technologies such as 3D Xpoint offer significant advantages, they are not expected to replace flash-based SSDs anytime soon." .
+
+<http://example.org/ssd/assertion/e09b1b0c9c3c4eb0b141cd58beb04a8b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:hasPerformanceMetric ;
+    ssd:subject ssd:E11_WiredTiger ;
+    dct:source "Also WiredTiger achieves the highest throughput on SSD3 but, surprisingly, it obtains a higher throughput on SSD2 than on SSD1." .
+
+<http://example.org/ssd/assertion/fa2d1a69e363440fb6ac8dc6ca0e4b24> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> ;
+    ssd:predicate ssd:usesMediaManagement ;
+    ssd:subject tax:SSD ;
+    dct:source "Performance of SSDs can be improved by overprovisioning storage space." .
+
+ssd:E11_WiredTiger a tax:SSD,
+        owl:Thing ;
+    rdfs:label "WiredTiger" ;
+    ssd:hasPerformanceMetric <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E12_RocksDB a tax:SSD,
+        owl:Thing ;
+    rdfs:label "RocksDB" ;
+    ssd:hasPerformanceMetric <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E4_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Garbage Collection" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> rdfs:label "Over-Provisioning" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:hasWorkloadProfile ssd:E4_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> rdfs:label "FlashTechnology" ;
+    ssd:hasStructure <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasFlashTechnology <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:usesMediaManagement <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> ;
+    rdfs:isDefinedBy tax:SSD .
+

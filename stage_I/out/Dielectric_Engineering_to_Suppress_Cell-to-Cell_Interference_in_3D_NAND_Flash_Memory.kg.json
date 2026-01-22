@@ -1,0 +1,108 @@
+{
+  "paper_id": "micromachines_2021_12_1297",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "Cell-to-Cell Interference",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E4",
+      "label": "Inter-layer Dielectric (ILD)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture"
+    },
+    {
+      "id": "E5",
+      "label": "Vacuum Dielectric",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "techniques such as incremental step pulse programming (ISPP), multi-level cells (MLC), triple-level cells (TLC) and even quad-level cells (QLC) have been widely applied to mass production.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "impacts",
+      "o": "E3",
+      "evidence": "cell-to-cell interference obviously exists during the cell ‘programming’ configuration in 3D NAND flash.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improvedBy",
+      "o": "E5",
+      "evidence": "a novel 3D NAND structure containing a vacuum dielectric inside of the ILD was newly proposed. The cell-to-cell program interference was reduced by aid of the proposed device structure.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E3",
+      "evidence": "cell-to-cell interference increases with the slope of 91 mV/nm because of increased parasitic capacitance between the WLs.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "impacts rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic.",
+    "improvedBy rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/PhysicalHardwareAndArchitecture.",
+    "degrades rdfs:domain SSD/PhysicalHardwareAndArchitecture; rdfs:range SSD/InternalFirmwareAndLogic."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned in the paper as a type of cell used in NAND flash."
+    },
+    {
+      "label": "Cell-to-Cell Interference",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "Interference is a logical issue related to firmware and logic."
+    },
+    {
+      "label": "Inter-layer Dielectric (ILD)",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture",
+      "mapping_decision": "parent",
+      "notes": "ILD is a physical component affecting interference."
+    },
+    {
+      "label": "Vacuum Dielectric",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture",
+      "mapping_decision": "parent",
+      "notes": "Vacuum dielectric is a proposed physical modification to reduce interference."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Dielectric Engineering to Suppress Cell-to-Cell Interference in 3D NAND Flash Memory..pdf"
+}

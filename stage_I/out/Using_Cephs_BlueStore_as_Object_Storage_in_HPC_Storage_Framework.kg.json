@@ -1,0 +1,95 @@
+{
+  "paper_id": "CHEOPS_2021_Duwe_Kuhn",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "BlueStore",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "POSIX-based Object Store",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E4",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E3",
+      "evidence": "For example, the peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "For example, the peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": {
+        "@value": "4096",
+        "unit": "KiB"
+      },
+      "evidence": "The peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Throughput",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Mapped to Throughput as it directly measures data transfer rate."
+    },
+    {
+      "label": "BlockSize",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "Mapped to BlockSize as it directly refers to the size of data blocks used."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Using Ceph’s BlueStore as Object Storage in HPC Storage Framework.pdf"
+}

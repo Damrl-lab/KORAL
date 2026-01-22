@@ -1,0 +1,123 @@
+{
+  "paper_id": "Power, Energy and Thermal Considerations in SSD-Based I/O Acceleration",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "MR-SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "MC-SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "SP-SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E9",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E10",
+      "label": "Thermal Throttling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal Throttling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%20Throttling"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E8",
+      "evidence": "We observed MR-SSD has a device-level protection mechanism, which dynamically adjusts its power level based on temperature.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "82.2",
+        "unit": "C"
+      },
+      "evidence": "MR-SSD generates 71%, 49% and 54% higher temperature than SP-SSD for B-read ,BP-write andBA-write , respectively.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasWorkloadProfile",
+      "o": "E9",
+      "evidence": "We measured operating temperature of each SSD we tested based on 44 different I/O access patterns with two different device conditions (pristine vs. aged) and offer extensive empirical analyses.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E10",
+      "evidence": "When the heat-output of the many-resource SSD reaches 180°F, it begins to throttle power consumption by reducing the number of active internal resources in an attempt to cool down the device.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct match under ExternalFactors."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Power, Energy and Thermal Considerations in SSD-Based I O Acceleration.pdf"
+}

@@ -1,0 +1,245 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2b040ee9 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_46390d53 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_69d94bd9 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_7161f150 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix." .
+
+ssd:axiom_8ab628f4 a owl:Axiom ;
+    rdfs:comment "correlatesWith rdfs:domain SSD; rdfs:range SMARTAttribute." .
+
+ssd:axiom_a5f3a496 a owl:Axiom ;
+    rdfs:comment "hasReliability rdfs:domain SSD; rdfs:range Reliability." .
+
+ssd:axiom_a69093d5 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0d51575b665840b2bc416ef6d42355c5> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Program%2520Fail%2520Count%2520%2520%255BID%253A%2520171%255D> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E6_SSD_Model_1_A ;
+    dct:source "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes." .
+
+<http://example.org/ssd/assertion/23097ac666a44dd297a25a2f3664d02f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E6_SSD_Model_1_A ;
+    dct:source "This paper presents an extensive SSD failure characterization by analyzing a wide spectrum of data from over half a million SSDs that span multiple generations spread across several datacenters which host a wide spectrum of workloads over nearly 3 years." .
+
+<http://example.org/ssd/assertion/35ba257ff0694452a95bd9951f7380b1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reallocation%2520Event%2520Count%2520%2520%255BID%253A%2520196%255D> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E6_SSD_Model_1_A ;
+    dct:source "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes." .
+
+<http://example.org/ssd/assertion/3a8fe18d6f934bc2a3179972d373ee4d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E10_SSD_Model_2_A ;
+    dct:source "The newer generations in 1-D and 2-A have a capacity of 480GB each, with mean age slightly below 2 years. They all use MLC based flash medium." .
+
+<http://example.org/ssd/assertion/5d48435812ba48bc81a2890978af577b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "Read-Heavy" ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E5_WP1 ;
+    dct:source "Note, except for workload W1 (big data analysis) all the other workloads have higher reads than writes." .
+
+<http://example.org/ssd/assertion/5d91443c8bf24117b4a5f2ab1a7a426f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E6_SSD_Model_1_A ;
+    dct:source "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes." .
+
+<http://example.org/ssd/assertion/8bafd44361bf4203aaf7342656ee288f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E8_SSD_Model_1_C ;
+    dct:source "The older generation SSDs (1-A, 1-B and 1-C) have a capacity of 160GB and have been operational for over 2.5 years. They all use MLC based flash medium." .
+
+<http://example.org/ssd/assertion/929d836d16ec4f62a31b92023dbbcf62> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E6_SSD_Model_1_A ;
+    dct:source "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes." .
+
+<http://example.org/ssd/assertion/97a1ab3bd8f64c0aa493417f78641b4b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E6_SSD_Model_1_A ;
+    dct:source "The older generation SSDs (1-A, 1-B and 1-C) have a capacity of 160GB and have been operational for over 2.5 years. They all use MLC based flash medium." .
+
+<http://example.org/ssd/assertion/b4b62665c9c541da853aad04522c55b7> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E5_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "These SSDs serve a wide spectrum of workloads including Big Data Analytics, Content Distribution Caches and Web Search Engines." .
+
+<http://example.org/ssd/assertion/d78ef76b58fb4577a3831d04797a3e3e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:hasReliability ;
+    ssd:subject ssd:E6_SSD_Model_1_A ;
+    dct:source "The observed Annualized Failure Rate (AFR) in these production datacenters for some models is significantly higher (as much as 70%) than that quoted in SSD specifications, reiterating the need for this kind of field study." .
+
+<http://example.org/ssd/assertion/d9973602039b4ee397c5d1de025ac927> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "This paper presents an extensive SSD failure characterization by analyzing a wide spectrum of data from over half a million SSDs that span multiple generations spread across several datacenters which host a wide spectrum of workloads over nearly 3 years." .
+
+<http://example.org/ssd/assertion/fc8ce337341d40d5aa8dabbe5ffac7b9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E7_SSD_Model_1_B ;
+    dct:source "The older generation SSDs (1-A, 1-B and 1-C) have a capacity of 160GB and have been operational for over 2.5 years. They all use MLC based flash medium." .
+
+<http://example.org/ssd/assertion/ff6935e2190b41039c168bd8968b0c58> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E9_SSD_Model_1_D ;
+    dct:source "The newer generations in 1-D and 2-A have a capacity of 480GB each, with mean age slightly below 2 years. They all use MLC based flash medium." .
+
+ssd:E10_SSD_Model_2_A a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD Model 2-A" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E7_SSD_Model_1_B a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD Model 1-B" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E8_SSD_Model_1_C a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD Model 1-C" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E9_SSD_Model_1_D a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD Model 1-D" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E5_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    ssd:hasReadWriteMix "Read-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "AFR" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reallocation%2520Event%2520Count%2520%2520%255BID%253A%2520196%255D> rdfs:label "Reallocated Sector Count" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reallocation%2520Event%2520Count%2520%2520%255BID%253A%2520196%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D> rdfs:label "Uncorrectable Error Count" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Program%2520Fail%2520Count%2520%2520%255BID%253A%2520171%255D> rdfs:label "Program/Erase Fail Count" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Program%2520Fail%2520Count%2520%2520%255BID%253A%2520171%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D> rdfs:label "SATA Downshift Count" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D> .
+
+ssd:E4_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:hasWorkloadProfile ssd:E5_WP1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:E6_SSD_Model_1_A a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD Model 1-A" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reallocation%2520Event%2520Count%2520%2520%255BID%253A%2520196%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%2520Program%2520Fail%2520Count%2520%2520%255BID%253A%2520171%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D> ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:hasReliability <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+

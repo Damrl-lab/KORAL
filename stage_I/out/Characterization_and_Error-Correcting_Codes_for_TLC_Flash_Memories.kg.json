@@ -1,0 +1,101 @@
+{
+  "paper_id": "Characterization_and_Error-Correcting_Codes_for_TLC_Flash_Memories",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E5",
+      "label": "BER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "In this work, the error behavior of TLC flash is studied through an empirical database of errors.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "As mentioned in [15], we note that these experiments were conducted in a controlled laboratory environment.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "To address the observed error behavior, a new error-correcting scheme for TLC flash is given and is compared with BCH and LDPC codes.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "hasReliability",
+      "o": "E5",
+      "evidence": "We first measured the average BER as a function of the number of program/erase cycles for several TLC blocks.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC).",
+    "hasReliability rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type used in the study."
+    },
+    {
+      "label": "Error Correction (ECC)",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses error-correcting codes, which aligns with ECC."
+    },
+    {
+      "label": "BER",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "parent",
+      "notes": "BER is a measure of reliability, mapped to UBER."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Characterization and Error-Correcting Codes for TLC Flash Memories.pdf"
+}

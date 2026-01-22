@@ -1,0 +1,107 @@
+{
+  "paper_id": "DFRWS_2020_USA_An_Empirical_Study_of_the_NTFS_Cluster_Allocation_Behavior_Over_Time",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Operating System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    },
+    {
+      "id": "E4",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E5",
+      "label": "NTFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E6",
+      "label": "Windows 7",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    },
+    {
+      "id": "E7",
+      "label": "Windows 10",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The aim of the project is to gain knowledge on the allocation behavior of NTFS in different modern versions of Windows (versions 7 to 10) and especially if and how the behavior changes over time.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasOperatingSystem",
+      "o": "E6",
+      "evidence": "Our results show that space is not a factor, but there are differences in the allocation behavior between Windows 7 and Windows 10.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasOperatingSystem",
+      "o": "E7",
+      "evidence": "Our results show that space is not a factor, but there are differences in the allocation behavior between Windows 7 and Windows 10.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E5",
+      "evidence": "Windows uses New Technology File System (NTFS) as the default file system and we have therefore chosen to study the allocation behavior of NTFS in recent versions of Windows.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasOperatingSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Operating System.",
+    "hasFileSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range File System."
+  ],
+  "mappings": [
+    {
+      "label": "Operating System",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "mapping_decision": "exact",
+      "notes": "Operating System is a direct match under HostSystem."
+    },
+    {
+      "label": "File System",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "File System is a direct match under HostSystem."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "An Empirical Study of the NTFS Cluster Allocation Behavior and Its Forensic Implications.pdf"
+}

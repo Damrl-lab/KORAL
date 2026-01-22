@@ -1,0 +1,176 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_00c9ffea a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile." .
+
+ssd:axiom_04fc11df a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_2b3d1bfb a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/InterfaceType." .
+
+ssd:axiom_5190a31e a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern." .
+
+ssd:axiom_5427801d a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/MetricsHealthAndState/Performance." .
+
+ssd:axiom_67c4fca7 a owl:Axiom ;
+    rdfs:comment "usesFirmware rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic." .
+
+ssd:axiom_a95690be a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_d3b4bd87 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0d3b42137718453cb65cb116bc3da572> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_ReadGuard ;
+    ssd:predicate ssd:usesFirmware ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "ReadGuard, a novel priority-aware SSD management technique that enables an FTL to manage its blocks in a fully read-latency-aware fashion." .
+
+<http://example.org/ssd/assertion/1e7d14fd813e4e8f94fc17615e73f5b4> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Our experimental results using various real-world workloads show that rgFTL can effectively differentiate the read performance of apps according to their I/O priorities." .
+
+<http://example.org/ssd/assertion/3259f238e86740728780a0dd72d46a24> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E5_ReadGuard ;
+    dct:source "Furthermore, rgFTL reduces the 99th-percentile read tail latency of high-priority apps by up to 55.5%." .
+
+<http://example.org/ssd/assertion/92baedf815c74360995b3ce7d8966422> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E7_WorkloadProfile ;
+    dct:source "A high-priority app, τhigh, executes KVB while two lower-priority apps, τmid and τlow, run KVF and KVA, respectively." .
+
+<http://example.org/ssd/assertion/cf3c3663f6d34ba781ffee3101830275> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "From an in-depth evaluation study using 3D TLC SSDs, we observed that existing FTLs have several weaknesses that need to be improved for better read performance differentiation." .
+
+<http://example.org/ssd/assertion/dd821efea3c24e2aa730d725d568351f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E7_WorkloadProfile ;
+    dct:source "We used three traces were collected from running Yahoo! Cloud Service Benchmark using RocksDB with three different access patterns." .
+
+<http://example.org/ssd/assertion/eba7d45aa4bf442290850d7fa5e5f510> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "In order to overcome the existing FTL weaknesses, we propose ReadGuard, a novel priority-aware SSD management technique that enables an FTL to manage its blocks in a fully read-latency-aware fashion." .
+
+<http://example.org/ssd/assertion/ef0373e3bfba467c86a278869577eeaf> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "To understand how well a modern 3D flash SSD supports the read-latency differentiation requirement, we evaluated the read-latency (at the SSD level) distributions of apps using an NVMe SSD simulator with three priority I/O queues." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E7_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E5_ReadGuard a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "ReadGuard" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> rdfs:label "AccessPattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> rdfs:label "ReadWriteMix" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "3D TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+ssd:E1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:usesFirmware ssd:E5_ReadGuard ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E7_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

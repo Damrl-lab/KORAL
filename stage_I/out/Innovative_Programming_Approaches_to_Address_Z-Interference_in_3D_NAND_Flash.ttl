@@ -1,0 +1,136 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_42162707 a owl:Axiom ;
+    rdfs:comment "variesWith rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic." .
+
+ssd:axiom_61661b37 a owl:Axiom ;
+    rdfs:comment "exacerbatedBy rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic." .
+
+ssd:axiom_c9b95f81 a owl:Axiom ;
+    rdfs:comment "increasedBy rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic." .
+
+ssd:axiom_d1dd3a62 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_f9cc5aae a owl:Axiom ;
+    rdfs:comment "affectedBy rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/3310c27e311045da890923cdf45085a1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_Drain_Induced_Barrier_Lowering__DIBL_ ;
+    ssd:predicate ssd:exacerbatedBy ;
+    ssd:subject ssd:E2_Z_Interference ;
+    dct:source "If the attack cell is located towards the drain side, Z-interference is accelerated compared to when it is towards the source side, due to the Drain Induced Barrier Lowering (DIBL) effect." .
+
+<http://example.org/ssd/assertion/407cd0f16a1e43d6920ec53778728dfd> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "With the advent of vertical 3D architecture, TLC and QLC NAND flash have established themselves as the most cost-effective solid-state memory devices." .
+
+<http://example.org/ssd/assertion/b623e803442944d880a7295f3b8dad34> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_WL_Programming_Sequence ;
+    ssd:predicate ssd:variesWith ;
+    ssd:subject ssd:E2_Z_Interference ;
+    dct:source "Previous studies have shown that programming from the top word line (WL) to the bottom WL, instead of the traditional bottom-to-top approach, alleviates Z-interference." .
+
+<http://example.org/ssd/assertion/c386aac8fd4547e6a95a2af171c69e96> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_Z_Interference ;
+    ssd:predicate ssd:affectedBy ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "However, this reduction drastically increases Z-interference, adversely affecting cell distribution and accelerating degradation of reliability limits." .
+
+<http://example.org/ssd/assertion/ee8bb7818ae144a1bbd119edad99e1d8> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E5_Channel_Resistance ;
+    ssd:predicate ssd:increasedBy ;
+    ssd:subject ssd:E2_Z_Interference ;
+    dct:source "It was found that as more electrons are programmed into WLs within the string, Z-interference variations increase due to increased resistance in the poly-Si channel." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:E1_3D_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash Memory" ;
+    ssd:affectedBy ssd:E2_Z_Interference ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_WL_Programming_Sequence a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "WL Programming Sequence" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:E5_Channel_Resistance a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "Channel Resistance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:E6_Drain_Induced_Barrier_Lowering__DIBL_ a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "Drain Induced Barrier Lowering (DIBL)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E2_Z_Interference a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "Z-Interference" ;
+    ssd:exacerbatedBy ssd:E6_Drain_Induced_Barrier_Lowering__DIBL_ ;
+    ssd:increasedBy ssd:E5_Channel_Resistance ;
+    ssd:variesWith ssd:E4_WL_Programming_Sequence ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+

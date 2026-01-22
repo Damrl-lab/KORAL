@@ -1,0 +1,79 @@
+{
+  "paper_id": "electronics2020_9_1775",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Cell-to-Cell Interference",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E3",
+      "label": "Vth Shift",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E4",
+      "label": "Proposed Read Scheme",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "impacts",
+      "o": "E2",
+      "evidence": "In this paper, we investigated the cell-to-cell interference in scaled-down 3D NAND flash memory by using a Technology Computer-Aided Design (TCAD) simulation.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "causes",
+      "o": "E3",
+      "evidence": "The channel concentration of the selected cell is changed, leading to a Vth shift.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "alleviates",
+      "o": "E3",
+      "evidence": "The proposed scheme narrowed the Vth shift of 67.5% for erased cells and narrowed the Vth shift of 70% for programmed cells.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "impacts rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement.",
+    "causes rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "alleviates rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Cell-to-Cell Interference",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Mapped to MediaManagement as it involves managing interference effects."
+    },
+    {
+      "label": "Vth Shift",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Performance as it affects device performance metrics."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A New Read Scheme for Alleviating Cell-to-Cell Interference of 3D NAND Flash Memory.pdf"
+}

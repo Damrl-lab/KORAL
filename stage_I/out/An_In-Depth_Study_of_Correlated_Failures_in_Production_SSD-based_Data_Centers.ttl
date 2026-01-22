@@ -1,0 +1,154 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_d16d4e8d a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_fe619320 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/181e61d7ab26465eb186a4c1d71c2700> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "While those in vendor C build on 3D-TLC flash." .
+
+<http://example.org/ssd/assertion/500ab6c417404811bbc70e59ffb6b4e5> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "The drive models in vendors A and B build on enterprise-class MLC NAND cells." .
+
+<http://example.org/ssd/assertion/51fcdc612f4e4e08a4ef348cfd132c6b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_Intra_rack_Failures ;
+    ssd:predicate ssd:hasLimitedCorrelationWith ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "We find that SMART attributes have limited correlations with both intra-node and intra-rack failures and are not good indicators for detecting the existence of intra-node and intra-rack failures." .
+
+<http://example.org/ssd/assertion/5ae4ffe071a747f1992cba35743c4e2d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_Intra_rack_Failures ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E6_Intra_node_Failures ;
+    dct:source "We characterize two main types of correlated failures in the same node and rack that occur within a short time (e.g., 30 minutes), referred to as intra-node failures and intra-rack failures, respectively." .
+
+<http://example.org/ssd/assertion/7b715a0d93284fef841e1f572dfc3530> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_Intra_node_Failures ;
+    ssd:predicate ssd:hasLimitedCorrelationWith ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "We find that SMART attributes have limited correlations with both intra-node and intra-rack failures and are not good indicators for detecting the existence of intra-node and intra-rack failures." .
+
+<http://example.org/ssd/assertion/ad8b1c6885374ab7a5386c0834580cab> a ssd:Assertion ;
+    ssd:confidence 0.75 ;
+    ssd:object ssd:E7_Intra_rack_Failures ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> ;
+    dct:source "High temperature in a machine room can lead to more SSD failures." .
+
+<http://example.org/ssd/assertion/b4044d707275470cb6b79839255b0763> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Write-dominant applications lead to more intra-node and intra-rack failures than read-dominant ones." .
+
+<http://example.org/ssd/assertion/db8e831769054f6fb73d7f0bf6d0e84d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Flash-based solid-state drives (SSDs) are increasingly adopted as the mainstream storage media in modern data centers." .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    ssd:impacts ssd:E7_Intra_rack_Failures ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E6_Intra_node_Failures a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot>,
+        owl:Thing ;
+    rdfs:label "Intra-node Failures" ;
+    ssd:correlatesWith ssd:E7_Intra_rack_Failures ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    ssd:hasLimitedCorrelationWith ssd:E6_Intra_node_Failures,
+        ssd:E7_Intra_rack_Failures ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "3D-TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter>,
+        <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E7_Intra_rack_Failures a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot>,
+        owl:Thing ;
+    rdfs:label "Intra-rack Failures" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot> .
+

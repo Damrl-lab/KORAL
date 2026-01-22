@@ -1,0 +1,121 @@
+{
+  "paper_id": "10.1016/j.device.2024.100682",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E5",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E6",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "The adoption of triple-level cell (TLC: 3-bit per cell) technology in 3D NAND flash memory has further increased density.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "Particularly, solid-state drive (SSD)-based data centers that leverage NAND flash memory are crucial for facilitating the computing paradigm.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E4",
+      "evidence": "Particularly, solid-state drive (SSD)-based data centers that leverage NAND flash memory are crucial for facilitating the computing paradigm.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "This review aims to offer insights into the engineering strategies for materials and device structures to improve the reliability necessary for developing high-density 3D NAND flash memories.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "Recent advancements in 3D NAND flash memory are driven by the need for higher storage density and faster data access speed.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Despite the advanced reprogramming scheme and key memory controller technologies such as error correction code, wear leveling, and garbage collection to extend the limited cycle endurance of cells.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as a cell type in the paper."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Datacenter is explicitly mentioned as a deployment environment."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Material Engineering to Enhance Reliability in 3D NAND (disturb coverage).pdf"
+}

@@ -1,0 +1,166 @@
+{
+  "paper_id": "22nd_USENIX_FAST24_Jun",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E4",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E5",
+      "label": "Fragmentation",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms"
+    },
+    {
+      "id": "E6",
+      "label": "Read Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Die-Level Collisions",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath"
+    },
+    {
+      "id": "E8",
+      "label": "Page-to-Die Mapping",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath"
+    },
+    {
+      "id": "E9",
+      "label": "Overwrites",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This research investigates the fragmentation-induced performance degradation across three levels: kernel I/O path, host-storage interface, and flash memory accesses in SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "We propose an NVMe command extension combined with a page-to-die allocation algorithm designed to ensure that contiguous blocks always land on successive dies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasHostSystem",
+      "o": "E4",
+      "evidence": "To prevent performance degradation caused by fragmentation, file systems utilize various techniques.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "A few studies reported that fragmentation still adversely affects the performance of flash solid-state disks (SSDs) particularly through request splitting.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "causes",
+      "o": "E6",
+      "evidence": "This randomness escalates the chances of die-level collisions, causing deteriorated read performance later.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "We propose an NVMe command extension combined with a page-to-die allocation algorithm designed to ensure that contiguous blocks always land on successive dies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "causes",
+      "o": "E8",
+      "evidence": "We also reveal that this may happen when a file is overwritten.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasHostSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range HostSystem.",
+    "degrades rdfs:domain ConfigurationAndAdvancedParadigms; rdfs:range MetricsHealthAndState/Performance.",
+    "causes rdfs:domain InternalFirmwareAndLogic/DataPath; rdfs:range MetricsHealthAndState/Performance.",
+    "improves rdfs:domain InternalFirmwareAndLogic/DataPath; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Fragmentation",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "mapping_decision": "parent",
+      "notes": "Mapped to ConfigurationAndAdvancedParadigms as it involves advanced paradigms affecting SSD performance."
+    },
+    {
+      "label": "Read Performance",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Performance as it directly relates to SSD performance metrics."
+    },
+    {
+      "label": "Die-Level Collisions",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath",
+      "mapping_decision": "parent",
+      "notes": "Mapped to DataPath as it involves internal SSD data handling."
+    },
+    {
+      "label": "Page-to-Die Mapping",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath",
+      "mapping_decision": "parent",
+      "notes": "Mapped to DataPath as it involves internal SSD data handling."
+    },
+    {
+      "label": "Overwrites",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "mapping_decision": "parent",
+      "notes": "Mapped to ConfigurationAndAdvancedParadigms as it involves advanced paradigms affecting SSD performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "We Ain't Afraid of No File Fragmentation Causes and Prevention of Its Performance Impact on Modern Flash SSDs.pdf"
+}

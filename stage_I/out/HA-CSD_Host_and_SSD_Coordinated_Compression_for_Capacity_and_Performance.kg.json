@@ -1,0 +1,224 @@
+{
+  "paper_id": "HA-CSD: Host and SSD Coordinated Compression for Capacity and Performance",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "HA-CSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E3",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E5",
+      "label": "64KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB"
+    },
+    {
+      "id": "E6",
+      "label": "QD64",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD64",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD64"
+    },
+    {
+      "id": "E7",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E8",
+      "label": "PCIe Gen4",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen4",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen4"
+    },
+    {
+      "id": "E9",
+      "label": "Compression",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E10",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E11",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We implement HA-CSD in a commercial enterprise SSD with a code change of more than 25K lines in the host NVMe driver and SSD firmware.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E7",
+      "evidence": "We implement HA-CSD in a commercial enterprise SSD with a code change of more than 25K lines in the host NVMe driver and SSD firmware.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPCIe",
+      "o": "E8",
+      "evidence": "HA-CSD is based on a modern commercial enterprise PCIe Gen4 SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We evaluate the read performance of HA-CSD in real applications with YCSB workload B (read mostly), C (read only), and E (range query).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E4",
+      "evidence": "We evaluate the read performance of HA-CSD in real applications with YCSB workload B (read mostly), C (read only), and E (range query).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E5",
+      "evidence": "The tests run with 16 concurrent threads and 64 outstanding requests per thread.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E6",
+      "evidence": "The tests run with 16 concurrent threads and 64 outstanding requests per thread.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "HA-CSD achieves 2.1GB/s and 5.2GB/s read and write bandwidth.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "The 99.9th percentile latency of FPGA-CSD is 15533 μs, which is 5.5 × higher than the 95th percentile latency of 2802 μs.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasPCIe rdfs:domain SSD; rdfs:range PCIe.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific deployment environment mentioned in the paper."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific workload profile mentioned in the paper."
+    },
+    {
+      "label": "64KB",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific block size mentioned in the paper."
+    },
+    {
+      "label": "QD64",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD64",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific queue depth mentioned in the paper."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific interface type mentioned in the paper."
+    },
+    {
+      "label": "PCIe Gen4",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen4",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific PCIe generation mentioned in the paper."
+    },
+    {
+      "label": "Compression",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Compression is a part of media management strategies like garbage collection."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific performance metric mentioned in the paper."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the specific latency metric mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "HA-CSD_Host_and_SSD_Coordinated_Compression_for_Capacity_and_Performance.pdf"
+}

@@ -1,0 +1,148 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_356a2e73 a owl:Axiom ;
+    rdfs:comment "usesInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_99760256 a owl:Axiom ;
+    rdfs:comment "implements rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ComputationalStorage." .
+
+ssd:axiom_a35045f9 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_d8b67571 a owl:Axiom ;
+    rdfs:comment "communicatesWith rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/HostSystem." .
+
+ssd:axiom_ebcbe766 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_fdabbd64 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0577ea58190a46f5af65c347a1bdd7dc> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_Host_System ;
+    ssd:predicate ssd:communicatesWith ;
+    ssd:subject ssd:E1_Smart_SSD ;
+    dct:source "The communication between a Smart SSD and its host system is handled by an object-interface implemented on top of the SATA protocol." .
+
+<http://example.org/ssd/assertion/18386ccea7b14e0786daafb8de830dbd> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:usesInterfaceType ;
+    ssd:subject ssd:E1_Smart_SSD ;
+    dct:source "Our system uses an object-based protocol for low-level communication with the host, and extends the Hadoop MapReduce framework to support a Smart SSD." .
+
+<http://example.org/ssd/assertion/5fa66c4865bb4a639645c529bb8b434d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_Energy_Consumption ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_Smart_SSD ;
+    dct:source "Our experiments show that total energy consumption is reduced by 50% due to the low-power processing inside a Smart SSD." .
+
+<http://example.org/ssd/assertion/8388cdfca9f1436e89e3b6c112fcc883> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> ;
+    ssd:predicate ssd:implements ;
+    ssd:subject ssd:E1_Smart_SSD ;
+    dct:source "This paper explores the benefits and limitations of in-storage processing on current Solid-State Disk (SSD) architectures." .
+
+<http://example.org/ssd/assertion/9c2298cd94ae4b25a0279779d393c529> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_Smart_SSD ;
+    dct:source "By isolating the data traffic within the device, this model promises low energy consumption, high parallelism, low host memory footprint and better performance." .
+
+<http://example.org/ssd/assertion/e75b671bf63c4025b4098d42d7f094e6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_Smart_SSD ;
+    dct:source "The first evaluation of in-storage processing (ISP) on a real (not simulated) MLC (multi-level cell) SSD device." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E5_Energy_Consumption a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        owl:Thing ;
+    rdfs:label "Energy Consumption" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:E7_Host_System a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem>,
+        owl:Thing ;
+    rdfs:label "Host System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> rdfs:label "In-Drive Processing" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> rdfs:label "SATA" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> .
+
+ssd:E1_Smart_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Smart SSD" ;
+    ssd:communicatesWith ssd:E7_Host_System ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:implements <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%2520Processing> ;
+    ssd:improves ssd:E5_Energy_Consumption ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:usesInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    rdfs:isDefinedBy tax:SSD .
+

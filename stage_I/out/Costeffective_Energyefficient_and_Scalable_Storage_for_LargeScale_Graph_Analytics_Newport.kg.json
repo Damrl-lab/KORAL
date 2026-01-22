@@ -1,0 +1,165 @@
+{
+  "paper_id": "21",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Newport",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E4",
+      "label": "Computational Storage",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage"
+    },
+    {
+      "id": "E5",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "Energy Efficiency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState"
+    },
+    {
+      "id": "E8",
+      "label": "ARM Cortex-A53",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/Cores",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/Cores"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Newport is the first commodity SSD that can be configured to run a server-like operating system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "Newport is an enterprise-grade solid state drive.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Newport, a high-performance and energy-efficient computational storage developed for realizing the full potential of in-storage processing.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "The results demonstrate that data-intensive AI workloads can be efficiently parallelized and offloaded, even to a small set of Newport drives with significant performance gains.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The results demonstrate that data-intensive AI workloads can be efficiently parallelized and offloaded, even to a small set of Newport drives with significant performance gains.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "The results demonstrate that data-intensive AI workloads can be efficiently parallelized and offloaded, even to a small set of Newport drives with significant performance gains and energy savings.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "hasController",
+      "o": "E8",
+      "evidence": "Newport is equipped with general-purpose, multi-core processors and multiple GBs of DRAM.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ComputationalStorage.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "hasController rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/Controller/Cores."
+  ],
+  "mappings": [
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "The paper describes Newport as an enterprise-grade SSD."
+    },
+    {
+      "label": "Computational Storage",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage",
+      "mapping_decision": "exact",
+      "notes": "Newport is described as a computational storage drive."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses performance improvements in terms of IOPS."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses performance improvements in terms of throughput."
+    },
+    {
+      "label": "Energy Efficiency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState",
+      "mapping_decision": "parent",
+      "notes": "Energy efficiency is a broader metric under MetricsHealthAndState."
+    },
+    {
+      "label": "ARM Cortex-A53",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/Cores",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies the use of ARM Cortex-A53 cores in Newport."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Cost‑effective, Energy‑efficient, and Scalable Storage for Large‑Scale Graph Analytics (Newport).pdf"
+}

@@ -1,0 +1,108 @@
+{
+  "paper_id": "Jia2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "Z-Interference",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E4",
+      "label": "Program Scheme",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E5",
+      "label": "Vpass",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "This paper mainly studies the z-interference of WLn + 1 (aggressor) P7 pattern to the WLn (victim) erase pattern in the TLC mode.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "affectedBy",
+      "o": "E3",
+      "evidence": "The z-interference is the most important factor affecting the device characteristics during 3D NAND cell shrinkage.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "The proposed scheme reduces the adjacent cell Vpass in the programming operation for z-interference improvement.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "reducedBy",
+      "o": "E4",
+      "evidence": "We propose reducing the adjacent cell Vpass during the WLn + 1 (aggressor) programming phase to decrease the fringing field in the inter-cell region, thereby reducing the inter-cell charge in Region B to improve the z-interference.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "affectedBy rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic.",
+    "reducedBy rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned in the paper as the mode of operation."
+    },
+    {
+      "label": "Z-Interference",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "Z-Interference is a specific issue related to internal firmware and logic."
+    },
+    {
+      "label": "Program Scheme",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "The program scheme is a method to improve internal logic issues."
+    },
+    {
+      "label": "Vpass",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "Vpass is a parameter related to internal firmware operations."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Novel Program Scheme for Z-Interference Improvement in 3D NAND Charge-Trap Memory.pdf"
+}

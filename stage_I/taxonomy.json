@@ -1,0 +1,296 @@
+{
+  "SSD": {
+    "EnvironmentalAndOperationalContext": {
+      "ExternalFactors": [
+        "Temperature",
+        "Humidity",
+        "Vibration",
+        "Radiation",
+        "Acoustic Signals"
+      ],
+      "DeploymentEnvironment": [
+        "Datacenter",
+        "Enterprise Server",
+        "Consumer Laptop/Desktop",
+        "Edge Device/IoT",
+        "Industrial/Embedded",
+        "Mobile Device"
+      ],
+      "WorkloadProfile": {
+        "AccessPattern": [
+          "Sequential",
+          "Random",
+          "Mixed"
+        ],
+        "ReadWriteMix": [
+          "Read-Heavy",
+          "Balanced",
+          "Write-Heavy"
+        ],
+        "BlockSize": [
+          "4KB",
+          "8KB",
+          "16KB",
+          "64KB",
+          "128KB"
+        ],
+        "QueueDepth": [
+          "QD1",
+          "QD4",
+          "QD16",
+          "QD32",
+          "QD64"
+        ]
+      },
+      "HostSystem": [
+        "Operating System",
+        "File System",
+        "NVMe/SATA Driver",
+        "I/O Scheduler"
+      ]
+    },
+    "PhysicalHardwareAndArchitecture": {
+      "InterfaceType": [
+        "NVMe",
+        "SATA",
+        "SAS"
+      ],
+      "PCIe": [
+        "Gen3",
+        "Gen4",
+        "Gen5"
+      ],
+      "FormFactor": [
+        "M.2",
+        "U.2",
+        "E1.S",
+        "E3.S",
+        "Add-in Card"
+      ],
+      "FlashTechnology": {
+        "CellType": [
+          "SLC",
+          "MLC",
+          "TLC",
+          "QLC"
+        ],
+        "Structure": [
+          "Planar",
+          "3D"
+        ],
+        "Manufacturing": [
+          "LayerCount",
+          "LithographyNode"
+        ]
+      },
+      "Controller": [
+        "Vendor",
+        "Model",
+        "FirmwareVersion",
+        "Channels",
+        "Cores"
+      ],
+      "CacheAndBuffers": [
+        "DRAM Cache",
+        "HMB (Host Memory Buffer)",
+        "SLC Write Cache"
+      ],
+      "PowerLossProtection": [
+        "Capacitors/PLP",
+        "Firmware Safe Shutdown"
+      ]
+    },
+    "InternalFirmwareAndLogic": {
+      "DataPath": [
+        "Error Correction (ECC)",
+        "Bad Block Management",
+        "RAID-in-Flash (RAIN)"
+      ],
+      "MediaManagement": [
+        "Wear Leveling",
+        "Garbage Collection",
+        "Over-Provisioning"
+      ],
+      "CachingPolicies": [
+        "Write-Back",
+        "Write-Through",
+        "SLC Caching"
+      ],
+      "Maintenance": [
+        "TRIM",
+        "Background Scrubbing",
+        "Firmware Update"
+      ],
+      "ThermalManagement": [
+        "Thermal Throttling",
+        "Temperature Targets"
+      ]
+    },
+    "MetricsHealthAndState": {
+      "Performance": [
+        "IOPS",
+        "Throughput",
+        "Average Latency",
+        "99th Percentile Latency"
+      ],
+      "Endurance": [
+        "TBW",
+        "DWPD"
+      ],
+      "Reliability": [
+        "UBER",
+        "MTBF"
+      ],
+      "SMARTAttribute": [
+        "Available Reserved Space  [ID: 170]",
+        "SSD Program Fail Count  [ID: 171]",
+        "SSD Erase Fail Count  [ID: 172]",
+        "SSD Wear Leveling Count  [ID: 173]",
+        "Unexpected Power Loss Count  [ID: 174]",
+        "Power Loss Protection Failure  [ID: 175]",
+        "Erase Fail Count  [ID: 176]",
+        "Wear Range Delta  [ID: 177]",
+        "Used Reserved Block Count  [ID: 178]",
+        "Used Reserved Block Count Total  [ID: 179]",
+        "Unused Reserved Block Count Total  [ID: 180]",
+        "Program Fail Count Total  [ID: 181]",
+        "Reported Uncorrectable Errors  [ID: 187]",
+        "Command Timeout  [ID: 188]",
+        "G-sense Error Rate  [ID: 191]",
+        "Unsafe Shutdown Count  [ID: N/A]",
+        "Temperature  [ID: 194]",
+        "Reallocation Event Count  [ID: 196]",
+        "Uncorrectable Sector Count (Offline)  [ID: 198]",
+        "UltraDMA CRC Error Count  [ID: 199]",
+        "Soft Read Error Rate  [ID: 201]",
+        "Soft ECC Correction  [ID: 204]",
+        "Media Wearout Indicator  [ID: 233]",
+        "Endurance Remaining / Available Reserved Space  [ID: 232]",
+        "Average Erase Count  [ID: 234]",
+        "Maximum Erase Count  [ID: 234]",
+        "Good Block Count  [ID: 235]",
+        "System (Free) Block Count  [ID: 235]",
+        "Total LBAs Written  [ID: 241]",
+        "Total LBAs Read  [ID: 242]",
+        "Total LBAs Written Expanded  [ID: 243]",
+        "Total LBAs Read Expanded  [ID: 244]",
+        "Remaining Rated Write Endurance  [ID: 245]",
+        "Cumulative Host Sectors Written  [ID: 246]",
+        "Host Program Page Count  [ID: 247]",
+        "Background Program Page Count  [ID: 248]",
+        "NAND Writes (1GiB)  [ID: 249]",
+        "Minimum Spares Remaining  [ID: 251]",
+        "Newly Added Bad Flash Block  [ID: 252]",
+        "Critical Warning  [ID: 0x00]",
+        "Composite Temperature  [ID: 0x01]",
+        "Available Spare  [ID: 0x03]",
+        "Available Spare Threshold  [ID: 0x04]",
+        "Percentage Used  [ID: 0x05]",
+        "Data Units Read  [ID: 0x20]",
+        "Data Units Written  [ID: 0x30]",
+        "Host Read Commands  [ID: 0x40]",
+        "Host Write Commands  [ID: 0x50]",
+        "Controller Busy Time  [ID: 0x60]",
+        "Power Cycles  [ID: 0x70]",
+        "Power On Hours  [ID: 0x80]",
+        "Unsafe Shutdowns  [ID: 0x90]",
+        "Media Errors  [ID: 0xA0]",
+        "Error Information Log Entries  [ID: 0xB0]",
+        "Warning Composite Temperature Time  [ID: 0xC0]",
+        "Critical Composite Temperature Time  [ID: 0xC4]",
+        "Temperature Sensor 1  [ID: 0xC8]",
+        "Temperature Sensor 2  [ID: 0xC8]",
+        "Temperature Sensor 3  [ID: 0xC8]",
+        "Temperature Sensor 4  [ID: 0xC8]",
+        "Temperature Sensor 5  [ID: 0xC8]",
+        "Temperature Sensor 6  [ID: 0xC8]",
+        "Temperature Sensor 7  [ID: 0xC8]",
+        "Temperature Sensor 8  [ID: 0xC8]",
+        "Thermal Management Temperature 1 Transition Count  [ID: 0xD8]",
+        "Thermal Management Temperature 2 Transition Count  [ID: 0xD8]",
+        "Total Time For Thermal Management Temperature 1  [ID: 0xE0]",
+        "Total Time For Thermal Management Temperature 2  [ID: 0xE0]"
+      ]
+    },
+    "ConfigurationAndAdvancedParadigms": {
+      "CapacityAndProvisioning": [
+        "Raw Capacity",
+        "Usable Capacity",
+        "Over-Provisioning"
+      ],
+      "RAIDAndRedundancy": [
+        "RAID0",
+        "RAID1",
+        "RAID5",
+        "RAID10"
+      ],
+      "ZonedNamespaces": [
+        "ZNS"
+      ],
+      "ComputationalStorage": [
+        "Offload Engines",
+        "In-Drive Processing"
+      ],
+      "PowerManagement": [
+        "Active Power",
+        "Idle Power",
+        "APM/ASPM"
+      ],
+      "Security": [
+        "Self-Encrypting Drive (SED)",
+        "TCG Opal/Enterprise",
+        "Secure Erase/Sanitize",
+        "PSID Revert"
+      ],
+      "NVMeFeatures": [
+        "Namespaces",
+        "SR-IOV",
+        "Multipath/ANA",
+        "NVMe-MI"
+      ]
+    },
+    "EcosystemAndIntegrationContext": {
+      "HostIOStack": [
+        "OS Integration",
+        "File Systems (NTFS, ext4, XFS, APFS)",
+        "I/O Scheduler (none, mq-deadline, kyber)",
+        "Drivers"
+      ],
+      "VirtualizationAndMultiTenancy": [
+        "KVM/Hyper-V/VMware",
+        "Container OverlayFS",
+        "QoS/Noisy Neighbor"
+      ],
+      "Interconnects": [
+        "PCIe Lanes",
+        "NVMe-oF (RoCE, TCP, FC)"
+      ],
+      "ValidationAndBenchmarks": [
+        "FIO",
+        "CrystalDiskMark",
+        "VDI/VDBench",
+        "SPEC SFS"
+      ],
+      "Standards": [
+        "JEDEC",
+        "NVMe Spec",
+        "SFF-TA"
+      ]
+    },
+    "ModelingTimeAndStateHistory": {
+      "CoreConcepts": [
+        "State Snapshot",
+        "Timestamp",
+        "Trend Increasing",
+        "Trend Decreasing",
+        "Trend Stable",
+        "Rate of Change"
+      ],
+      "DerivedIndicators": [
+        "Predicted RUL",
+        "Wear Level Rate",
+        "Error Rate Trend"
+      ]
+    }
+  }
+}

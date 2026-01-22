@@ -1,0 +1,113 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_135ccf79 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/InternalFirmwareAndLogic/Maintenance/TRIM; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement." .
+
+ssd:axiom_8162a105 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/2fc3e88c7cf749fba16d5b7db9cd2973> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_Random_Workload ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "This paper presents a performance model of the ATA/ATAPI SSD Trim command under various types of user workloads, including a uniform random workload." .
+
+<http://example.org/ssd/assertion/887dc7c1d57b4665b3277d958c321506> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_Hot_and_Cold_Data_Workload ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Finally, we expand the theory to cover a workload consisting of hot and cold data." .
+
+<http://example.org/ssd/assertion/d4f886fcc7c246a4979fba4182c0c77e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM> ;
+    dct:source "The Trim command effectively increases the amount of overprovisioning on the SSD." .
+
+<http://example.org/ssd/assertion/f13c054c8e3947f5874acb519db34d10> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM> ;
+    dct:source "The Trim command allows the file system to communicate to the SSD that data is no longer needed, and can be treated as invalidated. This means that the data in these pages does not need to be retained during garbage collection, reducing the number of extra writes that garbage collection generates." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E5_Random_Workload a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "Random Workload" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:E6_Hot_and_Cold_Data_Workload a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "Hot and Cold Data Workload" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E5_Random_Workload,
+        ssd:E6_Hot_and_Cold_Data_Workload ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM> rdfs:label "TRIM" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> rdfs:label "Write Amplification" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> rdfs:label "Over-Provisioning" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> .
+

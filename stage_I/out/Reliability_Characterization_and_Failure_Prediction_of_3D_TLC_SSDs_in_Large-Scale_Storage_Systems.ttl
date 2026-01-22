@@ -1,0 +1,128 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_32440a92 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_4046c9a6 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_ab73f368 a owl:Axiom ;
+    rdfs:comment "monitoredBy rdfs:domain SSD; rdfs:range SMARTAttribute." .
+
+ssd:axiom_ee0826eb a owl:Axiom ;
+    rdfs:comment "hasReliability rdfs:domain SSD; rdfs:range Reliability." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/4e2881b0b6014cbfbae56a663d972b39> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_TLC_SSD ;
+    dct:source "NAND-BASED solid state drives (SSDs) have been increasingly popular in distributed datacenters and enterprise storage systems today because of huge advantages in performance, power consumption and size over traditional hard disk drives (HDDs)." .
+
+<http://example.org/ssd/assertion/6ce82ce30d3541eb96810ea5b2e7972c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E6_RandomForestModel ;
+    dct:source "Experimental results show that random forest model can achieve 0.636 f1-score and 0.662 MCC for a 7-day prediction horizon." .
+
+<http://example.org/ssd/assertion/82849e82cd47407b855feb59624def82> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:predicate ssd:monitoredBy ;
+    ssd:subject ssd:E1_3D_TLC_SSD ;
+    dct:source "This paper for the first time investigates system-level 3D TLC SSDs to characterize reliability and sub-health status based on field Self-Monitoring, Analysis and Reporting Technology (SMART) data, and predict impending failure proactively." .
+
+<http://example.org/ssd/assertion/e646670a2a7043f99a007b96a37a83ed> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "30" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E1_3D_TLC_SSD ;
+    dct:source "Although the temperature difference between healthy and failed SSDs is indistinctive with only several degrees, failed drives still have a slightly higher temperature considering their inner voltage distribution is more likely to drift." .
+
+<http://example.org/ssd/assertion/fe246a77717f46fe8333dd499a9654ba> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:hasReliability ;
+    ssd:subject ssd:E1_3D_TLC_SSD ;
+    dct:source "Reliability characterization and failure prediction of 3D TLC SSDs in large-scale storage systems." .
+
+ssd:E6_RandomForestModel a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "RandomForestModel" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+ssd:E1_3D_TLC_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D_TLC_SSD" ;
+    ssd:hasReliability <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:hasTemperature "30" ;
+    ssd:monitoredBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "Reliability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+

@@ -1,0 +1,199 @@
+{
+  "paper_id": "Towards an Unwritten Contract of Intel Optane SSD",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Intel Optane SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D XPoint",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E5",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    },
+    {
+      "id": "E6",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E8",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E9",
+      "label": "QD1",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1"
+    },
+    {
+      "id": "E10",
+      "label": "QD64",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD64",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD64"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "We analyze a NVM-based block device – the Intel Optane SSD – and formalize an “unwritten contract” of the Optane SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "Optane SSD offers numerous opportunities for applications. For example, Intel’s Memory Direct Technology (IMDT) enables the use of Optane SSD as a DRAM alternative.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Optane SSD is a random access block device, where clients can observe the same performance for random and sequential workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "Optane SSD is a random access block device, where clients can observe the same performance for random and sequential workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Optane SSD has lower latency than Flash SSD when request size and queue depth are small.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "However, when QD >8 and request size >16KB, Flash SSD achieves lower latency, by as much as 40%.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Optane SSD can achieve peak throughput when serving small requests with low queue depth.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "The limited internal parallelism of the Optane SSD impacts its throughput in two ways.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E9",
+      "evidence": "Optane SSD has lower latency than Flash SSD when request size and queue depth are small.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E10",
+      "evidence": "However, when QD >8 and request size >16KB, Flash SSD achieves lower latency, by as much as 40%.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasQueueDepth rdfs:domain EnvironmentalAndOperationalContext; rdfs:range QueueDepth."
+  ],
+  "mappings": [
+    {
+      "label": "3D XPoint",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D XPoint is a specific structure under FlashTechnology."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random is a precise match under AccessPattern."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "Sequential is a precise match under AccessPattern."
+    },
+    {
+      "label": "Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "Latency is a broader category under Performance."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a precise match under Performance."
+    },
+    {
+      "label": "QueueDepth",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "mapping_decision": "parent",
+      "notes": "QueueDepth is a broader category under WorkloadProfile."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Towards an Unwritten Contract of Intel Optane SSD.pdf"
+}

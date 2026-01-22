@@ -1,0 +1,135 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_58ce1472 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_76723219 a owl:Axiom ;
+    rdfs:comment "validatedBy rdfs:domain SSD; rdfs:range ValidationAndBenchmarks." .
+
+ssd:axiom_76b19290 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Performance." .
+
+ssd:axiom_d95bb961 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/2caf2bc2fe0e4dbf873613c1565f61ce> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_ZFTL ;
+    dct:source "The evaluation results demonstrate that ZFTL barely impacts the raw performance while delivering up to 1.51x better throughput and reduce the 99th percentile latency by up to 79.4% in a multi-tenancy environment." .
+
+<http://example.org/ssd/assertion/5559fcc7ea4b4f589fae0fcf32ce5448> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_ZFTL ;
+    dct:source "The evaluation results demonstrate that ZFTL barely impacts the raw performance while delivering up to 1.51x better throughput." .
+
+<http://example.org/ssd/assertion/801360d17abe4b1bb4d43b92461df32a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "NVMe Solid-State Drives (SSDs) offer unprecedented throughput and response time for data centers." .
+
+<http://example.org/ssd/assertion/a8002dda3bfc43c6897273c09b2e58c2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E8_Multi_tenancy_Environment ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "The evaluation results demonstrate that ZFTL barely impacts the raw performance while delivering up to 1.51x better throughput and reduce the 99th percentile latency by up to 79.4% in a multi-tenancy environment." .
+
+<http://example.org/ssd/assertion/aa30db77837945c99b44e9e5b231a4c2> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> ;
+    ssd:predicate ssd:validatedBy ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We evaluate the effectiveness of ZFTL on various combinations of data-intensive and latency-critical workloads." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+ssd:E3_ZFTL a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "ZFTL" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:E8_Multi_tenancy_Environment a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "Multi-tenancy Environment" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:operatesUnder ssd:E8_Multi_tenancy_Environment ;
+    ssd:validatedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> rdfs:label "FIO" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+

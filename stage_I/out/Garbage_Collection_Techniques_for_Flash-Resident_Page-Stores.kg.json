@@ -1,0 +1,162 @@
+{
+  "paper_id": "arXiv:1504.01666v1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E3",
+      "label": "Lazy Gecko",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E4",
+      "label": "Logarithmic Gecko",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E5",
+      "label": "FlashTechnology",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E6",
+      "label": "NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E7",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E8",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E9",
+      "label": "DFTL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E2",
+      "evidence": "SSDs use a software layer called the flash translation layer (FTL) to manage these characteristics.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "addresses",
+      "o": "E2",
+      "evidence": "We propose two complementary techniques, called Lazy Gecko and Logarithmic Gecko, which address these issues.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "addresses",
+      "o": "E2",
+      "evidence": "We propose two complementary techniques, called Lazy Gecko and Logarithmic Gecko, which address these issues.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "Storage devices based on flash memory have replaced hard disk drives (HDDs) due to their superior performance.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "isA",
+      "o": "E5",
+      "evidence": "In recent years, usage of storage devices based on NAND flash memory such as eMMCs (embedded multimedia card) and SDDs (solid state drives) has been increasing at an exponential rate.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "The FTL also performs wear-leveling to ensure blocks across the device wear out at the same rate.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E8",
+      "evidence": "In log-based hybrid schemes, the blocks in the SSD are divided into two types: data blocks and log blocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "isA",
+      "o": "E2",
+      "evidence": "Flash-resident page-associative schemes, particularly DFTL and LazyFTL, have been acknowledged as the most efficient among the schemes.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection.",
+    "addresses rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is a direct match under MediaManagement."
+    },
+    {
+      "label": "FlashTechnology",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "mapping_decision": "exact",
+      "notes": "FlashTechnology is a direct match under PhysicalHardwareAndArchitecture."
+    },
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear Leveling is a direct match under MediaManagement."
+    },
+    {
+      "label": "Over-Provisioning",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "exact",
+      "notes": "Over-Provisioning is a direct match under MediaManagement."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Garbage Collection Techniques for Flash-Resident Page-Stores.pdf"
+}

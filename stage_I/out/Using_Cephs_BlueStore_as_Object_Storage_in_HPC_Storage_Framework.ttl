@@ -1,0 +1,113 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_ac7dc5c3 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range xsd:decimal." .
+
+ssd:axiom_b5d55ac4 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/5fce82d73e434f55aba4767d1078b747> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_WP1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_BlueStore ;
+    dct:source "The peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s." .
+
+<http://example.org/ssd/assertion/6cfdde7171364de6bc3565e1f29ceb97> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "4096" ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E4_WP1 ;
+    dct:source "The peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s." .
+
+<http://example.org/ssd/assertion/754809d9f5514acc9b7d878544c64b29> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E1_BlueStore ;
+    dct:source "For example, the peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s." .
+
+<http://example.org/ssd/assertion/b523749204c847f4b34e16f5b625914e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_POSIX_based_Object_Store ;
+    dct:source "For example, the peak for explicitly synced writes is 50 MB/s for POSIX with a block size of 4,096 kiB and thereby twice as high as BlueStore’s with 20.5 MB/s." .
+
+ssd:E2_POSIX_based_Object_Store a tax:SSD,
+        owl:Thing ;
+    rdfs:label "POSIX-based Object Store" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> rdfs:label "BlockSize" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize> .
+
+ssd:E1_BlueStore a tax:SSD,
+        owl:Thing ;
+    rdfs:label "BlueStore" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:operatesUnder ssd:E4_WP1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E4_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    ssd:hasBlockSize "4096" ;
+    ssd:unit "KiB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+

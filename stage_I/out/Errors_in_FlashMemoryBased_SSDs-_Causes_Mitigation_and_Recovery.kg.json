@@ -1,0 +1,145 @@
+{
+  "paper_id": "1711.11427v2",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E5",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E6",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E7",
+      "label": "P/E Cycle",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E8",
+      "label": "Retention Error",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E9",
+      "label": "Read Disturb",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "NAND flash memory is ubiquitous in everyday life today because its capacity has continuously increased and cost has continuously decreased over decades.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "The operating temperature of DRAM should not exceed 85°C.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "We provide rigorous experimental data from state-of-the-art MLC and TLC NAND flash devices on various types of flash memory errors.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "The decreasing raw reliability of NAND flash memory chips has drastically impacted the lifetime of commercial SSDs.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "degradedBy",
+      "o": "E8",
+      "evidence": "Retention errors are caused by charge leakage over time after a flash cell is programmed, and are the dominant source of flash memory errors.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degradedBy",
+      "o": "E9",
+      "evidence": "Read disturb is a phenomenon in NAND flash memory where reading data from a flash cell can cause the threshold voltages of other (unread) cells in the same block to shift to a higher value.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as an external factor affecting SSDs."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a specific cell type under FlashTechnology."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Errors in Flash‑Memory‑Based SSDs- Causes, Mitigation, and Recovery.pdf"
+}

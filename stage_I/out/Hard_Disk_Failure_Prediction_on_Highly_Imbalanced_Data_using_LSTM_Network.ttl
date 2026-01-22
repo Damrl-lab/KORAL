@@ -1,0 +1,103 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_79828341 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_ce7f3ae8 a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain ModelingTimeAndStateHistory/CoreConcepts; rdfs:range MetricsHealthAndState/SMARTAttribute." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/2e5e7aa5e9f3483fb154b1e0c4e6aabe> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E2_Backblaze_Dataset ;
+    dct:source "Backblaze’s website offers an extensive amount of hard disk drive test data, ranging from the year 2013 up until the most recent entry, the 2021 Q1 data." .
+
+<http://example.org/ssd/assertion/5bf468849f324b2987194197b364af74> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E4_LSTM_Model ;
+    dct:source "We leverage open data from Backblaze in developing an LSTM-based model which achieves a Matthews Correlation Coefficient of 0.71." .
+
+<http://example.org/ssd/assertion/c18b7fd2cc2340638df195f0729b51a4> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E5_Partial_Undersampling ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_LSTM_Model ;
+    dct:source "From the results shown in Table II, we could observe that partial undersampling with a 4:1 ratio resulted in the most accurate model with an MCC score of ±0.71." .
+
+ssd:E2_Backblaze_Dataset a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "Backblaze Dataset" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E4_LSTM_Model a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts>,
+        owl:Thing ;
+    rdfs:label "LSTM Model" ;
+    ssd:improves ssd:E5_Partial_Undersampling ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts> .
+
+ssd:E5_Partial_Undersampling a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts>,
+        owl:Thing ;
+    rdfs:label "Partial Undersampling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "S.M.A.R.T Attributes" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+

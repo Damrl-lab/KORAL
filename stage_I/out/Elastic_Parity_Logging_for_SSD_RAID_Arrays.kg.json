@@ -1,0 +1,222 @@
+{
+  "paper_id": "Elastic Parity Logging for SSD RAID Arrays",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EPL OG",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "RAID5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E4",
+      "label": "RAID6",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID6",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID6"
+    },
+    {
+      "id": "E5",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E8",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E9",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E10",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E11",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E12",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E13",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E14",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E15",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "EPL OG is designed as a user-level block device that manages an SSD RAID array.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "hasDeploymentEnvironment",
+      "o": "E11",
+      "evidence": "Solid-state drives (SSDs) have seen wide adoption in desktops and even large-scale data centers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E10",
+      "p": "hasWorkloadProfile",
+      "o": "E12",
+      "evidence": "EPL OG targets workloads that are dominated by small random writes, leading to frequent partial-stripe writes to RAID.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "hasAccessPattern",
+      "o": "E13",
+      "evidence": "EPL OG targets workloads that are dominated by small random writes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "hasReadWriteMix",
+      "o": "E14",
+      "evidence": "EPL OG targets workloads that are dominated by small random writes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "hasBlockSize",
+      "o": "E15",
+      "evidence": "The chunk size is set as 4KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "EPL OG significantly improves the I/O performance over the original parity logging design.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "EPL OG increases the I/O throughput by 30.1-119.2%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "EPL OG mitigates parity update overhead via elastic parity logging, which redirects parity traffic to separate log devices (to improve endurance and reliability).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "EPL OG improves the system reliability over the conventional RAID design.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "reduces",
+      "o": "E7",
+      "evidence": "EPL OG reduces the number of garbage collection operations.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "The paper describes workloads dominated by small random writes."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper describes workloads dominated by small random writes."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E15",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies a chunk size of 4KB."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Elastic_Parity_Logging_for_SSD_RAID_Arrays.pdf"
+}

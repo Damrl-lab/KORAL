@@ -1,0 +1,121 @@
+{
+  "paper_id": "ScalaRAID_Optimizing_Linux_Software_RAID_System_for_Next-Generation_Storage",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ScalaRAID",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "mdraid",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "99.99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E6",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E7",
+      "label": "PCIe Gen4",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen4",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen4"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "ScalaRAID can improve throughput by 89.4% while decreasing 99.99th percentile latency by 85.4% compared to mdraid.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "ScalaRAID can improve throughput by 89.4% while decreasing 99.99th percentile latency by 85.4% compared to mdraid.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "Over the past years, solid state drives (SSDs) have become the dominant storage media, which are widely adopted in diverse computing domains including datacenters.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E7",
+      "evidence": "The emerging PCIe 4.0 SSDs can increase their I/O bandwidth capability up to 7 GB/s.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/PCIe."
+  ],
+  "mappings": [
+    {
+      "label": "99.99th Percentile Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly mentions 99.99th percentile latency."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in throughput."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions SSDs being used in datacenters."
+    },
+    {
+      "label": "PCIe Gen4",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen4",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions PCIe 4.0 as the interface type."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "ScalaRAID Optimizing Linux Software RAID System for SSDs.pdf"
+}

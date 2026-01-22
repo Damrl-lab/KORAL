@@ -1,0 +1,291 @@
+{
+  "paper_id": "2024_USENIX_ATC_RL-Watchdog",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E6",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E8",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E9",
+      "label": "Linux Kernel",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    },
+    {
+      "id": "E10",
+      "label": "EXT4",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E11",
+      "label": "XFS",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E12",
+      "label": "F2FS",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E13",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E14",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We implement RLW with three techniques in a Linux kernel 6.0.0 and evaluate it in a single SSD and RAID using realistic power fault injection.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "70",
+        "unit": "C"
+      },
+      "evidence": "Unfortunately, even if these mechanisms can recover written data or committed transactions, when a sudden SSD failure caused by various faults (e.g., SSD controller/power faults [36,71], high SSD temperature [45,59,67], loose interconnects by vibration [18], and a faulty PCIe slot [33]) occurs, preventing data loss in running applications (i.e., the host system is alive) is still a challenge.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "We run micro/macro benchmarks and a real-world application (i.e., RocksDB) on two NVMe SSD models.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "We use eight threads using a 20 GB file per thread and a 4 KB request size.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "We use eight threads using a 20 GB file per thread and a 4 KB request size.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": "E7",
+      "evidence": "We use eight threads using a 20 GB file per thread and a 4 KB request size.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E8",
+      "evidence": "This paper focuses on NVMe SSDs since they have increasingly been adopted in various storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E9",
+      "evidence": "We implement RLW with three techniques in a Linux kernel 6.0.0 and evaluate it in a single SSD and RAID using realistic power fault injection.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "supportsFileSystem",
+      "o": "E10",
+      "evidence": "Figure 1 shows that the application can either recognize a failure later (e.g., XFS or F2FS) or fail to recognize the failure (e.g., EXT4 or raw RAID device) on a single SSD or RAID configuration.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "supportsFileSystem",
+      "o": "E11",
+      "evidence": "Figure 1 shows that the application can either recognize a failure later (e.g., XFS or F2FS) or fail to recognize the failure (e.g., EXT4 or raw RAID device) on a single SSD or RAID configuration.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "supportsFileSystem",
+      "o": "E12",
+      "evidence": "Figure 1 shows that the application can either recognize a failure later (e.g., XFS or F2FS) or fail to recognize the failure (e.g., EXT4 or raw RAID device) on a single SSD or RAID configuration.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E13",
+      "evidence": "The experimental results reveal that RLW reduces the data loss by up to 96.7% compared with the existing scheme, and its accuracy in predicting failure points reaches up to 99.8%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E14",
+      "evidence": "The experimental results reveal that RLW reduces the data loss by up to 96.7% compared with the existing scheme, and its accuracy in predicting failure points reaches up to 99.8%.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "supportsFileSystem rdfs:domain Operating System; rdfs:range File System.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as a factor affecting SSD reliability."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly used in the workload description."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The workload is described as write-heavy."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned in the workload."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is explicitly mentioned as the interface type."
+    },
+    {
+      "label": "Linux Kernel",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "mapping_decision": "exact",
+      "notes": "Linux Kernel is explicitly mentioned as the operating system."
+    },
+    {
+      "label": "EXT4",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "EXT4 is explicitly mentioned as a file system."
+    },
+    {
+      "label": "XFS",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "XFS is explicitly mentioned as a file system."
+    },
+    {
+      "label": "F2FS",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "F2FS is explicitly mentioned as a file system."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a standard performance metric."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "99th Percentile Latency is explicitly mentioned as a performance metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "RL_Watchdog_A_Fast_and_Predictable_SSD_Liveness_Watchdog_on_Storage_Systems.pdf"
+}

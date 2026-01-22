@@ -1,0 +1,219 @@
+{
+  "paper_id": "978-1-7281-7467-9",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "NAND_Flash_Chip_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E6",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E7",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E8",
+      "label": "2D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/Planar",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/Planar"
+    },
+    {
+      "id": "E9",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E10",
+      "label": "UBER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E11",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E12",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E13",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E14",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "All NAND flash blocks were written with random data at room temperature.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E14",
+      "evidence": "All NAND flash blocks were written with random data at room temperature.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "The chips span different technologies (MLC, TLC, 2D, 3D) and vendors.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "The chips span different technologies (MLC, TLC, 2D, 3D) and vendors.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E7",
+      "evidence": "The chips span different technologies (MLC, TLC, 2D, 3D) and vendors.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E8",
+      "evidence": "The chips span different technologies (MLC, TLC, 2D, 3D) and vendors.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "degradedBy",
+      "o": "E9",
+      "evidence": "As executing repeated program and erase operations on the NAND flash chips, the number of errors increases and ultimately exceeds the ECC capability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E10",
+      "evidence": "The results of the study [7] demonstrated that large RBER does not represent a higher uncorrectable bit error rate (UBER) possibility after large-scale tests.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct factor in the environmental context."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D is a specific structure under FlashTechnology."
+    },
+    {
+      "label": "2D",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/Planar",
+      "mapping_decision": "exact",
+      "notes": "2D is a specific structure under FlashTechnology."
+    },
+    {
+      "label": "Error Correction (ECC)",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "ECC is a specific data path management technique."
+    },
+    {
+      "label": "UBER",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "exact",
+      "notes": "UBER is a specific reliability metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Unexpected_Error_Explosion_in_NAND_Flash_Memory_Observations_and_Prediction_Scheme.pdf"
+}

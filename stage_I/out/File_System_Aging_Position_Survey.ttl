@@ -1,0 +1,194 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_427fd9a8 a owl:Axiom ;
+    rdfs:comment "impacts rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/MetricsHealthAndState/Performance." .
+
+ssd:axiom_5de254d3 a owl:Axiom ;
+    rdfs:comment "correlatesWith rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection." .
+
+ssd:axiom_a63c5ef3 a owl:Axiom ;
+    rdfs:comment "degrades rdfs:domain SSD/EnvironmentalAndOperationalContext/HostSystem/File System; rdfs:range SSD/MetricsHealthAndState/Performance." .
+
+ssd:axiom_a993d209 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/EnvironmentalAndOperationalContext/HostSystem/File System; rdfs:range SSD/MetricsHealthAndState/Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/11d17e52bc0d4adbb0914b1ee9ae7dad> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E11_Read_Performance ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E4_XFS ;
+    dct:source "XFS and ZFS achieve a scan throughput of only 19–40MiB/s." .
+
+<http://example.org/ssd/assertion/4e94102217924fffafbe4f10516849f0> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject tax:SSD ;
+    dct:source "Even on SSDs, which do not perform mechanical seeks, a decline in logical block locality can harm performance." .
+
+<http://example.org/ssd/assertion/73f0b55764a24bcf8d9dea9b0f814c4d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E11_Read_Performance ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E5_ZFS ;
+    dct:source "ZFS over 60 minutes; BetrFS, on the other hand, took less than a minute." .
+
+<http://example.org/ssd/assertion/9cd85c7332f749f2b919449bc320f1f6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E11_Read_Performance ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E2_ext4 ;
+    dct:source "For example, ext4 shows over a 2× slowdown after 1200 git pulls." .
+
+<http://example.org/ssd/assertion/9ce0ba01cf0648d785bd94b03e5e315e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E11_Read_Performance ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E7_BetrFS ;
+    dct:source "BetrFS typically outperforms the other file systems in our benchmarks." .
+
+<http://example.org/ssd/assertion/a95cc702c2d44b35925c8a3d69e2def1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E11_Read_Performance ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E6_F2FS ;
+    dct:source "F2FS took over 50 minutes and ZFS over 60 minutes." .
+
+<http://example.org/ssd/assertion/ada3c2e3c4ee41a7b9443cde7ec14348> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E9_HDD ;
+    dct:source "Reading these files requires additional seeks, and on hard drives, a few seeks can have an outsized effect on performance." .
+
+<http://example.org/ssd/assertion/bef83cdb99e544c09d8b4a45dbb83dec> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E11_Read_Performance ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject ssd:E13_Aging ;
+    dct:source "We argue that these slowdowns are caused by poor layout." .
+
+<http://example.org/ssd/assertion/f705a64fbac44239abb8c3fab0ff6809> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E11_Read_Performance ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E3_Btrfs ;
+    dct:source "Btrfs and ZFS slow down similarly after 1300 and 1600 pulls, respectively." .
+
+ssd:E13_Aging a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "Aging" ;
+    ssd:impacts ssd:E11_Read_Performance ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:E2_ext4 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "ext4" ;
+    ssd:degrades ssd:E11_Read_Performance ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E3_Btrfs a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "Btrfs" ;
+    ssd:degrades ssd:E11_Read_Performance ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E4_XFS a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "XFS" ;
+    ssd:degrades ssd:E11_Read_Performance ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E5_ZFS a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "ZFS" ;
+    ssd:degrades ssd:E11_Read_Performance ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E6_F2FS a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "F2FS" ;
+    ssd:degrades ssd:E11_Read_Performance ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E7_BetrFS a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "BetrFS" ;
+    ssd:improves ssd:E11_Read_Performance ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E9_HDD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "HDD" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:degrades a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> rdfs:label "Fragmentation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> rdfs:label "File System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E11_Read_Performance a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        owl:Thing ;
+    rdfs:label "Read Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+

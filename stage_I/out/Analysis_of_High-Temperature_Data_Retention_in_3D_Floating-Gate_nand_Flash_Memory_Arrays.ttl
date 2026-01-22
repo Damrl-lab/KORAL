@@ -1,0 +1,131 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_50e50a70 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_53c3b37b a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/a7fb4d87c8d84186bfee6f77f54c48d8> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_NAND_Flash ;
+    dct:source "To explore the dependence of VT instabilities on the VT level of the monitored cells and on the string back-pattern, an Erase/Program sequence was initially employed to i) set the VT level of the monitored cells to reproduce a randomly generated triple-level cell (TLC) pattern along their wordline." .
+
+<http://example.org/ssd/assertion/bb8a90921fa84bd88727c66d0f31ab40> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_VT_Instability ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E6_Polysilicon_Trap_Depassivation ;
+    dct:source "Charge detrapping from the cell tunnel oxide and depassivation of traps in the string polysilicon channel are the physical mechanisms resulting in the most relevant long-term reliability issues for the memory array." .
+
+<http://example.org/ssd/assertion/ce6583d5267846b097c930b5618efe87> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "125" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E2_High_Temperature_Context ;
+    dct:source "After that, samples were baked at a temperature TBranging from 75°C to 150°C, reproducing a high-temperature data retention condition for the array." .
+
+<http://example.org/ssd/assertion/d60a86d529424a42ad129fef50c6652a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_High_Temperature_Context ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_NAND_Flash ;
+    dct:source "In this paper, we present a detailed experimental investigation of high-temperature data retention in 3D floating-gate NAND Flash memory arrays." .
+
+<http://example.org/ssd/assertion/d7427f75ed544b079652165317600cb2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_VT_Instability ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E5_Charge_Detrapping ;
+    dct:source "Charge detrapping from the cell tunnel oxide and depassivation of traps in the string polysilicon channel are the physical mechanisms resulting in the most relevant long-term reliability issues for the memory array." .
+
+ssd:E5_Charge_Detrapping a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Charge Detrapping" ;
+    ssd:degrades ssd:E7_VT_Instability ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E6_Polysilicon_Trap_Depassivation a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Polysilicon Trap Depassivation" ;
+    ssd:degrades ssd:E7_VT_Instability ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E1_3D_NAND_Flash a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder ssd:E2_High_Temperature_Context ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:E2_High_Temperature_Context a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "High-Temperature Context" ;
+    ssd:hasTemperature "125" ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E7_VT_Instability a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability>,
+        owl:Thing ;
+    rdfs:label "VT Instability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+

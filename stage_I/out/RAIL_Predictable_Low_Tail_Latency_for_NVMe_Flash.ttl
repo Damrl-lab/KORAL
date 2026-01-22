@@ -1,0 +1,177 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:E7_RAIL_Stride a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529>,
+        owl:Thing ;
+    rdfs:label "RAIL Stride" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529> .
+
+ssd:axiom_10164cca a owl:Axiom ;
+    rdfs:comment "connectedVia rdfs:domain SSD; rdfs:range PCIe." .
+
+ssd:axiom_5c013a04 a owl:Axiom ;
+    rdfs:comment "usesDriver rdfs:domain SSD; rdfs:range EcosystemAndIntegrationContext/HostIOStack/Drivers." .
+
+ssd:axiom_67608719 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState." .
+
+ssd:axiom_708ec790 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_bb50fe26 a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic." .
+
+ssd:axiom_c1854fde a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/11d9edf2dda5420aa248d6a8d847a653> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_RAIL ;
+    dct:source "RAIL can reduce read tail latency by 7× at the 99.99th percentile." .
+
+<http://example.org/ssd/assertion/3b0d886947b54d46988d780d6671f767> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> ;
+    ssd:predicate ssd:connectedVia ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "The SSD is connected over a PCIe x8 interface to the host server." .
+
+<http://example.org/ssd/assertion/4dedb1b2332e4fc9829eacdbff4d0f60> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_RAIL_HC ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "RAIL introduces latency-aware hot-cold separation (HC) to separate hot user writes and cold GC writes into independent physical flash chips." .
+
+<http://example.org/ssd/assertion/683aa701048643f9b0f38a2f338a6082> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "Figure 1 shows the read latency complimentary cumulative distribution function (CCDF) for a mixed read/write workload on an NVMe based solid state disk (SSD) from CNEX Labs." .
+
+<http://example.org/ssd/assertion/6ad72685d0af4443a009cabf13e2f740> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "Flash-based storage devices are replacing disks for an increasing number of applications in data centers." .
+
+<http://example.org/ssd/assertion/a6222457da0d4e199bfc94d3f5bb6d93> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E10_LightNVM ;
+    ssd:predicate ssd:usesDriver ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We develop RAIL as part of LightNVM." .
+
+<http://example.org/ssd/assertion/cf551a04d5ca450bac38cd0017a0e14d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_RAIL ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We propose two novel techniques to address SSD read tail latency, including Redundant Array of Independent LUNs (RAIL) which avoids serialization of reads behind user writes." .
+
+<http://example.org/ssd/assertion/dca23fc61e28448095bfe0fc7584029c> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E8_OpenChannel_SSD ;
+    ssd:predicate ssd:hasController ;
+    ssd:subject ssd:E1_SSD ;
+    dct:source "We present a full Linux kernel software implementation leveraging OpenChannel SSDs." .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E10_LightNVM a <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers>,
+        owl:Thing ;
+    rdfs:label "LightNVM" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers> .
+
+ssd:E6_RAIL_HC a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection>,
+        owl:Thing ;
+    rdfs:label "RAIL-HC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%2520Collection> .
+
+ssd:E8_OpenChannel_SSD a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller>,
+        owl:Thing ;
+    rdfs:label "OpenChannel SSD" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller> .
+
+ssd:E3_RAIL a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529>,
+        owl:Thing ;
+    rdfs:label "RAIL" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99.99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> rdfs:label "PCIe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> .
+
+ssd:E1_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD" ;
+    ssd:connectedVia <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe> ;
+    ssd:hasController ssd:E8_OpenChannel_SSD ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:uses ssd:E3_RAIL,
+        ssd:E6_RAIL_HC ;
+    ssd:usesDriver ssd:E10_LightNVM ;
+    rdfs:isDefinedBy tax:SSD .
+

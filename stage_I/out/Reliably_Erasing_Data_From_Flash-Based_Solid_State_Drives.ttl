@@ -1,0 +1,141 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_07e97f3d a owl:Axiom ;
+    rdfs:comment "improvedBy rdfs:domain SSD; rdfs:range SSD/ConfigurationAndAdvancedParadigms/Security/Secure Erase/Sanitize." .
+
+ssd:axiom_4da96ba1 a owl:Axiom ;
+    rdfs:comment "manages rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic." .
+
+ssd:axiom_50df0bf3 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_95b1fb6d a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/20c4049f982f4e3f8ef466c77f0d1640> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E8_Digital_Remnants ;
+    ssd:predicate ssd:manages ;
+    ssd:subject ssd:E4_FTL ;
+    dct:source "The FTL created the copies during garbage collection and out-of-place updates." .
+
+<http://example.org/ssd/assertion/57ac730c4b064954af3965c1fccd773e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject tax:SSD ;
+    dct:source "Built-in commands for whole disk sanitization appear to be effective, if implemented correctly." .
+
+<http://example.org/ssd/assertion/8e34623d22814cb0b3659729bfe4c753> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "The differences between SSDs and hard drives make it uncertain whether techniques and commands developed for hard drives will be effective on SSDs." .
+
+<http://example.org/ssd/assertion/aa0e0764abc74dc09a616f18ce2cd8ea> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "For SLC devices, scrubbing did not cause any errors at all." .
+
+<http://example.org/ssd/assertion/c072668fde8a47358a2274c7fb8daa23> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "The degausser was a Security, Inc. HD-3D hard drive degausser that has been evaluated for the NSA and can thoroughly sanitize modern hard drives." .
+
+<http://example.org/ssd/assertion/e6089544b1c7445eb9034bd539ef4922> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "The SSDs we tested contain between 6 and 25% more physical flash storage than they advertise as their logical capacity." .
+
+ssd:E4_FTL a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "FTL" ;
+    ssd:manages ssd:E8_Digital_Remnants ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E8_Digital_Remnants a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "Digital Remnants" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> rdfs:label "Secure Erase/Sanitize" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> rdfs:label "SLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:improvedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+

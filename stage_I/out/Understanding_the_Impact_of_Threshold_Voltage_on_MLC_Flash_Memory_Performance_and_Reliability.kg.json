@@ -1,0 +1,102 @@
+{
+  "paper_id": "Understanding the Impact of Threshold Voltage on MLC Flash Memory Performance and Reliability",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Threshold Voltage",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E4",
+      "label": "P/E Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E5",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E6",
+      "label": "TVR",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "MLC NAND flash memory based solid state drives (SSDs) have been increasingly used in supercomputing centers because of their merits in cost, performance, and energy-efficiency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "impacts",
+      "o": "E4",
+      "evidence": "We empirically measure the correlations between threshold voltage and program/erase (P/E) performance as well as reliability.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "impacts",
+      "o": "E5",
+      "evidence": "We empirically measure the correlations between threshold voltage and program/erase (P/E) performance as well as reliability.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "degrades",
+      "o": "E4",
+      "evidence": "We propose an approach called threshold voltage reduction (TVR), which increases programming speed and longevity by 50% and 7.1%, respectively.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "degrades",
+      "o": "E5",
+      "evidence": "We propose an approach called threshold voltage reduction (TVR), which increases programming speed and longevity by 50% and 7.1%, respectively.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "impacts rdfs:domain SSD/PhysicalHardwareAndArchitecture/FlashTechnology; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "impacts rdfs:domain SSD/PhysicalHardwareAndArchitecture/FlashTechnology; rdfs:range SSD/MetricsHealthAndState/Reliability.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Threshold Voltage",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "mapping_decision": "parent",
+      "notes": "Threshold Voltage is a key factor in flash technology impacting performance and reliability."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Understanding the Impact of Threshold Voltage on MLC Flash Memory Performance and Reliability.pdf"
+}

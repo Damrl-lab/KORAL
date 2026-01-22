@@ -1,0 +1,167 @@
+{
+  "paper_id": "arXiv:2410.11260v1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Z-CacheLib",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ZNS SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E5",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E6",
+      "label": "Cache Hit Ratio",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E9",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E10",
+      "label": "1077MiB",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "Z-CacheLib can achieve up to 6X throughput and 92% WA reduction compared with F2FS-based scheme.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The cache workloads have heavy insertions, updates, and evictions and cause random write of blocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "The cache workloads have heavy insertions, updates, and evictions and cause random write of blocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E9",
+      "evidence": "The cache workloads have heavy insertions, updates, and evictions and cause random write of blocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "Z-CacheLib can achieve up to 6X throughput and 92% WA reduction compared with F2FS-based scheme.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "reduces",
+      "o": "E5",
+      "evidence": "Z-CacheLib can achieve up to 6X throughput and 92% WA reduction compared with F2FS-based scheme.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "maintains",
+      "o": "E6",
+      "evidence": "The cache hit ratio of Z-CacheLib is only about 0.1% to 0.3% lower than that of regular SSD and ZNS-F2FS schemes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasZoneSize",
+      "o": "E10",
+      "evidence": "ZNS SSDs organize the storage space as large zones (e.g., 96 MiB of Samsung ZNS SSD and 1077 MiB of Western Digital SSDs).",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "improves rdfs:domain SSD; rdfs:range Performance.",
+    "reduces rdfs:domain SSD; rdfs:range MediaManagement.",
+    "maintains rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Throughput",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a direct performance metric."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write Amplification is related to Garbage Collection."
+    },
+    {
+      "label": "Cache Hit Ratio",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Cache Hit Ratio is a general performance metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Zoned Storage Optimized Flash Cache on ZNS SSDs.pdf"
+}

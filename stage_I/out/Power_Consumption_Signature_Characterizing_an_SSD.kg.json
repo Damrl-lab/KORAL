@@ -1,0 +1,201 @@
+{
+  "paper_id": "E99-D_NO.7_JULY_2016",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Toshiba_Q_Pro",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "Samsung_MXP",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "Samsung_840",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "Intel_X-25M",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    },
+    {
+      "id": "E9",
+      "label": "32KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB"
+    },
+    {
+      "id": "E10",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E11",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E12",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E13",
+      "label": "Energy Consumption",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeviceType",
+      "o": "E10",
+      "evidence": "The specification of 840 tells us that the device uses TLC NAND Flash memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasDeviceType",
+      "o": "E11",
+      "evidence": "Intel X-25M has 10 channels; Samsung MXP has 8; Toshiba Q Pro has 4; and Samsung 840 has 8 channels.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasBlockSize",
+      "o": "E9",
+      "evidence": "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E12",
+      "evidence": "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E13",
+      "evidence": "We found that Q Pro has I /O unit of 32 KB, and by aligning the file system record size to 32 KB, the performance increased by 201% and energy consumption decreased by 85%, which compared to the record size of 4 KB.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType."
+  ],
+  "mappings": [
+    {
+      "label": "Sequential",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "The paper describes sequential access patterns."
+    },
+    {
+      "label": "32KB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/32KB",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies a 32KB block size."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies TLC NAND Flash for Samsung 840."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies MLC NAND Flash for Intel X-25M."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Power Consumption Signature Characterizing an SSD.pdf"
+}

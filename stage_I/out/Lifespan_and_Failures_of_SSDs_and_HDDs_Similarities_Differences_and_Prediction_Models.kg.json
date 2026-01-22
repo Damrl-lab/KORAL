@@ -1,0 +1,180 @@
+{
+  "paper_id": "Lifespan_and_Failures_of_SSDs_and_HDDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E6",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E9",
+      "label": "LithographyNode",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LithographyNode",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LithographyNode"
+    },
+    {
+      "id": "E10",
+      "label": "480 GB",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture"
+    },
+    {
+      "id": "E11",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E12",
+      "label": "Reported Uncorrectable Errors [ID: 187]",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors [ID: 187]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%20Uncorrectable%20Errors%20%5BID%3A%20187%5D"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The data consists of daily performance logs for three MLC SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E5",
+      "evidence": "The data consists of daily performance logs for three MLC SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E8",
+      "evidence": "The logs of three multi-level cell (MLC) models of SSDs collected at a Google data center.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasCapacity",
+      "o": "E10",
+      "evidence": "All three models are manufactured by the same vendor and have a 480 GB capacity.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasLithographyNode",
+      "o": {
+        "@value": "50",
+        "unit": "nm"
+      },
+      "evidence": "All three models are manufactured by the same vendor and have a 480 GB capacity and a lithography on the order of 50 nm.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The data consists of daily performance logs for three MLC SSD models collected at a Google data center over a period of six years.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": {
+        "@value": "Balanced"
+      },
+      "evidence": "The logs report daily summaries of drive activity.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E2",
+      "p": "hasSMARTAttribute",
+      "o": "E12",
+      "evidence": "In addition to the raw features, we also consider the cumulative effect of SMART 187 (i.e., the total number of Reported Uncorrectable Errors over time).",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasCapacity rdfs:domain SSD; rdfs:range xsd:string.",
+    "hasLithographyNode rdfs:domain SSD; rdfs:range xsd:decimal.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "MLC",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is explicitly mentioned and matches the taxonomy."
+    },
+    {
+      "label": "Reported Uncorrectable Errors [ID: 187]",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors [ID: 187]",
+      "mapping_decision": "exact",
+      "notes": "Direct match with taxonomy SMART attribute."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Lifespan_and_Failures_of_SSDs_and_HDDs_Similarities_Differences_and_Prediction_Models.pdf"
+}

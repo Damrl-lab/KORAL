@@ -1,0 +1,172 @@
+{
+  "paper_id": "2023_USENIX_ATC_LPNS",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "LPNS_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "P5800X",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "PM1735",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E6",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E7",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E9",
+      "label": "QD1",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "LPNS can achieve up to 18.72 \u0000d7latency optimization of the mainstream NVMe virtualization with strong latency bounds.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "LPNS is an NVMe virtualization solution that provides latency-predictable virtualized storage in NVMe virtualization and sharing scenarios.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "The SVM runs the lightest FIO workloads in a general sense by setting both the two standard decisive FIO parameters \u0003cnumjobs\u0003e and \u0003ciodepth\u0003e as 1 (n1d1).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasQueueDepth",
+      "o": "E9",
+      "evidence": "The SVM runs the lightest FIO workloads in a general sense by setting both the two standard decisive FIO parameters \u0003cnumjobs\u0003e and \u0003ciodepth\u0003e as 1 (n1d1).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "LPNS can also increase up to 1.45 \u0000d7 additional throughput and a better latency bound than the state-of-the-art storage latency control systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "LPNS can reach up to 3.84/6.70 \u0000d7 optimization of 99.9th/99.99th 4K random read tail latency of SPDK.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We let the VM1 and the VM2 share one P5800X SSD, and the performance of 4K random read and write test cases are depicted.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We let the VM1 and the VM2 share one PM1735 SSD, and the performance results are shown.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasQueueDepth rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range QueueDepth.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is explicitly mentioned as the interface type."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a standard performance metric."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "99th Percentile Latency is a specific performance metric."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned."
+    },
+    {
+      "label": "QD1",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 1 is explicitly mentioned."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "LPNS Scalable and LatencyPredictable Local Storage in Public Clouds.pdf"
+}

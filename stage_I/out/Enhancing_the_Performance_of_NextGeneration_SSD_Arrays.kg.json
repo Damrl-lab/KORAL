@@ -1,0 +1,157 @@
+{
+  "paper_id": "EnhancingthePerformanceofNext-GenerationSSDArrays:AHolisticApproach",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ScalaAFA",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E8",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E10",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "ScalaAFA is a unique holistic design of AFA engine that can extend the throughput of next-generation SSD arrays in scale with low CPU costs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "ScalaAFA achieves 2.5 × write throughput and reduces average write latency by a significant 52.7%, compared to the state-of-the-art AFA engines.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasReadWriteMix",
+      "o": "E10",
+      "evidence": "ScalaAFA achieves 2.5 × write throughput and reduces average write latency by a significant 52.7%, compared to the state-of-the-art AFA engines.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "ScalaAFA achieves 2.5 × write throughput and reduces average write latency by a significant 52.7%, compared to the state-of-the-art AFA engines.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "ScalaAFA achieves 2.5 × write throughput and reduces average write latency by a significant 52.7%, compared to the state-of-the-art AFA engines.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "ScalaAFA reduces the average and 99.99 percentile write latency by 45.2% and 44.1%.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix.",
+    "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Throughput",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned in the context of performance improvement."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned in the context of performance improvement."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned in the context of performance improvement."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The workload is characterized as write-heavy in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Enhancing the Performance of Next‑Generation SSD Arrays.pdf"
+}

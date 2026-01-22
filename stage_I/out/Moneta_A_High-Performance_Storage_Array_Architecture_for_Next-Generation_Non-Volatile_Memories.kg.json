@@ -1,0 +1,165 @@
+{
+  "paper_id": "Moneta_2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Moneta",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E4",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E5",
+      "label": "PCIe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType"
+    },
+    {
+      "id": "E6",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E7",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E8",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Moneta array sustain 2.8GB/s for sequential transfers and 541K random 4KB IO operations per second.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "Moneta array sustain 2.8GB/s for sequential transfers and 541K random 4KB IO operations per second.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasBlockSize",
+      "o": "E4",
+      "evidence": "Moneta array sustain 2.8GB/s for sequential transfers and 541K random 4KB IO operations per second.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E5",
+      "evidence": "This paper describes the architecture of a prototype PCIe-attached storage array built from emulated PCM storage called Moneta.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformance",
+      "o": "E6",
+      "evidence": "Moneta array sustain 2.8GB/s for sequential transfers and 541K random 4KB IO operations per second.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformance",
+      "o": "E7",
+      "evidence": "Moneta array sustain 2.8GB/s for sequential transfers and 541K random 4KB IO operations per second.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformance",
+      "o": "E8",
+      "evidence": "Moneta+Atomic reduces latency by 1 μs over Moneta+NoSched and increases bandwidth by 460 MB/s for 4KB writes.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext; rdfs:range BlockSize.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasPerformance rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "The paper describes random access patterns."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies 4KB block size."
+    },
+    {
+      "label": "PCIe",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType",
+      "mapping_decision": "exact",
+      "notes": "The paper describes PCIe as the interface type."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper provides IOPS as a performance metric."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper provides throughput as a performance metric."
+    },
+    {
+      "label": "Latency",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses latency improvements."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Moneta A High-Performance Storage Array Architecture for Next-Generation Non-Volatile Memories.pdf"
+}

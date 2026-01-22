@@ -1,0 +1,221 @@
+{
+  "paper_id": "31",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "NVMe-SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "NVMe-oF",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%20%28RoCE%2C%20TCP%2C%20FC%29"
+    },
+    {
+      "id": "E4",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E5",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E6",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "iSCSI",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/Interconnects",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects"
+    },
+    {
+      "id": "E9",
+      "label": "RocksDB",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks"
+    },
+    {
+      "id": "E10",
+      "label": "MySQL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "NVMe-SDDs (i.e., PCIe-based SSDs) are becoming increasingly popular for serving I/O intensive applications in datacenters and enterprise deployments.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "supports",
+      "o": "E3",
+      "evidence": "NVMe-over-Fabrics (NVMe-oF) is a recent protocol standard for accessing NVMe devices over RDMA-capable networks.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "A single current-generation NVMe-SSD sustains up to one million IOPS with a 90 μs read latency.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "NVMe-oF minimizes the performance degradation experienced by the application, thus significantly improving the efficiency and viability of NVMe disaggregation.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "NVMe-oF performance is almost identical to DAS over the entire load range—the average latencies are within a 3.5% difference.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "NVMe-oF tail latencies are slightly better than DAS for light to medium-high loads.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "iSCSI throughput is significantly lower than DAS and NVMe-oF.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "iSCSI latencies are noticeably longer compared to local storage access.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "evaluates",
+      "o": "E1",
+      "evidence": "We use RocksDB as examples for real-world I/O intensive workloads, and show that they experience minimal performance degradation when running on remote storage.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E10",
+      "p": "evaluates",
+      "o": "E1",
+      "evidence": "We use MySQL as examples for real-world I/O intensive workloads, and show that they experience minimal performance degradation when running on remote storage.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "supports rdfs:domain SSD; rdfs:range EcosystemAndIntegrationContext/Interconnects.",
+    "improves rdfs:domain EcosystemAndIntegrationContext/Interconnects; rdfs:range MetricsHealthAndState/Performance.",
+    "degrades rdfs:domain EcosystemAndIntegrationContext/Interconnects; rdfs:range MetricsHealthAndState/Performance.",
+    "evaluates rdfs:domain EcosystemAndIntegrationContext/ValidationAndBenchmarks; rdfs:range SSD."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Matches the deployment environment described in the paper."
+    },
+    {
+      "label": "NVMe-oF",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC)",
+      "mapping_decision": "exact",
+      "notes": "Matches the interconnect technology described in the paper."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "Matches the performance metric described in the paper."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Matches the performance metric described in the paper."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Matches the performance metric described in the paper."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "Matches the performance metric described in the paper."
+    },
+    {
+      "label": "iSCSI",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/Interconnects",
+      "mapping_decision": "parent",
+      "notes": "iSCSI is a type of interconnect technology."
+    },
+    {
+      "label": "RocksDB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks",
+      "mapping_decision": "parent",
+      "notes": "RocksDB is used as a benchmark in the paper."
+    },
+    {
+      "label": "MySQL",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks",
+      "mapping_decision": "parent",
+      "notes": "MySQL is used as a benchmark in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Performance Characterization of NVMe-over-Fabrics Storage.pdf"
+}

@@ -1,0 +1,167 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_124fa148 a owl:Axiom ;
+    rdfs:comment "correlatesWith rdfs:domain PhysicalHardwareAndArchitecture/Controller/Channels; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_6f206a09 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_991975de a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_c74d88ac a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_e1c8e318 a owl:Axiom ;
+    rdfs:comment "degrades rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/12d855ff585f44eb9ad3c6a45947ffda> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E5_Energy_Consumption ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E7_Block_Mapping ;
+    dct:source "Block mapping, BAST*, and BAST consume 9.2%, 7.9%, and 21.9% more energy, respectively, than page mapping does." .
+
+<http://example.org/ssd/assertion/86edf7655bf1499eae296c40bcd5c2b6> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E5_Energy_Consumption ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E6_Page_Mapping ;
+    dct:source "In most workloads, except MSNfs, DFTL is more energy efficient than page mapping." .
+
+<http://example.org/ssd/assertion/9952909f9e064b20a799cf5a5f6cb1b1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E5_Energy_Consumption ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E9_Channels ;
+    dct:source "We found that aggregate energy consumption is not sensitive to the channel/way configuration but is rather governed by the write volume." .
+
+<http://example.org/ssd/assertion/afd9273e77234896b4e6cf45081af62b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_Energy_Consumption ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_DFTL ;
+    dct:source "First, DFTL is the most energy-efficient address-mapping scheme among the five FTLs we tested due to its good write amplification and small DRAM footprint." .
+
+<http://example.org/ssd/assertion/d03cc970945c47ba98746b41766fd888> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "In our study, we used five different FTLs (page mapping, DFTL, block mapping, and two different hybrid mappings) and four different channel configurations (two, four, eight, and 16 channels) under seven different workloads (from large-scale enterprise systems to small-scale desktop applications) in a combinatorial manner." .
+
+<http://example.org/ssd/assertion/d8de38218f844a638ecd1dab9700a780> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E5_Energy_Consumption ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E8_Hybrid_Mapping ;
+    dct:source "Block mapping, BAST*, and BAST consume 9.2%, 7.9%, and 21.9% more energy, respectively, than page mapping does." .
+
+<http://example.org/ssd/assertion/e8fbf710619f435094a485796ef93726> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "In our study, we used five different FTLs (page mapping, DFTL, block mapping, and two different hybrid mappings) and four different channel configurations (two, four, eight, and 16 channels) under seven different workloads (from large-scale enterprise systems to small-scale desktop applications) in a combinatorial manner." .
+
+ssd:E4_DFTL a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "DFTL" ;
+    ssd:improves ssd:E5_Energy_Consumption ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E6_Page_Mapping a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Page Mapping" ;
+    ssd:degrades ssd:E5_Energy_Consumption ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E7_Block_Mapping a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Block Mapping" ;
+    ssd:degrades ssd:E5_Energy_Consumption ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E8_Hybrid_Mapping a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Hybrid Mapping" ;
+    ssd:degrades ssd:E5_Energy_Consumption ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E9_Channels a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/Channels>,
+        owl:Thing ;
+    rdfs:label "Channels" ;
+    ssd:correlatesWith ssd:E5_Energy_Consumption ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/Channels> .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E3_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E3_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:E5_Energy_Consumption a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        owl:Thing ;
+    rdfs:label "Energy Consumption" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+

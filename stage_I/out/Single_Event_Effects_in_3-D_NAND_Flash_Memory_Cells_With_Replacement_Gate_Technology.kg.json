@@ -1,0 +1,130 @@
+{
+  "paper_id": "IEEE_TNS_2023_70_4",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3-D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "Radiation",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation"
+    },
+    {
+      "id": "E4",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E7",
+      "label": "LayerCount",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The 3-D NAND flash devices have immediately attracted the attention of the space and high-reliability community, due to their higher density and potential for improved radiation sensitivity.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasExternalFactor",
+      "o": "E3",
+      "evidence": "The 3-D NAND flash devices have immediately attracted the attention of the space and high-reliability community, due to their higher density and potential for improved radiation sensitivity.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "The RG memories studied in this work (as well as the FG devices that are considered for comparison) are triple-level cell (TLC) devices, storing three bits in each cell.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasStructure",
+      "o": "E6",
+      "evidence": "The behavior of RG cells is compared with previous generations of flash NAND memory cells with floating-gate (FG) architecture, both planar and 3-D.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasManufacturing",
+      "o": "E7",
+      "evidence": "Since the first commercial products in 2014, 3-D NAND flash memory has rapidly evolved, by increasing the number of layers (from 24 to 176 and beyond).",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range ExternalFactors.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasStructure rdfs:domain SSD; rdfs:range FlashTechnology/Structure.",
+    "hasManufacturing rdfs:domain SSD; rdfs:range FlashTechnology/Manufacturing."
+  ],
+  "mappings": [
+    {
+      "label": "Radiation",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "mapping_decision": "exact",
+      "notes": "Radiation is explicitly mentioned as a factor affecting the SSD."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type used in the SSD."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D structure is explicitly mentioned in the context of NAND flash."
+    },
+    {
+      "label": "LayerCount",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "mapping_decision": "exact",
+      "notes": "Layer count is discussed in terms of manufacturing evolution."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Single Event Effects in 3-D NAND Flash Memory Cells With Replacement Gate Technology.pdf"
+}

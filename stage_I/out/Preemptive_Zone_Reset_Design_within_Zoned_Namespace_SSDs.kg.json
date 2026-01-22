@@ -1,0 +1,130 @@
+{
+  "paper_id": "electronics12040798",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "ZNS_SSD_Prototype",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Preemptive Zone Reset",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E3",
+      "label": "ZNS",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces"
+    },
+    {
+      "id": "E4",
+      "label": "Tail Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E6",
+      "label": "Mixed",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Our proposed approach, opposed to the baseline method, as much as halved tail latency for write-only workloads, and reduced read tail latency by up to 1.76 times in a mixed workload.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Emerging Zoned Namespace (ZNS) SSD technology provides a new opportunity for NAND flash-based SSDs to communicate with host machines through the zoned block device interface.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "Our proposed approach, opposed to the baseline method, as much as halved tail latency for write-only workloads, and reduced read tail latency by up to 1.76 times in a mixed workload.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E5",
+      "evidence": "Our proposed approach, opposed to the baseline method, as much as halved tail latency for write-only workloads, and reduced read tail latency by up to 1.76 times in a mixed workload.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "Our proposed approach, opposed to the baseline method, as much as halved tail latency for write-only workloads, and reduced read tail latency by up to 1.76 times in a mixed workload.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/MetricsHealthAndState/Performance/99th Percentile Latency.",
+    "hasReadWriteMix rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix.",
+    "hasAccessPattern rdfs:domain EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern."
+  ],
+  "mappings": [
+    {
+      "label": "ZNS",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "mapping_decision": "exact",
+      "notes": "ZNS is directly mentioned and aligns with the taxonomy."
+    },
+    {
+      "label": "Tail Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "parent",
+      "notes": "Tail latency is a performance metric related to latency."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy workload is directly mentioned and aligns with the taxonomy."
+    },
+    {
+      "label": "Mixed",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Mixed workload is directly mentioned and aligns with the taxonomy."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Preemptive Zone Reset Design within Zoned Namespace SSDs.pdf"
+}

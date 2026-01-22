@@ -1,0 +1,188 @@
+{
+  "paper_id": "Implementing_Flash-Cached_Storage_Systems_Using_Computational_Storage_Drive_with_Built-in_Transparent_Compression",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TC-CSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E6",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E7",
+      "label": "PCIe Gen3",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe"
+    },
+    {
+      "id": "E8",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType"
+    },
+    {
+      "id": "E9",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E10",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "This work envisions flash-cached storage systems using TC-CSD as the caching device.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Moreover, accessing compressed data chunk on the caching device involves fetching a large data chunk and carrying out CPU-based decompression.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "This could degrade the caching device capacity usage efficiency, especially under workloads dominated by small-size random data access.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": "E6",
+      "evidence": "TC-CSD internally performs hardware-based per-4KB data compression/decompression.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasInterfaceType",
+      "o": "E8",
+      "evidence": "Operating with PCIe Gen3×4 interface, this SSD can achieve 3.2GB/s sequential throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasPCIe",
+      "o": "E7",
+      "evidence": "Operating with PCIe Gen3×4 interface, this SSD can achieve 3.2GB/s sequential throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "This SSD can achieve 650K (520K) random 4KB read (write) IOPS (IO per second) over 100% LBA span.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "Operating with PCIe Gen3×4 interface, this SSD can achieve 3.2GB/s sequential throughput.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasPCIe rdfs:domain SSD; rdfs:range PCIe.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the paper."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned in the paper."
+    },
+    {
+      "label": "PCIe Gen3",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe",
+      "mapping_decision": "exact",
+      "notes": "PCIe Gen3 is explicitly mentioned in the paper."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType",
+      "mapping_decision": "exact",
+      "notes": "NVMe interface type is explicitly mentioned in the paper."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is explicitly mentioned in the paper."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is explicitly mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Implementing Flash-Cached Storage Systems Using SSDs with Built-in Transparent Compression.pdf"
+}

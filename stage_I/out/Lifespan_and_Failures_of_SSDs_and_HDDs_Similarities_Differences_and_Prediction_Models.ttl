@@ -1,0 +1,186 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_05813af1 a owl:Axiom ;
+    rdfs:comment "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute." .
+
+ssd:axiom_3dba9698 a owl:Axiom ;
+    rdfs:comment "hasCapacity rdfs:domain SSD; rdfs:range xsd:string." .
+
+ssd:axiom_794daff6 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_7a05b179 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_8bb4c49e a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_a21072a1 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_c29563fc a owl:Axiom ;
+    rdfs:comment "hasLithographyNode rdfs:domain SSD; rdfs:range xsd:decimal." .
+
+ssd:axiom_e9211166 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1fd683082b7048b69a27a34cfa999b16> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E10_480_GB ;
+    ssd:predicate ssd:hasCapacity ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "All three models are manufactured by the same vendor and have a 480 GB capacity." .
+
+<http://example.org/ssd/assertion/2675f228cfef4ad38dd5ae039eee04fa> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "The data consists of daily performance logs for three MLC SSD models collected at a Google data center over a period of six years." .
+
+<http://example.org/ssd/assertion/27024e2661864630a12726dc2a34307b> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:objectLiteral "Balanced" ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E7_WP1 ;
+    dct:source "The logs report daily summaries of drive activity." .
+
+<http://example.org/ssd/assertion/3f655106e7044aedb742acaa85d9a33d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%255BID%253A%2520187%255D> ;
+    ssd:predicate ssd:hasSMARTAttribute ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "In addition to the raw features, we also consider the cumulative effect of SMART 187 (i.e., the total number of Reported Uncorrectable Errors over time)." .
+
+<http://example.org/ssd/assertion/486500cdafba4453b98089a4164a1b2d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "The data consists of daily performance logs for three MLC SSD models collected at a Google data center over a period of six years." .
+
+<http://example.org/ssd/assertion/534a222435a646f781c9496cfc8138a1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "The logs of three multi-level cell (MLC) models of SSDs collected at a Google data center." .
+
+<http://example.org/ssd/assertion/8ce847faec484009bb067ce996239c8d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:objectLiteral "50" ;
+    ssd:predicate ssd:hasLithographyNode ;
+    ssd:subject ssd:E2_MLC_SSD_1 ;
+    dct:source "All three models are manufactured by the same vendor and have a 480 GB capacity and a lithography on the order of 50 nm." .
+
+<http://example.org/ssd/assertion/d760bfbc10af407b903c3eab1584fe2f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "The data consists of daily performance logs for three MLC SSD models collected at a Google data center over a period of six years." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LithographyNode> rdfs:label "LithographyNode" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LithographyNode> .
+
+ssd:E10_480_GB a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture>,
+        owl:Thing ;
+    rdfs:label "480 GB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture> .
+
+ssd:E7_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    ssd:hasReadWriteMix "Balanced" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%255BID%253A%2520187%255D> rdfs:label "Reported Uncorrectable Errors [ID: 187]" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%255BID%253A%2520187%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+ssd:E4_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:hasWorkloadProfile ssd:E7_WP1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E2_MLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "MLC_SSD_1" ;
+    ssd:hasCapacity ssd:E10_480_GB ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:hasLithographyNode "50" ;
+    ssd:hasSMARTAttribute <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%255BID%253A%2520187%255D> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    ssd:unit "nm" ;
+    rdfs:isDefinedBy tax:SSD .
+

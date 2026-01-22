@@ -1,0 +1,174 @@
+{
+  "paper_id": "3423088",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Enterprise Storage System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment"
+    },
+    {
+      "id": "E3",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "3D-TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "FirmwareVersion",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion"
+    },
+    {
+      "id": "E6",
+      "label": "ARR",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E7",
+      "label": "Predictive Failure",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E8",
+      "label": "RAID",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy"
+    },
+    {
+      "id": "E9",
+      "label": "Firmware Update",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Firmware%20Update"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The drives comprise three different manufacturers, 18 different models, 12 different capacities, and all major flash technologies (SLC, cMLC, eMLC, 3D-TLC).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This article presents the first large-scale field study of NAND-based SSDs in enterprise storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasFirmwareVersion",
+      "o": "E5",
+      "evidence": "The data allows us to study a large number of factors that were not studied in prior works, including the effect of firmware versions.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReliability",
+      "o": "E6",
+      "evidence": "The average ARR across the entire population is 0.22%, but rates vary widely depending on the drive model.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasSMARTAttribute",
+      "o": "E7",
+      "evidence": "The most benign category is category SL1, which relates to replacements that were triggered by logic either inside the drive or at higher levels in the system, which predicts future drive failure.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "partOf",
+      "o": "E8",
+      "evidence": "The storage devices of a system are organized into RAID groups to protect against failures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improvedBy",
+      "o": "E9",
+      "evidence": "Our observations emphasize the importance of firmware updates, as earlier firmware versions can be correlated with significantly higher failure rates.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasFirmwareVersion rdfs:domain SSD; rdfs:range Controller/FirmwareVersion.",
+    "hasReliability rdfs:domain SSD; rdfs:range Reliability.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "partOf rdfs:domain SSD; rdfs:range RAIDAndRedundancy.",
+    "improvedBy rdfs:domain SSD; rdfs:range Maintenance/Firmware Update."
+  ],
+  "mappings": [
+    {
+      "label": "3D-TLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "3D-TLC is a specific type of TLC flash technology."
+    },
+    {
+      "label": "FirmwareVersion",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "mapping_decision": "exact",
+      "notes": "FirmwareVersion is directly related to the controller."
+    },
+    {
+      "label": "ARR",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "ARR is a reliability metric."
+    },
+    {
+      "label": "Predictive Failure",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "Predictive Failure is a SMART attribute."
+    },
+    {
+      "label": "RAID",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "mapping_decision": "exact",
+      "notes": "RAID is a redundancy configuration."
+    },
+    {
+      "label": "Firmware Update",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update",
+      "mapping_decision": "exact",
+      "notes": "Firmware Update is a maintenance activity."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Reliability of SSDs in Enterprise Storage Systems .pdf"
+}

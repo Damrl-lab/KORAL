@@ -1,0 +1,147 @@
+{
+  "paper_id": "IEEEJOURNAL_OF_SOLID-STATECIRCUITS_VOL_51_NO_1_JANUARY_2016",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "128 Gb 3b/cell V-NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "We succeed in developing 128 Gb 3b/cell Vertical NAND with 32 stack WL layers for the first time.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasStructure",
+      "o": "E2",
+      "evidence": "To overcome these limitations, 3D-stacking technology has been developed.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "These short tPROG of, low energy consumption during program and good endurance of over 7 K P/E cycles make it suitable for both client and data-center SSD applications.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "4KB size read is shorter and important than 16KB size read in a SSD application.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "hasBlockSize",
+      "o": {
+        "@value": "4",
+        "unit": "KB"
+      },
+      "evidence": "4KB size read is shorter and important than 16KB size read in a SSD application.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "We achieved a fast I/O rate of 1 Gb/s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Good endurance of over 7 K P/E cycles make it suitable for both client and data-center SSD applications.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasStructure rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile.",
+    "hasBlockSize rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "3D",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D stacking technology is explicitly mentioned."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "3b/cell corresponds to TLC."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is explicitly mentioned as 1 Gb/s."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Endurance is explicitly mentioned with P/E cycles."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A 128Gb 3b cell V-NAND Flash Memory with 1Gb s IO Rate.pdf"
+}

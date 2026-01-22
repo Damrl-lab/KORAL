@@ -1,0 +1,145 @@
+{
+  "paper_id": "3500917",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E6",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "LSTM-GAN Model",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "In the early stages of the establishment of a data center or the deployment of new storage devices, the amount of reliability data for disks is relatively limited.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "In the early stages of the establishment of a data center or the deployment of new storage devices, the amount of reliability data for disks is relatively limited.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasSMARTAttribute",
+      "o": "E4",
+      "evidence": "Manufacturers generally implement self-monitoring, analysis and reporting technology (SMART) in the firmware of devices.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasReliability",
+      "o": "E5",
+      "evidence": "The amount of reliability data for disks is relatively limited, and the amount of failed disk data is even less.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformance",
+      "o": "E6",
+      "evidence": "Experimental results on real HDD datasets show that SSDFD can generate enough virtual failed disk data to enable the machine learning algorithm to detect disk faults with increased accuracy.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The model trained with 300 original failed disk data has a significant effect on improving the accuracy of HDD fault detection.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "hasReliability rdfs:domain SSD; rdfs:range Reliability.",
+    "hasPerformance rdfs:domain SSD; rdfs:range Performance.",
+    "improves rdfs:domain ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses the deployment in data centers."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "parent",
+      "notes": "SMART attributes are discussed generally without specific IDs."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a key focus in the paper."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Performance improvements are discussed in the context of fault detection."
+    },
+    {
+      "label": "LSTM-GAN Model",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "mapping_decision": "near",
+      "notes": "The model is used for processing data to improve fault detection."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Optimizing_Small-Sample_Disk_Fault_Detection_Based_on_LSTM-GAN_Model.pdf"
+}

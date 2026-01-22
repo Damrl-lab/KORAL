@@ -1,0 +1,174 @@
+{
+  "paper_id": "An Efficient Page-level FTL to Optimize Address Translation in Flash Memory",
+  "entities": [
+    {
+      "id": "SSD1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "EC1",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "WP1",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "MLC",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "Random",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "WriteHeavy",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "4KB",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "TPFTL",
+      "label": "TPFTL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "Performance",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "AverageLatency",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "SSD1",
+      "p": "operatesUnder",
+      "o": "EC1",
+      "evidence": "Flash-based solid state disks (SSDs) have been very popular in consumer and enterprise storage markets due to their high performance, low energy, shock resistance, and compact sizes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "EC1",
+      "p": "hasWorkloadProfile",
+      "o": "WP1",
+      "evidence": "Our evaluation results show that compared to the state-of-the-art FTLs, TPFTL reduces random writes caused by address translation by an average of 62% and improves the response time by up to 24%.",
+      "confidence": 0.8
+    },
+    {
+      "s": "WP1",
+      "p": "hasAccessPattern",
+      "o": "Random",
+      "evidence": "Our evaluation results show that compared to the state-of-the-art FTLs, TPFTL reduces random writes caused by address translation by an average of 62% and improves the response time by up to 24%.",
+      "confidence": 0.8
+    },
+    {
+      "s": "WP1",
+      "p": "hasReadWriteMix",
+      "o": "WriteHeavy",
+      "evidence": "Our evaluation results show that compared to the state-of-the-art FTLs, TPFTL reduces random writes caused by address translation by an average of 62% and improves the response time by up to 24%.",
+      "confidence": 0.8
+    },
+    {
+      "s": "WP1",
+      "p": "hasBlockSize",
+      "o": "4KB",
+      "evidence": "For example, assuming the flash page size is 4KB and each LPN-to-PPN mapping entry takes 8B, a 1TB SSD would require 2GB RAM to accommodate the mapping table.",
+      "confidence": 0.9
+    },
+    {
+      "s": "SSD1",
+      "p": "hasDeviceType",
+      "o": "MLC",
+      "evidence": "Due to the employment of the MLC (Multi-Level Cell) technology, the price of flash-based SSDs has dropped dramatically and the capacity has increased significantly.",
+      "confidence": 0.9
+    },
+    {
+      "s": "TPFTL",
+      "p": "improves",
+      "o": "Performance",
+      "evidence": "Our evaluation results show that compared to the state-of-the-art FTLs, TPFTL reduces random writes caused by address translation by an average of 62% and improves the response time by up to 24%.",
+      "confidence": 0.85
+    },
+    {
+      "s": "TPFTL",
+      "p": "improves",
+      "o": "AverageLatency",
+      "evidence": "Our evaluation results show that compared to the state-of-the-art FTLs, TPFTL reduces random writes caused by address translation by an average of 62% and improves the response time by up to 24%.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType."
+  ],
+  "mappings": [
+    {
+      "label": "MLC",
+      "entity_id": "MLC",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is explicitly mentioned in the paper as the flash technology used."
+    },
+    {
+      "label": "Random",
+      "entity_id": "Random",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the context of workload."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "WriteHeavy",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy workload is inferred from the context of reducing random writes."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "4KB",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "TPFTL_ An Efficient Page-level FTL to Optimize Address Translation.pdf"
+}

@@ -1,0 +1,162 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_84abbb15 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_9a180e23 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/3b229bcd15154488b856ea452595c4b4> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_TLC_SSD_1 ;
+    dct:source "This cell-wise encoding improves the achievable channel capacity compared with independent page-wise encoding." .
+
+<http://example.org/ssd/assertion/3d15efa2bbef48cbb57761ea3e7ef6d2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E3_QLC_SSD_1 ;
+    dct:source "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems." .
+
+<http://example.org/ssd/assertion/496e1cfab5b647a9968edf515a59402a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E2_TLC_SSD_1 ;
+    dct:source "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems." .
+
+<http://example.org/ssd/assertion/bfa3d203ad074d4cb72c50f5a71e1442> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_TLC_SSD_1 ;
+    dct:source "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems." .
+
+<http://example.org/ssd/assertion/c65beb49d58144a197084b6eea445be6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E3_QLC_SSD_1 ;
+    dct:source "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems." .
+
+<http://example.org/ssd/assertion/cfe1a5a64a3541f892c9fa1931800b36> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_TLC_SSD_1 ;
+    dct:source "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems." .
+
+<http://example.org/ssd/assertion/d2c147e7cee742628096d9701e50acc3> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_QLC_SSD_1 ;
+    dct:source "This cell-wise encoding improves the achievable channel capacity compared with independent page-wise encoding." .
+
+<http://example.org/ssd/assertion/d391b19220a94e368ff74d9f6a99f1a8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E3_QLC_SSD_1 ;
+    dct:source "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems." .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> rdfs:label "QLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E2_TLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "TLC_SSD_1" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning> ;
+    ssd:operatesUnder ssd:E5_EC1 ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E3_QLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "QLC_SSD_1" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning> ;
+    ssd:operatesUnder ssd:E5_EC1 ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E5_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning> rdfs:label "Channel Capacity" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "Error Correction (ECC)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+

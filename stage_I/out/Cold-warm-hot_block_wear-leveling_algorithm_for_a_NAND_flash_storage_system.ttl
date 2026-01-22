@@ -1,0 +1,150 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_5948773c a owl:Axiom ;
+    rdfs:comment "dividesInto rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:axiom_5a4da0d4 a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:axiom_6744d895 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0622795a430e4511b15d067dfc24f834> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "Wear-leveling algorithm is employed to extend the lifetime and reliability of SSDs." .
+
+<http://example.org/ssd/assertion/165cf05ee0284a53be4fd55536c1ea85> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E3_CWH_Block_Wear_Leveling_Algorithm ;
+    dct:source "The warm block and the cold block will be read and write in NAND flash." .
+
+<http://example.org/ssd/assertion/3aea38ce697c4583bcc59a3b8ce4436c> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_Cold_Block ;
+    ssd:predicate ssd:dividesInto ;
+    ssd:subject ssd:E3_CWH_Block_Wear_Leveling_Algorithm ;
+    dct:source "We divided the i-th block into the warm block, otherwise the i-th block is divided into cold block." .
+
+<http://example.org/ssd/assertion/77c6f6e87c0641478f8f17dcfce57e86> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E3_CWH_Block_Wear_Leveling_Algorithm ;
+    dct:source "The hot data block will be put into the RAM for reading or writing." .
+
+<http://example.org/ssd/assertion/9b65a5b77e1141bc8e27ee889f516b7d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object tax:SSD ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_CWH_Block_Wear_Leveling_Algorithm ;
+    dct:source "It can improve the lifetime and reliability of SSDs." .
+
+<http://example.org/ssd/assertion/b45b7b50382a46b1986adad45118df31> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E8_Hot_Block ;
+    ssd:predicate ssd:dividesInto ;
+    ssd:subject ssd:E3_CWH_Block_Wear_Leveling_Algorithm ;
+    dct:source "We merge these hot pages into a block and define this block as hot block." .
+
+<http://example.org/ssd/assertion/beac9fa927db4bc69e539b3628ebc6a3> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_Warm_Block ;
+    ssd:predicate ssd:dividesInto ;
+    ssd:subject ssd:E3_CWH_Block_Wear_Leveling_Algorithm ;
+    dct:source "We divided the i-th block into the warm block, otherwise the i-th block is divided into cold block." .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E6_Cold_Block a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "Cold Block" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:E7_Warm_Block a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "Warm Block" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:E8_Hot_Block a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "Hot Block" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache> rdfs:label "RAM" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> rdfs:label "NAND Flash" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E3_CWH_Block_Wear_Leveling_Algorithm a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "CWH_Block_Wear_Leveling_Algorithm" ;
+    ssd:dividesInto ssd:E6_Cold_Block,
+        ssd:E7_Warm_Block,
+        ssd:E8_Hot_Block ;
+    ssd:improves tax:SSD ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Wear Leveling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+

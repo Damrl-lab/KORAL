@@ -1,0 +1,114 @@
+{
+  "paper_id": "Zheng_2024",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D CT TLC NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The impacts of the intervals between P&E operations on 3D TLC NAND flash are investigated under room temperature and high temperature.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "The tester can support a maximum data transfer of ~200 MHz and a wide temperature range for operations, from 25°C (room temperature, RT) to 85°C (high temperature, HT).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "85",
+        "unit": "C"
+      },
+      "evidence": "The tester can support a maximum data transfer of ~200 MHz and a wide temperature range for operations, from 25°C (room temperature, RT) to 85°C (high temperature, HT).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Three-dimensional charge-trapping (CT) NAND flash memory has attracted extensive attention owing to its unique merits, including huge storage capacities, large memory densities, and low bit cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "To improve the memory reliability of 3D CT TLC NAND, different intervals between P&E operations should be adopted considering the operating temperatures.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType/TLC.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned in the context of environmental factors."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type of the NAND flash."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a key focus of the paper, directly impacting SSD performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Impact of Program–Erase Operation Intervals at Different Temperatures on 3D TLC NAND.pdf"
+}

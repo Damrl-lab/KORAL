@@ -1,0 +1,128 @@
+{
+  "paper_id": "electronics2021_3156",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E4",
+      "label": "PLC",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType"
+    },
+    {
+      "id": "E5",
+      "label": "176-layer 3D NAND",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount"
+    },
+    {
+      "id": "E6",
+      "label": "CMOS under Array (CuA)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "TLC (triple-level cell, 3 bits per cell) is now the mainstream in 3D NAND.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "QLC (quad-level cell, 4 bits per cell) is increasing the presence.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Several attempts and partial demonstrations were made for PLC (penta-level cell, 5 bits per cell).",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "hasManufacturing",
+      "o": "E5",
+      "evidence": "The areal density has been successfully increased more than ten times, and has exceeded 10 Gb/mm2 with 176 layers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesTechnology",
+      "o": "E6",
+      "evidence": "CMOS under array (CuA) enabled the die size reduction and performance improvements.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasManufacturing rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount.",
+    "usesTechnology rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/Controller."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as a cell type in the taxonomy."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is explicitly mentioned as a cell type in the taxonomy."
+    },
+    {
+      "label": "PLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType",
+      "mapping_decision": "parent",
+      "notes": "PLC is not explicitly in the taxonomy, mapped to parent cell type."
+    },
+    {
+      "label": "176-layer 3D NAND",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "mapping_decision": "exact",
+      "notes": "Layer count is explicitly mentioned in the taxonomy."
+    },
+    {
+      "label": "CMOS under Array (CuA)",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "mapping_decision": "parent",
+      "notes": "CuA is related to controller technology, mapped to the closest relevant category."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Recent Progress on 3D NAND Flash Technologies.pdf"
+}

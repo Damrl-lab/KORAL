@@ -1,0 +1,159 @@
+{
+  "paper_id": "Stavrinos2021",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ZNS_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "ZonedNamespaces",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces"
+    },
+    {
+      "id": "E4",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "WriteAmplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E7",
+      "label": "Cost",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning"
+    },
+    {
+      "id": "E8",
+      "label": "HostSystem",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "ZNS is a new SSD interface that dominates the conventional block interface in nearly every way.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "Cloud and datacenter services demand low-latency access to massive datasets.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "ZNS SSDs should be able to accomplish these tasks as well as and often better than an on-board FTL.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "reduces",
+      "o": "E6",
+      "evidence": "ZNS SSDs do not do garbage collection, since the erasure blocks in a zone are always completely invalidated and erased when the zone is reset.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "reduces",
+      "o": "E7",
+      "evidence": "ZNS SSDs need fewer dedicated resources on each device, which significantly reduces their cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "requires",
+      "o": "E8",
+      "evidence": "Building an abstraction over the device’s interface shifts some computational and DRAM burden to the host.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ZonedNamespaces.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "reduces rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Garbage Collection.",
+    "reduces rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning.",
+    "requires rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/HostSystem."
+  ],
+  "mappings": [
+    {
+      "label": "ZonedNamespaces",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "mapping_decision": "exact",
+      "notes": "ZNS is directly mentioned as a new SSD interface."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Datacenter is explicitly mentioned as a deployment environment."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Performance improvements are discussed generally."
+    },
+    {
+      "label": "WriteAmplification",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is related to garbage collection."
+    },
+    {
+      "label": "Cost",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "mapping_decision": "parent",
+      "notes": "Cost reduction is linked to reduced over-provisioning."
+    },
+    {
+      "label": "HostSystem",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem",
+      "mapping_decision": "parent",
+      "notes": "Host system involvement is discussed in terms of computational burden."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Zoned Namespaces Make Work on Conventional SSDs Attractive.pdf"
+}

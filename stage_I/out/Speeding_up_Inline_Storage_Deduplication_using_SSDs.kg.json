@@ -1,0 +1,95 @@
+{
+  "paper_id": "ChunkStash: Speeding up Inline Storage Deduplication using Flash Memory",
+  "entities": [
+    {
+      "id": "SSD1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "EC1",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "WP1",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E1",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E2",
+      "label": "NAND",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "SSD1",
+      "p": "operatesUnder",
+      "o": "EC1",
+      "evidence": "ChunkStash can index order of terabytes of unique (deduplicated) data using order of tens of gigabytes of flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "EC1",
+      "p": "hasWorkloadProfile",
+      "o": "WP1",
+      "evidence": "ChunkStash achieves average throughputs of about 190 MB/sec to 265 MB/sec on the first full backups of the three datasets.",
+      "confidence": 0.8
+    },
+    {
+      "s": "SSD1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "In the rest of the paper, we use NAND flash based SSDs as the architectural choice and simply refer to it as flash memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "SSD1",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "ChunkStash outperforms a hard disk index based inline deduplication system by 7x-60x on the metric of backup throughput (MB/sec).",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Throughput",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is directly mentioned as a performance metric."
+    },
+    {
+      "label": "NAND",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "NAND flash is a specific type of flash technology used in SSDs."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Speeding up Inline Storage Deduplication using SSDs.pdf"
+}

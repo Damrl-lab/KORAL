@@ -1,0 +1,151 @@
+{
+  "paper_id": "electronics11071084",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E3",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E8",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The experimental results show the proposed scheme consistently improve the overall latency for various workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "The experimental results show the proposed scheme consistently improve the overall latency for various workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "Cassandra, MongoDB, and RocksDB corresponding to the YCSB series had a higher read ratio than write.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasAccessPattern",
+      "o": "E7",
+      "evidence": "Both trace files had a big ratio of random I/O requests.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "In the case of MongoDB and MySQL, the ratio of sequential I/O is high.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E3",
+      "evidence": "The GC is the major source of performance degradation because it greatly increases the latency for SSDs.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is explicitly discussed in the context of SSD performance."
+    },
+    {
+      "label": "Latency",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Latency is a key performance metric affected by Garbage Collection."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions workloads with a higher read ratio."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access patterns are discussed in the context of workload profiles."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "Sequential access patterns are discussed in the context of workload profiles."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Efficient Garbage Collection Algorithm for Low-Latency SSD.pdf"
+}

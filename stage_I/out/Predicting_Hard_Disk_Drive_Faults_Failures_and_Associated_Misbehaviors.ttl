@@ -1,0 +1,182 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2b631f93 a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_41928385 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_8276b2cf a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_93753b7b a owl:Axiom ;
+    rdfs:comment "includes rdfs:domain SMARTAttribute; rdfs:range SMARTAttribute." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/14be4467dc474ac4b762c0dceac921dd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D> ;
+    ssd:predicate ssd:includes ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events." .
+
+<http://example.org/ssd/assertion/48dbcae64cee4b179a979f21a79a6f85> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    dct:source "The boom in cloud computing, online services and big data applications, have moved data storage resources away from individual computers into large capacity data centers." .
+
+<http://example.org/ssd/assertion/5640283f2bf44ce79254e71c4f65a9fd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Command%2520Timeout%2520%2520%255BID%253A%2520188%255D> ;
+    ssd:predicate ssd:includes ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events." .
+
+<http://example.org/ssd/assertion/764e244f19cf483fa2a81b167386aad8> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Uncorrectable%2520Sector%2520Count%2520%2528Offline%2529%2520%2520%255BID%253A%2520198%255D> ;
+    ssd:predicate ssd:includes ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events." .
+
+<http://example.org/ssd/assertion/a0ca00135e4a406483305757fcc94ebf> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E12_Random_Forest ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E11_Machine_Learning_Model ;
+    dct:source "In the development of this work, two machine learning algorithms were used for the classification task such as Random Forests and SVM (Support Vector Machine)." .
+
+<http://example.org/ssd/assertion/afdd32cf5729424193850d46ec88f2a3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "The boom in cloud computing, online services and big data applications, have moved data storage resources away from individual computers into large capacity data centers." .
+
+<http://example.org/ssd/assertion/b71594a67b8145b4aa94c07eb06fa075> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D> ;
+    ssd:predicate ssd:includes ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events." .
+
+<http://example.org/ssd/assertion/c3ebb428a82e45ca872167dda4f9d793> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E13_SVM ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E11_Machine_Learning_Model ;
+    dct:source "In the development of this work, two machine learning algorithms were used for the classification task such as Random Forests and SVM (Support Vector Machine)." .
+
+<http://example.org/ssd/assertion/da2d0c535d26432f89c9188fdd464495> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D> ;
+    ssd:predicate ssd:includes ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "The literature has flagged S.M.A.R.T. variables 5, 12, 187, 188, 189, 190, 198, 199 and 200 as important for associations with failure events." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E11_Machine_Learning_Model a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory>,
+        owl:Thing ;
+    rdfs:label "Machine Learning Model" ;
+    ssd:uses ssd:E12_Random_Forest,
+        ssd:E13_SVM ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory> .
+
+ssd:E12_Random_Forest a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory>,
+        owl:Thing ;
+    rdfs:label "Random Forest" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory> .
+
+ssd:E13_SVM a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory>,
+        owl:Thing ;
+    rdfs:label "SVM" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory> .
+
+tax:SSD rdfs:label "HDD" ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Command%2520Timeout%2520%2520%255BID%253A%2520188%255D> rdfs:label "Command Timeout" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Command%2520Timeout%2520%2520%255BID%253A%2520188%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D> rdfs:label "Reported Uncorrectable Errors" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D> rdfs:label "Temperature  [ID: 194]" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D> rdfs:label "UltraDMA CRC Error Count" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Uncorrectable%2520Sector%2520Count%2520%2528Offline%2529%2520%2520%255BID%253A%2520198%255D> rdfs:label "Uncorrectable Sector Count (Offline)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Uncorrectable%2520Sector%2520Count%2520%2528Offline%2529%2520%2520%255BID%253A%2520198%255D> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    ssd:includes <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Command%2520Timeout%2520%2520%255BID%253A%2520188%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%2520Uncorrectable%2520Errors%2520%2520%255BID%253A%2520187%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Temperature%2520%2520%255BID%253A%2520194%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%2520CRC%2520Error%2520Count%2520%2520%255BID%253A%2520199%255D>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Uncorrectable%2520Sector%2520Count%2520%2528Offline%2529%2520%2520%255BID%253A%2520198%255D> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+

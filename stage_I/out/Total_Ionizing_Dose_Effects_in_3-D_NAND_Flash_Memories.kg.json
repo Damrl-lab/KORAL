@@ -1,0 +1,123 @@
+{
+  "paper_id": "IEEE_TNS_2019_Bagatin",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3-D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Radiation",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E5",
+      "label": "Gamma-ray exposure",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation"
+    },
+    {
+      "id": "E6",
+      "label": "Threshold Voltage Shift",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Raw Bit Error Rate",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "For these experiments, 384-Gbit triple-level cell (TLC) 3-D NAND flash memories were used.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasStructure",
+      "o": "E4",
+      "evidence": "To overcome these difficulties while continuing to increase memory array density, 3-D NAND flash with a vertical-channel structure has been recently introduced in the market.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The effects of total ionizing dose on 3-D flash memories irradiated with gamma rays are investigated.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "causes",
+      "o": "E6",
+      "evidence": "The evolution and shape of threshold voltage distributions are studied versus dose for floating gate cell NAND arrays with vertical-channel architecture.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "causes",
+      "o": "E7",
+      "evidence": "The evolution and shape of the threshold voltage distributions, as well as the raw bit errors, are studied versus dose.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasStructure rdfs:domain SSD; rdfs:range FlashTechnology/Structure.",
+    "causes rdfs:domain EnvironmentalAndOperationalContext/ExternalFactors/Radiation; rdfs:range MetricsHealthAndState/Performance.",
+    "causes rdfs:domain EnvironmentalAndOperationalContext/ExternalFactors/Radiation; rdfs:range MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Radiation",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "mapping_decision": "exact",
+      "notes": "Radiation is explicitly mentioned as an external factor affecting the SSD."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type used in the SSD."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D is explicitly mentioned as the structure of the NAND flash."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Total_Ionizing_Dose_Effects_in_3-D_NAND_Flash_Memories.pdf"
+}

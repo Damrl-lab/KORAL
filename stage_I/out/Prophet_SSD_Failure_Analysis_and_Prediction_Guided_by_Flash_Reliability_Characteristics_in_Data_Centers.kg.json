@@ -1,0 +1,153 @@
+{
+  "paper_id": "10.1109/TC.2025.3566871",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "Prophet",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Power On Hours",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Power On Hours  [ID: 0x80]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Power%20On%20Hours%20%20%5BID%3A%200x80%5D"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "Solid-state drives (SSDs) are massively deployed in various fields, especially in data centers, for their excellent cost-effectiveness.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "Solid-state drives (SSDs) are massively deployed in various fields, especially in data centers, for their excellent cost-effectiveness.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The dataset contains both multi-level-cell (MLC) and triple-level-cell (TLC) flash memory.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The dataset contains both multi-level-cell (MLC) and triple-level-cell (TLC) flash memory.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "The evaluation results of the real dataset show that the predictive ability of Prophet is improved amazingly, realizing a high recall and low false-positive rates while providing sufficient response time for the processing of failed SSDs.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "Factors such as the amount of writes may also cause SSD failure.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E8",
+      "p": "correlatesWith",
+      "o": "E1",
+      "evidence": "To understand the distribution of SSD failures, we first performed a statistical analysis based on the attribute Poh (Power on hours).",
+      "confidence": 0.75
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range SSD.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "correlatesWith rdfs:domain SMARTAttribute; rdfs:range SSD."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly mentions SSD deployment in data centers."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses MLC flash memory."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses TLC flash memory."
+    },
+    {
+      "label": "Power On Hours",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Power On Hours  [ID: 0x80]",
+      "mapping_decision": "exact",
+      "notes": "The paper uses Power On Hours as a metric for failure analysis."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Prophet_SSD_Failure_Analysis_and_Prediction_Guided_by_Flash_Reliability_Characteristics_in_Data_Centers.pdf"
+}

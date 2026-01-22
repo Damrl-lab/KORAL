@@ -1,0 +1,149 @@
+{
+  "paper_id": "2019_USENIX_ATC_Tai",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "UBER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E4",
+      "label": "DIRECT",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E5",
+      "label": "ZippyDB",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack"
+    },
+    {
+      "id": "E6",
+      "label": "HDFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack"
+    },
+    {
+      "id": "E7",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E8",
+      "label": "3D NAND",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E9",
+      "label": "P/E Cycles",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Flash storage is the main storage medium in datacenters for hot data.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "DIRECT reduces application-visible error rates in ZippyDB by more than 100× and recovery time by more than 10,000×.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E9",
+      "evidence": "DIRECT can increase the lifetime of devices by 10-100×.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "We implemented DIRECT on two real-world storage systems: ZippyDB, a distributed key-value store in production at Facebook.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "We implemented DIRECT on two real-world storage systems: ... and HDFS, a distributed file system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E7",
+      "evidence": "QLC technology and beyond can only be used for applications that are effectively read-only.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "hasStructure",
+      "o": "E8",
+      "evidence": "3D NAND is a recent technology that has been adopted for further increasing flash density by stacking cells vertically.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Reliability.",
+    "uses rdfs:domain EcosystemAndIntegrationContext/HostIOStack; rdfs:range InternalFirmwareAndLogic."
+  ],
+  "mappings": [
+    {
+      "label": "UBER",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "exact",
+      "notes": "UBER is explicitly mentioned in the paper as a reliability metric."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is a specific cell type discussed in the context of flash technology."
+    },
+    {
+      "label": "3D NAND",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D NAND is a specific structure type for flash technology."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Who's Afraid of Uncorrectable Bit Errors Online Recovery for SSDs.pdf"
+}

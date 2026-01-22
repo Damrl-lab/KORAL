@@ -1,0 +1,233 @@
+{
+  "paper_id": "The_Unwritten_Contract_of_Solid_State_Drives",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E5",
+      "label": "ext4",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E6",
+      "label": "XFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E7",
+      "label": "F2FS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E8",
+      "label": "Request Scale",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E9",
+      "label": "Locality",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E10",
+      "label": "Aligned Sequentiality",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E11",
+      "label": "Grouping by Death Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E12",
+      "label": "Uniform Data Lifetime",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We utilize this contract to study application and file system pairings atop a range of SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We utilize this contract to study application and file system pairings atop a range of SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": {
+        "@value": "Sequential",
+        "unit": "AccessPattern"
+      },
+      "evidence": "Sequential writes, often enabled by log structure, are believed to reduce garbage collection overhead inside SSDs.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": {
+        "@value": "Random",
+        "unit": "AccessPattern"
+      },
+      "evidence": "Random writes are often considered harmful for SSDs because they are believed to increase garbage collection overhead.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "isA",
+      "o": "E4",
+      "evidence": "We study the performance of four applications – LevelDB, RocksDB, SQLite, and Varmail – running atop a range of modern file systems – Linux ext4, XFS, and the flash-friendly F2FS.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "isA",
+      "o": "E4",
+      "evidence": "We study the performance of four applications – LevelDB, RocksDB, SQLite, and Varmail – running atop a range of modern file systems – Linux ext4, XFS, and the flash-friendly F2FS.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "isA",
+      "o": "E4",
+      "evidence": "We study the performance of four applications – LevelDB, RocksDB, SQLite, and Varmail – running atop a range of modern file systems – Linux ext4, XFS, and the flash-friendly F2FS.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "To exploit the internal parallelism of SSDs, SSD clients should issue large requests or many outstanding requests (Request Scale rule).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "SSDs should be accessed with locality (Locality rule).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "Clients of SSDs should start writing at the aligned beginning of a block boundary and write sequentially (Aligned Sequentiality rule).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "SSD clients should group writes by the likely death time of data (Grouping By Death Time rule).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E12",
+      "evidence": "SSD clients should create data with similar lifetimes (Uniform Data Lifetime rule).",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "isA rdfs:domain File System; rdfs:range Class."
+  ],
+  "mappings": [
+    {
+      "label": "File System",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "Mapped to the exact taxonomy path for file systems."
+    },
+    {
+      "label": "Request Scale",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Over-Provisioning as it relates to resource utilization."
+    },
+    {
+      "label": "Locality",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Over-Provisioning as it relates to efficient data access."
+    },
+    {
+      "label": "Aligned Sequentiality",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Over-Provisioning as it relates to data alignment and efficiency."
+    },
+    {
+      "label": "Grouping by Death Time",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Over-Provisioning as it relates to data lifecycle management."
+    },
+    {
+      "label": "Uniform Data Lifetime",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Over-Provisioning as it relates to wear leveling and data management."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "The Unwritten Contract of Solid State Drives.pdf"
+}

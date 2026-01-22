@@ -1,0 +1,132 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_325df015 a owl:Axiom ;
+    rdfs:comment "hasStructure rdfs:domain SSD; rdfs:range FlashTechnology/Structure." .
+
+ssd:axiom_981020d4 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_c11d5fb3 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_f686a017 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0d6d7839b16d474fb635e46ecac292f9> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E7_EnvironmentalAndOperationalContext ;
+    dct:source "The reliability of flash memory is not only affected by P/E cycles and data retention time, but also influenced by the temperature and process variations." .
+
+<http://example.org/ssd/assertion/75bc087de4b14587a15ed5e047c80d6b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "The 3D NAND flash memory has a vertically stacked structure, which includes word-lines and bit lines located in different layers." .
+
+<http://example.org/ssd/assertion/8d51671583e24643bb95adaf4e8660cc> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:predicate ssd:hasStructure ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Three-dimensional (3D) NAND flash memory was proposed to further increase the storage capacity by vertically stacking multiple layers." .
+
+<http://example.org/ssd/assertion/a81e3c3064504c5fb2ca05629494c8ae> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "The reliability of flash memory is not only affected by P/E cycles and data retention time, but also influenced by the temperature and process variations." .
+
+<http://example.org/ssd/assertion/cc97ce8f777740908b43f265119af9b6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_LDPC_Codes ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "Recently, low-density parity-check (LDPC) codes with hard and soft decision decoding have been considered for 3D flash memory." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E6_LDPC_Codes a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        owl:Thing ;
+    rdfs:label "LDPC Codes" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+ssd:E7_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasTemperature <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "Error Correction (ECC)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+ssd:E1_3D_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash Memory" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:hasStructure <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:operatesUnder ssd:E7_EnvironmentalAndOperationalContext ;
+    ssd:uses ssd:E6_LDPC_Codes ;
+    rdfs:isDefinedBy tax:SSD .
+

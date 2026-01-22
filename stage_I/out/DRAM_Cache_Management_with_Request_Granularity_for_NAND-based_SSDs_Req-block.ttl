@@ -1,0 +1,158 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_33eb5d54 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/BlockSize." .
+
+ssd:axiom_48416ecd a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic/CachingPolicies; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_6636c508 a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/AccessPattern." .
+
+ssd:axiom_895b8920 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/ReadWriteMix." .
+
+ssd:axiom_c11737f3 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/30143e864cee486389a938ce5d5a0ffb> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E4_WP1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "In I/O workloads of real-world applications, small write requests commonly reveal higher temporal locality than those with larger write requests." .
+
+<http://example.org/ssd/assertion/3134c899c3f6405dba802ec89efcf85a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_Req_block ;
+    dct:source "Comprehensive evaluation shows that our proposal improves cache hits by up to 90.5 %, and decreases I/O latency by 14.3 % on average, compared to existing state-of-the-art SSD cache management schemes." .
+
+<http://example.org/ssd/assertion/43040210c2ce4338941711e1860c3cc1> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E4_WP1 ;
+    dct:source "The CDF result of Page Hit implies the proportion of page hits on the pages whose write request size is equal to or less than the corresponding request size, to all hits." .
+
+<http://example.org/ssd/assertion/90948345a42b4ceaa7070da4562481df> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_Req_block ;
+    dct:source "Comprehensive evaluation shows that our proposal improves cache hits by up to 90.5 %, and decreases I/O latency by 14.3 % on average, compared to existing state-of-the-art SSD cache management schemes." .
+
+<http://example.org/ssd/assertion/ddcfa6c29f944c6baed7adc7248efef3> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E4_WP1 ;
+    dct:source "In I/O workloads of real-world applications, small write requests commonly reveal higher temporal locality than those with larger write requests." .
+
+<http://example.org/ssd/assertion/e44953229485435b997b9c2a02145dd0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E4_WP1 ;
+    dct:source "NAND-based solid-state drivers (SSDs) show better performance on random access, power consumption, and massive parallelism compared with hard drives (HDDs)." .
+
+<http://example.org/ssd/assertion/f76ab17c32444b53a2190e25c8c3a1e1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_Req_block ;
+    dct:source "Comprehensive evaluation shows that our proposal improves cache hits by up to 90.5 %, and decreases I/O latency by 14.3 % on average, compared to existing state-of-the-art SSD cache management schemes." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache> rdfs:label "DRAM Cache" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%2520Cache> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E4_WP1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E3_Req_block a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies>,
+        owl:Thing ;
+    rdfs:label "Req-block" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> rdfs:label "16KB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Average Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+ssd:E4_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:hasBlockSize <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+

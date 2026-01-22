@@ -1,0 +1,162 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_179c579f a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_90c5f70d a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_a9162f8a a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_a93d6445 a owl:Axiom ;
+    rdfs:comment "correlatesWith rdfs:domain InternalFirmwareAndLogic/DataPath; rdfs:range PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/129ed66c151d4c8c8ef5b0a5b093aa2f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_3D_NAND_Flash ;
+    dct:source "The experimental results demonstrate that our proposed retention error estimation model can yield a R2 value of 0.966 on average, verifying the accuracy of the model." .
+
+<http://example.org/ssd/assertion/33d2c4bc1d634767af8b1efc00b84c26> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E2_3D_NAND_Flash ;
+    dct:source "Based on the estimated retention error rates of layers, the proposed data placement mechanism can noticeably reduce the read latency by 29.8% on average." .
+
+<http://example.org/ssd/assertion/3c0d83594a024ba9b3f96f9f50a9b493> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_Layer_to_Layer_Process_Variation ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    dct:source "Considering 3D NAND flash has a new property of process variation (PV), which causes different raw bit error rates (RBER) among different layers of the flash block." .
+
+<http://example.org/ssd/assertion/706d8a658e0c466d93be71d92b06c759> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E8_Data_Placement_Mechanism ;
+    dct:source "We design a mechanism of data placement, which maps the write data onto a suitable layer of flash block, according to the data hotness and the error correction overhead of layers, to boost read performance of 3D NAND flash." .
+
+<http://example.org/ssd/assertion/a9e1556cd35843a09a0cfb69fd5d6934> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E9_RBER ;
+    dct:source "This article builds a mathematical model for estimating the retention errors of flash cells, by considering the factor of layer-to-layer PV in 3D NAND flash memory." .
+
+<http://example.org/ssd/assertion/c58a04cc0f23452897896288b83ebd70> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:object ssd:E11_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    dct:source "We conduct simulation-based experiments by replaying 8 commonly used block traces from real-world applications." .
+
+<http://example.org/ssd/assertion/d39600dc9b6c4a709b91780eca9d89ee> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_3D_NAND_Flash ;
+    dct:source "Moreover, as flash memory processing technology scales to the compact property size from single-level cell (SLC) to triple-level cell (TLC) and quad-level cell (QLC)." .
+
+ssd:E8_Data_Placement_Mechanism a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling>,
+        owl:Thing ;
+    rdfs:label "Data Placement Mechanism" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:E9_RBER a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER>,
+        owl:Thing ;
+    rdfs:label "RBER" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E11_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+ssd:E6_Layer_to_Layer_Process_Variation a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount>,
+        owl:Thing ;
+    rdfs:label "Layer-to-Layer Process Variation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E2_3D_NAND_Flash a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D>,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasWorkloadProfile ssd:E11_WP1 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "ECC",
+        "Retention Error" ;
+    ssd:correlatesWith ssd:E6_Layer_to_Layer_Process_Variation ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Read Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+

@@ -1,0 +1,91 @@
+{
+  "paper_id": "On the Optimality of Greedy Garbage Collection for SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E3",
+      "label": "Write Amplification",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "evidence": "The lifetime of the SSD depends heavily on the efficiency of the implementation of the garbage collection (GC) algorithm that reclaims previously used pages.",
+      "confidence": 0.9,
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E4",
+      "label": "Memoryless Workload",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "evidence": "Here, we prove that greedy GC is optimal for workloads where the lifetimes of pages are exponentially distributed, or, more simply put, the workload is memoryless.",
+      "confidence": 0.9,
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Greedy GC Algorithm",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "evidence": "In this paper, we present the first detailed proof that the greedy GC algorithm has the optimal performance (minimized write amplification) for memoryless workloads.",
+      "confidence": 0.9,
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "In this paper, we present the first detailed proof that the greedy GC algorithm has the optimal performance (minimized write amplification) for memoryless workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "Here, we prove that greedy GC is optimal for workloads where the lifetimes of pages are exponentially distributed, or, more simply put, the workload is memoryless.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is a direct match under MediaManagement."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Write Amplification is a performance metric related to SSD efficiency."
+    },
+    {
+      "label": "Memoryless Workload",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "mapping_decision": "parent",
+      "notes": "Memoryless Workload is a specific type of workload profile."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "On the Optimality of Greedy Garbage Collection for SSDs.pdf"
+}

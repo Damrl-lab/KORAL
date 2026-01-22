@@ -1,0 +1,139 @@
+{
+  "paper_id": "SSD_Drive_Failure_Prediction_on_Alibaba_Data_Center_Using_Machine_Learning",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "3D TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "Unsafe Shutdown Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Unsafe Shutdown Count  [ID: N/A]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Unsafe%20Shutdown%20Count%20%20%5BID%3A%20N/A%5D"
+    },
+    {
+      "id": "E6",
+      "label": "SSD_Failure_Prediction_System",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "In this paper, we study general SSD failure prediction in large-scale production environments and optimize our machine learning models with the highest Precision instead of the highest F1-score to minimize false positive rate, with the goal of deploying the system in the data center.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "Flash-based Solid-State Drives (SSDs) have become more and more important in data centers and enterprise storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Alibaba collects daily SMART data of 3D TLC 4TB SSD drives from February to November in 2021 and provides them to Solidigm.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "usesSMARTAttribute",
+      "o": "E4",
+      "evidence": "Solidigm and Alibaba collaborate to collect and analyze Self-Monitoring, Analysis, and Reporting Technology (SMART) data and predict SSD failures 30 days ahead of time using machine learning techniques.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "includes",
+      "o": "E5",
+      "evidence": "Processing the data, we found that the following attributes correlate most strongly with drive failure prediction: (1) Number of unsafe shutdown: Failed drives have roughly twice as many unsafe shutdown as healthy drives.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "Studies that targeted solid-state drives' failures are mainly in a controlled laboratory environment, trying to understand specific errors and finding correlations with specific workloads.",
+      "confidence": 0.7
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "usesSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "includes rdfs:domain SMARTAttribute; rdfs:range SMARTAttribute.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSD deployment in data centers."
+    },
+    {
+      "label": "3D TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies the use of 3D TLC SSDs."
+    },
+    {
+      "label": "Unsafe Shutdown Count",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Unsafe Shutdown Count  [ID: N/A]",
+      "mapping_decision": "exact",
+      "notes": "The paper identifies unsafe shutdown count as a key SMART attribute."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SSD_Drive_Failure_Prediction_on_Alibaba_Data_Center_Using_Machine_Learning.pdf"
+}

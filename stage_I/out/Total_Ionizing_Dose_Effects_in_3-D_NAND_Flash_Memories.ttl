@@ -1,0 +1,137 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0aefe1f6 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_0c4bc5a0 a owl:Axiom ;
+    rdfs:comment "causes rdfs:domain EnvironmentalAndOperationalContext/ExternalFactors/Radiation; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_81ba9538 a owl:Axiom ;
+    rdfs:comment "hasStructure rdfs:domain SSD; rdfs:range FlashTechnology/Structure." .
+
+ssd:axiom_a1d7b58b a owl:Axiom ;
+    rdfs:comment "causes rdfs:domain EnvironmentalAndOperationalContext/ExternalFactors/Radiation; rdfs:range MetricsHealthAndState/Reliability." .
+
+ssd:axiom_cb4e33d6 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/34bd9f4bf60d4b718c888e50d9422dab> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_Gamma_ray_exposure ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "The effects of total ionizing dose on 3-D flash memories irradiated with gamma rays are investigated." .
+
+<http://example.org/ssd/assertion/3a23af278915486da2c8889a21de3555> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:predicate ssd:hasStructure ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "To overcome these difficulties while continuing to increase memory array density, 3-D NAND flash with a vertical-channel structure has been recently introduced in the market." .
+
+<http://example.org/ssd/assertion/3a3a313cf57a461393544c2fc201e753> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_Raw_Bit_Error_Rate ;
+    ssd:predicate ssd:causes ;
+    ssd:subject ssd:E5_Gamma_ray_exposure ;
+    dct:source "The evolution and shape of the threshold voltage distributions, as well as the raw bit errors, are studied versus dose." .
+
+<http://example.org/ssd/assertion/5944b7498af34868aa20b91f147d9efc> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_Threshold_Voltage_Shift ;
+    ssd:predicate ssd:causes ;
+    ssd:subject ssd:E5_Gamma_ray_exposure ;
+    dct:source "The evolution and shape of threshold voltage distributions are studied versus dose for floating gate cell NAND arrays with vertical-channel architecture." .
+
+<http://example.org/ssd/assertion/82d17d71bf3140aea85d6fb541a93626> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "For these experiments, 384-Gbit triple-level cell (TLC) 3-D NAND flash memories were used." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E6_Threshold_Voltage_Shift a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance>,
+        owl:Thing ;
+    rdfs:label "Threshold Voltage Shift" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:E7_Raw_Bit_Error_Rate a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability>,
+        owl:Thing ;
+    rdfs:label "Raw Bit Error Rate" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+ssd:E1_3_D_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3-D NAND Flash Memory" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:hasStructure <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:operatesUnder ssd:E5_Gamma_ray_exposure ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> rdfs:label "Radiation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+ssd:E5_Gamma_ray_exposure a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation>,
+        owl:Thing ;
+    rdfs:label "Gamma-ray exposure" ;
+    ssd:causes ssd:E6_Threshold_Voltage_Shift,
+        ssd:E7_Raw_Bit_Error_Rate ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> .
+

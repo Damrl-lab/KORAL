@@ -1,0 +1,158 @@
+{
+  "paper_id": "BER-Based Wear Leveling and Bad Block Management for NAND Flash",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E4",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E5",
+      "label": "Bad Block Management",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Bad Block Management",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%20Block%20Management"
+    },
+    {
+      "id": "E6",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E7",
+      "label": "RAID-in-Flash (RAIN)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash (RAIN)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%20%28RAIN%29"
+    },
+    {
+      "id": "E8",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E9",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E10",
+      "label": "Bit Error Rate (BER)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This paper introduces a method for estimating the BER that a flash page will exhibit after retention and uses this estimate for wear leveling.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "This paper will consider a MLC flash memory with 256 pages per block and 16 kbytes of information per page.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "This paper presents a wear leveling and bad block detection scheme which classifies the blocks based on the BER that they suffered during previous write operations.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Additionally, the estimate will be used to detect bad blocks, those likely to exhibit a number of errors beyond the ECC correction capability, and retire them from further use.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E6",
+      "evidence": "Memory controllers generally use Error Correcting Codes (ECC) to recover some of these erroneous bits.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "When the number of errors goes beyond the capability of the ECC, it is necessary to invoke RAID, which introduces significant latency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "has",
+      "o": "E8",
+      "evidence": "Flash memories are designed with some amount of overprovisioning, i.e. extra blocks, for garbage collection and so that bad and worn out blocks can be retired without impacting the user capacity.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "Leakage increases as cells wear out, but it is also directly related to the amount of time elapsed since the data was written and the temperature at which the memory was kept.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E10",
+      "p": "correlatesWith",
+      "o": "E9",
+      "evidence": "Leakage increases as cells wear out, but it is also directly related to the amount of time elapsed since the data was written and the temperature at which the memory was kept.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct factor affecting BER as mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "BER-Based Wear Leveling and Bad Block Management for Flash Memories.pdf"
+}

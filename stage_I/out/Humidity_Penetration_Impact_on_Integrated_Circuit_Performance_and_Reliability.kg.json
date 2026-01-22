@@ -1,0 +1,102 @@
+{
+  "paper_id": "Humidity_Penetration_Impact_on_IC_Performance_and_Reliability",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Humidity",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E4",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E5",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "In this paper, we study the impact of humidity penetration into ICs using controlled breaches of the chip barrier.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasRelativeHumidity",
+      "o": {
+        "@value": "90",
+        "unit": "RH"
+      },
+      "evidence": "RO performance is recorded over several days of continuous humidification at an elevated ~90% RH.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "The performance of humidified ICs is modestly reduced (1%-3%), due to the limited impact of the BEOL capacitance increase onto the circuit performance.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E4",
+      "evidence": "No detectable impact on the overall circuit lifetime is observed because of FEOL BTI and GOX mechanisms dominance.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasRelativeHumidity rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Humidity",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "mapping_decision": "exact",
+      "notes": "Humidity is directly mentioned as an external factor impacting ICs."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Humidity_Penetration_Impact_on_Integrated_Circuit_Performance_and_Reliability.pdf"
+}

@@ -1,0 +1,116 @@
+{
+  "paper_id": "IEEE_TR_2025_3550380",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "MTTF",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/MTBF",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/MTBF"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "NOWADAYS, solid-state drives (SSDs) are becoming the dominant storage media in modern data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "NOWADAYS, solid-state drives (SSDs) are becoming the dominant storage media in modern data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "Fang et al. proposed a short-term warning system of read disturb and endurance for advanced 3-D triple-level cell (TLC) NAND Flash memories.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "Multivariate condition-monitoring signals are collected from operating SSDs via the self-monitoring, analysis, and reporting technology (SMART).",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "A novel model averaging strategy is proposed to weigh the MTTFs estimated by multiple combinations of candidate degradation models and lifetime distributions to alleviate the impact of model misspecification.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType."
+  ],
+  "mappings": [
+    {
+      "label": "MTTF",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/MTBF",
+      "mapping_decision": "exact",
+      "notes": "MTTF is a direct measure of reliability, aligning with MTBF."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly mentions SSDs in data centers."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses TLC NAND Flash technology."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Estimating_Mean_Time_to_Failure_of_Solid-State_Drives_via_Self-Organizing_Map_and_Model_Averaging.pdf"
+}

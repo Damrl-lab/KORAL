@@ -1,0 +1,143 @@
+{
+  "paper_id": "PollingSanitization2024",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "High-density SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "Polling-based Sanitization",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Background Scrubbing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Background%20Scrubbing"
+    },
+    {
+      "id": "E4",
+      "label": "I/O Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "Data Security",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/Secure Erase/Sanitize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%20Erase/Sanitize"
+    },
+    {
+      "id": "E6",
+      "label": "UTI",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Embedded Systems",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "For example, a modern Trinary-Level Cell (TLC) can store up to 3-bits of information per cell.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Solid-state drives (SSDs) have replaced traditional hard-disk drives (HDDs) as the mainstream storage devices for resource-constrained environments such as embedded systems.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "Our proposal can decrease the negative effects of data sanitization in terms of the risk-performance index, which is a united time metric of I/O responsiveness and the unsafe time interval, by 16.34%, on average, compared to related sanitization methods.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "To minimize the impacts on I/O latency and data security, this article proposes a polling-based scheduling approach for data sanitization in high-density SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "correlatesWith",
+      "o": "E5",
+      "evidence": "A small value of UTI means less risk of data leakage in SSD devices.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain InternalFirmwareAndLogic/Maintenance; rdfs:range MetricsHealthAndState/Performance.",
+    "correlatesWith rdfs:domain MetricsHealthAndState/Performance; rdfs:range ConfigurationAndAdvancedParadigms/Security."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is directly mentioned as a type of flash technology."
+    },
+    {
+      "label": "Polling-based Sanitization",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Background Scrubbing",
+      "mapping_decision": "parent",
+      "notes": "Polling-based sanitization is a specific method of background scrubbing."
+    },
+    {
+      "label": "I/O Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "I/O Latency is a performance metric related to average latency."
+    },
+    {
+      "label": "Data Security",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/Secure Erase/Sanitize",
+      "mapping_decision": "parent",
+      "notes": "Data security is related to secure erase and sanitize operations."
+    },
+    {
+      "label": "UTI",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "UTI is a time interval metric related to latency."
+    },
+    {
+      "label": "Embedded Systems",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded",
+      "mapping_decision": "exact",
+      "notes": "Embedded systems are explicitly mentioned as a deployment environment."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Polling Sanitization to Balance IO Latency and Data Security.pdf"
+}

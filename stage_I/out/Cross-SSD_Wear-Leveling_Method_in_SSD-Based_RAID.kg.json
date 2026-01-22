@@ -1,0 +1,173 @@
+{
+  "paper_id": "10.1007/s11390-013-1310-z",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "CSWL-RAID",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E3",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E4",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E7",
+      "label": "RAID5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E8",
+      "label": "RAID6",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E9",
+      "label": "Age-Driven Parity Distribution",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "uses",
+      "o": "E9",
+      "evidence": "We therefore propose cross-SSD wear leveling (CSWL) to enhance the endurance of entire SSD-based RAID systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "CSWL can significantly improve both the life span and performance of SSD-based RAID.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "CSWL can significantly improve both the life span and performance of SSD-based RAID.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "Under the workload of random access pattern, parity stripes suffer from much more updates.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "ensures",
+      "o": "E3",
+      "evidence": "We introduce an age-driven parity distribution scheme to guarantee wear leveling among flash SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "isCompatibleWith",
+      "o": "E7",
+      "evidence": "When CSWL is used in RAID5, we call it CSWL-RAID5.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "isCompatibleWith",
+      "o": "E8",
+      "evidence": "When it is used in RAID6, we call it CSWL-RAID6.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling.",
+    "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Endurance.",
+    "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "operatesUnder rdfs:domain SSD; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern.",
+    "ensures rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling.",
+    "isCompatibleWith rdfs:domain SSD; rdfs:range SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5."
+  ],
+  "mappings": [
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear leveling is explicitly discussed in the context of SSD endurance."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Endurance is a key metric improved by CSWL."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Performance is a key metric improved by CSWL."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned as a workload context."
+    },
+    {
+      "label": "RAID5",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "mapping_decision": "exact",
+      "notes": "RAID5 is explicitly mentioned as a configuration for CSWL."
+    },
+    {
+      "label": "RAID6",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "mapping_decision": "exact",
+      "notes": "RAID6 is explicitly mentioned as a configuration for CSWL."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Cross-SSD Wear-Leveling Method in SSD-Based RAID.pdf"
+}

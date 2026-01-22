@@ -1,0 +1,138 @@
+{
+  "paper_id": "Optimizing FTL Mapping Cache for Random-Write Workloads using Adaptive Block Partitioning",
+  "entities": [
+    {
+      "id": "SSD1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "EC1",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "WP1",
+      "label": "Random Write Workload",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E1",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E2",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E3",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E4",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "SSD1",
+      "p": "operatesUnder",
+      "o": "EC1",
+      "evidence": "The mapping cache suffers from severe miss penalty and degrades the SSD performance under random write patterns, which are common in benchmarks and database applications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "EC1",
+      "p": "hasWorkloadProfile",
+      "o": "WP1",
+      "evidence": "The mapping cache suffers from severe miss penalty and degrades the SSD performance under random write patterns, which are common in benchmarks and database applications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "WP1",
+      "p": "hasAccessPattern",
+      "o": "E1",
+      "evidence": "The mapping cache suffers from severe miss penalty and degrades the SSD performance under random write patterns, which are common in benchmarks and database applications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "WP1",
+      "p": "hasReadWriteMix",
+      "o": "E2",
+      "evidence": "The mapping cache suffers from severe miss penalty and degrades the SSD performance under random write patterns, which are common in benchmarks and database applications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "WP1",
+      "p": "hasBlockSize",
+      "o": "E3",
+      "evidence": "Many off-the-shelf SSDs include the IOPS (I/O Operation Per Second) of fully random write with 4 KB requests as a primary performance index in their product specifications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "SSD1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "The results show that our approach improved the write performance by up to 30% compared to a conventional map caching method.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Random write patterns are explicitly mentioned in the paper."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "The workload is described as write-heavy due to random write patterns."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned in the context of IOPS."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a primary performance metric discussed in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Optimizing FTL Mapping Cache for Random-Write Workloads.pdf"
+}

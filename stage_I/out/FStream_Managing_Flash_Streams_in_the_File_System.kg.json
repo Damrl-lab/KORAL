@@ -1,0 +1,173 @@
+{
+  "paper_id": "16th_USENIX_FAST18_FStream",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E5",
+      "label": "FStream",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E7",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "Write Amplification Factor (WAF)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E9",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Solid-state drives (SSDs) are rapidly replacing hard disk drives (HDDs) in enterprise data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "Solid-state drives (SSDs) are rapidly replacing hard disk drives (HDDs) in enterprise data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E4",
+      "evidence": "Our experiments show that FStream robustly achieves a near-optimal WAF (close to 1) across the workloads we examined using a stream-capable NVMe (NVM Express) SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasFileSystem",
+      "o": "E6",
+      "evidence": "We implement our scheme, FStream, in Linux ext4 and xfs file systems and perform experiments using a variety of workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Experimental results show that FStream enhances the filebench performance by 5%–35% and reduces WAF by 7%–46%.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E5",
+      "p": "reduces",
+      "o": "E8",
+      "evidence": "Experimental results show that FStream enhances the filebench performance by 5%–35% and reduces WAF by 7%–46%.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "For a NoSQL database benchmark, performance is improved by up to 38% and WAF is reduced by up to 81%.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasFileSystem rdfs:domain SSD; rdfs:range File System.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range Performance.",
+    "reduces rdfs:domain InternalFirmwareAndLogic; rdfs:range Endurance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly mentions enterprise data centers."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses experiments using NVMe SSDs."
+    },
+    {
+      "label": "File System",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses implementation in ext4 and xfs file systems."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses performance improvements without specifying a particular metric."
+    },
+    {
+      "label": "Write Amplification Factor (WAF)",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "WAF is explicitly discussed as a metric in the paper."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions throughput improvements in benchmarks."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "FStream_Managing Flash Streams in the File System.pdf"
+}

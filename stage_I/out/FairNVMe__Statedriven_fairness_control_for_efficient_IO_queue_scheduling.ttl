@@ -1,0 +1,175 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_028e07dd a owl:Axiom ;
+    rdfs:comment "usesInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType." .
+
+ssd:axiom_27e435f9 a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/AccessPattern." .
+
+ssd:axiom_40c4ecd5 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_59a7dd18 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/ReadWriteMix." .
+
+ssd:axiom_6c2c7cfa a owl:Axiom ;
+    rdfs:comment "runsOn rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/HostSystem." .
+
+ssd:axiom_f039d07f a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/QueueDepth." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/02da5b7fcc654e109e1c8d627ad3e04a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> ;
+    ssd:predicate ssd:runsOn ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "FairNVMe is designed based on mediated pass-through technique and implemented as a kernel module on the Linux host system." .
+
+<http://example.org/ssd/assertion/37f4d75adf3a4a9fb1cbc37356ada9f8> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "The other tenant is dedicated to an I/O intensive workload involving a random write pattern with high concurrency and throughput requirements (configured with numjobs = 8 and iodepth = 32)." .
+
+<http://example.org/ssd/assertion/6255a59f08564e5b8c8d89f3ce63b24c> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "The other tenant is dedicated to an I/O intensive workload involving a random write pattern with high concurrency and throughput requirements." .
+
+<http://example.org/ssd/assertion/633a8c660a2a4b5b83043d39868dc861> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "FairNVMe enhances the IOPS by up to 3.02x, 23.5%, and 31.2% compared with Virtio, SPDK, and LPNS, respectively." .
+
+<http://example.org/ssd/assertion/727d67e1ef7f4956a0df26db0cd9ddb7> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "NVMe devices are widely deployed in data centers and cloud platforms." .
+
+<http://example.org/ssd/assertion/72a62b855960434b96e975fc7a1f4761> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "The performance of each VM utilizing Virtio and LPNS exhibits varying levels of degradation, highlighting resource contention and mutual interference in multi-tenant environments." .
+
+<http://example.org/ssd/assertion/7d9a26fac4bb4f20be26cd0146c380ff> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "FairNVMe outperforms Virtio, SPDK, and LPNS, achieving up to 91.9%, 22.1%, and 24.5% latency optimization, respectively." .
+
+<http://example.org/ssd/assertion/be010cfe57084c3bb557b451b52d1ecb> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "FairNVMe reduces the tail latency by up to 94.5%, 61.2%, and 79.5% compared with the other three methods, respectively." .
+
+<http://example.org/ssd/assertion/d5f15f24332f4146b097924f20ebb437> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:usesInterfaceType ;
+    ssd:subject ssd:E1_FairNVMe ;
+    dct:source "NVMe devices are widely deployed in data centers and cloud platforms." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> rdfs:label "Operating System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> rdfs:label "Random" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> rdfs:label "QD32" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Average Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+ssd:E1_FairNVMe a tax:SSD,
+        owl:Thing ;
+    rdfs:label "FairNVMe" ;
+    ssd:hasAccessPattern <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random> ;
+    ssd:hasQueueDepth <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32> ;
+    ssd:hasReadWriteMix <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:runsOn <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> ;
+    ssd:usesInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    rdfs:isDefinedBy tax:SSD .
+

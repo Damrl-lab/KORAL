@@ -1,0 +1,136 @@
+{
+  "paper_id": "SSD_2015_Chamazcoti",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Reed-Solomon",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy"
+    },
+    {
+      "id": "E5",
+      "label": "EVENODD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy"
+    },
+    {
+      "id": "E6",
+      "label": "RDP",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy"
+    },
+    {
+      "id": "E7",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E8",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E9",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Employing erasure codes in an array of Solid-State Drives (SSDs) in storage systems necessitates designers to revisit different characteristics in comparison to Hard Disk Drives (HDDs), due to non-mechanical property of SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "Various real traces are run in the SSD extension of DiskSim simulator.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E9",
+      "evidence": "The results show that configuring a disk array with a 4 KB stripe unit size will improve the endurance and performance of EVENODD by 1.8× and 2.9×, respectively, as compared to 128 KB stripe unit size.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "The results show that the endurance and performance of Reed-Solomon are on average 90% and 60% higher than other erasure codes, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E8",
+      "evidence": "The results show that the endurance and performance of Reed-Solomon are on average 90% and 60% higher than other erasure codes, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Configuring a disk array with a 4 KB stripe unit size will improve the endurance and performance of EVENODD by 1.8× and 2.9×, respectively, as compared to 128 KB stripe unit size.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Configuring a disk array with a 4 KB stripe unit size will improve the endurance and performance of EVENODD by 1.8× and 2.9×, respectively, as compared to 128 KB stripe unit size.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "improves rdfs:domain RAIDAndRedundancy; rdfs:range MetricsHealthAndState."
+  ],
+  "mappings": [
+    {
+      "label": "4KB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "Matches the block size discussed in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "On Endurance and Performance of Erasure Codes in SSD‑Based Storage Systems.pdf"
+}

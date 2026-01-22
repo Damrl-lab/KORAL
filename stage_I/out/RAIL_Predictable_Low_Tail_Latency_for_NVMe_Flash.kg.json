@@ -1,0 +1,187 @@
+{
+  "paper_id": "RAIL: Predictable, Low Tail Latency for NVMe Flash",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "RAIL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash (RAIN)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%20%28RAIN%29"
+    },
+    {
+      "id": "E4",
+      "label": "99.99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E6",
+      "label": "RAIL-HC",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E7",
+      "label": "RAIL Stride",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash (RAIN)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%20%28RAIN%29"
+    },
+    {
+      "id": "E8",
+      "label": "OpenChannel SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller"
+    },
+    {
+      "id": "E9",
+      "label": "PCIe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe"
+    },
+    {
+      "id": "E10",
+      "label": "LightNVM",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Flash-based storage devices are replacing disks for an increasing number of applications in data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E5",
+      "evidence": "Figure 1 shows the read latency complimentary cumulative distribution function (CCDF) for a mixed read/write workload on an NVMe based solid state disk (SSD) from CNEX Labs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E3",
+      "evidence": "We propose two novel techniques to address SSD read tail latency, including Redundant Array of Independent LUNs (RAIL) which avoids serialization of reads behind user writes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "RAIL can reduce read tail latency by 7× at the 99.99th percentile.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E6",
+      "evidence": "RAIL introduces latency-aware hot-cold separation (HC) to separate hot user writes and cold GC writes into independent physical flash chips.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasController",
+      "o": "E8",
+      "evidence": "We present a full Linux kernel software implementation leveraging OpenChannel SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "connectedVia",
+      "o": "E9",
+      "evidence": "The SSD is connected over a PCIe x8 interface to the host server.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesDriver",
+      "o": "E10",
+      "evidence": "We develop RAIL as part of LightNVM.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState.",
+    "connectedVia rdfs:domain SSD; rdfs:range PCIe.",
+    "usesDriver rdfs:domain SSD; rdfs:range EcosystemAndIntegrationContext/HostIOStack/Drivers."
+  ],
+  "mappings": [
+    {
+      "label": "99.99th Percentile Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly mentions 99.99th percentile latency."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses NVMe as the interface type for SSDs."
+    },
+    {
+      "label": "RAIL",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash (RAIN)",
+      "mapping_decision": "exact",
+      "notes": "RAIL is a specific implementation of RAID-in-Flash (RAIN)."
+    },
+    {
+      "label": "OpenChannel SSD",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "mapping_decision": "exact",
+      "notes": "OpenChannel SSD is a specific type of controller implementation."
+    },
+    {
+      "label": "PCIe",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies PCIe as the connection interface."
+    },
+    {
+      "label": "LightNVM",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "mapping_decision": "exact",
+      "notes": "LightNVM is a driver used in the implementation."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "RAIL Predictable, Low Tail Latency for NVMe Flash.pdf"
+}

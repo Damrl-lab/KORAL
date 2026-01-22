@@ -1,0 +1,122 @@
+{
+  "paper_id": "3500411",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "MC1_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "MC2_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The SSD model MC1 data is known, and performing the failure prediction on MC2 (set the MC1 model SSDs as the source domain and the MC2 model SSDs as the target domain).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "The SSD model MC1 data is known, and performing the failure prediction on MC2 (set the MC1 model SSDs as the source domain and the MC2 model SSDs as the target domain).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "Recently, with the large-scale application of solid-state drives (SSDs), the failure of SSDs has become the main reliability issue in data centers.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "The performance of failure prediction methods of SSDs relied on a large amount of monitoring data containing failure label information.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Pinciroli et al. used support vector machines (SVMs) and neural networks (NNs) to analyze the disk logs from three-multilevel-cell (MLC) models of SSDs collected at a Google data center.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E7",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Pinciroli et al. used support vector machines (SVMs) and neural networks (NNs) to analyze the disk logs from three-multilevel-cell (MLC) models of SSDs collected at a Google data center.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSDs in the context of data centers."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SMART attributes for SSD failure prediction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Multi-Instance_Adversarial_Learning_Domain_Adaptation_Network_for_Failure_Prediction_of_Unlabeled_Solid-State_Drives.pdf"
+}

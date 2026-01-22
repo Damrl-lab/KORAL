@@ -1,0 +1,141 @@
+{
+  "paper_id": "A Systematic Configuration Space Exploration of the Linux Kyber I/O Scheduler",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Kyber",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    },
+    {
+      "id": "E4",
+      "label": "Samsung 980 PRO",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "Intel Optane 900P",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "R1-W256",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "R256-W256",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We use two kinds of NVMe SSDs: flash-based SSDs and non-flash-based SSDs with the 3D Xpoint technology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We use two kinds of NVMe SSDs: flash-based SSDs and non-flash-based SSDs with the 3D Xpoint technology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Kyber can deliver up to 26.3% lower read latency than the None scheduler with interfering write workloads.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Kyber can be configured to deliver up to 35.9% lower read latency at the cost of 34.5%-50.3% lower write throughput.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Kyber",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "mapping_decision": "exact",
+      "notes": "Kyber is an I/O scheduler mentioned in the paper."
+    },
+    {
+      "label": "Samsung 980 PRO",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD",
+      "mapping_decision": "exact",
+      "notes": "Samsung 980 PRO is a specific SSD model used in the study."
+    },
+    {
+      "label": "Intel Optane 900P",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD",
+      "mapping_decision": "exact",
+      "notes": "Intel Optane 900P is a specific SSD model used in the study."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses 99th percentile latency improvements with Kyber."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses throughput changes with Kyber."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Systematic Configuration Space Exploration of the Linux Kyber Scheduler.pdf"
+}

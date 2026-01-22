@@ -1,0 +1,205 @@
+{
+  "paper_id": "From Failure to Insight: Analyzing Disk Breakdowns in Large-Scale HPC Environments",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E6",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E7",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E8",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E9",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E10",
+      "label": "MTBF",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/MTBF",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/MTBF"
+    },
+    {
+      "id": "E11",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E12",
+      "label": "SSD1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E12",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This paper introduces two disk failure datasets collected from large-scale HPC production environments over the past five years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "This paper introduces two disk failure datasets collected from large-scale HPC production environments over the past five years.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "The insights from this study have informed operational engineering teams at Google on data replication and encoding schemes.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "The insights from this study have informed operational engineering teams at Google on data replication and encoding schemes.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "The insights from this study have informed operational engineering teams at Google on data replication and encoding schemes.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": "E7",
+      "evidence": "The insights from this study have informed operational engineering teams at Google on data replication and encoding schemes.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasQueueDepth",
+      "o": "E8",
+      "evidence": "The insights from this study have informed operational engineering teams at Google on data replication and encoding schemes.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E12",
+      "p": "hasReliability",
+      "o": "E9",
+      "evidence": "Our analysis yielded numerous observations and insights that influence various operational aspects of HPC storage systems.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "hasMetric",
+      "o": "E10",
+      "evidence": "They calculated failure rates for various systems, noting rates as high as 13.5%, and observed that replacement rates significantly increased over the years, with no signs of infant mortality.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E12",
+      "p": "hasPerformance",
+      "o": "E11",
+      "evidence": "In ongoing systems, these failures affect various operational aspects, including data availability, system reliability, system performance, and operational costs.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "hasReliability rdfs:domain SSD; rdfs:range Reliability.",
+    "hasMetric rdfs:domain Reliability; rdfs:range MTBF.",
+    "hasPerformance rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses large-scale HPC environments, which align with the datacenter deployment environment."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses reliability in the context of disk failures and operational impacts."
+    },
+    {
+      "label": "MTBF",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/MTBF",
+      "mapping_decision": "exact",
+      "notes": "MTBF is a specific reliability metric mentioned in the paper."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses performance impacts due to disk failures."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "From_Failure_to_Insight_Analyzing_Disk_Breakdowns_in_Large-Scale_HPC_Environments.pdf"
+}

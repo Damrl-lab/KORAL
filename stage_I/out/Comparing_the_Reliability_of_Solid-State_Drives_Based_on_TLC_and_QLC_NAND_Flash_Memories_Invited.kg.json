@@ -1,0 +1,158 @@
+{
+  "paper_id": "Comparing the Reliability of Solid-State Drives Based on TLC and QLC NAND Flash Memories",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "QLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E9",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E10",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E11",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The paper analyzes various datasets including internal qualification methods and field studies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The paper analyzes various datasets including internal qualification methods and field studies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasDeploymentEnvironment",
+      "o": "E6",
+      "evidence": "The paper reviews the reliability of Solid-State Drives (SSDs) based on NAND Flash memory with a focus comparing enterprise SSDs using TLC and QLC NAND.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "Table I contains three throughput performance metrics: Sequential Read and Write, and Random Reads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E9",
+      "evidence": "A typical enterprise SSD in 2023 uses Triple-Level Cell (TLC), a misnomer that refers to eight possible VT states to hold three bits of data per cell.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E10",
+      "evidence": "Similarly, there has been strong growth in Quad-Level Cell (QLC) NAND, which contains 16 VT states to store four bits per cell.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "Likewise, the QLC improves by 2X in terms of the 99.9% read Quality of Service (QoS).",
+      "confidence": 0.85
+    },
+    {
+      "s": "E11",
+      "p": "percentile",
+      "o": {
+        "@value": "99.9",
+        "unit": "percentile"
+      },
+      "evidence": "Likewise, the QLC improves by 2X in terms of the 99.9% read Quality of Service (QoS).",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct match under ExternalFactors."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Comparing_the_Reliability_of_Solid-State_Drives_Based_on_TLC_and_QLC_NAND_Flash_Memories_Invited.pdf"
+}

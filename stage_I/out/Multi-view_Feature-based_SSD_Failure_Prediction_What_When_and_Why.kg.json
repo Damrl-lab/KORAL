@@ -1,0 +1,143 @@
+{
+  "paper_id": "zhang2023multiview",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "Humidity",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity"
+    },
+    {
+      "id": "E5",
+      "label": "PM1733",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "PM9A3",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E9",
+      "label": "MVTRF",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "The large-scale SSD monitoring datasets of Samsung PM1733 and PM9A3 SSDs were collected from the data center of Tencent cloud.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "The large-scale SSD monitoring datasets of Samsung PM1733 and PM9A3 SSDs were collected from the data center of Tencent cloud.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "The large-scale SSD monitoring datasets of Samsung PM1733 and PM9A3 SSDs were collected from the data center of Tencent cloud.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasTemperature",
+      "o": "E3",
+      "evidence": "Figure 2 shows that the data distribution of failed SSDs and healthy SSDs differs greatly in the buckets 20–23 of temperature attribute.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasRelativeHumidity",
+      "o": "E4",
+      "evidence": "The Telemetry attributes of each SSD varied over the long term.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E7",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "Since the workload was usually similar for most SSDs on the same server, we compared the changing trends of attributes of the failed SSD with other healthy SSDs on the same server before the failure occurred.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "degrades",
+      "o": "E1",
+      "evidence": "The experimental results show that MVTRF has higher failure prediction accuracy and improves precision by 46.1% and recall by 57.4% on average compared with the existing schemes.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a factor affecting SSDs."
+    },
+    {
+      "label": "Humidity",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "mapping_decision": "exact",
+      "notes": "Humidity is mentioned as part of environmental factors."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Multi-view_Feature-based_SSD_Failure_Prediction_What_When_and_Why.pdf"
+}

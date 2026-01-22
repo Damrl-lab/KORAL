@@ -1,0 +1,157 @@
+{
+  "paper_id": "What does Vibration do to Your SSD?",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Vibration",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E5",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E6",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E8",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E9",
+      "label": "SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E9",
+      "p": "operatesUnder",
+      "o": "E8",
+      "evidence": "Our experiments and analysis uncover that exposure to both short-term and long-term vibration, even within the vendor-specified limits, can significantly affect SSD I/O performance and reliability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasExternalFactor",
+      "o": "E2",
+      "evidence": "Vibration generated in modern computing environments such as autonomous vehicles, edge computing infrastructure, and data center systems is an increasing concern.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E4",
+      "evidence": "Our experiments and analysis uncover that exposure to both short-term and long-term vibration, even within the vendor-specified limits, can significantly affect SSD I/O performance and reliability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E5",
+      "evidence": "Our experiments and analysis uncover that exposure to both short-term and long-term vibration, even within the vendor-specified limits, can significantly affect SSD I/O performance and reliability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "The degradation in performance is normalized to the corresponding no-vibration percentile value (i.e., our results isolate the effect of increasing tail latency as the percentile number grows and depicts the degradation corresponding to the base case for the chosen percentile).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "Interestingly, we observed that after long-term exposure to vibration, the mean Bandwidth also drops noticeably, up to 10% for =vibration.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range ExternalFactors.",
+    "degrades rdfs:domain ExternalFactors; rdfs:range Performance.",
+    "degrades rdfs:domain ExternalFactors; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Vibration",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration",
+      "mapping_decision": "exact",
+      "notes": "Vibration is explicitly mentioned as an external factor affecting SSDs."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Performance is a broad category affected by vibration."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is directly impacted by vibration as stated in the paper."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "99th Percentile Latency is specifically mentioned as being degraded by vibration."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is mentioned as being affected by vibration."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "What does Vibration do to Your SSD.pdf"
+}

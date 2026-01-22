@@ -1,0 +1,144 @@
+{
+  "paper_id": "Open-Channel SSD (What is it Good For)",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Open-Channel SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "OX Controller",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller"
+    },
+    {
+      "id": "E4",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E5",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E7",
+      "label": "Zoned Namespaces (ZNS)",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Open-Channel SSDs have gained acceptance in data centers (e.g., Alibaba) and for computational storage (e.g., Pliops).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "On a dual-plane TLC drive, the size of a RocksDB block must be a multiple of 96KB.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "With QLC, or even TLC, this management is complex, error-prone and might introduce weird constraints on the sequences of reads and writes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesInterface",
+      "o": "E4",
+      "evidence": "The Open-Channel Interface specification, defined in the context of LightNVM, is an extension of the NVMe protocol.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "controls",
+      "o": "E1",
+      "evidence": "We have worked with two generations of Open-Channel SSDs in the context of our work on the OX Controller.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "compliesWith",
+      "o": "E7",
+      "evidence": "ZNS can be implemented as an application-specific Flash Translation Layer on top of Open-Channel SSDs.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "usesInterface rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/InterfaceType.",
+    "controls rdfs:domain SSD/PhysicalHardwareAndArchitecture/Controller; rdfs:range SSD.",
+    "compliesWith rdfs:domain SSD; rdfs:range SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Open-Channel SSDs are used in datacenters."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "Open-Channel SSDs use NVMe interface."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a type of flash technology used in Open-Channel SSDs."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is a type of flash technology used in Open-Channel SSDs."
+    },
+    {
+      "label": "Zoned Namespaces (ZNS)",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "mapping_decision": "exact",
+      "notes": "ZNS is a standard that can be implemented on Open-Channel SSDs."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Open-Channel SSD (What is it Good For).pdf"
+}

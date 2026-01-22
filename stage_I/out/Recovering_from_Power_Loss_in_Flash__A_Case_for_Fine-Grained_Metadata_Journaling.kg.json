@@ -1,0 +1,124 @@
+{
+  "paper_id": "osdi25_cui",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "F2FSJ",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E2",
+      "label": "F2FS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E3",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E4",
+      "label": "Ordered Journal Mode",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E5",
+      "label": "Checkpointing",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "Mobile Device",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Mobile Device",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Mobile%20Device"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "F2FSJ is open-sourced for public access.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasDeploymentEnvironment",
+      "o": "E8",
+      "evidence": "F2FS, a log-structured filesystem, has gained widespread adoption in Android systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Our experimental results demonstrate that F2FSJ can effectively reduce the checkpointing time by up to 4.9x and reduce the latency by up to 35% compared with F2FS.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasFileSystem",
+      "o": "E3",
+      "evidence": "In this paper, we propose a novel journaling technique, called F2FSJ, for F2FS with ordered journal mode.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasJournalMode",
+      "o": "E4",
+      "evidence": "In this paper, we propose a novel journaling technique, called F2FSJ, for F2FS with ordered journal mode.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasCheckpointing",
+      "o": "E5",
+      "evidence": "F2FS, however, relies on coarse-grained checkpointing for crash recovery, which once triggered, severely degrades the system performance by blocking file reads/writes.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "hasFileSystem rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/HostSystem/File System.",
+    "hasJournalMode rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic.",
+    "hasCheckpointing rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic."
+  ],
+  "mappings": [
+    {
+      "label": "Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Latency is explicitly mentioned as a performance metric improved by F2FSJ."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Recovering from Power Loss in Flash_ A Case for Fine-Grained Metadata Journaling.pdf"
+}

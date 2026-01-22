@@ -1,0 +1,157 @@
+{
+  "paper_id": "Unifying Temporal and Spatial Locality for Cache Management inside SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "VS-Batch",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    },
+    {
+      "id": "E3",
+      "label": "Cache Management",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    },
+    {
+      "id": "E4",
+      "label": "I/O Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "Cache Hits",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E9",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "The trace-driven simulation experiments show that our proposal can yield improvements on cache hits by more than 2.8%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "The trace-driven simulation experiments show that our proposal can yield improvements on the overall I/O latency by 20.2% on average.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "The NAND flash memory-based solid-state drives (SSDs) have gradually become the dominant storage devices for embedded systems, personal computers, and high performance platforms.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "For read-intensive workloads of LUN0 and LUN1, the performance of VS-Batch and other comparison counterparts are similar.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E8",
+      "evidence": "On the other hand, VS-Batch can bring about more than 11.8% reduction of I/O response time for the selected write-intensive workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E9",
+      "evidence": "So it worsens cache thrashing while increasing cache hits for sequential accesses.",
+      "confidence": 0.7
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern."
+  ],
+  "mappings": [
+    {
+      "label": "Cache Management",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "mapping_decision": "exact",
+      "notes": "Cache management is directly related to caching policies."
+    },
+    {
+      "label": "I/O Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "I/O latency is a performance metric related to average latency."
+    },
+    {
+      "label": "Cache Hits",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Cache hits are a performance metric."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy is a specific read-write mix."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "Sequential is a specific access pattern."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Unifying Temporal and Spatial Locality for SSD DRAM Cache Management.pdf"
+}

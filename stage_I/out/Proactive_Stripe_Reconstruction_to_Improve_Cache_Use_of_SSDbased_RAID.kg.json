@@ -1,0 +1,174 @@
+{
+  "paper_id": "104",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD_RAID_System",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "RAID5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E3",
+      "label": "Proactive_Stripe_Reconstruction",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E4",
+      "label": "Parity_Cache",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%20Cache"
+    },
+    {
+      "id": "E5",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E6",
+      "label": "IOLatency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Parity_Chunk_Updates",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E8",
+      "label": "Cache_Use_Efficiency",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies/Write-Through",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies/Write-Through"
+    },
+    {
+      "id": "E9",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E10",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E9",
+      "evidence": "Solid-StateDrives(SSDs)basedonNANDflasharewidelydeployedinembeddeddevices,personal computers,anddatacenters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "Specifically,thewidespreadadoptionofTrinary-LevelCell(TLC)and Quad-Level Cell (QLC) has decreased the per-unit cost of SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E2",
+      "evidence": "Parity-basedRedundantArrayofInexpensiveDisks(RAID)arrayscomposedfromSSDsareintroducedtoaddresscorrelatedfailures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasCache",
+      "o": "E4",
+      "evidence": "a DRAM cache is commonly equipped accompanying with the RAID controller, called the parity cache.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Experimental results show that ourproposalcanreducethenumberofparitychunkupdatesinSSDsby 2.3%andoverallI/Olatencyby 12.2%onaverage.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "To better improve the use efficiency of the parity cache, this paper proposes a stripe reconstruction approach to minimize the number of parity updates on SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "reduces",
+      "o": "E7",
+      "evidence": "ourproposalcanreducethenumberofparitychunkupdatesinSSDsby 2.3%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasWorkloadProfile",
+      "o": "E10",
+      "evidence": "Experimental results show that ourproposalcanreducethenumberofparitychunkupdatesinSSDsby 2.3%andoverallI/Olatencyby 12.2%onaverage, compared tostate-of-the-artparitycache management techniques.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "uses rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/RAIDAndRedundancy.",
+    "hasCache rdfs:domain SSD; rdfs:range CacheAndBuffers.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Performance.",
+    "reduces rdfs:domain InternalFirmwareAndLogic; rdfs:range InternalFirmwareAndLogic/MediaManagement.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "RAID5",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "mapping_decision": "exact",
+      "notes": "RAID5 is explicitly mentioned in the paper."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is explicitly mentioned in the paper."
+    },
+    {
+      "label": "IOLatency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses overall I/O latency improvements."
+    },
+    {
+      "label": "Parity_Cache",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "mapping_decision": "parent",
+      "notes": "The paper refers to a DRAM-based parity cache."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Proactive Stripe Reconstruction to Improve Cache Use of SSD‑based RAID.pdf"
+}

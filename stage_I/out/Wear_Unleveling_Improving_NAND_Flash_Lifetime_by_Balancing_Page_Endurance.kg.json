@@ -1,0 +1,138 @@
+{
+  "paper_id": "12th_USENIX_FAST_2014_Wear_Unleveling",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E5",
+      "label": "Page Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E6",
+      "label": "FlashTechnology",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E7",
+      "label": "NAND Flash",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E8",
+      "label": "Write Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This paper studies this variability on two commercial devices, acknowledges its unavoidability, figures out how to identify the weakest cells, and introduces a wear unbalancing technique that let the strongest cells relieve the weak ones in order to lengthen the overall lifetime of the device.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "NAND flash is extensively used for general storage and transfer of data in memory cards, USB flash drives, solid-state drives, and mobile devices, such as MP3 players, smartphones, tablets or netbooks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Relieving the weakest pages can lead to a lifetime extension of up to 60% for a negligible memory and storage overhead, while minimally affecting (sometimes improving) the write performance.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "degradedBy",
+      "o": "E8",
+      "evidence": "Relieving the weakest pages can lead to a lifetime extension of up to 60% for a negligible memory and storage overhead, while minimally affecting (sometimes improving) the write performance.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "hasFlashTechnology",
+      "o": "E7",
+      "evidence": "NAND flash memory cells are grouped into pages (typically 8–32 kB) and blocks of hundreds of pages.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "The idea has a similar goal as wear leveling, which balances the wear of every block.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology.",
+    "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Endurance.",
+    "degradedBy rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "hasFlashTechnology rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology.",
+    "improves rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling."
+  ],
+  "mappings": [
+    {
+      "label": "Page Endurance",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Page Endurance is directly related to the endurance of SSDs."
+    },
+    {
+      "label": "NAND Flash",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "mapping_decision": "exact",
+      "notes": "NAND Flash is a specific type of flash technology."
+    },
+    {
+      "label": "Write Performance",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Write Performance is a component of overall performance metrics."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Wear Unleveling Improving NAND Flash Lifetime by Balancing Page Endurance.pdf"
+}

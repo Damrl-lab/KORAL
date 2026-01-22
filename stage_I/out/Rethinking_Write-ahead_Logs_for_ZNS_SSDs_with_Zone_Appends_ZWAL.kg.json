@@ -1,0 +1,187 @@
+{
+  "paper_id": "ZWAL_2024",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "ZNS",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces"
+    },
+    {
+      "id": "E4",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E5",
+      "label": "QD32",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E6",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E7",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E8",
+      "label": "RocksDB",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/File Systems (NTFS, ext4, XFS, APFS)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%20Systems%20%28NTFS%2C%20ext4%2C%20XFS%2C%20APFS%29"
+    },
+    {
+      "id": "E9",
+      "label": "ZenFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/File Systems (NTFS, ext4, XFS, APFS)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%20Systems%20%28NTFS%2C%20ext4%2C%20XFS%2C%20APFS%29"
+    },
+    {
+      "id": "E10",
+      "label": "Zone Append",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Zoned Namespace (ZNS) is an emerging interface for flash storage devices that provides such stability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "The design of ZWAL relies on high write concurrency and throughput for small writes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasQueueDepth",
+      "o": "E5",
+      "evidence": "We configure ZWALs to issue zone appends at a maximum QD of 32.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Zoned Namespace (ZNS) is an emerging interface for flash storage devices that provides such stability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "We report up to 8.56 times higher throughput on the YCSB benchmark.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "We report up to 8.56 times higher throughput on the YCSB benchmark.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "integratesWith",
+      "o": "E9",
+      "evidence": "We implement ZWALs in the state-of-the-art combination of RocksDB and ZenFS.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "utilizes",
+      "o": "E10",
+      "evidence": "The ZNS-specific zone append operation presents a solution, enhancing the throughput of small sequential writes.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "improves rdfs:domain SSD; rdfs:range Performance.",
+    "utilizes rdfs:domain SSD; rdfs:range ZonedNamespaces."
+  ],
+  "mappings": [
+    {
+      "label": "ZNS",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "mapping_decision": "exact",
+      "notes": "ZNS is directly mentioned as a Zoned Namespace."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "The workload is described as write-heavy."
+    },
+    {
+      "label": "QD32",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 32 is explicitly mentioned."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a standard performance metric."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a standard performance metric."
+    },
+    {
+      "label": "Zone Append",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "mapping_decision": "exact",
+      "notes": "Zone Append is a specific operation within ZNS."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Rethinking Write-ahead Logs for ZNS SSDs with Zone Appends (ZWAL).pdf"
+}

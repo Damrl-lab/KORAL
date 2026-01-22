@@ -1,0 +1,221 @@
+{
+  "paper_id": "FAST17_LightNVM",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "LightNVM",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Open-Channel SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E6",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E7",
+      "label": "PCIe Gen3",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3"
+    },
+    {
+      "id": "E8",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E9",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E10",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E11",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E12",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "As Solid-State Drives (SSDs) become commonplace in data-centers and storage arrays, there is a growing demand for predictable latency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "We propose that SSD management trade-offs should be handled through Open-Channel SSDs, a new class of SSDs, that give hosts control over their internals.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E6",
+      "evidence": "Our interface is implemented as a vendor-specific extension to the NVM Express 1.2.1 specification.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPCIe",
+      "o": "E7",
+      "evidence": "The interface is independent of the type of non-volatile media chip embedded on the open-channel SSD.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "hasFlashTechnology",
+      "o": "E5",
+      "evidence": "Our experimental setup consists of a server equipped with an Intel Xeon E5-2620v3, 32 GB of DDR4 RAM, an Open-Channel SSD (CNEX Labs Westlake SDK) with 2TB NAND MLC Flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Our results show that LightNVM achieves high performance and can be tuned to control I/O latency variability.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Our results show that LightNVM achieves high performance and can be tuned to control I/O latency variability.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "Our experimental results demonstrate that LightNVM has modest host overhead, that it can be tuned to limit read latency variability and that it can be customized to achieve predictable I/O latencies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "We see that the OCSSD is capable of reaching 4GB/s using sequential reads at an average latency of 970 ms using 256KB request size and a queue depth of 16. The 99th percentile latency is reported at 1,200 ms.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E12",
+      "evidence": "Garbage collection is assumed to happen either on the device or within the LightNVM core.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType.",
+    "hasPCIe rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/PCIe.",
+    "hasFlashTechnology rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/FlashTechnology.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement."
+  ],
+  "mappings": [
+    {
+      "label": "Open-Channel SSD",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD",
+      "mapping_decision": "exact",
+      "notes": "Open-Channel SSDs are a new class of SSDs that give hosts control over their internals."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSDs in the context of data-centers."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies the use of MLC NAND Flash."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions NVMe as the interface type."
+    },
+    {
+      "label": "PCIe Gen3",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies PCIe Gen3 as the interface."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses garbage collection as part of SSD management."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "LightNVM The Linux Open-Channel SSD Subsystem.pdf"
+}

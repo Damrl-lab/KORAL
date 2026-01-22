@@ -1,0 +1,132 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_331ee097 a owl:Axiom ;
+    rdfs:comment "controls rdfs:domain Controller; rdfs:range SSD." .
+
+ssd:axiom_45c1eec2 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_a3e3ad13 a owl:Axiom ;
+    rdfs:comment "compatibleWith rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ZonedNamespaces." .
+
+ssd:axiom_d7ff063b a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_e4248502 a owl:Axiom ;
+    rdfs:comment "manages rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/336d10cac87141fca9530824af9fa3a4> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> ;
+    ssd:predicate ssd:compatibleWith ;
+    ssd:subject ssd:E1_Open_Channel_SSD ;
+    dct:source "ZNS can be implemented as an application-specific Flash Translation Layer on top of Open-Channel SSDs." .
+
+<http://example.org/ssd/assertion/3f116c52a4794b7893ddfca9ba664e63> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_Open_Channel_SSD ;
+    dct:source "Open-Channel SSDs have gained acceptance in data centers (e.g., Alibaba) and for computational storage (e.g., Pliops)." .
+
+<http://example.org/ssd/assertion/50483ab7627e40f1ab1177f8a8ff2a0f> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E1_Open_Channel_SSD ;
+    ssd:predicate ssd:controls ;
+    ssd:subject ssd:E3_OX_Controller ;
+    dct:source "We have worked with two generations of Open-Channel SSDs in the context of our work on the OX Controller." .
+
+<http://example.org/ssd/assertion/a6b2b54bdc264451ba2c6199aeb48b5e> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_Open_Channel_SSD ;
+    dct:source "On a dual-plane TLC drive, the size of a RocksDB block must be a multiple of 96KB." .
+
+<http://example.org/ssd/assertion/e9b9433267314a1e9294db2228e1d4b1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E1_Open_Channel_SSD ;
+    ssd:predicate ssd:manages ;
+    ssd:subject ssd:E5_LightLSM ;
+    dct:source "LightLSM exposes Open-Channel SSDs as a RocksDB environment supporting SSTable flush and block reads." .
+
+ssd:E3_OX_Controller a <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller>,
+        owl:Thing ;
+    rdfs:label "OX Controller" ;
+    ssd:controls ssd:E1_Open_Channel_SSD ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller> .
+
+ssd:E5_LightLSM a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "LightLSM" ;
+    ssd:manages ssd:E1_Open_Channel_SSD ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> rdfs:label "ZNS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E1_Open_Channel_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Open-Channel SSD" ;
+    ssd:compatibleWith <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS> ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy tax:SSD .
+

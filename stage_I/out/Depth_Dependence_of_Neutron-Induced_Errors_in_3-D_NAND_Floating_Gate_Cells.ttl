@@ -1,0 +1,143 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_50cf3d02 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_90ad2f53 a owl:Axiom ;
+    rdfs:comment "hasReliabilityIssue rdfs:domain SSD; rdfs:range Reliability." .
+
+ssd:axiom_a9166ae4 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_babf49eb a owl:Axiom ;
+    rdfs:comment "hasManufacturing rdfs:domain SSD; rdfs:range FlashTechnology/Manufacturing." .
+
+ssd:axiom_f5882b1c a owl:Axiom ;
+    rdfs:comment "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range ExternalFactors." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1354367d3db64b80a70d299274e92093> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> ;
+    ssd:predicate ssd:hasManufacturing ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "The memory cells in these devices feature a vertical-channel architecture with more than 30 layers." .
+
+<http://example.org/ssd/assertion/7df9608e63694c3a804ee51ec3486b0d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "A 384-Gbit, 3-bits/cell 3-D NAND Flash memories with an equivalent 13-nm feature size (the equivalence is in terms of number of bits per unit of area), manufactured by Micron, were used for this study." .
+
+<http://example.org/ssd/assertion/9a083a3304cf4a7cb2ce1b095bae7d25> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "In the last few years, planar Flash memories have been superseded by 3-D devices to overcome scaling limits and increase the storage density." .
+
+<http://example.org/ssd/assertion/ac390fec173c4eafb487c0dc15d628d0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_Neutron_Induced_Errors ;
+    ssd:predicate ssd:hasReliabilityIssue ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "The impact of atmospheric neutron effects in 3-D NAND FG arrays has been investigated in [16] and compared with previous planar technologies, showing modest but appreciable threshold voltage shifts." .
+
+<http://example.org/ssd/assertion/c05a875aa590484598fb5831a9686869> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3_D_NAND_Flash_Memory ;
+    dct:source "Irradiations with wide-energy neutrons were carried out at the ChipIr beam line at the ISIS accelerator of the Rutherford Appleton Laboratories, Didcot, U.K." .
+
+<http://example.org/ssd/assertion/e16fa186100244e2b15a482bbb156c50> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> ;
+    ssd:predicate ssd:hasExternalFactor ;
+    ssd:subject ssd:E7_EC1 ;
+    dct:source "The sensitivity of vertical-channel 3-D NAND Flash memories to wide-energy spectrum neutrons is investigated as a function of cell depth in the pillars." .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E3_Neutron_Induced_Errors a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability>,
+        owl:Thing ;
+    rdfs:label "Neutron-Induced Errors" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:E7_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasExternalFactor <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> rdfs:label "Radiation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> rdfs:label "LayerCount" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+ssd:E1_3_D_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3-D NAND Flash Memory" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:hasManufacturing <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> ;
+    ssd:hasReliabilityIssue ssd:E3_Neutron_Induced_Errors ;
+    ssd:operatesUnder ssd:E7_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+

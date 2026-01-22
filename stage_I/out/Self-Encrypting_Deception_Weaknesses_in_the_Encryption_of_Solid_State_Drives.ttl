@@ -1,0 +1,366 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0ae07754 a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_564e99cc a owl:Axiom ;
+    rdfs:comment "hasFormFactor rdfs:domain SSD; rdfs:range FormFactor." .
+
+ssd:axiom_c24fe0a6 a owl:Axiom ;
+    rdfs:comment "supports rdfs:domain SSD; rdfs:range Security." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/07148648a27e4596bc94ac6e2f3a1b17> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E14_Samsung_840_EVO ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor)." .
+
+<http://example.org/ssd/assertion/1ae45534b2ce4f8cbb98a34eb3360a8d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E12_Crucial_MX300 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor)." .
+
+<http://example.org/ssd/assertion/213ede2c114f4bb9970abc6c664ae667> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E10_Crucial_MX100 ;
+    dct:source "The Crucial (Micron) MX100 is a SA T A SSD released in 2014. It supports A T A security, as well as TCG Opal, both version 1 and 2." .
+
+<http://example.org/ssd/assertion/25596ace7aa848c7b827ddb544bdc1aa> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E14_Samsung_840_EVO ;
+    dct:source "The Samsung 840 EVO is a SA T A SSD released in 2013. It supports A T A security, as well as TCG Opal version 2." .
+
+<http://example.org/ssd/assertion/2c5f64990aba4b898a6425339c57dcc4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E16_Samsung_950_PRO ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces." .
+
+<http://example.org/ssd/assertion/3335a3606eee43ca8a7d73f3905a2197> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E18_Samsung_T5 ;
+    dct:source "The Samsung T5 portable SSD is the successor of the T3. It uses the same MGX controller found in the 850 EVO and the T3." .
+
+<http://example.org/ssd/assertion/50b8b6b564fb4d899e6dbbb2dc9c5cb1> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E10_Crucial_MX100 ;
+    dct:source "The Crucial (Micron) MX100 is a SA T A SSD released in 2014. It supports A T A security, as well as TCG Opal, both version 1 and 2." .
+
+<http://example.org/ssd/assertion/553fe2bd1ecf40afa25aa6f0cba7ec7d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E14_Samsung_840_EVO ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces." .
+
+<http://example.org/ssd/assertion/55daedc25e7b4f71888c33786a19deee> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E16_Samsung_950_PRO ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor)." .
+
+<http://example.org/ssd/assertion/78e7719a12e04d79a04cfe914124bedc> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E12_Crucial_MX300 ;
+    dct:source "The Crucial MX300 is a SA T A SSD released in 2016. Similar to both its predecessors, it supports the A T A security feature set, as well as TCG Opal version 1 and 2." .
+
+<http://example.org/ssd/assertion/79fbf5e3aa034f8788880b5d8f797a73> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E11_Crucial_MX200 ;
+    dct:source "The Crucial MX200 is a SA T A SSD released in 2015. It is essentially an MX100 with some write performance advantages." .
+
+<http://example.org/ssd/assertion/7a570dffc271435f9cf0136c6e7e447c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E17_Samsung_T3 ;
+    dct:source "The Samsung T3 portable SSD is an external drive connected through USB-3.1 Gen 1. It offers optional password protection through a proprietary command set." .
+
+<http://example.org/ssd/assertion/821cd079d74549abbb52de6d077f8a27> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E12_Crucial_MX300 ;
+    dct:source "The Crucial MX300 is a SA T A SSD released in 2016. Similar to both its predecessors, it supports the A T A security feature set, as well as TCG Opal version 1 and 2." .
+
+<http://example.org/ssd/assertion/83afa831031e4dc7b0f9c5a9cd312c5f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E15_Samsung_850_EVO ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces." .
+
+<http://example.org/ssd/assertion/88fc93faf52b4c4d81d34e5868616b3e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E10_Crucial_MX100 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor)." .
+
+<http://example.org/ssd/assertion/8eeed514cddc4d8db025e8c503daecd4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E13_Sandisk_X600 ;
+    dct:source "The Sandisk X600 is a SA T A SSD released in December 2017. It is built around the same Marvell 88SS1074 controller as the Crucial MX300. The X600 supports both A T A security and TCG Opal version 2." .
+
+<http://example.org/ssd/assertion/9f20d34a384f4de2b67538e5a89f534a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E14_Samsung_840_EVO ;
+    dct:source "The Samsung 840 EVO is a SA T A SSD released in 2013. It supports A T A security, as well as TCG Opal version 2." .
+
+<http://example.org/ssd/assertion/ab7f64c19f2d43ba96f7a9d5179b0bf8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E15_Samsung_850_EVO ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor)." .
+
+<http://example.org/ssd/assertion/ae391eed72e04ef2a770a72adbe6b19b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E11_Crucial_MX200 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces." .
+
+<http://example.org/ssd/assertion/b496eddbb5ba4623a61fce363d13732f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E11_Crucial_MX200 ;
+    dct:source "The Crucial MX200 is a SA T A SSD released in 2015. It is essentially an MX100 with some write performance advantages." .
+
+<http://example.org/ssd/assertion/b7680da810dc491aac81058e7a100aaf> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E15_Samsung_850_EVO ;
+    dct:source "The Samsung 850 EVO is a SA T A SSD released in 2014. Similar to the 840 EVO, it supports TCG Opal version 2." .
+
+<http://example.org/ssd/assertion/b837cb9f953049088ee7e688cd3cff58> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E13_Sandisk_X600 ;
+    dct:source "The Sandisk X600 is a SA T A SSD released in December 2017. It is built around the same Marvell 88SS1074 controller as the Crucial MX300. The X600 supports both A T A security and TCG Opal version 2." .
+
+<http://example.org/ssd/assertion/c4a7ecf4f16f4ac8a85df50fed7e07fd> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E13_Sandisk_X600 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor)." .
+
+<http://example.org/ssd/assertion/c6cd15c2c88e4cae8431e951ad0a69b3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E10_Crucial_MX100 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces." .
+
+<http://example.org/ssd/assertion/cbf55c187aea4a4fbd8dd4348c6dd34c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E16_Samsung_950_PRO ;
+    dct:source "The Samsung 950 PRO is an NVMe SSD released in late 2015. It supports TCG Opal version 2." .
+
+<http://example.org/ssd/assertion/cdeea8402761457490ec97d55fa5522d> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    ssd:predicate ssd:supports ;
+    ssd:subject ssd:E15_Samsung_850_EVO ;
+    dct:source "The Samsung 850 EVO is a SA T A SSD released in 2014. Similar to the 840 EVO, it supports TCG Opal version 2." .
+
+<http://example.org/ssd/assertion/d018f7dda73348c78c67142ba5339f05> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E12_Crucial_MX300 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces." .
+
+<http://example.org/ssd/assertion/e92f6255e65249569cf40232e3fd286c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E13_Sandisk_X600 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces." .
+
+<http://example.org/ssd/assertion/f3d76fbb91474405907cc9fede19e9f2> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E11_Crucial_MX200 ;
+    dct:source "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor)." .
+
+ssd:E17_Samsung_T3 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung T3" ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E18_Samsung_T5 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung T5" ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Firmware%2520Update> rdfs:label "Firmware Update" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Firmware%2520Update> .
+
+ssd:E16_Samsung_950_PRO a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung 950 PRO" ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> rdfs:label "M.2" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+ssd:E10_Crucial_MX100 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Crucial MX100" ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529>,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E11_Crucial_MX200 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Crucial MX200" ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529>,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E12_Crucial_MX300 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Crucial MX300" ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529>,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E13_Sandisk_X600 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Sandisk X600" ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529>,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E14_Samsung_840_EVO a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung 840 EVO" ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529>,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E15_Samsung_850_EVO a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Samsung 850 EVO" ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:supports <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529>,
+        <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> rdfs:label "2.5\"" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> rdfs:label "SATA" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> rdfs:label "TCG Opal" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%2520Opal/Enterprise> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> rdfs:label "Self-Encrypting Drive (SED)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%2520Drive%2520%2528SED%2529> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+

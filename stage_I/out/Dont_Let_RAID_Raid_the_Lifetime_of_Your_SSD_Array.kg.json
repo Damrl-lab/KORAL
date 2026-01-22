@@ -1,0 +1,168 @@
+{
+  "paper_id": "Don’t Let RAID Raid the Lifetime of Your SSD Array",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_Array",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E6",
+      "label": "Balanced",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E7",
+      "label": "RAID5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E8",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E9",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "The lifetime of an SSD array is evaluated in different environments.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "We focus on the problem of random and small writes resulting in frequent parity updates.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "We focus on the problem of random and small writes resulting in frequent parity updates.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "30GB of data is kept under 125MB/s of workload, with 3:1 read:write ratio, per device as default.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "RAID5 is popular as it spreads workload well across all the devices in the device array with relatively small space overhead for parity protection.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "degrades",
+      "o": "E9",
+      "evidence": "Parity protection results in redundant writes whenever a write is issued to the device array. Unlike HDDs, redundant writes for parity update can severely degrade the lifetime of SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Since higher write amplification can reduce the lifetime of SSD severely, protection schemes should be configured carefully to maximize the lifetime improvement while minimizing write amplification.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "uses rdfs:domain SSD; rdfs:range RAIDAndRedundancy.",
+    "degrades rdfs:domain RAIDAndRedundancy; rdfs:range Reliability.",
+    "degrades rdfs:domain MediaManagement/Garbage Collection; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the paper."
+    },
+    {
+      "label": "Balanced",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "Balanced read-write mix is derived from the 3:1 read:write ratio."
+    },
+    {
+      "label": "RAID5",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "mapping_decision": "exact",
+      "notes": "RAID5 is explicitly discussed in the context of SSD arrays."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a result of inefficient garbage collection."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a key metric discussed in relation to RAID5 and write amplification."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Dont Let RAID Raid the Lifetime of Your SSD Array.pdf"
+}

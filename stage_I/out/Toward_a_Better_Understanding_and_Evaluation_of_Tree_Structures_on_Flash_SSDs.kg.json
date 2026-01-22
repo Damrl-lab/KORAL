@@ -1,0 +1,196 @@
+{
+  "paper_id": "arXiv:2006.04658v1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E6",
+      "label": "FlashTechnology",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E7",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E8",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E9",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E10",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E11",
+      "label": "WiredTiger",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E12",
+      "label": "RocksDB",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Flash solid-state drives (SSDs) are widely used to deploy persistent data storage in data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "Flash solid-state drives (SSDs) are widely used to deploy persistent data storage in data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "We consider a write-only workload, where one user thread updates existing KV pairs according to a uniform random distribution.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E5",
+      "evidence": "We consider a write-only workload, where one user thread updates existing KV pairs according to a uniform random distribution.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasFlashTechnology",
+      "o": "E6",
+      "evidence": "While SSDs with novel technologies such as 3D Xpoint offer significant advantages, they are not expected to replace flash-based SSDs anytime soon.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E6",
+      "p": "hasStructure",
+      "o": "E7",
+      "evidence": "While SSDs with novel technologies such as 3D Xpoint offer significant advantages, they are not expected to replace flash-based SSDs anytime soon.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "usesMediaManagement",
+      "o": "E8",
+      "evidence": "SSDs perform internal garbage collection that leads to write amplification.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesMediaManagement",
+      "o": "E9",
+      "evidence": "Performance of SSDs can be improved by overprovisioning storage space.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E12",
+      "p": "hasPerformanceMetric",
+      "o": "E10",
+      "evidence": "RocksDB achieves the highest throughput on SSD3, and a higher throughput on SSD1 than on SSD2.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E11",
+      "p": "hasPerformanceMetric",
+      "o": "E10",
+      "evidence": "Also WiredTiger achieves the highest throughput on SSD3 but, surprisingly, it obtains a higher throughput on SSD2 than on SSD1.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasFlashTechnology rdfs:domain SSD; rdfs:range FlashTechnology.",
+    "hasStructure rdfs:domain FlashTechnology; rdfs:range Structure.",
+    "usesMediaManagement rdfs:domain SSD; rdfs:range MediaManagement.",
+    "hasPerformanceMetric rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "directly mentioned as a deployment environment"
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "described as a write-only workload"
+    },
+    {
+      "label": "3D",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "mentioned in context of 3D Xpoint technology"
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Toward a Better Understanding and Evaluation of Tree Structures on Flash SSDs.pdf"
+}

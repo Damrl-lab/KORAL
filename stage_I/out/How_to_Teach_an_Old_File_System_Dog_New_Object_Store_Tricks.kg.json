@@ -1,0 +1,171 @@
+{
+  "paper_id": "How to Teach an Old File System Dog New Object Store Tricks",
+  "entities": [
+    {
+      "id": "SSD1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "EC1",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "WP1",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E1",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E2",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E3",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E4",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E5",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E6",
+      "label": "1MB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/1MB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/1MB"
+    }
+  ],
+  "triples": [
+    {
+      "s": "SSD1",
+      "p": "operatesUnder",
+      "o": "EC1",
+      "evidence": "We perform a quantitative analysis on current backend storage architectures, particularly focusing on the correlation between their performance and the underlying file system behaviors.",
+      "confidence": 0.8
+    },
+    {
+      "s": "EC1",
+      "p": "hasWorkloadProfile",
+      "o": "WP1",
+      "evidence": "We run 16 threads each issuing 4KB and 1MB object writes for 60s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "WP1",
+      "p": "hasReadWriteMix",
+      "o": "E4",
+      "evidence": "We run 16 threads each issuing 4KB and 1MB object writes for 60s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "WP1",
+      "p": "hasBlockSize",
+      "o": "E5",
+      "evidence": "We run 16 threads each issuing 4KB and 1MB object writes for 60s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "WP1",
+      "p": "hasBlockSize",
+      "o": "E6",
+      "evidence": "We run 16 threads each issuing 4KB and 1MB object writes for 60s.",
+      "confidence": 0.9
+    },
+    {
+      "s": "SSD1",
+      "p": "improves",
+      "o": "E2",
+      "evidence": "SwimStore improves the performance by twofold, reducing the write traffic by more than a half, compared to other object stores in Ceph such as FileStore and KStore.",
+      "confidence": 0.85
+    },
+    {
+      "s": "SSD1",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "SwimStore provides high performance with little variation, as well as a large reduction in write traffic.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize."
+  ],
+  "mappings": [
+    {
+      "label": "File System",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "File System is directly mentioned and relevant to the context."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a standard performance metric."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a standard performance metric."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-Heavy is a specific workload profile."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB is a standard block size."
+    },
+    {
+      "label": "1MB",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/1MB",
+      "mapping_decision": "exact",
+      "notes": "1MB is a standard block size."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "How to Teach an Old File System Dog New Object Store Tricks.pdf"
+}

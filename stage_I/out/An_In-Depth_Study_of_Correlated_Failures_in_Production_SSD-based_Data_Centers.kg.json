@@ -1,0 +1,141 @@
+{
+  "paper_id": "19th_USENIX_FAST_2021",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E4",
+      "label": "3D-TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E6",
+      "label": "Intra-node Failures",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts/State Snapshot",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%20Snapshot"
+    },
+    {
+      "id": "E7",
+      "label": "Intra-rack Failures",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts/State Snapshot",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%20Snapshot"
+    },
+    {
+      "id": "E8",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E9",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Flash-based solid-state drives (SSDs) are increasingly adopted as the mainstream storage media in modern data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The drive models in vendors A and B build on enterprise-class MLC NAND cells.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "While those in vendor C build on 3D-TLC flash.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "Write-dominant applications lead to more intra-node and intra-rack failures than read-dominant ones.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "correlatesWith",
+      "o": "E7",
+      "evidence": "We characterize two main types of correlated failures in the same node and rack that occur within a short time (e.g., 30 minutes), referred to as intra-node failures and intra-rack failures, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasLimitedCorrelationWith",
+      "o": "E6",
+      "evidence": "We find that SMART attributes have limited correlations with both intra-node and intra-rack failures and are not good indicators for detecting the existence of intra-node and intra-rack failures.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasLimitedCorrelationWith",
+      "o": "E7",
+      "evidence": "We find that SMART attributes have limited correlations with both intra-node and intra-rack failures and are not good indicators for detecting the existence of intra-node and intra-rack failures.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "impacts",
+      "o": "E7",
+      "evidence": "High temperature in a machine room can lead to more SSD failures.",
+      "confidence": 0.75
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as an impacting factor on SSD failures."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "An In-Depth Study of Correlated Failures in Production SSD-based Data Centers.pdf"
+}

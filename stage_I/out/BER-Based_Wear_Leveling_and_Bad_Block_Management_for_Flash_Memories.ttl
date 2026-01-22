@@ -1,0 +1,166 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_8e955857 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_d4fbaae3 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1085eab88fb2464facd3f9eaf0baa551> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> ;
+    ssd:predicate ssd:has ;
+    ssd:subject tax:SSD ;
+    dct:source "Flash memories are designed with some amount of overprovisioning, i.e. extra blocks, for garbage collection and so that bad and worn out blocks can be retired without impacting the user capacity." .
+
+<http://example.org/ssd/assertion/1d1d4291cdfb49bea3f2ee7d01e88dac> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "Memory controllers generally use Error Correcting Codes (ECC) to recover some of these erroneous bits." .
+
+<http://example.org/ssd/assertion/5c22c566c52b47ed96306e9a078153d3> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:objectLiteral "25" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Leakage increases as cells wear out, but it is also directly related to the amount of time elapsed since the data was written and the temperature at which the memory was kept." .
+
+<http://example.org/ssd/assertion/7909a95af9e84f379bed0bb4486e97f3> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "This paper will consider a MLC flash memory with 256 pages per block and 16 kbytes of information per page." .
+
+<http://example.org/ssd/assertion/8b0b8dac76d24545ba11ee907dd14a57> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E10_Bit_Error_Rate__BER_ ;
+    dct:source "Leakage increases as cells wear out, but it is also directly related to the amount of time elapsed since the data was written and the temperature at which the memory was kept." .
+
+<http://example.org/ssd/assertion/8dd4f48855e64bd98920a25f465561e7> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "This paper introduces a method for estimating the BER that a flash page will exhibit after retention and uses this estimate for wear leveling." .
+
+<http://example.org/ssd/assertion/92d1d477d5544eb290b782cadecef9ea> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "Additionally, the estimate will be used to detect bad blocks, those likely to exhibit a number of errors beyond the ECC correction capability, and retire them from further use." .
+
+<http://example.org/ssd/assertion/cfef93dbccc145c8a62a486dad377bce> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "This paper presents a wear leveling and bad block detection scheme which classifies the blocks based on the BER that they suffered during previous write operations." .
+
+<http://example.org/ssd/assertion/f07a9dac258d4ec290a29d8cadf75c3c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject tax:SSD ;
+    dct:source "When the number of errors goes beyond the capability of the ECC, it is necessary to invoke RAID, which introduces significant latency." .
+
+ssd:E10_Bit_Error_Rate__BER_ a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER>,
+        owl:Thing ;
+    rdfs:label "Bit Error Rate (BER)" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasTemperature "25" ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management> rdfs:label "Bad Block Management" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "Error Correction (ECC)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529> rdfs:label "RAID-in-Flash (RAIN)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> rdfs:label "Over-Provisioning" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Wear Leveling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:has <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning> ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Bad%2520Block%2520Management>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529>,
+        <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/RAID-in-Flash%2520%2528RAIN%2529> ;
+    rdfs:isDefinedBy tax:SSD .
+

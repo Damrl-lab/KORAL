@@ -1,0 +1,109 @@
+{
+  "paper_id": "FAST_2013_LDPC_in_SSD",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "LDPC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E6",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "We quantitatively evaluate these techniques by carrying out trace-based SSD simulations with runtime characterization of NAND flash memory reliability and LDPC code decoding.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "We carry out extensive characterization of 25nm MLC NAND flash memory reliability and LDPC code decoding.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "Soft-decision memory sensing directly causes an increased NAND flash memory read latency, leading to storage system read response time degradation.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": {
+        "@value": "Read-Heavy",
+        "unit": "ReadWriteMix"
+      },
+      "evidence": "Once NAND flash memory chips are heavily cycled (10,000 P/E cycling in this study), soft-decision memory sensing and LDPC code decoding will be frequently invoked and the system read response time degradation can be even over 100% for read-intensive workloads.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "MLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is explicitly mentioned as the type of NAND flash memory used."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses increased read latency due to LDPC."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "LDPC-in-SSD Making Advanced Error Correction Codes Work Effectively in Solid State Drives.pdf"
+}

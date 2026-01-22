@@ -1,0 +1,109 @@
+{
+  "paper_id": "Choi2024",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Z-Interference",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "WL Programming Sequence",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E5",
+      "label": "Channel Resistance",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "Drain Induced Barrier Lowering (DIBL)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "With the advent of vertical 3D architecture, TLC and QLC NAND flash have established themselves as the most cost-effective solid-state memory devices.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "affectedBy",
+      "o": "E2",
+      "evidence": "However, this reduction drastically increases Z-interference, adversely affecting cell distribution and accelerating degradation of reliability limits.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "variesWith",
+      "o": "E4",
+      "evidence": "Previous studies have shown that programming from the top word line (WL) to the bottom WL, instead of the traditional bottom-to-top approach, alleviates Z-interference.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "increasedBy",
+      "o": "E5",
+      "evidence": "It was found that as more electrons are programmed into WLs within the string, Z-interference variations increase due to increased resistance in the poly-Si channel.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "exacerbatedBy",
+      "o": "E6",
+      "evidence": "If the attack cell is located towards the drain side, Z-interference is accelerated compared to when it is towards the source side, due to the Drain Induced Barrier Lowering (DIBL) effect.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "affectedBy rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic.",
+    "variesWith rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic.",
+    "increasedBy rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic.",
+    "exacerbatedBy rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as a cell type in the paper."
+    },
+    {
+      "label": "Z-Interference",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "Z-Interference is a specific interference phenomenon discussed in the context of internal firmware and logic."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Innovative Programming Approaches to Address Z-Interference in 3D NAND Flash.pdf"
+}

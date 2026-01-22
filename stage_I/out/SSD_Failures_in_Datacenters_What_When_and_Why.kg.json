@@ -1,0 +1,274 @@
+{
+  "paper_id": "SSD_Failures_in_Datacenters_2016",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "SSD Model 1-A",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "SSD Model 1-B",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "SSD Model 1-C",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E9",
+      "label": "SSD Model 1-D",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E10",
+      "label": "SSD Model 2-A",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E11",
+      "label": "Reallocated Sector Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reallocation Event Count  [ID: 196]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reallocation%20Event%20Count%20%20%5BID%3A%20196%5D"
+    },
+    {
+      "id": "E12",
+      "label": "Program/Erase Fail Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/SSD Program Fail Count  [ID: 171]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/SSD%20Program%20Fail%20Count%20%20%5BID%3A%20171%5D"
+    },
+    {
+      "id": "E13",
+      "label": "Uncorrectable Error Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors  [ID: 187]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Reported%20Uncorrectable%20Errors%20%20%5BID%3A%20187%5D"
+    },
+    {
+      "id": "E14",
+      "label": "SATA Downshift Count",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA CRC Error Count  [ID: 199]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA%20CRC%20Error%20Count%20%20%5BID%3A%20199%5D"
+    },
+    {
+      "id": "E15",
+      "label": "AFR",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The older generation SSDs (1-A, 1-B and 1-C) have a capacity of 160GB and have been operational for over 2.5 years. They all use MLC based flash medium.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The older generation SSDs (1-A, 1-B and 1-C) have a capacity of 160GB and have been operational for over 2.5 years. They all use MLC based flash medium.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The older generation SSDs (1-A, 1-B and 1-C) have a capacity of 160GB and have been operational for over 2.5 years. They all use MLC based flash medium.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The newer generations in 1-D and 2-A have a capacity of 480GB each, with mean age slightly below 2 years. They all use MLC based flash medium.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The newer generations in 1-D and 2-A have a capacity of 480GB each, with mean age slightly below 2 years. They all use MLC based flash medium.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "This paper presents an extensive SSD failure characterization by analyzing a wide spectrum of data from over half a million SSDs that span multiple generations spread across several datacenters which host a wide spectrum of workloads over nearly 3 years.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "This paper presents an extensive SSD failure characterization by analyzing a wide spectrum of data from over half a million SSDs that span multiple generations spread across several datacenters which host a wide spectrum of workloads over nearly 3 years.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "These SSDs serve a wide spectrum of workloads including Big Data Analytics, Content Distribution Caches and Web Search Engines.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasReadWriteMix",
+      "o": {
+        "@value": "Read-Heavy"
+      },
+      "evidence": "Note, except for workload W1 (big data analysis) all the other workloads have higher reads than writes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "correlatesWith",
+      "o": "E11",
+      "evidence": "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "correlatesWith",
+      "o": "E12",
+      "evidence": "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "correlatesWith",
+      "o": "E13",
+      "evidence": "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "correlatesWith",
+      "o": "E14",
+      "evidence": "Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasReliability",
+      "o": "E15",
+      "evidence": "The observed Annualized Failure Rate (AFR) in these production datacenters for some models is significantly higher (as much as 70%) than that quoted in SSD specifications, reiterating the need for this kind of field study.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "correlatesWith rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "hasReliability rdfs:domain SSD; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSDs in datacenter environments."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies MLC as the flash technology used."
+    },
+    {
+      "label": "Reallocated Sector Count",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reallocation Event Count  [ID: 196]",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses sector reallocations as a SMART attribute."
+    },
+    {
+      "label": "Program/Erase Fail Count",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/SSD Program Fail Count  [ID: 171]",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses program/erase failures as a SMART attribute."
+    },
+    {
+      "label": "Uncorrectable Error Count",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Reported Uncorrectable Errors  [ID: 187]",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses uncorrectable errors as a SMART attribute."
+    },
+    {
+      "label": "SATA Downshift Count",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/UltraDMA CRC Error Count  [ID: 199]",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SATA downshift as a SMART attribute."
+    },
+    {
+      "label": "AFR",
+      "entity_id": "E15",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "The paper uses AFR as a reliability metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SSD Failures in Datacenters What When and Why.pdf"
+}

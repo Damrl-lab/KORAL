@@ -1,0 +1,131 @@
+{
+  "paper_id": "ADLPT_2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E6",
+      "label": "RBER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E7",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "In the experiment, six types of 3D-TLC NAND flash chips were tested.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "In the experiment, six types of 3D-TLC NAND flash chips were tested.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "During the P/E cycling test, the repeated program and erase operations are applied to blocks in each chip at room temperature (25°C).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "The experimental result shows that our approach can reduce about 90% of redundant predictions with over 0.8 F1-Score.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "correlatesWith",
+      "o": "E6",
+      "evidence": "The method identifies the necessary prediction by detecting the variation of erase duration and raw bit errors.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "correlatesWith",
+      "o": "E8",
+      "evidence": "Unfortunately, with the feature size of the integrated circuit manufactory process scaling down, the endurance of flash memory decreases and results in reliability degradation.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as an external factor influencing the experiment."
+    },
+    {
+      "label": "RBER",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "parent",
+      "notes": "RBER is a specific type of uncorrectable bit error rate, mapped to UBER."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "ADLPT_Improving_3D_NAND_Flash_Memory_Reliability_by_Adaptive_Lifetime_Prediction_Techniques.pdf"
+}

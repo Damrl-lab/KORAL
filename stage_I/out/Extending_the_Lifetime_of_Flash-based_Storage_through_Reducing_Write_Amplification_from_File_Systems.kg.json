@@ -1,0 +1,185 @@
+{
+  "paper_id": "USENIX_FAST_2013",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "OFTL_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E5",
+      "label": "Embedded System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded"
+    },
+    {
+      "id": "E6",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E7",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E8",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E9",
+      "label": "Write Amplification",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E10",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "Flash memory has gained in popularity as storage devices for both enterprise and embedded systems because of its high performance, low energy and reduced cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E4",
+      "evidence": "Flash memory has gained in popularity as storage devices for both enterprise and embedded systems because of its high performance, low energy and reduced cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E5",
+      "evidence": "Flash memory has gained in popularity as storage devices for both enterprise and embedded systems because of its high performance, low energy and reduced cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "The endurance problem of flash memory, however, is still a challenge and is getting worse as storage density increases with the adoption of multi-level cells (MLC).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E7",
+      "evidence": "As mainstream design moves from single level cell (SLC) to multi-/triple-level cells (MLC/TLC), flash-based storage is witnessing an increase of capacity and a reduction of per-bit cost.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Experiments show that an OFTL-based system, OFSS, offers a write amplification reduction of 47.4% ~ 89.4% in SYNC mode and 19.8% ~ 64.0% in ASYNC mode compared with ext3, ext2, and btrfs on an up-to-date page-level FTL.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "The write size reduction not only extends the lifetime of the flash-based storage, but also improves the performance.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "Enterprise Server is explicitly mentioned as a deployment environment."
+    },
+    {
+      "label": "Embedded System",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded",
+      "mapping_decision": "exact",
+      "notes": "Embedded systems are explicitly mentioned as a deployment environment."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is explicitly mentioned as a flash technology type."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as a flash technology type."
+    },
+    {
+      "label": "File System",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "File System is explicitly mentioned in the context of write amplification."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a result of media management inefficiencies."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Performance is a general metric improved by the OFTL system."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Extending the Lifetime of Flash-based Storage through Reducing Write Amplification from File Systems.pdf"
+}

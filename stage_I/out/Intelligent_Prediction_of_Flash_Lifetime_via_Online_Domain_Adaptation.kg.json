@@ -1,0 +1,146 @@
+{
+  "paper_id": "Intelligent_Prediction_of_Flash_Lifetime_via_Online_Domain_Adaptation",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D-TLC Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E7",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E8",
+      "label": "RBER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E9",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "We simulate the actual use scenarios of NAND flash on the FPGA-based test platform.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E4",
+      "evidence": "For the flash-based devices which are deployed in the data center, we can only use the history samples to train the flash lifetime model.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "We emulate the true scenario of NAND flash, such as operating temperature, retention time, and dwelling time.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "We randomly select two blocks from the flash sample set, which are taken as the target block and the source block respectively.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "The reliability of flash blocks can be greatly improved and their service lifetime can be prolonged using the proposed scheme.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E8",
+      "p": "correlatesWith",
+      "o": "E9",
+      "evidence": "The raw bit error rate (RBER) is a key metric to quantify the lifetime of NAND flash.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range Reliability.",
+    "correlatesWith rdfs:domain Reliability; rdfs:range Endurance."
+  ],
+  "mappings": [
+    {
+      "label": "3D-TLC Flash",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD",
+      "mapping_decision": "exact",
+      "notes": "3D-TLC Flash is a specific instance of SSD."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions deployment in a datacenter."
+    },
+    {
+      "label": "RBER",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "exact",
+      "notes": "RBER is a specific reliability metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Intelligent_Prediction_of_Flash_Lifetime_via_Online_Domain_Adaptation.pdf"
+}

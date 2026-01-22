@@ -1,0 +1,168 @@
+{
+  "paper_id": "Ceph_Evolution_2019",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "BlueStore",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "FileStore",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E6",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Zoned Namespaces (ZNS)",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS"
+    },
+    {
+      "id": "E8",
+      "label": "NVMe SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E9",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "BlueStore became the default production storage backend in Ceph.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "BlueStore outperformed previous established backends.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "BlueStore has an order of magnitude lower tail latency than FileStore.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Ceph community is exploring a new backend that targets a combination of persistent memory and emerging NVMe devices with novel interfaces, such as ZNS SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "operatesWith",
+      "o": "E8",
+      "evidence": "BlueStore runs directly on raw disks.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": {
+        "@value": "128",
+        "unit": "QD"
+      },
+      "evidence": "We focus on write performance improvements because most BlueStore optimizations affect writes.",
+      "confidence": 0.7
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "supports rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ZonedNamespaces.",
+    "operatesWith rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType.",
+    "hasQueueDepth rdfs:domain SSD; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses deployment in data centers."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a direct performance metric discussed."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "Latency is discussed with percentile metrics."
+    },
+    {
+      "label": "Zoned Namespaces (ZNS)",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces/ZNS",
+      "mapping_decision": "exact",
+      "notes": "ZNS is explicitly mentioned as a target for new backend exploration."
+    },
+    {
+      "label": "NVMe SSD",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is the interface type discussed for SSDs."
+    },
+    {
+      "label": "QueueDepth",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "mapping_decision": "exact",
+      "notes": "Queue depth is a workload parameter discussed."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "File Systems Unfit as Distributed Storage Backends (Ceph BlueStore).pdf"
+}

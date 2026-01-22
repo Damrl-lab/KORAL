@@ -1,0 +1,161 @@
+{
+  "paper_id": "2020_USENIX_ATC_HDDse",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E2",
+      "label": "HDDse",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E7",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E8",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E9",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E10",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "Our evaluation results on two real-world data centers confirm that the proposed system is effective and outperforms several state-of-the-art approaches.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E1",
+      "evidence": "Hard disks are widely used as primary storage devices in modern data centers, where disk failures constantly happen.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "We observe that most attributes have a significant change around 7 days before failures.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "We use the imbalance degree (IDe) to indicate the dataset imbalance which is defined as the ratio between the majority and minority samples.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E5",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "The DAD method learns the distance (similarity) between the normal and abnormal disk samples in a certain space which has a commonality and not sensitive to the disk models.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "hasReadWriteMix",
+      "o": "E7",
+      "evidence": "The DNN approach learns the distribution of S.M.A.R.T data which varies with disk models.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "hasBlockSize",
+      "o": "E8",
+      "evidence": "The DNN approach learns the distribution of S.M.A.R.T data which varies with disk models.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "hasQueueDepth",
+      "o": "E9",
+      "evidence": "The DNN approach learns the distribution of S.M.A.R.T data which varies with disk models.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E2",
+      "p": "monitors",
+      "o": "E10",
+      "evidence": "Existing work mostly uses the S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology) data to build a disk failure detection model.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "monitors rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a factor affecting disk failure."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Enabling_High_Dimensional_Disk_State_Embedding_for_Generic_Failure_Detection_Systems_of_Heterogeneous_Disks_in_Large_Data_Centers.pdf"
+}

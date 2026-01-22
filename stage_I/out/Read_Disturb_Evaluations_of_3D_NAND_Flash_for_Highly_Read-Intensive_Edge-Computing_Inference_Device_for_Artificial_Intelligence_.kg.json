@@ -1,0 +1,130 @@
+{
+  "paper_id": "Read Disturb Evaluations of 3D NAND Flash for Highly Read-Intensive Edge-Computing Inference Device for Artificial Intelligence Applications",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Edge Device/IoT",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment"
+    },
+    {
+      "id": "E3",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E4",
+      "label": "SLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC"
+    },
+    {
+      "id": "E5",
+      "label": "Read Disturb",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E6",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The coming era of artificial intelligence (AI) and the combination with internet of things (IoT) will require a large number of edge computing inference devices.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "A 16OP 64Gb single-level cell (SLC) SGVC 3D NAND test chip [5] is used to study the read disturb property.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "In this application the NAND Flash needs to sustain continuous read over the entire product life time.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "One of the critical technology challenge of 3D NAND Flash for inference application is the read disturb, because in this application the NAND Flash needs to sustain continuous read over the entire product life time.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E5",
+      "p": "impacts",
+      "o": "E7",
+      "evidence": "We need to drastically improve read disturb of NAND Flash to support edge computing need.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasWorkloadProfile rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/WorkloadProfile.",
+    "degrades rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Performance.",
+    "impacts rdfs:domain InternalFirmwareAndLogic/MediaManagement; rdfs:range MetricsHealthAndState/Endurance."
+  ],
+  "mappings": [
+    {
+      "label": "Edge Device/IoT",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses edge computing devices, which aligns with the taxonomy."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "The workload is described as continuous read, fitting the Read-Heavy category."
+    },
+    {
+      "label": "SLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "mapping_decision": "exact",
+      "notes": "The paper uses SLC mode for testing, matching the taxonomy."
+    },
+    {
+      "label": "Read Disturb",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Read disturb is a specific issue under media management."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Read_Disturb_Evaluations_of_3D_NAND_Flash_for_Highly_Read-Intensive_Edge-Computing_Inference_Device_for_Artificial_Intelligence_Applications.pdf"
+}

@@ -1,0 +1,194 @@
+{
+  "paper_id": "Machine_Learning_for_3D_NAND_Flash_and_Solid_State_Drives",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D NAND Flash",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "ECC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E5",
+      "label": "LDPC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E8",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E9",
+      "label": "Machine Learning",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    },
+    {
+      "id": "E10",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E11",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The goal of the work was to identify memory regions in the chip that behave similarly when tested with the same stress to develop a proper ECC strategy for each of those regions.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "Solid State Drives (SSDs) are the storage backbone of many applications ranging from consumer electronics up to exa-scaled data centers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasDeploymentEnvironment",
+      "o": "E7",
+      "evidence": "Solid State Drives (SSDs) are the storage backbone of many applications ranging from consumer electronics up to exa-scaled data centers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasDeploymentEnvironment",
+      "o": "E8",
+      "evidence": "Finally, Sect. 5 discusses the foundation of the machine learning frontiers for SSDs in enterprise applications.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "utilizes",
+      "o": "E9",
+      "evidence": "Machine learning has emerged as a viable solution in many stages of this process.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "The performance and the reliability figures of an SSD should be improved to reduce the Total Cost of Ownership of the system hosting the drive.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "The performance and the reliability figures of an SSD should be improved to reduce the Total Cost of Ownership of the system hosting the drive.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "isEnhancedBy",
+      "o": "E5",
+      "evidence": "The work in [21] applied this concept to the evaluation of the endurance stress reliability in a TLC 3D NAND Flash off-the-shelf product.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "utilizes rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Endurance.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability.",
+    "isEnhancedBy rdfs:domain Error Correction (ECC); rdfs:range Error Correction (ECC)."
+  ],
+  "mappings": [
+    {
+      "label": "3D NAND Flash",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D NAND Flash is explicitly mentioned and matches the taxonomy."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned and matches the taxonomy."
+    },
+    {
+      "label": "ECC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "ECC is explicitly mentioned and matches the taxonomy."
+    },
+    {
+      "label": "LDPC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "LDPC is a type of ECC and matches the taxonomy."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Datacenter is explicitly mentioned and matches the taxonomy."
+    },
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "Enterprise Server is explicitly mentioned and matches the taxonomy."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Machine_Learning_for_3D_NAND_Flash_and_Solid_State_Drives_Reliability_Performance_Optimization.pdf"
+}

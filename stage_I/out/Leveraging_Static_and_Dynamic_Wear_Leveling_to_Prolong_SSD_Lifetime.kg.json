@@ -1,0 +1,209 @@
+{
+  "paper_id": "Shin_2024_Leveraging_Static_and_Dynamic_Wear_Leveling",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E4",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E5",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E6",
+      "label": "Greedy-MP",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E7",
+      "label": "PWL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E8",
+      "label": "CB",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E9",
+      "label": "WOGC",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E10",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E11",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E12",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E13",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E14",
+      "label": "TRIM",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM"
+    },
+    {
+      "id": "E15",
+      "label": "Background Scrubbing",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Background Scrubbing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Background%20Scrubbing"
+    },
+    {
+      "id": "E16",
+      "label": "Firmware Update",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Firmware%20Update"
+    },
+    {
+      "id": "E17",
+      "label": "Thermal Throttling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal Throttling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%20Throttling"
+    },
+    {
+      "id": "E18",
+      "label": "Temperature Targets",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/ThermalManagement/Temperature Targets",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Temperature%20Targets"
+    },
+    {
+      "id": "E19",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E20",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E12",
+      "evidence": "Performance evaluations demonstrate that Greedy-MP achieves the longest lifespan across all test scenarios.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "By preserving garbage collection efficiency, Greedy-MP delivers the shortest average response time for I/O requests.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E19",
+      "evidence": "Performance evaluations using server traces indicate that the proposed policy extends the lifespan of SSDs by up to 1.72 times compared to a policy solely performing static wear leveling.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E19",
+      "p": "hasWorkloadProfile",
+      "o": "E20",
+      "evidence": "Performance evaluations using server traces indicate that the proposed policy extends the lifespan of SSDs by up to 1.72 times compared to a policy solely performing static wear leveling.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth."
+  ],
+  "mappings": [
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear leveling is a key concept discussed in the paper."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage collection is a central process in the paper's proposed policy."
+    },
+    {
+      "label": "Over-Provisioning",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "exact",
+      "notes": "Over-provisioning is discussed as a method to extend SSD lifespan."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Leveraging Static and Dynamic Wear Leveling to Prolong SSD Lifetime.pdf"
+}

@@ -1,0 +1,123 @@
+{
+  "paper_id": "Benchmarking, Analyzing, and Optimizing Write Amplification of Partial Compaction in RocksDB",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E5",
+      "label": "RocksDB",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Optane SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E9",
+      "label": "SATA SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "In this paper, we focus on the four different file-picking policies offered by RocksDB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "We experiment using RocksDB (v8.8.1) that supports the up-to-date RoundRobin policy and incorporates a new file splitting mechanism to reduce overlapping ratio with deeper levels.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "impacts",
+      "o": "E4",
+      "evidence": "Compactions in LSM-trees lead to Write Amplification (WA).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "degrades",
+      "o": "E4",
+      "evidence": "Figure 8 unveils that the WA when using the SATA SSD is much smaller than that on the Optane SSD, by up to 16.59%.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "Figure 8 unveils that the WA when using the SATA SSD is much smaller than that on the Optane SSD, by up to 16.59%.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "impacts rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "degrades rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Write Amplification",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Write Amplification is directly related to the amount of data written to disk, impacting performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Benchmarking, Analyzing, and Optimizing Write Amplification for LSM Stores.pdf"
+}

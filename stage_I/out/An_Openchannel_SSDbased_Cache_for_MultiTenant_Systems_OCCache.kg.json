@@ -1,0 +1,158 @@
+{
+  "paper_id": "OC-Cache: An Open-channel SSD Based Cache for Multi-Tenant Systems",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "OC-Cache",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Mixed",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Mixed",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Mixed"
+    },
+    {
+      "id": "E5",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E6",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E7",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "In a multi-tenant cloud environment, tenants are usually hosted by virtual machines.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "Experiments using I/O traces from VMware's production systems show that OC-Cache can significantly reduce performance interference among tenants, and maintain relatively high utilization of the SSD cache.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "The performance interference will become worse when there are more noisy tenants and read/write mixed I/O requests on Shared-Cache.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E5",
+      "evidence": "In the evaluation, we call a tenant stable when it submits I/O requests as fast as possible and noisy when it submits I/O requests at a varying rate.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E6",
+      "evidence": "We replay these traces to virtual disks of tenants simultaneously with a 4KB I/O block size.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "OC-Cache can significantly improve performance isolation among tenants on a shared SSD cache and deliver a high SSD utilization.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "OC-Cache improves bandwidth utilization by putting a fraction of cache space of tenants in shared-pool.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper describes a multi-tenant cloud environment, which aligns with a datacenter deployment."
+    },
+    {
+      "label": "Mixed",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Mixed",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions mixed I/O requests, which aligns with the mixed access pattern."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper describes scenarios with read-heavy workloads."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies a 4KB I/O block size."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in throughput."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "An Openchannel SSDbased Cache for MultiTenant Systems (OCCache).pdf"
+}

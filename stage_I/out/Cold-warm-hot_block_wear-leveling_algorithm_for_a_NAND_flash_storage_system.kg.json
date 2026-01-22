@@ -1,0 +1,142 @@
+{
+  "paper_id": "ICSAI_2017_ColdWarmHotWearLeveling",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E3",
+      "label": "CWH_Block_Wear_Leveling_Algorithm",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E4",
+      "label": "RAM",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%20Cache"
+    },
+    {
+      "id": "E5",
+      "label": "NAND Flash",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology"
+    },
+    {
+      "id": "E6",
+      "label": "Cold Block",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E7",
+      "label": "Warm Block",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E8",
+      "label": "Hot Block",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E2",
+      "evidence": "Wear-leveling algorithm is employed to extend the lifetime and reliability of SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "It can improve the lifetime and reliability of SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "The hot data block will be put into the RAM for reading or writing.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "The warm block and the cold block will be read and write in NAND flash.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "dividesInto",
+      "o": "E6",
+      "evidence": "We divided the i-th block into the warm block, otherwise the i-th block is divided into cold block.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "dividesInto",
+      "o": "E7",
+      "evidence": "We divided the i-th block into the warm block, otherwise the i-th block is divided into cold block.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "dividesInto",
+      "o": "E8",
+      "evidence": "We merge these hot pages into a block and define this block as hot block.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD.",
+    "dividesInto rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling."
+  ],
+  "mappings": [
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear leveling is a direct match under MediaManagement."
+    },
+    {
+      "label": "RAM",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "mapping_decision": "exact",
+      "notes": "RAM is used as a cache for hot data."
+    },
+    {
+      "label": "NAND Flash",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology",
+      "mapping_decision": "exact",
+      "notes": "NAND Flash is the primary storage medium."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Cold-warm-hot_block_wear-leveling_algorithm_for_a_NAND_flash_storage_system.pdf"
+}

@@ -1,0 +1,143 @@
+{
+  "paper_id": "PerformanceEvaluation82(2014)1–14",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E5",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E7",
+      "label": "Hot/Cold Data Identification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The write performance and lifespan of a solid state drive is greatly influenced by the garbage collection algorithm.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "In this paper we compare the performance of such a write approach with write approaches that do rely on data identification using both mean field models and simulation experiments.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "The write performance and lifespan of a solid state drive is greatly influenced by the garbage collection algorithm.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformanceMetric",
+      "o": "E5",
+      "evidence": "The additional write operations caused by the GC algorithm contribute to the so-called write amplification, defined as the ratio of the total number of physical writes performed by the SSD divided by the number of logical writes requested by the operating system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E6",
+      "evidence": "As such SSDs rely on over-provisioning, meaning the physical storage capacity of the device, say N blocks, exceeds the logical capacity, say U blocks, such that at least a fraction Sf=1−U/N (e.g., 0.1), called the spare factor, of the total number of pages is not in the valid state.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "Data identification techniques have been proposed that identify the more frequently accessed, called hot, from the less frequently accessed, termed cold, data.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "These data identification techniques have been shown to be quite effective in reducing the write amplification essentially by using different blocks to store the hot and cold data.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement.",
+    "hasPerformanceMetric rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage collection is explicitly mentioned and fits under Media Management."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Write amplification is a performance metric directly discussed in the paper."
+    },
+    {
+      "label": "Over-Provisioning",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "exact",
+      "notes": "Over-provisioning is directly mentioned and fits under Media Management."
+    },
+    {
+      "label": "Hot/Cold Data Identification",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Hot/Cold Data Identification is a specific technique under Media Management."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "On the Necessity of HotCold Data Identification to Reduce Write Amplification.pdf"
+}

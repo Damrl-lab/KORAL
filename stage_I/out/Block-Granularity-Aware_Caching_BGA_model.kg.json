@@ -1,0 +1,114 @@
+{
+  "paper_id": "Brief Announcement: Block-Granularity-Aware Caching",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E5",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E6",
+      "label": "64KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB"
+    },
+    {
+      "id": "E7",
+      "label": "BGA_Caching_Model",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This paper presents the first study of how granularity change affects caching.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The Block-Granularity-Aware Caching Model consists of a single level of memory (cache) that receives a series of requests, referred to as accesses, to data items.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasBlockSize",
+      "o": "E5",
+      "evidence": "SRAM caches typically consist of 64 B “lines”; DRAM of 2-4 KB “rows”; and flash/disk of 4 KB “pages”.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasBlockSize",
+      "o": "E6",
+      "evidence": "SRAM caches typically consist of 64 B “lines”; DRAM of 2-4 KB “rows”; and flash/disk of 4 KB “pages”.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize."
+  ],
+  "mappings": [
+    {
+      "label": "BlockSize",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "Block size is directly mentioned in the context of caching."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is a standard size mentioned for flash/disk pages."
+    },
+    {
+      "label": "64KB",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB",
+      "mapping_decision": "exact",
+      "notes": "64KB block size is a standard size mentioned for SRAM cache lines."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Block-Granularity-Aware Caching (BGA model).pdf"
+}

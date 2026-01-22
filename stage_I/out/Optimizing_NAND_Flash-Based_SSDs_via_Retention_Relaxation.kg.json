@@ -1,0 +1,179 @@
+{
+  "paper_id": "Optimizing NAND Flash-Based SSDs via Retention Relaxation",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "ECC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E4",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E5",
+      "label": "Write Response Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E6",
+      "label": "Retention Relaxation",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E7",
+      "label": "LDPC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E8",
+      "label": "BCH",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E9",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E9",
+      "evidence": "We observe that in typical datacenter workloads, e.g., proxy and MapReduce, many data written into storage are updated quite soon.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "We observe that in typical datacenter workloads, e.g., proxy and MapReduce, many data written into storage are updated quite soon.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "For example, comparing recent 2-bit MLC NAND Flash memories with previous SLC ones, page write latency increased from 200 ms to 1800 ms.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Simulation results show that via write speed optimization, we can achieve 1 :8–5:7× write response time speedup.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Simulation results show that via write speed optimization, we can achieve 1 :8–5:7× write response time speedup.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "We show how retention relaxation can benefit ECC designs for future SSDs which require concatenated BCH-LDPC codes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "includes",
+      "o": "E8",
+      "evidence": "We propose an ECC architecture where data are encoded by variable ECC codes based on their retention requirements.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "includes",
+      "o": "E7",
+      "evidence": "We show how retention relaxation can benefit ECC designs for future SSDs which require concatenated BCH-LDPC codes.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Performance.",
+    "includes rdfs:domain InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC)."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses workloads in datacenters."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifically mentions MLC NAND Flash."
+    },
+    {
+      "label": "Write Response Time",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses improvements in write response time."
+    },
+    {
+      "label": "Retention Relaxation",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "The concept of retention relaxation is used to improve SSD performance."
+    },
+    {
+      "label": "LDPC",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses LDPC as part of ECC."
+    },
+    {
+      "label": "BCH",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses BCH as part of ECC."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Optimizing NAND Flash-Based SSDs via Retention Relaxation.pdf"
+}

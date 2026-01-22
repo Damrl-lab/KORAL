@@ -1,0 +1,102 @@
+{
+  "paper_id": "Recurrent neural network based real-time failure detection of storage devices",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E6",
+      "label": "PredictiveMaintenanceSystem",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By streaming real-time data into a RPMS directly from the device itself, the issues can be revealed and addressed early before they cause costly downtime.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Predictive maintenance uses actual real-time data to predict the future failure of still operating equipment, allowing maintenance personnel to schedule maintenance in advance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "monitoredBy",
+      "o": "E6",
+      "evidence": "This paper describes our development of an LSTM (Long short-term memory), a special kind of RNN (Recurrent Neural Network)—based real-time predictive maintenance system (RPMS) built on top of Apache Spark for detecting storage device failure.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E6",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "Self-monitoring, analysis and reporting technology (SMART) is a type of system used for monitoring HDDs and SDDs.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "monitoredBy rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic.",
+    "uses rdfs:domain InternalFirmwareAndLogic; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct external factor affecting SSDs."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMART attributes are used for monitoring SSD health."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Recurrent_neural_network_based_real-time_failure_detection_of_storage_devices.pdf"
+}

@@ -1,0 +1,215 @@
+{
+  "paper_id": "107902",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "FairNVMe",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E4",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E6",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E7",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E8",
+      "label": "QD32",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32"
+    },
+    {
+      "id": "E9",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E10",
+      "label": "Operating System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "NVMe devices are widely deployed in data centers and cloud platforms.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "FairNVMe enhances the IOPS by up to 3.02x, 23.5%, and 31.2% compared with Virtio, SPDK, and LPNS, respectively.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "FairNVMe outperforms Virtio, SPDK, and LPNS, achieving up to 91.9%, 22.1%, and 24.5% latency optimization, respectively.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "FairNVMe reduces the tail latency by up to 94.5%, 61.2%, and 79.5% compared with the other three methods, respectively.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "The performance of each VM utilizing Virtio and LPNS exhibits varying levels of degradation, highlighting resource contention and mutual interference in multi-tenant environments.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasReadWriteMix",
+      "o": "E7",
+      "evidence": "The other tenant is dedicated to an I/O intensive workload involving a random write pattern with high concurrency and throughput requirements.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "hasQueueDepth",
+      "o": "E8",
+      "evidence": "The other tenant is dedicated to an I/O intensive workload involving a random write pattern with high concurrency and throughput requirements (configured with numjobs = 8 and iodepth = 32).",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "usesInterfaceType",
+      "o": "E9",
+      "evidence": "NVMe devices are widely deployed in data centers and cloud platforms.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "runsOn",
+      "o": "E10",
+      "evidence": "FairNVMe is designed based on mediated pass-through technique and implemented as a kernel module on the Linux host system.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasAccessPattern rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/AccessPattern.",
+    "hasReadWriteMix rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/ReadWriteMix.",
+    "hasQueueDepth rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile/QueueDepth.",
+    "usesInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType.",
+    "runsOn rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/HostSystem."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses NVMe deployment in data centers."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper measures IOPS as a performance metric."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses average latency improvements."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper provides data on tail latency improvements."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access patterns are discussed in the workload profiles."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper describes workloads with a write-heavy mix."
+    },
+    {
+      "label": "QD32",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 32 is specified in the workload configuration."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper focuses on NVMe interface type."
+    },
+    {
+      "label": "Operating System",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions implementation on a Linux host system."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "FairNVMe_ State‑driven fairness control for efficient IO queue scheduling.pdf"
+}

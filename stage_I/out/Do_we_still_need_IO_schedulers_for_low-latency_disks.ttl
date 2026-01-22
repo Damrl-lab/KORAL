@@ -1,0 +1,169 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:E11_mq_deadline a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler>,
+        owl:Thing ;
+    rdfs:label "mq-deadline" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:E12_kyber a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler>,
+        owl:Thing ;
+    rdfs:label "kyber" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:E13_bfq a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler>,
+        owl:Thing ;
+    rdfs:label "bfq" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:axiom_701af5d9 a owl:Axiom ;
+    rdfs:comment "hasPerformance rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_c2fc66f5 a owl:Axiom ;
+    rdfs:comment "hasOperatingSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Operating System." .
+
+ssd:axiom_cb3764fd a owl:Axiom ;
+    rdfs:comment "improvedBy rdfs:domain SSD; rdfs:range I/O Scheduler." .
+
+ssd:axiom_ef49dff3 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0a6c5d9bf7e246389406ab0cdab37b1c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E8_Ubuntu_22_04 ;
+    ssd:predicate ssd:hasOperatingSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We installed Ubuntu 22.04 and upgraded the Linux kernel to 5.18." .
+
+<http://example.org/ssd/assertion/2601868f21024e108a594eaae3065449> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_Intel_Optane_P4801X_Series_NVMe_SSD ;
+    dct:source "Our experiments were run on a Dell PowerEdge R230 (Intel Xeon E3-1230 quad core, eight threads, 3.4 GHz, 64 GB RAM) computer with an Intel Optane P4801X Series NVMe SSD as our storage device." .
+
+<http://example.org/ssd/assertion/39b1fce50ede45a1b54a2e44e7402efb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_Ultra_Low_Latency ;
+    ssd:predicate ssd:hasPerformance ;
+    ssd:subject ssd:E1_Intel_Optane_P4801X_Series_NVMe_SSD ;
+    dct:source "Ultra-low latency (ULL) storage is defined as having less than 10 μs access latency." .
+
+<http://example.org/ssd/assertion/726fb1e08cce4dfcb0e4e1ab0643a858> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E10_none ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E1_Intel_Optane_P4801X_Series_NVMe_SSD ;
+    dct:source "The microbenchmark results clearly indicate that IO scheduling hurts performance more than helps. For all cases shared in Figures 1 and 2, none yields either the best IO performance or ties with other schedulers." .
+
+<http://example.org/ssd/assertion/a1f2d9d3d2244b89aab59040711f7bba> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E10_none ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E1_Intel_Optane_P4801X_Series_NVMe_SSD ;
+    dct:source "Similar to the performance results, none also yields either the best energy efficiency, or ties with other schedulers." .
+
+<http://example.org/ssd/assertion/e16871cdbdc545a1afa9063bf4dd8f7e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E9_Linux_Kernel_5_18 ;
+    ssd:predicate ssd:hasOperatingSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We installed Ubuntu 22.04 and upgraded the Linux kernel to 5.18." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState> rdfs:label "Energy Efficiency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:E7_Ultra_Low_Latency a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        owl:Thing ;
+    rdfs:label "Ultra-Low Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+ssd:E8_Ubuntu_22_04 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System>,
+        owl:Thing ;
+    rdfs:label "Ubuntu 22.04" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+
+ssd:E9_Linux_Kernel_5_18 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System>,
+        owl:Thing ;
+    rdfs:label "Linux Kernel 5.18" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:E10_none a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler>,
+        owl:Thing ;
+    rdfs:label "none" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+
+ssd:E1_Intel_Optane_P4801X_Series_NVMe_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Intel Optane P4801X Series NVMe SSD" ;
+    ssd:hasPerformance ssd:E7_Ultra_Low_Latency ;
+    ssd:improvedBy ssd:E10_none ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasOperatingSystem ssd:E8_Ubuntu_22_04,
+        ssd:E9_Linux_Kernel_5_18 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> rdfs:label "Operating System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> rdfs:label "I/O Scheduler" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%2520Scheduler> .
+

@@ -1,0 +1,128 @@
+{
+  "paper_id": "ZoneKV_SSD_Research",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "ZoneKV",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ZNS SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "Space Amplification",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "We evaluate ZoneKV on a real ZNS SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "In this experiment, we use the fillseq and fillrandom workloads in db_bench.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "The fillseq workload contains sequential writes, while fillrandom contains random writes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "ZoneKV achieves 1.25x and 1.04x higher write performance than RocksDB and ZenFS, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "reduces",
+      "o": "E7",
+      "evidence": "ZoneKV can reduce up to 60% space amplification.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern."
+  ],
+  "mappings": [
+    {
+      "label": "ZNS SSD",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "ZNS SSD is a specific type of NVMe interface."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is directly mentioned in the workload profile."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a direct performance metric."
+    },
+    {
+      "label": "Space Amplification",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState",
+      "mapping_decision": "parent",
+      "notes": "Space amplification is a metric related to storage efficiency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "ZoneKV_A_Space-Efficient_Key-Value_Store_for_ZNS_SSDs.pdf"
+}

@@ -1,0 +1,130 @@
+{
+  "paper_id": "Microelectronics Reliability 140 (2023) 114867",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E6",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E7",
+      "label": "Retention Errors",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E8",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E9",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "NAND flash memory is widely used in consumer electronics, personal computers, and enterprise data storage servers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "120",
+        "unit": "C"
+      },
+      "evidence": "To accelerate the data retention failures in flash memory, we baked the memory chips containing data at high temperature (120°C) for 6 h total.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "NAND flash chip capacity has also increased due to aggressive technology scaling and development of multi-level cell (MLC) technology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "We use this insight to construct a machine learning model to predict the blocks which have less endurance, using the characterization data of new unused flash memory chip(s).",
+      "confidence": 0.85
+    },
+    {
+      "s": "E7",
+      "p": "degrades",
+      "o": "E9",
+      "evidence": "The most prevalent source of flash memory errors is retention errors, which are mainly caused by leakage of charges.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "impacts",
+      "o": "E8",
+      "evidence": "Such bit-errors impact the endurance and reliability of a flash memory.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as an external factor affecting SSDs."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A_shared_page-aware_machine_learning_assisted_method_for_predicting_and_improving_multi-level_cell_NAND_flash_memory_life_expectancy.pdf"
+}

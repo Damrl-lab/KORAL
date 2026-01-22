@@ -1,0 +1,161 @@
+{
+  "paper_id": "ReadGuard_2024",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "3D TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E5",
+      "label": "ReadGuard",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E9",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "In order to overcome the existing FTL weaknesses, we propose ReadGuard, a novel priority-aware SSD management technique that enables an FTL to manage its blocks in a fully read-latency-aware fashion.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "From an in-depth evaluation study using 3D TLC SSDs, we observed that existing FTLs have several weaknesses that need to be improved for better read performance differentiation.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E4",
+      "evidence": "To understand how well a modern 3D flash SSD supports the read-latency differentiation requirement, we evaluated the read-latency (at the SSD level) distributions of apps using an NVMe SSD simulator with three priority I/O queues.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesFirmware",
+      "o": "E5",
+      "evidence": "ReadGuard, a novel priority-aware SSD management technique that enables an FTL to manage its blocks in a fully read-latency-aware fashion.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Furthermore, rgFTL reduces the 99th-percentile read tail latency of high-priority apps by up to 55.5%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "Our experimental results using various real-world workloads show that rgFTL can effectively differentiate the read performance of apps according to their I/O priorities.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "We used three traces were collected from running Yahoo! Cloud Service Benchmark using RocksDB with three different access patterns.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E9",
+      "evidence": "A high-priority app, τhigh, executes KVB while two lower-priority apps, τmid and τlow, run KVF and KVA, respectively.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/InterfaceType.",
+    "usesFirmware rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile.",
+    "hasAccessPattern rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern.",
+    "hasReadWriteMix rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix."
+  ],
+  "mappings": [
+    {
+      "label": "3D TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "3D TLC is a specific type of TLC flash technology."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a well-defined interface type in the taxonomy."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "99th Percentile Latency is a specific performance metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "ReadGuard_ Integrated SSD Management for Priority-driven Read Latency.pdf"
+}

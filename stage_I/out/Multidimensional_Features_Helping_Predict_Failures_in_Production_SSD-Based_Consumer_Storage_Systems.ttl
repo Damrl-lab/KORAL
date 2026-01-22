@@ -1,0 +1,183 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_0ecf90b2 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_118522fb a owl:Axiom ;
+    rdfs:comment "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment." .
+
+ssd:axiom_2c3a341c a owl:Axiom ;
+    rdfs:comment "monitoredBy rdfs:domain SSD; rdfs:range SMARTAttribute." .
+
+ssd:axiom_777cecd6 a owl:Axiom ;
+    rdfs:comment "hasFirmwareVersion rdfs:domain SSD; rdfs:range Controller/FirmwareVersion." .
+
+ssd:axiom_bb95719f a owl:Axiom ;
+    rdfs:comment "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_ce2bafdc a owl:Axiom ;
+    rdfs:comment "hasFormFactor rdfs:domain SSD; rdfs:range FormFactor." .
+
+ssd:axiom_da0792f0 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_f2f114fe a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/130f3a946f73478cb7fe323df138330b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> ;
+    ssd:predicate ssd:hasFormFactor ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "The dataset consists of nearly 2.3 million M.2 SSDs based on 3D TLC NAND flash that supports the NVM Express protocol." .
+
+<http://example.org/ssd/assertion/3eb9128a33f34c7da9eb42be003bdfcd> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "The dataset consists of nearly 2.3 million M.2 SSDs based on 3D TLC NAND flash that supports the NVM Express protocol." .
+
+<http://example.org/ssd/assertion/5f1943f74fea4802990fbaceb8f24366> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Consumer%2520Laptop/Desktop> ;
+    ssd:predicate ssd:hasDeploymentEnvironment ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "The data of consumer storage systems (CSS, e.g., Office/Desktop Computers, Laptops) are as important as data of enterprise storage systems." .
+
+<http://example.org/ssd/assertion/78ea8384e85e43a49560cecdd98dac4d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:predicate ssd:monitoredBy ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "SMART attributes are widely utilized to predict HDD failures." .
+
+<http://example.org/ssd/assertion/da262164fd2141bda550592fa46476a6> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance> ;
+    ssd:predicate ssd:monitoredBy ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "Some BlueScreenofDeath (B) logs are early signals of SSD failures." .
+
+<http://example.org/ssd/assertion/dc0be53128e24440b1360bbcdca98ee8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:predicate ssd:hasInterfaceType ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "The dataset consists of nearly 2.3 million M.2 SSDs based on 3D TLC NAND flash that supports the NVM Express protocol." .
+
+<http://example.org/ssd/assertion/efc80b6b16c5480a9cef0adc1d018e8c> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance> ;
+    ssd:predicate ssd:monitoredBy ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "Some WindowsEvents (W) are early signals of SSD failures." .
+
+<http://example.org/ssd/assertion/f55cdda659434ff1874062011e4914eb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "We study nearly 2.3 million SSDs from 12 drive models based on a dataset of SMART logs, trouble tickets, and error logs." .
+
+<http://example.org/ssd/assertion/fda8ff5f881a42efa8fc1477dac771b5> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion> ;
+    ssd:predicate ssd:hasFirmwareVersion ;
+    ssd:subject ssd:E3_TLC_SSD_1 ;
+    dct:source "FirmwareVersion, WindowsEvent, and BlueScreenofDeath (SFWB) are closely related to SSD failures." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E4_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasDeploymentEnvironment <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Consumer%2520Laptop/Desktop> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Consumer%2520Laptop/Desktop> rdfs:label "Consumer Laptop/Desktop" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Consumer%2520Laptop/Desktop> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMART" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion> rdfs:label "FirmwareVersion" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "3D TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> rdfs:label "M.2" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance> rdfs:label "BlueScreenofDeath",
+        "WindowsEvent" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance> .
+
+ssd:E3_TLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "TLC_SSD_1" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:hasFirmwareVersion <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion> ;
+    ssd:hasFormFactor <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2> ;
+    ssd:hasInterfaceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> ;
+    ssd:monitoredBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+

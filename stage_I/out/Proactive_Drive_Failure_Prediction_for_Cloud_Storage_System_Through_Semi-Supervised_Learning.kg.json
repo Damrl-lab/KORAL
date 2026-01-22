@@ -1,0 +1,121 @@
+{
+  "paper_id": "10.1109/TDSC.2023.3286093",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "DFP-VL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "DFP-FL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E7",
+      "label": "SSD_A",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "SSD_B",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We evaluate our methods through extensive experiments on SSD SMART data from a real-world SSD cloud storage system and the HDD SMART data from Backblaze.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "The SSD data is collected from a real-world SSD cloud storage system from an IT company.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "DFP-VL uses reconstruction probability to measure the health of drives.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "DFP-FL uses the log probability density of SMART data to measure the health of drives.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E8",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We evaluate the above two methods on SSD SMART data and HDD SMART data.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "uses rdfs:domain InternalFirmwareAndLogic; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The SSD data is collected from a real-world SSD cloud storage system, indicating a datacenter environment."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMART attributes are used to measure drive health in the prediction models."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Proactive_Drive_Failure_Prediction_for_Cloud_Storage_System_Through_Semi-Supervised_Learning.pdf"
+}

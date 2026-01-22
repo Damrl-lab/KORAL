@@ -1,0 +1,130 @@
+{
+  "paper_id": "Performance Analysis of SSD write using TRIM in NTFS and EXT4",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "TRIM",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM"
+    },
+    {
+      "id": "E4",
+      "label": "EXT4",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E5",
+      "label": "NTFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The measurement carried out in two kinds of file system, NTFS and EXT4.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E4",
+      "evidence": "The measurement carried out in two kinds of file system, NTFS and EXT4.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E5",
+      "evidence": "The measurement carried out in two kinds of file system, NTFS and EXT4.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E3",
+      "evidence": "To maximize the write performance, SSD is used with the TRIM command.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "In write operation, enabling TRIM shows better performance than disabling TRIM.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "In random write operation, enabling TRIM shows better performance than disabling TRIM.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasFileSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/HostSystem/File System.",
+    "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/Maintenance/TRIM.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/Maintenance/TRIM; rdfs:range SSD/MetricsHealthAndState/Performance/Throughput.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/Maintenance/TRIM; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random."
+  ],
+  "mappings": [
+    {
+      "label": "TRIM",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "mapping_decision": "exact",
+      "notes": "TRIM is explicitly discussed in the context of SSD maintenance."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a key performance metric discussed in the paper."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the context of TRIM performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Performance_analysis_of_SSD_write_using_TRIM_in_NTFS_and_EXT4.pdf"
+}

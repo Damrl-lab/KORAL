@@ -1,0 +1,144 @@
+{
+  "paper_id": "Analyzing_Power_Management_in_NVMe_SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "NVMe_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "PCIe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe"
+    },
+    {
+      "id": "E4",
+      "label": "Power Management",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/PowerManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement"
+    },
+    {
+      "id": "E5",
+      "label": "Thermal Management",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/ThermalManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement"
+    },
+    {
+      "id": "E6",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Power management within an NVMe SSD would imply scrupulous considerations of the milieu.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "The paper majorly discusses SSDs with NVMe over PCIe (PCI Express) interface that are capable of operating at much higher speeds by leveraging the potential of SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPowerManagement",
+      "o": "E4",
+      "evidence": "The NVMe specifications have therefore introduced methods for power management, which smartly adjust and patrol the power consumption at both PCIe and NVMe interfaces, thus optimizing the system’s power consumption dynamically.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasThermalManagement",
+      "o": "E5",
+      "evidence": "Hence, the thermal management also becomes important for the longevity and performance of the drive.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The throughput and latency of an NVMe SSD in different power consumption modes is analysed.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Achieving such pinnacles in terms of speed of operation, throughput, latency and volumes hints at trade-offs with power utilization.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType.",
+    "hasPowerManagement rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/PowerManagement.",
+    "hasThermalManagement rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/ThermalManagement.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "PCIe",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe",
+      "mapping_decision": "exact",
+      "notes": "The paper explicitly discusses NVMe SSDs over PCIe interface."
+    },
+    {
+      "label": "Power Management",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/PowerManagement",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses power management in NVMe SSDs."
+    },
+    {
+      "label": "Thermal Management",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/ThermalManagement",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses thermal management as part of power management."
+    },
+    {
+      "label": "Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "The paper mentions latency improvements."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses throughput improvements."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Analyzing Power Management in NVMe SSDs.pdf"
+}

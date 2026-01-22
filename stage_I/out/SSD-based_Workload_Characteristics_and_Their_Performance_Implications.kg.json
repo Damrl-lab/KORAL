@@ -1,0 +1,174 @@
+{
+  "paper_id": "SSD-based_Workload_Characteristics_and_Their_Performance_Implications",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E5",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E6",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E7",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E8",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E9",
+      "label": "Read Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E10",
+      "label": "Flash Read Costs",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We present the first I/O workload analysis designed with SSDs in mind.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We characterize traces from four repositories and examine their 'temperature' ranges, sensitivity to page size, and 'logical locality.'",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "Sequentiality—the portion and nature of sequential accesses—is relevant for both: Sequential accesses can be an order of magnitude faster than random accesses on hard disks.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": "E5",
+      "evidence": "We chose YCSB Workload A: 50% reads and 50% updates of 1B operations on 250M records.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E6",
+      "evidence": "The median write size is 1–48KB.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E7",
+      "evidence": "We run this setup for 9.7 hours, which results in generating over 352M block I/O requests at the file system level writing a total of 6.8 TB to the disk.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E8",
+      "p": "correlatesWith",
+      "o": "E3",
+      "evidence": "We then correlate these characteristics with SSD performance. We focus our analysis on three flash performance measures: write amplification, read amplification, and flash read costs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E3",
+      "evidence": "We then correlate these characteristics with SSD performance. We focus our analysis on three flash performance measures: write amplification, read amplification, and flash read costs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "correlatesWith",
+      "o": "E3",
+      "evidence": "We then correlate these characteristics with SSD performance. We focus our analysis on three flash performance measures: write amplification, read amplification, and flash read costs.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "correlatesWith rdfs:domain InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range WorkloadProfile."
+  ],
+  "mappings": [
+    {
+      "label": "Write Amplification",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write Amplification is a key metric related to Garbage Collection."
+    },
+    {
+      "label": "Read Amplification",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Read Amplification is a key metric related to Garbage Collection."
+    },
+    {
+      "label": "Flash Read Costs",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Flash Read Costs are related to Garbage Collection and performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SSD-based Workload Characteristics and Their Performance Implications..pdf"
+}

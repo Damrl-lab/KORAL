@@ -1,0 +1,171 @@
+{
+  "paper_id": "Modeling Retention Errors of 3D NAND Flash for Optimizing Data Placement",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "Retention Error",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E5",
+      "label": "ECC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "Layer-to-Layer Process Variation",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount"
+    },
+    {
+      "id": "E7",
+      "label": "Read Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "Data Placement Mechanism",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E9",
+      "label": "RBER",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E10",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E11",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Moreover, as flash memory processing technology scales to the compact property size from single-level cell (SLC) to triple-level cell (TLC) and quad-level cell (QLC).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "The experimental results demonstrate that our proposed retention error estimation model can yield a R2 value of 0.966 on average, verifying the accuracy of the model.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E10",
+      "p": "hasWorkloadProfile",
+      "o": "E11",
+      "evidence": "We conduct simulation-based experiments by replaying 8 commonly used block traces from real-world applications.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Based on the estimated retention error rates of layers, the proposed data placement mechanism can noticeably reduce the read latency by 29.8% on average.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "correlatesWith",
+      "o": "E6",
+      "evidence": "Considering 3D NAND flash has a new property of process variation (PV), which causes different raw bit error rates (RBER) among different layers of the flash block.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "We design a mechanism of data placement, which maps the write data onto a suitable layer of flash block, according to the data hotness and the error correction overhead of layers, to boost read performance of 3D NAND flash.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E4",
+      "evidence": "This article builds a mathematical model for estimating the retention errors of flash cells, by considering the factor of layer-to-layer PV in 3D NAND flash memory.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Performance.",
+    "correlatesWith rdfs:domain InternalFirmwareAndLogic/DataPath; rdfs:range PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing."
+  ],
+  "mappings": [
+    {
+      "label": "Retention Error",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "Retention errors are a type of error correction challenge."
+    },
+    {
+      "label": "Layer-to-Layer Process Variation",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "mapping_decision": "parent",
+      "notes": "Process variation affects layer count and error rates."
+    },
+    {
+      "label": "Read Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Read latency is a direct performance metric."
+    },
+    {
+      "label": "RBER",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "parent",
+      "notes": "RBER is a specific type of uncorrectable bit error rate."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Modeling Retention Errors of 3D NAND Flash for Layer-to-Layer Process Variation.pdf"
+}

@@ -1,0 +1,108 @@
+{
+  "paper_id": "A Contemporary Investigation of NTFS File Fragmentation",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E4",
+      "label": "NTFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E5",
+      "label": "TRIM",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM"
+    },
+    {
+      "id": "E6",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "SSD devices operate differently than HDDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E4",
+      "evidence": "To remedy this, we gathered data of file fragmentation on NTFS file systems from 220 laptops.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesMaintenance",
+      "o": "E5",
+      "evidence": "This matured into the creation of the TRIM command, which wipes the specified blocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesMediaManagement",
+      "o": "E6",
+      "evidence": "For example, to extend the longevity of the disk, they typically use wear leveling.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasFileSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range File System.",
+    "usesMaintenance rdfs:domain SSD; rdfs:range Maintenance.",
+    "usesMediaManagement rdfs:domain SSD; rdfs:range MediaManagement."
+  ],
+  "mappings": [
+    {
+      "label": "File System",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "NTFS is a specific file system."
+    },
+    {
+      "label": "TRIM",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "mapping_decision": "exact",
+      "notes": "TRIM is a specific maintenance command for SSDs."
+    },
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear Leveling is a specific media management technique."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Contemporary Investigation of NTFS File Fragmentation.pdf"
+}

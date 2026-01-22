@@ -1,0 +1,238 @@
+{
+  "paper_id": "FLIN_2018",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E5",
+      "label": "FLIN",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "I/O Scheduler",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E9",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E10",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E11",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E12",
+      "label": "Fairness",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E2",
+      "evidence": "Modern solid-state drives (SSDs) use new host–interface protocols, such as NVMe, to provide applications with fast access to storage.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "As more SSDs are deployed in data-centers and enterprise platforms, there has been a continued need to improve SSD performance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "As more SSDs are deployed in data-centers and enterprise platforms, there has been a continued need to improve SSD performance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "isImplementedIn",
+      "o": "E1",
+      "evidence": "FLIN is implemented fully within the SSD controller firmware, requiring no new hardware, and has negligible (<0.06%) storage cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "Compared to a state-of-the-art I/O scheduler, FLIN improves the fairness and performance of a wide range of enterprise and datacenter storage workloads, with an average improvement of 70% and 47%, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E12",
+      "evidence": "Compared to a state-of-the-art I/O scheduler, FLIN improves the fairness and performance of a wide range of enterprise and datacenter storage workloads, with an average improvement of 70% and 47%, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "isPartOf",
+      "o": "E1",
+      "evidence": "These new protocols make use of a concept known as the multi-queue SSD (MQ-SSD), where the SSD has direct access to the application-level I/O request queues.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "We perform a comprehensive analysis of interference in real MQ-SSDs, and find four major interference sources: (1) the intensity of requests sent by each application, (2) differences in request access patterns, (3) the ratio of reads to writes, and (4) garbage collection.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E9",
+      "evidence": "We perform a comprehensive analysis of interference in real MQ-SSDs, and find four major interference sources: (1) the intensity of requests sent by each application, (2) differences in request access patterns, (3) the ratio of reads to writes, and (4) garbage collection.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E10",
+      "evidence": "To alleviate unfairness in MQ-SSDs, we propose the Flash-Level INterference-aware scheduler (FLIN).",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "isImplementedIn rdfs:domain InternalFirmwareAndLogic; rdfs:range SSD.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState.",
+    "isPartOf rdfs:domain HostSystem; rdfs:range SSD.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "uses rdfs:domain SSD; rdfs:range MediaManagement."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is explicitly mentioned as the interface type."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Datacenter is explicitly mentioned as a deployment environment."
+    },
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "Enterprise Server is explicitly mentioned as a deployment environment."
+    },
+    {
+      "label": "I/O Scheduler",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "mapping_decision": "exact",
+      "notes": "I/O Scheduler is a key component in SSD operation."
+    },
+    {
+      "label": "AccessPattern",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "AccessPattern is explicitly mentioned as a workload profile characteristic."
+    },
+    {
+      "label": "ReadWriteMix",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "exact",
+      "notes": "ReadWriteMix is explicitly mentioned as a workload profile characteristic."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is explicitly mentioned as a source of interference."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Performance is improved by FLIN, as mentioned in the paper."
+    },
+    {
+      "label": "Fairness",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState",
+      "mapping_decision": "parent",
+      "notes": "Fairness is a key metric improved by FLIN."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "FLIN Enabling Fairness and Enhancing Performance in Modern NVMe SSDs.pdf"
+}

@@ -1,0 +1,99 @@
+{
+  "paper_id": "Program_Interference_in_MLC_NAND_Flash_Memory",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "MLC_NAND_Flash_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ProgramInterference",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E3",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E4",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E5",
+      "label": "ProgramInterferenceModel",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "ReadReferenceVoltageAdjustment",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "affectedBy",
+      "o": "E2",
+      "evidence": "Program interference is the phenomenon in which the threshold voltage of a flash cell, called the victim cell, unintentionally changes while another cell’s value is being programmed.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E3",
+      "evidence": "As NAND flash memory continues to scale down to smaller process technology nodes, its reliability and endurance are degrading.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E4",
+      "evidence": "As NAND flash memory continues to scale down to smaller process technology nodes, its reliability and endurance are degrading.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "predicts",
+      "o": "E2",
+      "evidence": "We build a new model for predicting the threshold voltage change in a cell due to program interference from surrounding cells.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "Our evaluations show that this new technique can reduce the raw flash bit error rate by 64% and thereby improve flash lifetime by 30%.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "affectedBy rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC).",
+    "predicts rdfs:domain SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)."
+  ],
+  "mappings": [
+    {
+      "label": "ProgramInterference",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "near",
+      "notes": "Program interference is a specific type of error affecting NAND flash reliability."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Program Interference in MLC NAND Flash Memory Characterization, Modeling, and Mitigation.pdf"
+}

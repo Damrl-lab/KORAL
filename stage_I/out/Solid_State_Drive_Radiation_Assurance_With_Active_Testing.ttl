@@ -1,0 +1,130 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2f33c219 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_449a15cf a owl:Axiom ;
+    rdfs:comment "hasRadiation rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Radiation." .
+
+ssd:axiom_b90cc8b3 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/5c64b0c8981e4a94a76c9e229d68d074> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_Micron_256GB_SSD ;
+    dct:source "The automotive- and industrial-grade SSDs listed in Table I were tested for total ionizing dose (TID) and single-event effects (SEE) response at the assembly level under a variety of operational modes." .
+
+<http://example.org/ssd/assertion/6bccf72b6f144c04bb6ce01e28651459> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_Micron_256GB_SSD ;
+    dct:source "The NAND flash memories onboard were configured in single-level cell (SLC) or triple-level cell (TLC) by the manufacturer, and in the case of the Micron device, provisioned from TLC to SLC in certain devices before heavy-ion testing." .
+
+<http://example.org/ssd/assertion/c4800abd7dbc4c89a2e1267074f891ef> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:objectLiteral "-40 to +95" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E5_EnvironmentalAndOperationalContext ;
+    dct:source "Operating M.2: -40 to +95 -40 to +85" .
+
+<http://example.org/ssd/assertion/d97d813762234ea69921bab73cdebaab> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> ;
+    ssd:predicate ssd:hasRadiation ;
+    ssd:subject ssd:E5_EnvironmentalAndOperationalContext ;
+    dct:source "A radiation evaluation of currently-available memories has been conducted at the assembly level using high-energy heavy-ion beams at the NASA Space Radiation Laboratory (NSRL), 200 MeV protons at the Massachusetts General Hospital’s Francis H. Burr Proton Therapy Center (MGH), and 1 MeV gamma rays at the NASA Goddard Space Flight Center’s Radiation Effects Facility (GSFC REF)." .
+
+<http://example.org/ssd/assertion/f04b504fa2924e6482960d681f83f6a9> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E5_EnvironmentalAndOperationalContext ;
+    dct:source "The SEE and TID test flows are depicted in Fig. 4 and Fig. 5. In each case, test data was 1,024 (SEE) or 4,096 (TID) random locations each written with 1,024 kB of pseudorandom data." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> rdfs:label "SLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> .
+
+ssd:E1_Micron_256GB_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "Micron_256GB_SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder ssd:E5_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E6_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> rdfs:label "Radiation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+ssd:E5_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasRadiation <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> ;
+    ssd:hasTemperature "-40 to +95" ;
+    ssd:hasWorkloadProfile ssd:E6_WorkloadProfile ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+

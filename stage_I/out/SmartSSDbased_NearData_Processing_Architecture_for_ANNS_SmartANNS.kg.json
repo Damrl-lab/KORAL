@@ -1,0 +1,226 @@
+{
+  "paper_id": "A_SmartSSD-based_NearData_Processing_Architecture_for_Scalable_Billion-point_Approximate_Nearest_Neighbor_Search",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SmartSSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E6",
+      "label": "Balanced",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Balanced",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Balanced"
+    },
+    {
+      "id": "E7",
+      "label": "64KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB"
+    },
+    {
+      "id": "E8",
+      "label": "QD32",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32"
+    },
+    {
+      "id": "E9",
+      "label": "PCIe Gen3",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3"
+    },
+    {
+      "id": "E10",
+      "label": "In-Drive Processing",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    },
+    {
+      "id": "E11",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The emerging SmartSSD technology offers an opportunity to achieve scalable ANNS via near data processing (NDP).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "The host CPU can offload ANNS queries to SmartSSDs for near data processing.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "SmartANNS can improve query per second (QPS) by up to 10.7× compared with the state-of-the-art SmartSSD-based ANNS solution.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "SmartANNS can improve query per second (QPS) by up to 10.7× compared with the state-of-the-art SmartSSD-based ANNS solution.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "SmartANNS can improve query per second (QPS) by up to 10.7× compared with the state-of-the-art SmartSSD-based ANNS solution.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": "E7",
+      "evidence": "SmartANNS can improve query per second (QPS) by up to 10.7× compared with the state-of-the-art SmartSSD-based ANNS solution.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasQueueDepth",
+      "o": "E8",
+      "evidence": "SmartANNS can improve query per second (QPS) by up to 10.7× compared with the state-of-the-art SmartSSD-based ANNS solution.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E9",
+      "evidence": "The SmartSSD is connected to the host CPU through a PCIe Gen3×4 interface.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasComputationalStorage",
+      "o": "E10",
+      "evidence": "The emerging SmartSSD technology offers an opportunity to achieve scalable ANNS via near data processing (NDP).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "SmartANNS can improve query per second (QPS) by up to 10.7× compared with the state-of-the-art SmartSSD-based ANNS solution.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasComputationalStorage rdfs:domain SSD; rdfs:range ComputationalStorage.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "The paper describes a server environment for SmartSSD deployment."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "The workload involves random access patterns typical for ANNS queries."
+    },
+    {
+      "label": "Balanced",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Balanced",
+      "mapping_decision": "exact",
+      "notes": "The workload involves a balanced read-write mix typical for ANNS queries."
+    },
+    {
+      "label": "64KB",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/64KB",
+      "mapping_decision": "exact",
+      "notes": "The workload involves 64KB block size typical for ANNS queries."
+    },
+    {
+      "label": "QD32",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "mapping_decision": "exact",
+      "notes": "The workload involves a queue depth of 32 typical for ANNS queries."
+    },
+    {
+      "label": "PCIe Gen3",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "mapping_decision": "exact",
+      "notes": "The SmartSSD uses a PCIe Gen3 interface."
+    },
+    {
+      "label": "In-Drive Processing",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "mapping_decision": "exact",
+      "notes": "The SmartSSD performs in-drive processing for ANNS."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in throughput (QPS)."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SmartSSD‑based Near‑Data Processing Architecture for ANNS (SmartANNS).pdf"
+}

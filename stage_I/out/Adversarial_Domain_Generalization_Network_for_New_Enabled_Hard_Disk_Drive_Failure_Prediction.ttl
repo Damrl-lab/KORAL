@@ -1,0 +1,121 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_77ac7d04 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_862825b6 a owl:Axiom ;
+    rdfs:comment "usedFor rdfs:domain MetricsHealthAndState/SMARTAttribute; rdfs:range MetricsHealthAndState/Reliability." .
+
+ssd:axiom_bd1a41ef a owl:Axiom ;
+    rdfs:comment "validatedBy rdfs:domain MetricsHealthAndState/Reliability; rdfs:range ModelingTimeAndStateHistory." .
+
+ssd:axiom_f333c948 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Reliability." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/23b9a2de0c8f432681058866e18b0c58> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Disk failures in large data centers are a common occurrence and can result in significant data loss." .
+
+<http://example.org/ssd/assertion/4232af91e4ac4c618ea806f8a0e46bae> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_HDD_Failure_Prediction ;
+    ssd:predicate ssd:usedFor ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    dct:source "The most common method for predicting HDDs failures involves using a threshold detection algorithm based on Self-Monitoring, Analysis, and Reporting Technology (SMART)." .
+
+<http://example.org/ssd/assertion/773f354015ea4279809cdd3243d64fab> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E6_HDD_Failure_Prediction ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_ALAE ;
+    dct:source "Our proposed method utilizes the LSTM-autoencoder to effectively capture temporal dependencies in sequential data, and employs the maximum mean discrepancy (MMD) metric to align the distribution of features across different disk types and improve the generalization ability of the model." .
+
+<http://example.org/ssd/assertion/cd3e7d3b806543db845a7614da3c7f55> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object ssd:E5_Backblaze_Dataset ;
+    ssd:predicate ssd:validatedBy ;
+    ssd:subject ssd:E6_HDD_Failure_Prediction ;
+    dct:source "The effectiveness of our proposed method is validated on the Backblaze dataset for HDD failure prediction." .
+
+ssd:E4_ALAE a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "ALAE" ;
+    ssd:improves ssd:E6_HDD_Failure_Prediction ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E5_Backblaze_Dataset a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory>,
+        owl:Thing ;
+    rdfs:label "Backblaze Dataset" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory> .
+
+tax:SSD rdfs:label "HDD" ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    ssd:usedFor ssd:E6_HDD_Failure_Prediction ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+ssd:E6_HDD_Failure_Prediction a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability>,
+        owl:Thing ;
+    rdfs:label "HDD_Failure_Prediction" ;
+    ssd:validatedBy ssd:E5_Backblaze_Dataset ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+

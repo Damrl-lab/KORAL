@@ -1,0 +1,109 @@
+{
+  "paper_id": "DRAM_Cache_Management_with_Request_Granularity_for_NAND-based_SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "DRAM Cache",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%20Cache"
+    },
+    {
+      "id": "E3",
+      "label": "Req-block",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    },
+    {
+      "id": "E4",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Cache Hits",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "Most flash-based solid-state drives (SSDs) employ an on-board Dynamic Random Access Memory (DRAM) to cache hot data at the SSD page granularity.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "We observe, however, that in most I/O workloads over SSDs the buffered data of small sized requests are more likely to be re-accessed than those of larger requests.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Comprehensive evaluation shows that our proposal improves cache hits by up to 90.5%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Experimental results demonstrate that our method improves cache hits by 23.5% on average and decreases I/O response time by up to 73.9%.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:string."
+  ],
+  "mappings": [
+    {
+      "label": "DRAM Cache",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses DRAM as a cache component in SSDs."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions reduction in I/O latency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Req-block DRAM Cache Management with Request Granularity for SSDs.pdf"
+}

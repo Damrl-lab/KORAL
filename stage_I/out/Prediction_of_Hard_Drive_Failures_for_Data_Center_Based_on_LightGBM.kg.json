@@ -1,0 +1,92 @@
+{
+  "paper_id": "Prediction of Hard Drive Failures for Data Center Based on LightGBM",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E2",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E3",
+      "label": "LightGBM",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/Offload Engines",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/Offload%20Engines"
+    },
+    {
+      "id": "E4",
+      "label": "Hard Disk",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "Data Center Environment",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "Data storage is critical for various application. Although new storage medias, such as Solid State Disk (SSD), have better performance than hard disk in many aspects, their high cost still makes most data centers unaffordable.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasSMARTAttribute",
+      "o": "E2",
+      "evidence": "In this paper, we use data collected by SMART (Self-Monitoring, Analysis and Reporting Technology), which contains 63 attributes as preliminary features to propose a model for hard disk fault prediction using LightGBM.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "improvedBy",
+      "o": "E3",
+      "evidence": "In view of the above research status, in order to apply to the real data center with a large amount of data and achieve accurate and efficient results, this paper will use LightGBM algorithm.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses data centers as the deployment environment."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMART attributes are directly mentioned in the context of hard disk monitoring."
+    },
+    {
+      "label": "LightGBM",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/Offload Engines",
+      "mapping_decision": "near",
+      "notes": "LightGBM is used as a computational tool for prediction, aligning with computational storage paradigms."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Prediction_of_Hard_Drive_Failures_for_Data_Center_Based_on_LightGBM.pdf"
+}

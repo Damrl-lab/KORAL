@@ -1,0 +1,78 @@
+{
+  "paper_id": "2021_IEEE_Hard_Disk_Failure_Prediction",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E2",
+      "label": "Backblaze Dataset",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "S.M.A.R.T Attributes",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "LSTM Model",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts"
+    },
+    {
+      "id": "E5",
+      "label": "Partial Undersampling",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E1",
+      "evidence": "Backblaze’s website offers an extensive amount of hard disk drive test data, ranging from the year 2013 up until the most recent entry, the 2021 Q1 data.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "uses",
+      "o": "E3",
+      "evidence": "We leverage open data from Backblaze in developing an LSTM-based model which achieves a Matthews Correlation Coefficient of 0.71.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "From the results shown in Table II, we could observe that partial undersampling with a 4:1 ratio resulted in the most accurate model with an MCC score of ±0.71.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "uses rdfs:domain ModelingTimeAndStateHistory/CoreConcepts; rdfs:range MetricsHealthAndState/SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "S.M.A.R.T Attributes",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "S.M.A.R.T attributes are explicitly mentioned as a key component in the model."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Hard_Disk_Failure_Prediction_on_Highly_Imbalanced_Data_using_LSTM_Network.pdf"
+}

@@ -1,0 +1,146 @@
+{
+  "paper_id": "19th International Symposium INFOTEH-JAHORINA, 18-20 March 2020",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E5",
+      "label": "RAID0",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "ADATA_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "Operating System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Tests were carried out on Microsoft Windows 10 Education suite, with the OS on SSD on ADATA SSD devices.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "The paper analyzes the effect of RAID 0 array size (number of SSD units), average block size, and queue depth to the RAID 0 array performance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": "E4",
+      "evidence": "The testing is performed with workloads ranging from 512 B to 32 MB, with each consecutive workload being twice the size of the previous.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "The RAID 0 level represents a group of N independent disks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasThroughput",
+      "o": "E6",
+      "evidence": "Maximum reading performance of over 520 MB/s is reached with block size of 128 KB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasHostSystem",
+      "o": "E8",
+      "evidence": "Tests were carried out on Microsoft Windows 10 Education suite, with the OS on SSD on ADATA SSD devices.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range RAID0.",
+    "hasThroughput rdfs:domain SSD; rdfs:range Throughput.",
+    "hasHostSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range HostSystem."
+  ],
+  "mappings": [
+    {
+      "label": "QueueDepth",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "mapping_decision": "exact",
+      "notes": "QueueDepth is explicitly mentioned in the paper."
+    },
+    {
+      "label": "RAID0",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0",
+      "mapping_decision": "exact",
+      "notes": "RAID0 is explicitly mentioned as a configuration."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a key performance metric discussed in the paper."
+    },
+    {
+      "label": "Operating System",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "mapping_decision": "exact",
+      "notes": "Operating System is explicitly mentioned as part of the test configuration."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Impact of queue depth on SSD RAID0 performance.pdf"
+}

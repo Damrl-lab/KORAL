@@ -1,0 +1,131 @@
+{
+  "paper_id": "Enabling_Cost-effective_Data_Processing_with_Smart_SSD",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Smart SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "SATA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E4",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E5",
+      "label": "Energy Consumption",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "In-Drive Processing",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    },
+    {
+      "id": "E7",
+      "label": "Host System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "By isolating the data traffic within the device, this model promises low energy consumption, high parallelism, low host memory footprint and better performance.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The first evaluation of in-storage processing (ISP) on a real (not simulated) MLC (multi-level cell) SSD device.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesInterfaceType",
+      "o": "E3",
+      "evidence": "Our system uses an object-based protocol for low-level communication with the host, and extends the Hadoop MapReduce framework to support a Smart SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Our experiments show that total energy consumption is reduced by 50% due to the low-power processing inside a Smart SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "implements",
+      "o": "E6",
+      "evidence": "This paper explores the benefits and limitations of in-storage processing on current Solid-State Disk (SSD) architectures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "communicatesWith",
+      "o": "E7",
+      "evidence": "The communication between a Smart SSD and its host system is handled by an object-interface implemented on top of the SATA protocol.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "usesInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "implements rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ComputationalStorage.",
+    "communicatesWith rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext/HostSystem."
+  ],
+  "mappings": [
+    {
+      "label": "SATA",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "mapping_decision": "exact",
+      "notes": "SATA is explicitly mentioned as the interface type used."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is explicitly mentioned as the cell type of the SSD."
+    },
+    {
+      "label": "In-Drive Processing",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "mapping_decision": "exact",
+      "notes": "In-storage processing is equivalent to in-drive processing."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Enabling CostEffective Data Processing with SmartSSD.pdf"
+}

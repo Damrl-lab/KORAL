@@ -1,0 +1,137 @@
+{
+  "paper_id": "Improving_3D_NAND_Flash_Memories_Reliability",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E6",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E7",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E8",
+      "label": "ECC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E9",
+      "label": "FBC",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The test vehicle of the analysis shown in this section is an off-the-shelf TLC device for enterprise-grade SSD applications.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "40",
+        "unit": "C"
+      },
+      "evidence": "The retention test after endurance follows the JEDEC guidelines to meet the 3 months data retention at 40°C condition.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "In this work, we present the reliability of a TLC 3D NAND Flash memory through FBC characterization in different working corners.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasStructure",
+      "o": "E5",
+      "evidence": "The 3D NAND Flash technology is the preferred option for non-volatile mass storage solutions such as multimedia cards (MMCs) and Solid-State Drives (SSDs).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E6",
+      "evidence": "The number of corrupted bits per memory page is defined as Fail Bits Count (FBC). This metric is intertwined with the performance of a storage system while dictating its overall reliability.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E7",
+      "evidence": "The number of corrupted bits per memory page is defined as Fail Bits Count (FBC). This metric is intertwined with the performance of a storage system while dictating its overall reliability.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "Using complex Error Correction Code (ECC) engines or secondary correction mechanisms in SSD/MMC controllers allows for coping with the increasing FBC throughout the memory's lifespan.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned in the context of reliability testing."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Improving_3D_NAND_Flash_Memories_Reliability_a_Cross-Layer_Perspective.pdf"
+}

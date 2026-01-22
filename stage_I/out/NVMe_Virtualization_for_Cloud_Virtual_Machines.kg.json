@@ -1,0 +1,376 @@
+{
+  "paper_id": "NVMe_Virtualization_for_Cloud_Virtual_Machines",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E3",
+      "label": "PCIe Gen3",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3"
+    },
+    {
+      "id": "E4",
+      "label": "Add-in Card",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/Add-in Card",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/Add-in%20Card"
+    },
+    {
+      "id": "E5",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E9",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E10",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E11",
+      "label": "QD1",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1"
+    },
+    {
+      "id": "E12",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E13",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E14",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E15",
+      "label": "SPDK",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers"
+    },
+    {
+      "id": "E16",
+      "label": "KVM",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware"
+    },
+    {
+      "id": "E17",
+      "label": "FIO",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO"
+    },
+    {
+      "id": "E18",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E19",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E20",
+      "label": "SSD1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E20",
+      "p": "operatesUnder",
+      "o": "E18",
+      "evidence": "NVMe devices can be virtualized and shared among the multiple virtual machines running on a host system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E18",
+      "p": "hasDeploymentEnvironment",
+      "o": "E6",
+      "evidence": "In a public cloud, the cloud provider is responsible for the host operating system and the resources necessary at the host level to safely provide the most performant and isolated capability into the virtual machines.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E18",
+      "p": "hasWorkloadProfile",
+      "o": "E19",
+      "evidence": "Due to the limitation of space, we will focus on random 4KB read bandwidth (GB/s) in this paper.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E19",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "Due to the limitation of space, we will focus on random 4KB read bandwidth (GB/s) in this paper.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E19",
+      "p": "hasReadWriteMix",
+      "o": "E9",
+      "evidence": "Due to the limitation of space, we will focus on random 4KB read bandwidth (GB/s) in this paper.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E19",
+      "p": "hasBlockSize",
+      "o": "E10",
+      "evidence": "Due to the limitation of space, we will focus on random 4KB read bandwidth (GB/s) in this paper.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E19",
+      "p": "hasQueueDepth",
+      "o": "E11",
+      "evidence": "Due to the limitation of space, we will focus on random 4KB read bandwidth (GB/s) in this paper.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E20",
+      "p": "hasInterfaceType",
+      "o": "E2",
+      "evidence": "Public clouds are rapidly moving to support Non-Volatile Memory Express (NVMe) based storage to meet the ever-increasing I/O throughput and latency demands of modern workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E20",
+      "p": "hasFormFactor",
+      "o": "E4",
+      "evidence": "The NVMe drive used is Samsung 1725 in a HHHL PCIe Gen3 x8 card form factor.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E20",
+      "p": "hasPCIe",
+      "o": "E3",
+      "evidence": "The NVMe drive used is Samsung 1725 in a HHHL PCIe Gen3 x8 card form factor.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E20",
+      "p": "improves",
+      "o": "E12",
+      "evidence": "NVMe-based storage offers superior price-performance compared to serial ATA (SATA) and serial attached SCSI (SAS) solid-state drives (SSDs) and hard disk drives (HDDs).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E20",
+      "p": "improves",
+      "o": "E13",
+      "evidence": "NVMe-based storage offers superior price-performance compared to serial ATA (SATA) and serial attached SCSI (SAS) solid-state drives (SSDs) and hard disk drives (HDDs).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E20",
+      "p": "improves",
+      "o": "E14",
+      "evidence": "NVMe-based storage offers superior price-performance compared to serial ATA (SATA) and serial attached SCSI (SAS) solid-state drives (SSDs) and hard disk drives (HDDs).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E20",
+      "p": "uses",
+      "o": "E15",
+      "evidence": "SPDK is a collection of libraries and tools that enable users to write high performance, user-mode, scalable storage services.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E20",
+      "p": "uses",
+      "o": "E16",
+      "evidence": "The host operating system (Linux), together with the virtual machine manager (KVM), acts as the hypervisor, which handles the virtualization and sharing of NVMe and other devices with hardware assistance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E20",
+      "p": "evaluatedBy",
+      "o": "E17",
+      "evidence": "We use Flexible I/O tester (FIO) v3.17 on Ubuntu 18.04 with QEMU v4.2.0 to measure the performance numbers with different block sizes, read/write ratios, number of parallel jobs (j) and queue depths.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasFormFactor rdfs:domain SSD; rdfs:range FormFactor.",
+    "hasPCIe rdfs:domain SSD; rdfs:range PCIe.",
+    "improves rdfs:domain SSD; rdfs:range Performance.",
+    "uses rdfs:domain SSD; rdfs:range HostIOStack.",
+    "evaluatedBy rdfs:domain SSD; rdfs:range ValidationAndBenchmarks."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a direct match under InterfaceType."
+    },
+    {
+      "label": "PCIe Gen3",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "mapping_decision": "exact",
+      "notes": "PCIe Gen3 is a direct match under PCIe."
+    },
+    {
+      "label": "Add-in Card",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/Add-in Card",
+      "mapping_decision": "exact",
+      "notes": "Add-in Card is a direct match under FormFactor."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Datacenter is a direct match under DeploymentEnvironment."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random is a direct match under AccessPattern."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Read-Heavy is a direct match under ReadWriteMix."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB is a direct match under BlockSize."
+    },
+    {
+      "label": "QD1",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "mapping_decision": "exact",
+      "notes": "QD1 is a direct match under QueueDepth."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a direct match under Performance."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Average Latency is a direct match under Performance."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a direct match under Performance."
+    },
+    {
+      "label": "SPDK",
+      "entity_id": "E15",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "mapping_decision": "exact",
+      "notes": "SPDK is a direct match under HostIOStack."
+    },
+    {
+      "label": "KVM",
+      "entity_id": "E16",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware",
+      "mapping_decision": "exact",
+      "notes": "KVM is a direct match under VirtualizationAndMultiTenancy."
+    },
+    {
+      "label": "FIO",
+      "entity_id": "E17",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "mapping_decision": "exact",
+      "notes": "FIO is a direct match under ValidationAndBenchmarks."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "NVMe Virtualization for Cloud Virtual Machines.pdf"
+}

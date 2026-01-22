@@ -1,0 +1,180 @@
+{
+  "paper_id": "18th_USENIX_FAST_2020",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "DC-Store",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "Divided SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture"
+    },
+    {
+      "id": "E5",
+      "label": "I/O Tacker",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E10",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E9",
+      "evidence": "We propose DC-store, a storage framework that offers deterministic I/O performance for a multi-container execution environment.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "Docker container technology is applied to diverse computing domains such as datacenter, serverless, cloud, and high-performance computing.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "In total, our prototype hardware employs 64 flash dies, each using 64 layered triple-level cell (TLC) flash technology.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasComponent",
+      "o": "E4",
+      "evidence": "We design and implement Divided SSD, which separates physical flash channels and internal resources to support multiple NVM sets.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasComponent",
+      "o": "E5",
+      "evidence": "The proposed I/O Tacker modifies Linux kernel in order to enable per-container page frame reclaiming by considering the container ownership and exposed NVM set organization.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The evaluation results demonstrate that containerized data-intensive applications on DC-Store exhibit 31% shorter average execution time, on average, compared to those on a baseline system.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "Our results show that, even though the average latency of our Divided SSD prototype is worse than a baseline NVMe SSD for a single volume accesses (with a specific pattern), it provides better and deterministic I/O performance under concurrent storage accesses.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "The proposed Divided SSD can provide an independent environment, which allows multiple containers to operate without the device-level I/O interference.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasWorkloadProfile",
+      "o": "E10",
+      "evidence": "We execute a Facebook-like workload (interspersing bursty writes into sustained reads) as a representative I/O access pattern of cloud environment.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasComponent rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "degrades rdfs:domain PhysicalHardwareAndArchitecture; rdfs:range MetricsHealthAndState/Performance/Average Latency."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses deployment in datacenters."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies TLC flash technology."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions average latency performance."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses deterministic I/O performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "DC-Store Eliminating Noisy Neighbor Containers using Deterministic I O.pdf"
+}

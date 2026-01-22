@@ -1,0 +1,121 @@
+{
+  "paper_id": "Constant Time Garbage Collection in SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ZNS SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces"
+    },
+    {
+      "id": "E3",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E4",
+      "label": "CCB Policy",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E5",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E6",
+      "label": "Write Amplification Factor",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Enterprise Server",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E8",
+      "label": "CPU Overhead",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "We, for the first time, evaluate the overhead of GC policies for ZNS SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "Our experimental results show that our proposed GC policy offers up to 74% less CPU overhead, compared to the best competing strategy.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "correlatesWith",
+      "o": "E6",
+      "evidence": "CCB maintains several linked-lists and places blocks, based on their number of invalid pages, in different linked-lists.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "A new type of SSDs, called Zoned Namespace (ZNS) SSDs, enables the partitioning of responsibilities between the host and the SSD through the ZNS storage interface.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformance",
+      "o": "E5",
+      "evidence": "Vendors have been able to scale the capacity of SSDs to tens of TBs of storage at a performance above a million read IOPS.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "correlatesWith rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses garbage collection strategies directly."
+    },
+    {
+      "label": "ZNS",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "mapping_decision": "exact",
+      "notes": "Zoned Namespace SSDs are explicitly mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Constant_Time_Garbage_Collection_in_SSDs.pdf"
+}

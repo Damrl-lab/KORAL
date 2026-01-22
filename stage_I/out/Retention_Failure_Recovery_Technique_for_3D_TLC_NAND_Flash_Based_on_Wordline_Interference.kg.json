@@ -1,0 +1,170 @@
+{
+  "paper_id": "108299",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D_TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "Data Recovery",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E5",
+      "label": "ECC",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "WL Interference",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E7",
+      "label": "Retention Error",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E8",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E9",
+      "label": "Retention Time",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "In this paper, a high-efficient data recovery technique is proposed for 3D TLC NAND flash memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The experimental results show that the proposed data recovery technique outperforms the state-of-the-art ADROP technique in both data recovery efficiency and capability by 12.92x and 2.28x respectively.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": {
+        "@value": "Random",
+        "unit": "AccessPattern"
+      },
+      "evidence": "The data transferred to NAND flash chip is processed by randomizer firstly, so that the data patterns in aggressor/target pages are approximately random.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "With data errors exceeding ECC correction capability due to the retention process, the data recovery technique is a straightforward way to reduce retention errors to be correctable by ECC.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "The WL Interference (WI) is utilized to recharge retention-failed cells.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "degradedBy",
+      "o": "E6",
+      "evidence": "WI can be utilized to recharge retention-failed cells.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "improvedBy",
+      "o": {
+        "@value": "83.3",
+        "unit": "times"
+      },
+      "evidence": "In the 3 K PE cycles condition, the retention time is extended by 83.3x at most with proposed technique.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC).",
+    "degradedBy rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type in the paper."
+    },
+    {
+      "label": "Data Recovery",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Data recovery is a media management technique to handle retention errors."
+    },
+    {
+      "label": "WL Interference",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "WL Interference is used as a media management technique to improve data recovery."
+    },
+    {
+      "label": "Retention Error",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Retention error is a type of error managed by media management techniques."
+    },
+    {
+      "label": "Retention Time",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "parent",
+      "notes": "Retention time is a measure of endurance related to data retention capabilities."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Retention Failure Recovery Technique for 3D TLC NAND Flash Based on Wordline Interference.pdf"
+}

@@ -1,0 +1,114 @@
+{
+  "paper_id": "Reducing Data Movement Costs using Energy-Efficient, Active Computation on SSD",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Active Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Energy Efficiency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E5",
+      "label": "Data Movement Cost",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Energy Consumption",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "Simulation Job",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "Our evaluation suggests that active flash is a promising approach to alleviate the storage bandwidth bottleneck, reduce the data movement cost, and improve the overall energy efficiency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "reduces",
+      "o": "E5",
+      "evidence": "By migrating analysis tasks closer to where the data resides, it helps reduce the data movement cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "reduces",
+      "o": "E6",
+      "evidence": "The active flash approach reduces the energy consumption involved in data movement, for the HPC center at-large.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "We propose to exploit the compute power in SSDs, for in-situ data analysis, which we call Active Flash.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "reduces rdfs:domain SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Energy Efficiency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Energy efficiency is a performance metric related to overall system performance."
+    },
+    {
+      "label": "Data Movement Cost",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Data movement cost is related to performance metrics."
+    },
+    {
+      "label": "Energy Consumption",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Energy consumption is a performance metric related to system efficiency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Reducing Data Movement Costs using Energy-Efficient, Active Flash.pdf"
+}

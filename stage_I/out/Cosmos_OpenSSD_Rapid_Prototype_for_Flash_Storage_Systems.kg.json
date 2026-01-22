@@ -1,0 +1,254 @@
+{
+  "paper_id": "Cosmos_OpenSSD_2020",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Cosmos+ OpenSSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E4",
+      "label": "PCIe Gen2",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3"
+    },
+    {
+      "id": "E5",
+      "label": "3D TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "FPGA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    },
+    {
+      "id": "E9",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E10",
+      "label": "128KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB"
+    },
+    {
+      "id": "E11",
+      "label": "QD16",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD16",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD16"
+    },
+    {
+      "id": "E12",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E13",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We show the usefulness of our design by demonstrating the performance impact of design parameters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "The host interface controller provides a communication channel between a host system and Cosmos+ OpenSSD. It runs the NVMe interface protocol over peripheral component interconnect express (PCIe) bus.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasPCIe",
+      "o": "E4",
+      "evidence": "The host interface controller is connected to the host system via PCIe Gen2 8-lane.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "Furthermore, it is impossible to support emerging flash devices, such as 3D triple-level cell (TLC) and quad-level cell (QLC) memories.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesController",
+      "o": "E6",
+      "evidence": "Our design includes the hardware and software components required to build a storage controller. Its design runs on a field-programmable gate array (FPGA).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "The design runs with real application workloads. Therefore, it supports the high-bandwidth host interface, including the NVMe interface protocol.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "The two workloads used in the experiment read/wrote 128 KB of data with consecutive logical addresses.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E9",
+      "evidence": "The two workloads used in the experiment read/wrote 4 KB of data with random logical addresses.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasBlockSize",
+      "o": "E10",
+      "evidence": "The two workloads used in the experiment read/wrote 128 KB of data with consecutive logical addresses.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasQueueDepth",
+      "o": "E11",
+      "evidence": "There were 16 host commands outstanding simultaneously, such that all flash devices were fully active.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E12",
+      "evidence": "The maximum throughput increased in proportion to the number of channels.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E13",
+      "evidence": "Figure 22 shows the maximum input/output operations per second (IOPs) of the prototype.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasPCIe rdfs:domain SSD; rdfs:range PCIe.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "usesController rdfs:domain SSD; rdfs:range Controller.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is explicitly mentioned as the interface type."
+    },
+    {
+      "label": "PCIe Gen2",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "mapping_decision": "parent",
+      "notes": "PCIe Gen2 is a specific version under PCIe."
+    },
+    {
+      "label": "3D TLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "3D TLC is a specific type of TLC."
+    },
+    {
+      "label": "FPGA",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "mapping_decision": "parent",
+      "notes": "FPGA is a type of controller used in the design."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "Sequential access pattern is explicitly mentioned."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned."
+    },
+    {
+      "label": "128KB",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/128KB",
+      "mapping_decision": "exact",
+      "notes": "128KB block size is explicitly mentioned."
+    },
+    {
+      "label": "QD16",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD16",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 16 is explicitly mentioned."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Cosmos+ OpenSSD_Rapid Prototype for Flash Storage Systems.pdf"
+}

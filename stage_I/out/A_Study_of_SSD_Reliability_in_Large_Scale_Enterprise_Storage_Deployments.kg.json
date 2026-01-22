@@ -1,0 +1,172 @@
+{
+  "paper_id": "FAST20_Study_of_SSD_Reliability",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Enterprise Storage System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "Firmware Version",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion"
+    },
+    {
+      "id": "E5",
+      "label": "3D-TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E6",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E7",
+      "label": "ARR",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E8",
+      "label": "RAID",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy"
+    },
+    {
+      "id": "E9",
+      "label": "Firmware Update",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Firmware%20Update"
+    },
+    {
+      "id": "E10",
+      "label": "Predictive Failures",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This paper presents the first large-scale field study of NAND-based SSDs in enterprise storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The drives comprise three different manufacturers, 18 different models, 12 different capacities, and all major flash technologies (SLC, cMLC, eMLC, 3D-TLC).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "The drives comprise three different manufacturers, 18 different models, 12 different capacities, and all major flash technologies (SLC, cMLC, eMLC, 3D-TLC).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E9",
+      "evidence": "Our observations emphasize the importance of firmware updates, as earlier firmware versions can be correlated with significantly higher failure rates.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "correlatesWith",
+      "o": "E10",
+      "evidence": "One third of all drive replacements are merely preventative (category D) using predictions of future drive failures.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "correlatesWith",
+      "o": "E8",
+      "evidence": "The RAID subsystem can be configured to use SSDs in a Raid-TEC (triple Parity), RAID-DP (double Parity), or RAID-4 (single Parity) configuration.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasReliabilityMetric",
+      "o": "E7",
+      "evidence": "The average ARR across the entire population is 0.22%, but rates vary widely depending on the drive model.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "improvedBy rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update.",
+    "correlatesWith rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Reliability.",
+    "hasReliabilityMetric rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "3D-TLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D-TLC refers to the structure of the flash technology."
+    },
+    {
+      "label": "Firmware Version",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "mapping_decision": "exact",
+      "notes": "Firmware Version is a specific aspect of the Controller."
+    },
+    {
+      "label": "ARR",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "ARR is a reliability metric under MetricsHealthAndState."
+    },
+    {
+      "label": "Predictive Failures",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Predictive Failures are a type of reliability issue."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Study of SSD Reliability in Large Scale Enterprise Storage Deployments.pdf"
+}

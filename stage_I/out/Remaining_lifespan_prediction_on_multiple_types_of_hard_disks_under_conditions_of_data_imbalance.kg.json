@@ -1,0 +1,124 @@
+{
+  "paper_id": "Computers and Electrical Engineering 116 (2024) 109195",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "Total LBAs Written",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Total LBAs Written  [ID: 241]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%20LBAs%20Written%20%20%5BID%3A%20241%5D"
+    },
+    {
+      "id": "E6",
+      "label": "Total LBAs Read",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute/Total LBAs Read  [ID: 242]",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute/Total%20LBAs%20Read%20%20%5BID%3A%20242%5D"
+    },
+    {
+      "id": "E7",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E8",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E9",
+      "label": "SSD1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E9",
+      "p": "operatesUnder",
+      "o": "E8",
+      "evidence": "The proposed model has promising prospects for future applications in predicting the remaining life of hard disks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "In large-scale enterprise data centers, the application of hard drives RUL technology enables the prediction of disk failure risks and the implementation of appropriate measures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "SMART_194 Temperature HDD temperature in Celsius.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E9",
+      "p": "hasSMARTAttribute",
+      "o": "E5",
+      "evidence": "SMART_241 Total LBAs Written Total Logical Block Writes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "hasSMARTAttribute",
+      "o": "E6",
+      "evidence": "SMART_242 Total LBAs Read Total Logical Block Reads.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a SMART attribute."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Remaining_lifespan_prediction_on_multiple_types_of_hard_disks_under_conditions_of_data_imbalance.pdf"
+}

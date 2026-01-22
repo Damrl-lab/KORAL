@@ -1,0 +1,223 @@
+{
+  "paper_id": "A_Portable_Linux-based_Firmware_for_NVMe_Computational_Storage_Devices",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E2",
+      "label": "Linux-based Firmware",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E3",
+      "label": "Computational Storage Device (CSD)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    },
+    {
+      "id": "E4",
+      "label": "FPGA",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller"
+    },
+    {
+      "id": "E5",
+      "label": "Single Board Computer (SBC)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller"
+    },
+    {
+      "id": "E6",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "Self-Encrypting Drive (SED)",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting Drive (SED)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%20Drive%20%28SED%29"
+    },
+    {
+      "id": "E8",
+      "label": "RAID0",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0"
+    },
+    {
+      "id": "E9",
+      "label": "FIO",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO"
+    },
+    {
+      "id": "E10",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E11",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E12",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E13",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E14",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E15",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "Our firmware runs on a variety of hardware platforms ranging from expensive FPGA solutions to inexpensive off-the-shelf single board computers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E1",
+      "evidence": "We propose a portable Linux-based firmware framework for the development of NVMe computational storage devices.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E7",
+      "evidence": "We implemented the self-encrypting disk with the AES-256-CBC algorithm through the open-source OpenSSL library.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E8",
+      "evidence": "We evaluated a RAID0 (data split evenly across disks) setup with USB flash drives and compared performance of different configurations.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "We benchmark our firmware on multiple hardware platforms and demonstrate its versatility through several computational examples.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E10",
+      "p": "hasWorkloadProfile",
+      "o": "E11",
+      "evidence": "The average bandwidths have been measured on sequential read/write workloads of different block sizes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E11",
+      "p": "hasAccessPattern",
+      "o": "E12",
+      "evidence": "The average bandwidths have been measured on sequential read/write workloads of different block sizes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E11",
+      "p": "hasReadWriteMix",
+      "o": "E13",
+      "evidence": "The average bandwidths have been measured on sequential read/write workloads of different block sizes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E11",
+      "p": "hasBlockSize",
+      "o": "E14",
+      "evidence": "The average bandwidths have been measured on sequential read/write workloads of different block sizes.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E11",
+      "p": "hasQueueDepth",
+      "o": "E15",
+      "evidence": "There were 16 host IO commands outstanding simultaneously.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile.",
+    "hasAccessPattern rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern.",
+    "hasReadWriteMix rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix.",
+    "hasBlockSize rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize.",
+    "hasQueueDepth rdfs:domain SSD/EnvironmentalAndOperationalContext/WorkloadProfile; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is explicitly mentioned as the interface type for the computational storage devices."
+    },
+    {
+      "label": "Self-Encrypting Drive (SED)",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting Drive (SED)",
+      "mapping_decision": "exact",
+      "notes": "The paper describes the implementation of a self-encrypting disk using AES-256-CBC."
+    },
+    {
+      "label": "RAID0",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0",
+      "mapping_decision": "exact",
+      "notes": "RAID0 is explicitly mentioned as a setup used in the experiments."
+    },
+    {
+      "label": "FIO",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "mapping_decision": "exact",
+      "notes": "FIO is used as a benchmarking tool in the experiments."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Portable Linux-based Firmware for NVMe Computational Storage Devices.pdf"
+}

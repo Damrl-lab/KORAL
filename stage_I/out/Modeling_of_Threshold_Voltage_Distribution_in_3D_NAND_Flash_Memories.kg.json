@@ -1,0 +1,151 @@
+{
+  "paper_id": "Modeling of Threshold Voltage Distribution in 3D NAND Flash Memory",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Program/Erase Cycle",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E5",
+      "label": "Data Retention Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E6",
+      "label": "Read Disturbance",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E7",
+      "label": "Layer Variation",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount"
+    },
+    {
+      "id": "E8",
+      "label": "Neural Network Model",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts/State Snapshot",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%20Snapshot"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "We select a 3D charge-trap (CT) TLC NAND flash memory to demonstrate the modeling methodology.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "The Vth distribution is the synergistic result of multiple interferences and variations, such as Program/Erase cycle, data retention time, and read disturbance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasInterference",
+      "o": "E4",
+      "evidence": "The major interferences include Program/Erase (P/E) cycle, data retention (DR) time, and read disturbance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasInterference",
+      "o": "E5",
+      "evidence": "The major interferences include Program/Erase (P/E) cycle, data retention (DR) time, and read disturbance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasInterference",
+      "o": "E6",
+      "evidence": "The major interferences include Program/Erase (P/E) cycle, data retention (DR) time, and read disturbance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasVariation",
+      "o": "E7",
+      "evidence": "Layer Variation (LV): 3D NAND flash memory introduces the exclusive LV dominated by the process variation among different layers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "models",
+      "o": "E1",
+      "evidence": "We propose a machine learning-based Vth distribution modeling method.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasInterference rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling.",
+    "hasVariation rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount.",
+    "models rdfs:domain SSD/ModelingTimeAndStateHistory/CoreConcepts/State Snapshot; rdfs:range SSD."
+  ],
+  "mappings": [
+    {
+      "label": "Program/Erase Cycle",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Wear Leveling as it involves managing P/E cycles."
+    },
+    {
+      "label": "Data Retention Time",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Wear Leveling as it involves managing data retention."
+    },
+    {
+      "label": "Read Disturbance",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Wear Leveling as it involves managing read disturbances."
+    },
+    {
+      "label": "Layer Variation",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "mapping_decision": "parent",
+      "notes": "Mapped to LayerCount as it involves variations among layers."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Modeling of Threshold Voltage Distribution in 3D NAND Flash Memories.pdf"
+}

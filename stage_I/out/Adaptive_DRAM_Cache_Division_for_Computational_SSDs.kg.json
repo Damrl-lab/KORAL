@@ -1,0 +1,136 @@
+{
+  "paper_id": "Adaptive DRAM Cache Division for Computational Solid-state Drives",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "CompSSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "DRAM Cache",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM%20Cache"
+    },
+    {
+      "id": "E3",
+      "label": "Adaptive Cache Division",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    },
+    {
+      "id": "E4",
+      "label": "I/O Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E5",
+      "label": "Overall I/O Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E6",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "PCIe-3.0",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3"
+    },
+    {
+      "id": "E8",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E8",
+      "evidence": "The DRAM cache size is typically 0.1% of the SSD capacity [23], indicating 128MB cache in our configuration.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "We select eight block I/O traces of real applications from the Microsoft Research Cambridge collection [24] and the VDI trace collection [25], for carrying out trace-driven experiments.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E7",
+      "evidence": "SSD Host Interface PCIe-3.0 (NVMe-1.2)",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasCacheAndBuffers",
+      "o": "E2",
+      "evidence": "The SSD device consists of an on-board DRAM buffer, and a portion of this memory buffer is used as the data cache of SSD devices.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "Trace-driven simulation experiments show that our proposal can reduce the overall I/O latency by 27.5% on average, in contrast to existing cache management schemes.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "As our measurements indicate, the proposed cache division scheme can improve the overall I/O latency by between 0.9% and 84.5 %, in contrast to existing cache management schemes.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasCacheAndBuffers rdfs:domain SSD; rdfs:range CacheAndBuffers.",
+    "improves rdfs:domain InternalFirmwareAndLogic/CachingPolicies; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "DRAM Cache",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/DRAM Cache",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses DRAM Cache as a component of the SSD architecture."
+    },
+    {
+      "label": "Overall I/O Latency",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "The paper refers to overall I/O latency, which is a performance metric."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies QLC as the cell type used in the SSD."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Adaptive DRAM Cache Division for Computational SSDs.pdf"
+}

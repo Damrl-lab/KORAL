@@ -1,0 +1,145 @@
+{
+  "paper_id": "micromachines_2021_12_846",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D Flash Memory",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E4",
+      "label": "Performance Cliff",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E5",
+      "label": "Tail Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E6",
+      "label": "PreGC",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E7",
+      "label": "Environmental Context 1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "Workload Profile 1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Comprehensive experiments with real-world workloads have been performed on the SSDsim simulator.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "Comprehensive experiments with real-world workloads have been performed on the SSDsim simulator.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasBlockSize",
+      "o": {
+        "@value": "16KB",
+        "unit": "KB"
+      },
+      "evidence": "Page size 4 k 16 k",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "The recent development of 3D flash memories has promoted the widespread application of SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "degrades",
+      "o": "E4",
+      "evidence": "Garbage collection (GC) as a time-consuming but necessary operation in flash memories largely affects the performance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "correlatesWith",
+      "o": "E5",
+      "evidence": "This directly induces the sharp increase of tail latency that is often used as the evaluation of Quality of Service (QoS) by the industry.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Experimental results show that PreGC can efficiently relieve the performance cliff by reducing the tail latency from the 90th to 99.99th percentiles.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:string."
+  ],
+  "mappings": [
+    {
+      "label": "3D Flash Memory",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D flash memory is explicitly mentioned and aligns with the taxonomy."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage collection is a well-defined process in the taxonomy."
+    },
+    {
+      "label": "Tail Latency",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "parent",
+      "notes": "Tail latency is a specific performance metric related to percentiles."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Observation and Optimization on Garbage Collection Tail Latency of SSDs.pdf"
+}

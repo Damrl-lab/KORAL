@@ -1,0 +1,243 @@
+{
+  "paper_id": "102334",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "CacheAndBuffers",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers"
+    },
+    {
+      "id": "E3",
+      "label": "SLC Write Cache",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/SLC Write Cache",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/SLC%20Write%20Cache"
+    },
+    {
+      "id": "E4",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E7",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E8",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E9",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E10",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E11",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E12",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E13",
+      "label": "MediaManagement",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E14",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E15",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasCacheType",
+      "o": "E2",
+      "evidence": "The internal caches in the SSDs boost SSD performance, lifetime, and robustness.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "includes",
+      "o": "E3",
+      "evidence": "A hybrid-SSD sometimes uses a faster flash memory as a cache of the slower flash memory to improve upon the performance and endurance of the SSD.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "SSDs have been deployed in diverse computing environments like tablets, laptops, desktops, and supercomputers.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "The internal caches in an SSD can be categorized as: (a) front-end data cache, (b) front-end mapping cache, or (c) back-end flash-based cache.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E5",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "The front-end data cache improves the response time of the SSD, and increases the lifetime of SSD by altering the write traffic to the back-end.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E5",
+      "p": "hasReadWriteMix",
+      "o": "E7",
+      "evidence": "The mapping cache, typically of small size, improves the SSD performance by supporting the flexibility of page-level mapping.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E5",
+      "p": "hasBlockSize",
+      "o": "E8",
+      "evidence": "The cache allocation and eviction granularities are different for different policies.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E5",
+      "p": "hasQueueDepth",
+      "o": "E9",
+      "evidence": "The optimization objectives of these policies can also be different.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformanceMetric",
+      "o": "E10",
+      "evidence": "SSDs are emerging as the primary choice for data storage due to the characteristics like robustness, energy-efficiency, and performance-boosting capability.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasEnduranceMetric",
+      "o": "E11",
+      "evidence": "Efficient utilization of this on-board memory buffer or cache is one of the primary factors behind high performance and robustness of an SSD.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasReliabilityMetric",
+      "o": "E12",
+      "evidence": "Efficient utilization of this on-board memory buffer or cache is one of the primary factors behind high performance and robustness of an SSD.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesMediaManagement",
+      "o": "E13",
+      "evidence": "SSD internal cache management policies need to be aware of the characteristics of the underlying NAND flash memory.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E13",
+      "p": "includes",
+      "o": "E14",
+      "evidence": "For example, the nonvolatile memory cache management policy should also consider wear leveling in the cache.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E13",
+      "p": "includes",
+      "o": "E15",
+      "evidence": "NAND flash memory characteristics like out-of-place write and erase-before-write create more challenges for designing an optimal flash-based cache management policy.",
+      "confidence": 0.7
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasCacheType rdfs:domain SSD; rdfs:range CacheAndBuffers.",
+    "hasPerformanceMetric rdfs:domain SSD; rdfs:range Performance.",
+    "hasEnduranceMetric rdfs:domain SSD; rdfs:range Endurance.",
+    "hasReliabilityMetric rdfs:domain SSD; rdfs:range Reliability.",
+    "usesMediaManagement rdfs:domain SSD; rdfs:range MediaManagement."
+  ],
+  "mappings": [
+    {
+      "label": "SLC Write Cache",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers/SLC Write Cache",
+      "mapping_decision": "exact",
+      "notes": "Directly mentioned as a type of cache in SSDs."
+    },
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear leveling is a specific media management strategy."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E15",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage collection is a specific media management strategy."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SSD Internal Cache Management Policies_ A Survey.pdf"
+}

@@ -1,0 +1,101 @@
+{
+  "paper_id": "IEEE_TMAG_2025_3544584",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "HDD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "ALAE",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E5",
+      "label": "Backblaze Dataset",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory"
+    },
+    {
+      "id": "E6",
+      "label": "HDD_Failure_Prediction",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Disk failures in large data centers are a common occurrence and can result in significant data loss.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Our proposed method utilizes the LSTM-autoencoder to effectively capture temporal dependencies in sequential data, and employs the maximum mean discrepancy (MMD) metric to align the distribution of features across different disk types and improve the generalization ability of the model.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "validatedBy",
+      "o": "E5",
+      "evidence": "The effectiveness of our proposed method is validated on the Backblaze dataset for HDD failure prediction.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E3",
+      "p": "usedFor",
+      "o": "E6",
+      "evidence": "The most common method for predicting HDDs failures involves using a threshold detection algorithm based on Self-Monitoring, Analysis, and Reporting Technology (SMART).",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Reliability.",
+    "validatedBy rdfs:domain MetricsHealthAndState/Reliability; rdfs:range ModelingTimeAndStateHistory.",
+    "usedFor rdfs:domain MetricsHealthAndState/SMARTAttribute; rdfs:range MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses HDD failures in data centers."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMART attributes are used for HDD failure prediction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Adversarial_Domain_Generalization_Network_for_New_Enabled_Hard_Disk_Drive_Failure_Prediction.pdf"
+}

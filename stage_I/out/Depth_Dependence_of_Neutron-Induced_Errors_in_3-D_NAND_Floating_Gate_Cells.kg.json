@@ -1,0 +1,137 @@
+{
+  "paper_id": "IEEE_TNS_2024_71_4_508",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3-D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Radiation",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation"
+    },
+    {
+      "id": "E3",
+      "label": "Neutron-Induced Errors",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E4",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E5",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "LayerCount",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount"
+    },
+    {
+      "id": "E7",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Irradiations with wide-energy neutrons were carried out at the ChipIr beam line at the ISIS accelerator of the Rutherford Appleton Laboratories, Didcot, U.K.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasExternalFactor",
+      "o": "E2",
+      "evidence": "The sensitivity of vertical-channel 3-D NAND Flash memories to wide-energy spectrum neutrons is investigated as a function of cell depth in the pillars.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "In the last few years, planar Flash memories have been superseded by 3-D devices to overcome scaling limits and increase the storage density.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "A 384-Gbit, 3-bits/cell 3-D NAND Flash memories with an equivalent 13-nm feature size (the equivalence is in terms of number of bits per unit of area), manufactured by Micron, were used for this study.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasManufacturing",
+      "o": "E6",
+      "evidence": "The memory cells in these devices feature a vertical-channel architecture with more than 30 layers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasReliabilityIssue",
+      "o": "E3",
+      "evidence": "The impact of atmospheric neutron effects in 3-D NAND FG arrays has been investigated in [16] and compared with previous planar technologies, showing modest but appreciable threshold voltage shifts.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range ExternalFactors.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasManufacturing rdfs:domain SSD; rdfs:range FlashTechnology/Manufacturing.",
+    "hasReliabilityIssue rdfs:domain SSD; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Radiation",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "mapping_decision": "exact",
+      "notes": "Radiation effects are a key focus of the paper."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses 3-D NAND architecture."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies TLC as the cell type."
+    },
+    {
+      "label": "LayerCount",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions more than 30 layers."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Depth_Dependence_of_Neutron-Induced_Errors_in_3-D_NAND_Floating_Gate_Cells.pdf"
+}

@@ -1,0 +1,131 @@
+{
+  "paper_id": "electronics_2020_9_1179",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E6",
+      "label": "3D NAND Flash",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E7",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Concerns on storage temperature are to be considered especially when Solid State Drives (SSD) based on 3D NAND Flash technology are part of edge gateway architectures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "70",
+        "unit": "C"
+      },
+      "evidence": "Figure 3 shows the number of bit errors, normalized with respect to the ECC correction capability, retrieved in several memory chips as a function of the elapsed time when the storage temperature varies from 55 to 70°C.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "In this work, with the help of a SSD co-simulation environment that is stimulated within a realistic Industrial Internet-of-Things (IIoT) workload, we explore a methodology orthogonal to performance throttling.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "hasQueueDepth",
+      "o": {
+        "@value": "64",
+        "unit": "QD"
+      },
+      "evidence": "Table 3. SSD architectural parameters considered in the simulations. Queue Depth (QD) Variable from 1 to 64",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E5",
+      "evidence": "Such a method considers the power and performance figures of a Triple Level Cell 3D NAND Flash technology integrated in the drive.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasFlashTechnology",
+      "o": "E6",
+      "evidence": "Concerns on storage temperature are to be considered especially when Solid State Drives (SSD) based on 3D NAND Flash technology are part of edge gateway architectures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Results evidenced that by leveraging on the SSD micro-architectural parameters of the queuing system it is possible to reduce the Input/Output operations Per Second (IOPS) penalty due to temperature protection mechanisms with minimum effort by the system.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range xsd:integer.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasFlashTechnology rdfs:domain SSD; rdfs:range FlashTechnology/Structure.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned and relevant to the SSD's operational context."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Mitigating Self-Heating in Solid State Drives for Industrial Internet-of-Things Edge Gateways.pdf"
+}

@@ -1,0 +1,181 @@
+{
+  "paper_id": "mi12070746",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E5",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E8",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E9",
+      "label": "Raw Bit Error",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E10",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The flash memory particle type of this model is 3D TLC.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasStructure",
+      "o": "E4",
+      "evidence": "The flash memory particle type of this model is 3D TLC.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The random programming pattern can simulate various programming levels and combinations, fitting the programming pressure in practical applications to the greatest extent, which sets it as the default programming pattern in the proposed prediction method.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "The random programming pattern can simulate various programming levels and combinations, fitting the programming pressure in practical applications to the greatest extent, which sets it as the default programming pattern in the proposed prediction method.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasAccessPattern",
+      "o": "E7",
+      "evidence": "The random programming pattern can simulate various programming levels and combinations, fitting the programming pressure in practical applications to the greatest extent, which sets it as the default programming pattern in the proposed prediction method.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasEndurance",
+      "o": "E8",
+      "evidence": "Using machine learning algorithms to accurately predict endurance levels can optimize wear-leveling strategies and warn bad memory blocks.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E8",
+      "evidence": "The RBE number is the number of bits of difference between the actual read data and the actual programmed data without error correction, which is an important parameter to characterize the degree of endurance change.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E10",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "The Error Correcting Code (ECC) error correction algorithm uses special coding rules to check and correct the original data, so the endurance of the flash memory can be indirectly improved by optimizing the error correction algorithm.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasStructure rdfs:domain SSD; rdfs:range FlashTechnology/Structure.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "correlatesWith rdfs:domain Reliability; rdfs:range Endurance.",
+    "improves rdfs:domain DataPath/Error Correction (ECC); rdfs:range Endurance."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is directly mentioned as the cell type."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D is directly mentioned as the structure type."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random is directly mentioned as the access pattern."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Endurance is a key focus of the paper."
+    },
+    {
+      "label": "Error Correction (ECC)",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "ECC is directly mentioned as a method to improve endurance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "An_SVM_Based_NAND_Flash_Endurance_Prediction_Method.pdf"
+}

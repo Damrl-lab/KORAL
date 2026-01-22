@@ -1,0 +1,149 @@
+{
+  "paper_id": "Reliability_of_3D_NAND_flash_memory",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    },
+    {
+      "id": "E5",
+      "label": "Read Voltage Calibration",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E6",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E7",
+      "label": "Read Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "3D NAND flash memory has made inroads into the enterprise storage space and the data center.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "We discuss the above aspects for state-of-the-art 3D TLC and QLC NAND flash memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "We discuss the above aspects for state-of-the-art 3D TLC and QLC NAND flash memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The technological advancements with 3D NAND flash have enabled TLC and QLC with endurance similar to or better than the latest 2D MLC NAND.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "QLC NAND offers a 33% capacity increase per cell compared to TLC, however, it shows lower endurance and higher read latency.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Read voltage calibration is a key component to enable low error-rates and low latency read performance, as well as accurate block health estimation and grading.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Read voltage calibration is a key component to enable low error-rates and low latency read performance, as well as accurate block health estimation and grading.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is directly mentioned in the paper."
+    },
+    {
+      "label": "QLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "mapping_decision": "exact",
+      "notes": "QLC is directly mentioned in the paper."
+    },
+    {
+      "label": "Read Voltage Calibration",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "Read voltage calibration is a specific firmware logic discussed in the paper."
+    },
+    {
+      "label": "Endurance",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Endurance is a key metric discussed in the paper."
+    },
+    {
+      "label": "Read Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Read latency is directly discussed in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Reliability_of_3D_NAND_flash_memory_with_a_focus_on_read_voltage_calibration_from_a_system_aspect.pdf"
+}

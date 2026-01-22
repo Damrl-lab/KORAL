@@ -1,0 +1,184 @@
+{
+  "paper_id": "3491230",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D CT NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E4",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E5",
+      "label": "Vth Distribution",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts/State Snapshot",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%20Snapshot"
+    },
+    {
+      "id": "E6",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E8",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E9",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E10",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E11",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E12",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "In recent years, 3D NAND flash memory has been gradually widely used in solid-state drive (SSD) benefiting from its high storage capacity.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "85",
+        "unit": "C"
+      },
+      "evidence": "We bake the flash chips to accelerate the speed of DR time at 85°C.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E8",
+      "p": "hasAccessPattern",
+      "o": "E9",
+      "evidence": "We deploy the sequential full-block read operation, the same as Reference [25].",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasReadWriteMix",
+      "o": "E10",
+      "evidence": "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E8",
+      "p": "hasBlockSize",
+      "o": "E11",
+      "evidence": "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E8",
+      "p": "hasQueueDepth",
+      "o": "E12",
+      "evidence": "We use the operation delay and raw bit error rate (RBER) to characterize the performance and reliability, respectively.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "CT cell can improve the endurance and reliability and reduce the operation latency.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "CT cell can improve the endurance and reliability and reduce the operation latency.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "hasStateSnapshot",
+      "o": "E5",
+      "evidence": "We then analyze the Vth shift with interferences.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned and matches the taxonomy."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Characterization Summary of Performance, Reliability, and Vth Distribution of 3D CT NAND.pdf"
+}

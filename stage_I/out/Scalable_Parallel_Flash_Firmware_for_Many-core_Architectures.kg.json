@@ -1,0 +1,228 @@
+{
+  "paper_id": "FAST20_Zhang",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "DeepFlash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E4",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E5",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E6",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential"
+    },
+    {
+      "id": "E7",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E8",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E9",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E10",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E11",
+      "label": "Many-core Processor",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/Cores",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/Cores"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We propose DeepFlash, a manycore-based NVMe SSD platform that can process more than one million I/O requests within a second (1MIOPS) while minimizing the requirements of internal resources.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "We propose DeepFlash, a manycore-based NVMe SSD platform that can process more than one million I/O requests within a second (1MIOPS) while minimizing the requirements of internal resources.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "achieves",
+      "o": "E4",
+      "evidence": "Our evaluation results show that DeepFlash successfully provides more than 1MIOPS with a dozen of simple low-power cores for all reads and writes with sequential and random access patterns.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "achieves",
+      "o": "E5",
+      "evidence": "DeepFlash can serve around 4.5 GB/s, while minimizing the CPU demand on microbenchmarks and real server workloads.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "Our evaluation results show that DeepFlash successfully provides more than 1MIOPS with a dozen of simple low-power cores for all reads and writes with sequential and random access patterns.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasAccessPattern",
+      "o": "E7",
+      "evidence": "Our evaluation results show that DeepFlash successfully provides more than 1MIOPS with a dozen of simple low-power cores for all reads and writes with sequential and random access patterns.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasReadWriteMix",
+      "o": "E8",
+      "evidence": "DeepFlash successfully provides more than 1MIOPS with a dozen of simple low-power cores for all reads and writes with sequential and random access patterns.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasReadWriteMix",
+      "o": "E9",
+      "evidence": "DeepFlash successfully provides more than 1MIOPS with a dozen of simple low-power cores for all reads and writes with sequential and random access patterns.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E10",
+      "evidence": "Solid State Disks (SSDs) are extensively used as caches, databases, and boot drives in diverse computing domains.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E11",
+      "evidence": "DeepFlash employs a many-to-many threading model, which multiplexes any number of threads onto any number of cores in firmware.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasAccessPattern rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern.",
+    "hasReadWriteMix rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/InterfaceType.",
+    "achieves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is explicitly mentioned as the interface type used by DeepFlash."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a direct performance metric mentioned in the paper."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a direct performance metric mentioned in the paper."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Sequential",
+      "mapping_decision": "exact",
+      "notes": "Sequential access pattern is explicitly mentioned in the evaluation."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the evaluation."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Read-heavy workload is implied by the focus on read performance."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Write-heavy workload is implied by the focus on write performance."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Datacenter is a common deployment environment for high-performance SSDs."
+    },
+    {
+      "label": "Many-core Processor",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/Cores",
+      "mapping_decision": "exact",
+      "notes": "Many-core processor is explicitly used in the DeepFlash architecture."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Scalable Parallel Flash Firmware for Many-core Architectures.pdf"
+}

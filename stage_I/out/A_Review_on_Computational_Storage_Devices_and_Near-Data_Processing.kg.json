@@ -1,0 +1,143 @@
+{
+  "paper_id": "100051",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Computational Storage Device",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage"
+    },
+    {
+      "id": "E3",
+      "label": "In-Storage Computing",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    },
+    {
+      "id": "E4",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E5",
+      "label": "PCIe Gen3",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3"
+    },
+    {
+      "id": "E6",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E7",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "Embedding processing engines inside Solid-State Drives (SSDs), transforming them to Computational Storage Devices (CSDs), provides the needed data processing solution.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Embedding processing engines inside Solid-State Drives (SSDs), transforming them to Computational Storage Devices (CSDs), provides the needed data processing solution.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasInterfaceType",
+      "o": "E4",
+      "evidence": "Fig. 3 shows the modern architecture for SSDs with a Non-Volatile Memory Express (NVMe) being used as the logical-device interface.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasPCIe",
+      "o": "E5",
+      "evidence": "Biscuit utilizes ARM Cortex-R7 real-time embedded processors distributed among the SSD firmware and user runtime in addition to hardware pattern matchers to offload and run tasks in place. These ARM cores were initially used for SSD procedures and even though this may have led to some performance leverage, the authors failed to show the effect on performance when both user applications and host I/O requests are running simultaneously.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E2",
+      "p": "implements",
+      "o": "E3",
+      "evidence": "The focus of this research is to review ISP, where data is retrieved from drives before intermediate results are forwarded to computational nodes.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasPCIe rdfs:domain SSD; rdfs:range PCIe.",
+    "implements rdfs:domain SSD; rdfs:range ComputationalStorage."
+  ],
+  "mappings": [
+    {
+      "label": "Computational Storage Device",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses embedding processing engines inside SSDs, transforming them into Computational Storage Devices."
+    },
+    {
+      "label": "In-Storage Computing",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "mapping_decision": "exact",
+      "notes": "The paper focuses on In-Storage Computing as a form of Near Data Processing."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is mentioned as the logical-device interface for modern SSD architecture."
+    },
+    {
+      "label": "PCIe Gen3",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/PCIe/Gen3",
+      "mapping_decision": "exact",
+      "notes": "PCIe Gen3 is mentioned in the context of SSD architecture."
+    },
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "Enterprise Server is a deployment environment for SSDs."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "Datacenter is a deployment environment for SSDs."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A Review on Computational Storage Devices and Near-Data Processing.pdf"
+}

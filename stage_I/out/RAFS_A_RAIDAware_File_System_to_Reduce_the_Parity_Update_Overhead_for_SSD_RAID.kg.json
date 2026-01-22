@@ -1,0 +1,144 @@
+{
+  "paper_id": "RAFS: A RAID-Aware File System to Reduce the Parity Update Overhead for SSD RAID",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "RAFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E2",
+      "label": "SSD RAID 5",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E3",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E4",
+      "label": "Write Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E5",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E6",
+      "label": "File System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E7",
+      "label": "Stripe",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "Experimental results show that RAFS can improve throughput by up to 90%, compared to Ext4.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "RAFS aims to reduce parity updates by leveraging delayed allocation in modern file systems.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "reduces",
+      "o": "E5",
+      "evidence": "RAFS compacts buffered updates and flushes back in stripe units to mitigate the parity update overhead.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "RAFS, a RAID-aware file system, which utilizes a RAID-friendly data layout to improve the reliability and performance of SSD-based RAID 5.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "utilizes",
+      "o": "E6",
+      "evidence": "RAFS employs a stripe-aware buffer policy to coalesce writes to the same file.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "alignsWritesTo",
+      "o": "E7",
+      "evidence": "RAFS employs a stripe-granularity allocation scheme to align writes to stripe boundaries.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "reduces rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection.",
+    "operatesUnder rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5.",
+    "utilizes rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/EnvironmentalAndOperationalContext/HostSystem/File System.",
+    "alignsWritesTo rdfs:domain SSD/InternalFirmwareAndLogic; rdfs:range SSD/InternalFirmwareAndLogic."
+  ],
+  "mappings": [
+    {
+      "label": "Throughput",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a direct performance metric."
+    },
+    {
+      "label": "Write Endurance",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "exact",
+      "notes": "Write endurance is a key metric for SSD longevity."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage collection is a standard media management process."
+    },
+    {
+      "label": "File System",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "mapping_decision": "exact",
+      "notes": "File system is part of the host system context."
+    },
+    {
+      "label": "Stripe",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "parent",
+      "notes": "Stripe is a logical unit used in RAID configurations."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "RAFS A RAIDAware File System to Reduce the Parity Update Overhead for SSD RAID.pdf"
+}

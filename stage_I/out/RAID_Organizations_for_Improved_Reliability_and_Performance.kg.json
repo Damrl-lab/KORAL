@@ -1,0 +1,289 @@
+{
+  "paper_id": "arXiv:2306.08763v1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "RAID5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E3",
+      "label": "RAID6",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E4",
+      "label": "RAID1/5",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E5",
+      "label": "RAID5/1",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E6",
+      "label": "FAWN",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/Offload Engines",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/Offload%20Engines"
+    },
+    {
+      "id": "E7",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E9",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E10",
+      "label": "Humidity",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity"
+    },
+    {
+      "id": "E11",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E12",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E13",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E14",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E15",
+      "label": "UBER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E16",
+      "label": "MTBF",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/MTBF",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/MTBF"
+    },
+    {
+      "id": "E17",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "25",
+        "unit": "C"
+      },
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasRelativeHumidity",
+      "o": {
+        "@value": "50",
+        "unit": "RH"
+      },
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E12",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E13",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E14",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E15",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E16",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasSMARTAttribute",
+      "o": "E17",
+      "evidence": "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasRelativeHumidity rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range MetricsHealthAndState/SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as an external factor."
+    },
+    {
+      "label": "Humidity",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "mapping_decision": "exact",
+      "notes": "Humidity is directly mentioned as an external factor."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a standard performance metric."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a standard performance metric."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Average Latency is a standard performance metric."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "99th Percentile Latency is a standard performance metric."
+    },
+    {
+      "label": "UBER",
+      "entity_id": "E15",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "exact",
+      "notes": "UBER is a standard reliability metric."
+    },
+    {
+      "label": "MTBF",
+      "entity_id": "E16",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/MTBF",
+      "mapping_decision": "exact",
+      "notes": "MTBF is a standard reliability metric."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E17",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMARTAttribute is a standard health metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "RAID Organizations for Improved Reliability and Performance.pdf"
+}

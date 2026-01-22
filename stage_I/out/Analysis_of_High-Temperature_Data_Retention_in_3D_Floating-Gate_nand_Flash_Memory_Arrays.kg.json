@@ -1,0 +1,109 @@
+{
+  "paper_id": "10.1109/JEDS.2023.3320722",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "High-Temperature Context",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "Charge Detrapping",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E6",
+      "label": "Polysilicon Trap Depassivation",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E7",
+      "label": "VT Instability",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "In this paper, we present a detailed experimental investigation of high-temperature data retention in 3D floating-gate NAND Flash memory arrays.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "125",
+        "unit": "C"
+      },
+      "evidence": "After that, samples were baked at a temperature TBranging from 75°C to 150°C, reproducing a high-temperature data retention condition for the array.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "To explore the dependence of VT instabilities on the VT level of the monitored cells and on the string back-pattern, an Erase/Program sequence was initially employed to i) set the VT level of the monitored cells to reproduce a randomly generated triple-level cell (TLC) pattern along their wordline.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "Charge detrapping from the cell tunnel oxide and depassivation of traps in the string polysilicon channel are the physical mechanisms resulting in the most relevant long-term reliability issues for the memory array.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "Charge detrapping from the cell tunnel oxide and depassivation of traps in the string polysilicon channel are the physical mechanisms resulting in the most relevant long-term reliability issues for the memory array.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as a factor in the high-temperature data retention context."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Analysis_of_High-Temperature_Data_Retention_in_3D_Floating-Gate_nand_Flash_Memory_Arrays.pdf"
+}

@@ -1,0 +1,180 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2d12a010 a owl:Axiom ;
+    rdfs:comment "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Radiation." .
+
+ssd:axiom_535ac05f a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_8b2fc3ea a owl:Axiom ;
+    rdfs:comment "degradedBy rdfs:domain SSD; rdfs:range xsd:decimal." .
+
+ssd:axiom_987ef03c a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/07499cbc836748678eaf7c366389cab1> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "0.41" ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E3_SSD_64G_MLC ;
+    dct:source "The SEU cross-section peak appeared in all devices under 0.41 MeV proton irradiation." .
+
+<http://example.org/ssd/assertion/356fe85d70934b2d9a5ac545e9582e52> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E3_SSD_64G_MLC ;
+    dct:source "In this work, NAND flash memories of multiple feature sizes with SLC and MLC architecture were used." .
+
+<http://example.org/ssd/assertion/587f9556e29c4cf2a118ac2c02565e55> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_SSD_32G_SLC ;
+    dct:source "In this work, NAND flash memories of multiple feature sizes with SLC and MLC architecture were used." .
+
+<http://example.org/ssd/assertion/8e193c0e59fb4a1393c00dbfe81a4acd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "0.41" ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E2_SSD_32G_MLC ;
+    dct:source "The SEU cross-section peak appeared in all devices under 0.41 MeV proton irradiation." .
+
+<http://example.org/ssd/assertion/a22ff7f944914e5a91ec539a98adb0d5> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E3_SSD_64G_MLC ;
+    dct:source "In this work, NAND flash memories of multiple feature sizes with SLC and MLC architecture were used." .
+
+<http://example.org/ssd/assertion/b4001933003f4ae387372b677f5fa64e> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> ;
+    ssd:predicate ssd:hasExternalFactor ;
+    ssd:subject ssd:E4_EC1 ;
+    dct:source "The SEE caused by charged particles in the space radiation environment is a severe challenge for the potential space applications of NAND flash memories." .
+
+<http://example.org/ssd/assertion/e3647cb2c12c4772b5a66bbc1ed6967b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_SSD_32G_SLC ;
+    dct:source "In this work, NAND flash memories of multiple feature sizes with SLC and MLC architecture were used." .
+
+<http://example.org/ssd/assertion/f5dcd8ee68364feebc70db56cf74aae8> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E2_SSD_32G_MLC ;
+    dct:source "In this work, NAND flash memories of multiple feature sizes with SLC and MLC architecture were used." .
+
+<http://example.org/ssd/assertion/f912dcda983d4c89bb0b4653010b4ddd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "0.41" ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E1_SSD_32G_SLC ;
+    dct:source "The SEU cross-section peak appeared in all devices under 0.41 MeV proton irradiation." .
+
+<http://example.org/ssd/assertion/fa3ed2bedf4443ebb967013dcd8e8cfc> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E2_SSD_32G_MLC ;
+    dct:source "In this work, NAND flash memories of multiple feature sizes with SLC and MLC architecture were used." .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "SEE" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+ssd:E1_SSD_32G_SLC a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD_32G_SLC" ;
+    ssd:degradedBy "0.41" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    ssd:unit "MeV" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E2_SSD_32G_MLC a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD_32G_MLC" ;
+    ssd:degradedBy "0.41" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    ssd:unit "MeV" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E3_SSD_64G_MLC a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SSD_64G_MLC" ;
+    ssd:degradedBy "0.41" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> ;
+    ssd:operatesUnder ssd:E4_EC1 ;
+    ssd:unit "MeV" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> rdfs:label "Radiation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> rdfs:label "SLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> rdfs:label "MLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC> .
+
+ssd:E4_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasExternalFactor <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+

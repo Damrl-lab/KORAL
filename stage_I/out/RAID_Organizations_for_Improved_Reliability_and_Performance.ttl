@@ -1,0 +1,227 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:E6_FAWN a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/Offload%2520Engines>,
+        owl:Thing ;
+    rdfs:label "FAWN" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/Offload%2520Engines> .
+
+ssd:axiom_22ffaf6e a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_355da74d a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_4a96703d a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_565fd46d a owl:Axiom ;
+    rdfs:comment "hasSMARTAttribute rdfs:domain SSD; rdfs:range MetricsHealthAndState/SMARTAttribute." .
+
+ssd:axiom_65e11928 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_665626ef a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_677fc160 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_8af1b5d5 a owl:Axiom ;
+    rdfs:comment "hasRelativeHumidity rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_8d8a8571 a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_bc8e688f a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_ed53c34c a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0a62ad022e4d4abf8c8632c3f62fb5dc> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/MTBF> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/389b79af72a24b20919f8fcfb57867e4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/48035d8c05264006a0eb46405b624c6f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/5dada478b25c4effaa06a15f09c85520> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/623ba652f6b14710ae3da9f804d154de> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:predicate ssd:hasSMARTAttribute ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/79ed084f1a5442e5887003ffe6dacdac> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/7ef14f141d43442481ec8fdd6b45f556> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E8_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E7_EC1 ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/a1e160f0c35747d98da24a3de34f699d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "50" ;
+    ssd:predicate ssd:hasRelativeHumidity ;
+    ssd:subject ssd:E7_EC1 ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/bec6bdcd20ee49eb83657bfe84cb3e74> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/c8b3c4d0f8574a4aa1beb749da5dc3d4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+<http://example.org/ssd/assertion/dfb4e523efb7410b8d41f36d5447f459> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "25" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E7_EC1 ;
+    dct:source "NAND flash SSDs which use less power, incur very low latency, provide high bandwidth, and are more reliable than HDDs are expected to replace HDDs as their prices drop." .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> rdfs:label "RAID1/5",
+        "RAID5",
+        "RAID5/1",
+        "RAID6" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity> rdfs:label "Humidity" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E8_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "99th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Average Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/MTBF> rdfs:label "MTBF" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/MTBF> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> rdfs:label "UBER" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> rdfs:label "SMARTAttribute" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> .
+
+ssd:E7_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasRelativeHumidity "50" ;
+    ssd:hasTemperature "25" ;
+    ssd:hasWorkloadProfile ssd:E8_WP1 ;
+    ssd:unit "C",
+        "RH" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:improves a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasSMARTAttribute <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/MTBF>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    ssd:operatesUnder ssd:E7_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+

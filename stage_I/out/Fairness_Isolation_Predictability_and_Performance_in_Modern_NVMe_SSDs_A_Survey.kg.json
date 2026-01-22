@@ -1,0 +1,155 @@
+{
+  "paper_id": "SSD_Fairness_Isolation_Predictability_Performance_Management_NVMe_Survey",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E3",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E4",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "FLIN",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E6",
+      "label": "D2FQ",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E7",
+      "label": "MDev-NVMe",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware"
+    },
+    {
+      "id": "E8",
+      "label": "SPDK vhost-NVMe",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware"
+    },
+    {
+      "id": "E9",
+      "label": "LPNS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E2",
+      "evidence": "Modern NVMe devices are capable of millions of IOPS in throughput and low microsecond latencies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformanceMetric",
+      "o": "E3",
+      "evidence": "Modern NVMe devices are capable of millions of IOPS in throughput and low microsecond latencies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformanceMetric",
+      "o": "E4",
+      "evidence": "Modern NVMe devices are capable of millions of IOPS in throughput and low microsecond latencies.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "The Flash-Level INterference-aware scheduler (FLIN) is a transaction scheduler for SSDs that aims to provide fairness and performance.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "Device-Direct Fair Queueing (D2FQ) is an I/O scheduler that is also implemented for Linux.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "MDev-NVMe is a mediated passthrough mechanism for NVMe.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "SPDK vhost-NVMe is a userspace storage target that communicates with the guest OS driver through shared memory.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "improves",
+      "o": "E1",
+      "evidence": "LPNS is a mediated passthrough virtualization system inspired by MDev-NVMe, that also provides predictable latencies.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "hasInterfaceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/InterfaceType.",
+    "hasPerformanceMetric rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a direct match under InterfaceType."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a direct match under Performance."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Average Latency is a direct match under Performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Fairness, Isolation, Predictability and Performance in Modern NVMe SSDs A Survey.pdf"
+}

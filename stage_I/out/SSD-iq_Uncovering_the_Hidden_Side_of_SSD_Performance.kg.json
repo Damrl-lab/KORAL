@@ -1,0 +1,270 @@
+{
+  "paper_id": "SSD-iq:Uncoveringthe HiddenSideofSSD Performance",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "Samsung PM9A3",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "Micron 7450 PRO",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E9",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E10",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E11",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E12",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning"
+    },
+    {
+      "id": "E13",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E14",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Table 1 shows the specifications for five data center NVMe SSDs containing TLC flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "Table 1 shows the specifications for five data center NVMe SSDs containing TLC flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We study the performance characteristics of commercial data center SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We study the performance characteristics of commercial data center SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Our findings indicate that for write-intensive workloads, the experiments associated to the six standard performance metrics are insufficient.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Our findings indicate that for write-intensive workloads, the experiments associated to the six standard performance metrics are insufficient.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "Our findings indicate that for write-intensive workloads, the experiments associated to the six standard performance metrics are insufficient.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasAccessPattern",
+      "o": "E8",
+      "evidence": "The random write performance of SK Hynix (h) and Samsung (s) appears similar in their specifications.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasBlockSize",
+      "o": "E9",
+      "evidence": "For all experiments in this paper we used iob with the io_uring backend and non-buffered I/O (O_DIRECT) directly on the block device using 4KiB pages.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "The random write performance of SK Hynix (h) and Samsung (s) appears similar in their specifications.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E11",
+      "evidence": "The Micron SSDs exhibit a P99.9 latency that is two orders of magnitude higher than average.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E12",
+      "evidence": "WAF is 25% higher for s than for m (WAF is between 4.2 and 4.4 for s, while it is between 3.2 and 3.5 for m).",
+      "confidence": 0.7
+    },
+    {
+      "s": "E5",
+      "p": "degrades",
+      "o": "E12",
+      "evidence": "WAF is 25% higher for s than for m (WAF is between 4.2 and 4.4 for s, while it is between 3.2 and 3.5 for m).",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "correlatesWith",
+      "o": "E13",
+      "evidence": "The SSD is responsible for the evolution of throughput over time. Initially, throughput is high... Then Garbage Collection (GC) kicks in.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "correlatesWith",
+      "o": "E13",
+      "evidence": "The SSD is responsible for the evolution of throughput over time. Initially, throughput is high... Then Garbage Collection (GC) kicks in.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E14",
+      "evidence": "The Samsung SSD (s) performs well with stable latency under load.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSDs in the context of data centers."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies TLC flash technology for the SSDs."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The paper focuses on write-intensive workloads."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses random write performance."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies 4KB block size for experiments."
+    },
+    {
+      "label": "Over-Provisioning",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses over-provisioning in the context of WAF."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "SSD-iq Uncovering the Hidden Side of SSD Performance.pdf"
+}

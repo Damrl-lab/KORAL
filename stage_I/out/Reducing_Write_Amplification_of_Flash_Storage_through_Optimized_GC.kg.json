@@ -1,0 +1,223 @@
+{
+  "paper_id": "Reducing Write Amplification of Flash Storage through Cooperative Data Management with NVM",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E5",
+      "label": "Sequential",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E6",
+      "label": "Mixed",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E7",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E8",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E9",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E10",
+      "label": "NVM Cache",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers"
+    },
+    {
+      "id": "E11",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Flash memory is widely used as storage in high-end systems as well as small embedded devices.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We observe the write amplification factor with respect to the workload characteristics by using two synthetic workloads (Random and Sequential) and two real workloads (JEDEC and OLTP).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "We observe the write amplification factor with respect to the workload characteristics by using two synthetic workloads (Random and Sequential) and two real workloads (JEDEC and OLTP).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "We observe the write amplification factor with respect to the workload characteristics by using two synthetic workloads (Random and Sequential) and two real workloads (JEDEC and OLTP).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": "E6",
+      "evidence": "However, most workloads in real systems are a certain mixture of sequential and random workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": "E7",
+      "evidence": "Each operation is in 8 sector (4KB) units and the total footprint is 20GB.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "This scheme eliminates the copy-out operation for a substantial number of cached data, thereby enhancing garbage collection efficiency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "degrades",
+      "o": "E9",
+      "evidence": "Such write amplification degrades the performance of flash storage and also reduces the lifetime of flash storage.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasCache",
+      "o": "E10",
+      "evidence": "Our scheme basically considers NVM as the cache of flash storage.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "Due to the large reduction in garbage collection overhead, CDM improves the average response time by 9.7% and 20.3% and reduces the average standard deviation by 31% and 39% for JEDEC and OLTP, respectively.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "improves rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Garbage Collection.",
+    "degrades rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement.",
+    "hasCache rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/CacheAndBuffers."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned."
+    },
+    {
+      "label": "Sequential",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Sequential access pattern is explicitly mentioned."
+    },
+    {
+      "label": "Mixed",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "mapping_decision": "exact",
+      "notes": "Mixed access pattern is explicitly mentioned."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is explicitly mentioned."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage collection is explicitly mentioned."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a factor impacting media management."
+    },
+    {
+      "label": "NVM Cache",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/CacheAndBuffers",
+      "mapping_decision": "parent",
+      "notes": "NVM cache is a type of cache and buffer."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "Performance improvement is a general metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Reducing Write Amplification of Flash Storage through Optimized GC.pdf"
+}

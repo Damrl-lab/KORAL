@@ -1,0 +1,141 @@
+{
+  "paper_id": "Improving_3D_NAND_Flash_Memory_Lifetime",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Layer-to-Layer Process Variation",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E3",
+      "label": "Early Retention Loss",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E4",
+      "label": "Retention Interference",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E5",
+      "label": "LaVAR",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "LI-RAID",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID5"
+    },
+    {
+      "id": "E7",
+      "label": "ReMAR",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E8",
+      "label": "ReNAC",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "exhibits",
+      "o": "E2",
+      "evidence": "3D NAND flash memory exhibits layer-to-layer process variation, a new phenomenon specific to the 3D nature of the device.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "exhibits",
+      "o": "E3",
+      "evidence": "3D NAND flash memory experiences early retention loss, a new phenomenon where the number of errors due to charge leakage increases quickly within several hours after programming.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "exhibits",
+      "o": "E4",
+      "evidence": "3D NAND flash memory experiences retention interference, a new phenomenon where the rate at which charge leaks from a flash cell is dependent on the amount of charge stored in neighboring flash cells.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E5",
+      "evidence": "Our first technique, LayerVariation Aware Reading (LaVAR), reduces the effect of layer-to-layer process variation by fine-tuning the read reference voltage separately for each layer.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E6",
+      "evidence": "Our second technique, Layer-Interleaved Redundant Array of Independent Disks (LI-RAID), uses information about layer-to-layer process variation to intelligently group pages under the RAID error recovery technique.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E7",
+      "evidence": "Our third technique, Retention Model Aware Reading (ReMAR), reduces retention errors in 3D NAND flash memory by tracking the retention time of the data using our new retention model.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E8",
+      "evidence": "Our fourth technique, Retention Interference Aware Neighbor-Cell Assisted Correction (ReNAC), adapts the read reference voltage to the amount of retention interference a page has experienced.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "exhibits rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Wear Leveling.",
+    "improvedBy rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Wear Leveling."
+  ],
+  "mappings": [
+    {
+      "label": "Layer-to-Layer Process Variation",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "parent",
+      "notes": "Mapped to ECC as it relates to error correction in 3D NAND."
+    },
+    {
+      "label": "Early Retention Loss",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Wear Leveling due to its impact on retention errors."
+    },
+    {
+      "label": "Retention Interference",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Wear Leveling due to its impact on retention errors."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Improving 3D NAND Flash Memory Lifetime by Tolerating Early Retention Loss and Process Variation.pdf"
+}

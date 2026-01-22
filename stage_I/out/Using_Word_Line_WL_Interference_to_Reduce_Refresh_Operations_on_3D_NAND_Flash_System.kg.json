@@ -1,0 +1,128 @@
+{
+  "paper_id": "Using_Word_Line_Interference_to_Reduce_Refresh_Operations_on_3D_NAND_Flash_System",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Read Response Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "Write Response Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "Retention Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "The effectiveness of proposed technique is firstly verified with A 64L 3D TLC NAND flash test chip from YMTC.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "The effectiveness of proposed technique is firstly verified with A 64L 3D TLC NAND flash test chip from YMTC.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Compared with previous work, as a result of refresh reduction, the read and write response time are decreased by 34.2% and 46.5% respectively.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E5",
+      "p": "improvedBy",
+      "o": {
+        "@value": "0.342",
+        "unit": "fraction"
+      },
+      "evidence": "Compared with previous work, as a result of refresh reduction, the read and write response time are decreased by 34.2% and 46.5% respectively.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E5",
+      "p": "improvedBy",
+      "o": {
+        "@value": "0.465",
+        "unit": "fraction"
+      },
+      "evidence": "Compared with previous work, as a result of refresh reduction, the read and write response time are decreased by 34.2% and 46.5% respectively.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "With the observation that retention time can be extended by WL interference, this paper first proposes to extend retention time with WL interference practically.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "improvedBy rdfs:domain MetricsHealthAndState/Performance; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Retention Time",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Retention time is a key aspect of media management in NAND flash."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Using_Word_Line_WL_Interference_to_Reduce_Refresh_Operations_on_3D_NAND_Flash_System.pdf"
+}

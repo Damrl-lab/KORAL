@@ -1,0 +1,114 @@
+{
+  "paper_id": "2020_IEEE_BigData_Failure_Prediction",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "Acoustic Signals",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Acoustic Signals",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Acoustic%20Signals"
+    },
+    {
+      "id": "E5",
+      "label": "NAS_System_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E7",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E5",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "This work proposes a correlation-based multimodal anomaly detection approach. This approach is applied to a Network-Attached Storage (NAS) system with multiple hard disk drives (HDDs) and three sensors, which are a thermal camera, a microphone, and system performance logs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "High-Performance Computing (HPC) systems in datacenters are the core components in this Industry 4.0 era.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasTemperature",
+      "o": "E3",
+      "evidence": "Lee et al. [4] found that thermal cameras are useful to detect thermal anomalies as hotspots and coldspots for servers in a cloud datacenter.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasAcousticSignals",
+      "o": "E4",
+      "evidence": "The unimodal results show that the auditory and system performance model can detect temporal anomalies, and the thermal model can detect spatial anomalies.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "We evaluated the performance of the proposed approach applying on a small-scaled NAS system with 20 HDDs. We performed experiments to collect real-time sensing data while the NAS system is operating file transferring jobs.",
+      "confidence": 0.7
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasAcousticSignals rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Acoustic Signals."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a factor in the anomaly detection approach."
+    },
+    {
+      "label": "Acoustic Signals",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Acoustic Signals",
+      "mapping_decision": "exact",
+      "notes": "Acoustic signals are used for anomaly detection via microphones."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Failure_Prediction_in_Datacenters_Using_Unsupervised_Multimodal_Anomaly_Detection.pdf"
+}

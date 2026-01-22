@@ -1,0 +1,169 @@
+{
+  "paper_id": "Liu_2019_Characterizing_Reliability_3D_Charge_Trap_NAND",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D CT TLC NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E5",
+      "label": "RBER",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E6",
+      "label": "P/E Cycles",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts"
+    },
+    {
+      "id": "E7",
+      "label": "Vth Shifting",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts"
+    },
+    {
+      "id": "E8",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E9",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Recent years, 3D TLC NAND flash is gradually widely used in data center, smart devices, and personal computers due to higher storage capacity than planar NAND flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "85",
+        "unit": "C"
+      },
+      "evidence": "We bake the chips to accelerate the speed of retention at 85°C, and we calculate the acceleration factor (AF) by the Arrhenius equation.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E9",
+      "evidence": "3D charge trap (CT) triple-level cell (TLC) NAND flash gradually becomes a mainstream storage component due to high storage capacity and performance.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "hasStructure",
+      "o": "E8",
+      "evidence": "3D charge trap (CT) triple-level cell (TLC) NAND flash gradually becomes a mainstream storage component due to high storage capacity and performance.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "The CT cell can improve the endurance, reliability and reduce the latencies of NAND flash, compared with FG.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "impacts",
+      "o": "E5",
+      "evidence": "RBER increase as the growth of P/E cycles.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "impacts",
+      "o": "E5",
+      "evidence": "The Vth shifting will lead to RBER changes directly, it is critical for research the reliability of NAND flash.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "hasStructure rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure.",
+    "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Reliability.",
+    "impacts rdfs:domain SSD/ModelingTimeAndStateHistory/CoreConcepts; rdfs:range SSD/MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned and measured in Celsius."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a key focus of the paper."
+    },
+    {
+      "label": "RBER",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "parent",
+      "notes": "RBER is a specific reliability metric related to UBER."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D structure is explicitly mentioned."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned as the cell type."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Characterizing the Reliability and Threshold Voltage Distribution of 3D Charge-Trap NAND Flash.pdf"
+}

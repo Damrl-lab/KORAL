@@ -1,0 +1,104 @@
+{
+  "paper_id": "10.1109/TDMR.2021.3063164",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D_TLC_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E6",
+      "label": "RandomForestModel",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "NAND-BASED solid state drives (SSDs) have been increasingly popular in distributed datacenters and enterprise storage systems today because of huge advantages in performance, power consumption and size over traditional hard disk drives (HDDs).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "30",
+        "unit": "C"
+      },
+      "evidence": "Although the temperature difference between healthy and failed SSDs is indistinctive with only several degrees, failed drives still have a slightly higher temperature considering their inner voltage distribution is more likely to drift.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "monitoredBy",
+      "o": "E4",
+      "evidence": "This paper for the first time investigates system-level 3D TLC SSDs to characterize reliability and sub-health status based on field Self-Monitoring, Analysis and Reporting Technology (SMART) data, and predict impending failure proactively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasReliability",
+      "o": "E5",
+      "evidence": "Reliability characterization and failure prediction of 3D TLC SSDs in large-scale storage systems.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Experimental results show that random forest model can achieve 0.636 f1-score and 0.662 MCC for a 7-day prediction horizon.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "monitoredBy rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "hasReliability rdfs:domain SSD; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned in the context of SSD reliability."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Reliability_Characterization_and_Failure_Prediction_of_3D_TLC_SSDs_in_Large-Scale_Storage_Systems.pdf"
+}

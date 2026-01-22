@@ -1,0 +1,123 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2a158b2a a owl:Axiom ;
+    rdfs:comment "hasFileSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range File System." .
+
+ssd:axiom_338f1444 a owl:Axiom ;
+    rdfs:comment "hasOperatingSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Operating System." .
+
+ssd:axiom_9627d864 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1710dc0f78fe458aaf32af96307a8bf6> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_Windows_10 ;
+    ssd:predicate ssd:hasOperatingSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Our results show that space is not a factor, but there are differences in the allocation behavior between Windows 7 and Windows 10." .
+
+<http://example.org/ssd/assertion/3ff7352b48c745569baf93d83731c6d4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "The aim of the project is to gain knowledge on the allocation behavior of NTFS in different modern versions of Windows (versions 7 to 10) and especially if and how the behavior changes over time." .
+
+<http://example.org/ssd/assertion/8351f5836b5a42259227e4e9bbaa51c3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E5_NTFS ;
+    ssd:predicate ssd:hasFileSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Windows uses New Technology File System (NTFS) as the default file system and we have therefore chosen to study the allocation behavior of NTFS in recent versions of Windows." .
+
+<http://example.org/ssd/assertion/a19941cc02274ccca4f69b8870590596> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E6_Windows_7 ;
+    ssd:predicate ssd:hasOperatingSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "Our results show that space is not a factor, but there are differences in the allocation behavior between Windows 7 and Windows 10." .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E5_NTFS a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "NTFS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E6_Windows_7 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System>,
+        owl:Thing ;
+    rdfs:label "Windows 7" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+
+ssd:E7_Windows_10 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System>,
+        owl:Thing ;
+    rdfs:label "Windows 10" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> rdfs:label "File System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasFileSystem ssd:E5_NTFS ;
+    ssd:hasOperatingSystem ssd:E6_Windows_7,
+        ssd:E7_Windows_10 ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> rdfs:label "Operating System" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%2520System> .
+

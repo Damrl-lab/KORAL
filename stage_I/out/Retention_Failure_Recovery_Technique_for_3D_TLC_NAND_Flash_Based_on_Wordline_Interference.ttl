@@ -1,0 +1,162 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_2fdab78c a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_332ea2b4 a owl:Axiom ;
+    rdfs:comment "degradedBy rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement." .
+
+ssd:axiom_6635fe47 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_ee986a3f a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement; rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/00c663a181234bf6b6f2227f84fb3d3e> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_WL_Interference ;
+    ssd:predicate ssd:degradedBy ;
+    ssd:subject ssd:E7_Retention_Error ;
+    dct:source "WI can be utilized to recharge retention-failed cells." .
+
+<http://example.org/ssd/assertion/363a2536c5a34daf8f84d9c6d2964cba> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E2_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_TLC_SSD_1 ;
+    dct:source "The experimental results show that the proposed data recovery technique outperforms the state-of-the-art ADROP technique in both data recovery efficiency and capability by 12.92x and 2.28x respectively." .
+
+<http://example.org/ssd/assertion/47517fd849c147e4aa52a5f2df8e1525> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_TLC_SSD_1 ;
+    dct:source "In this paper, a high-efficient data recovery technique is proposed for 3D TLC NAND flash memory." .
+
+<http://example.org/ssd/assertion/7544037acda646258db7dea8371178dd> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:objectLiteral "Random" ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EC1 ;
+    dct:source "The data transferred to NAND flash chip is processed by randomizer firstly, so that the data patterns in aggressor/target pages are approximately random." .
+
+<http://example.org/ssd/assertion/775814e6bc354b7996f6b8b7eaaa1dba> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E4_Data_Recovery ;
+    dct:source "With data errors exceeding ECC correction capability due to the retention process, the data recovery technique is a straightforward way to reduce retention errors to be correctable by ECC." .
+
+<http://example.org/ssd/assertion/cae6789c23f74a8aa2fb20b65567941f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:objectLiteral "83.3" ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E9_Retention_Time ;
+    dct:source "In the 3 K PE cycles condition, the retention time is extended by 83.3x at most with proposed technique." .
+
+<http://example.org/ssd/assertion/dd06a1af8d2e436e99580a4af8960cbb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E4_Data_Recovery ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E6_WL_Interference ;
+    dct:source "The WL Interference (WI) is utilized to recharge retention-failed cells." .
+
+ssd:E7_Retention_Error a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Retention Error" ;
+    ssd:degradedBy ssd:E6_WL_Interference ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E9_Retention_Time a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance>,
+        owl:Thing ;
+    rdfs:label "Retention Time" ;
+    ssd:improvedBy "83.3" ;
+    ssd:unit "times" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance> .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> rdfs:label "Performance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance> .
+
+ssd:E1_3D_TLC_SSD_1 a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D_TLC_SSD_1" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder ssd:E2_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:E2_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasWorkloadProfile "Random" ;
+    ssd:unit "AccessPattern" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E4_Data_Recovery a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "Data Recovery" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+ssd:E6_WL_Interference a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement>,
+        owl:Thing ;
+    rdfs:label "WL Interference" ;
+    ssd:improves ssd:E4_Data_Recovery ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "ECC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+

@@ -1,0 +1,211 @@
+{
+  "paper_id": "Deploying Computational Storage for HTAP DBMSs Takes More Than Just Computation Offloading",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Mixed",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Mixed",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Mixed"
+    },
+    {
+      "id": "E6",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "Samsung SC1733 SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E9",
+      "label": "FPGA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/Cores",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/Cores"
+    },
+    {
+      "id": "E10",
+      "label": "In-Drive Processing",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive%20Processing"
+    },
+    {
+      "id": "E11",
+      "label": "Query Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We implemented the vendor-neutral execution logic in commodity computational storage: Samsung SC1733 SSD [53] having 4 TiB capacity with Xilinx field-programmable gate arrays (FPGAs) embedded.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "We implemented our prototype for PostgreSQL and MyRocks, demonstrating that AIDE supports efficient ISP for two databases using the same FPGA logic.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Evaluation results show that AIDE improves query latency up to 42× on PostgreSQL and 34× on MyRocks.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "In HTAP environments like TPC-CH [12], we offload a subtree of an original query plan tree that would suffer from redundant, random access under massive updates but exhibit high selectivity.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "Since MyRocks internally relies on the RocksDB storage engine, it has to reformat key-value data into MySQL record formats.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E7",
+      "p": "hasInterfaceType",
+      "o": "E8",
+      "evidence": "Our CSD comprises an NVMe SSD and an acceleration card, including FPGA logic and memory (4 GiB).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "hasController",
+      "o": "E9",
+      "evidence": "Our CSD comprises an NVMe SSD and an acceleration card, including FPGA logic and memory (4 GiB).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "supports",
+      "o": "E10",
+      "evidence": "Evaluation results show that AIDE improves query latency up to 42× on PostgreSQL and 34× on MyRocks.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "Evaluation results show that AIDE improves query latency up to 42× on PostgreSQL and 34× on MyRocks.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasController rdfs:domain SSD; rdfs:range Controller.",
+    "supports rdfs:domain SSD; rdfs:range ComputationalStorage.",
+    "improves rdfs:domain ComputationalStorage; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses deployment in enterprise environments."
+    },
+    {
+      "label": "Mixed",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Mixed",
+      "mapping_decision": "exact",
+      "notes": "The workload involves mixed access patterns due to HTAP."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The workload is write-heavy due to continuous updates."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper specifies NVMe interface for the SSD."
+    },
+    {
+      "label": "FPGA",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/Cores",
+      "mapping_decision": "exact",
+      "notes": "The SSD uses FPGA for computational storage."
+    },
+    {
+      "label": "In-Drive Processing",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ComputationalStorage/In-Drive Processing",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses in-drive processing capabilities."
+    },
+    {
+      "label": "Query Latency",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper measures improvements in query latency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Deploying Computational Storage for HTAP DBMSs AIDE.pdf"
+}

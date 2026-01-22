@@ -1,0 +1,142 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_234bfd2a a owl:Axiom ;
+    rdfs:comment "uses rdfs:domain SSD; rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)." .
+
+ssd:axiom_2a6c1de7 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_6540de08 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_9249a694 a owl:Axiom ;
+    rdfs:comment "hasStructure rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/1a327be0120548b1964ff78e15509c9f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    ssd:predicate ssd:uses ;
+    ssd:subject ssd:E1_3D_TLC_NAND_Flash_Memory ;
+    dct:source "When the error correction code (ECC) is unable to correct the read data owing to the retention loss by the lateral charge migration and vertical charge escape, the data recovery technique directly correct most of the errors." .
+
+<http://example.org/ssd/assertion/417295b8aec04325bcd2b1f666067007> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_TLC_NAND_Flash_Memory ;
+    dct:source "3D charge-trapping (CT) type NAND flash memory has become a major high-density mass storage technology." .
+
+<http://example.org/ssd/assertion/61ff1fe441024822808bcd3833e98c91> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:objectLiteral "0.2" ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject ssd:E6_Data_Recovery_Technique ;
+    dct:source "The proposed IP technique surpasses the word-line interference (WI) technique in various ways, such as data recovery capability, retention, and the erasable neighboring wordline." .
+
+<http://example.org/ssd/assertion/655d21fe912946e3aabe904c8cdf1f6a> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:predicate ssd:hasStructure ;
+    ssd:subject ssd:E1_3D_TLC_NAND_Flash_Memory ;
+    dct:source "3D charge-trapping (CT) type NAND flash memory has become a major high-density mass storage technology." .
+
+<http://example.org/ssd/assertion/831e3d83126142f5a88deac8445b6fb1> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E7_Retention_Errors ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E6_Data_Recovery_Technique ;
+    dct:source "The proposed IP technique surpasses the word-line interference (WI) technique in various ways, such as data recovery capability, retention, and the erasable neighboring wordline." .
+
+<http://example.org/ssd/assertion/d7dde6a714dc41de8cce4eb431426ba0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_TLC_NAND_Flash_Memory ;
+    dct:source "3D charge-trapping (CT) type NAND flash memory has become a major high-density mass storage technology." .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E6_Data_Recovery_Technique a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "Data Recovery Technique" ;
+    ssd:improvedBy "0.2" ;
+    ssd:improves ssd:E7_Retention_Errors ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+
+ssd:E7_Retention_Errors a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability>,
+        owl:Thing ;
+    rdfs:label "Retention Errors" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> rdfs:label "Error Correction (ECC)" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+ssd:E1_3D_TLC_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D TLC NAND Flash Memory" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:hasStructure <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:uses <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%2520Correction%2520%2528ECC%2529> ;
+    rdfs:isDefinedBy tax:SSD .
+

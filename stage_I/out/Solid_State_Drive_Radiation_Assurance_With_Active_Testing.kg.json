@@ -1,0 +1,131 @@
+{
+  "paper_id": "Solid State Drive Radiation Assurance With Active Testing",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Micron_256GB_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Radiation",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "SLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC"
+    },
+    {
+      "id": "E5",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The automotive- and industrial-grade SSDs listed in Table I were tested for total ionizing dose (TID) and single-event effects (SEE) response at the assembly level under a variety of operational modes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "-40 to +95",
+        "unit": "C"
+      },
+      "evidence": "Operating M.2: -40 to +95 -40 to +85",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasRadiation",
+      "o": "E2",
+      "evidence": "A radiation evaluation of currently-available memories has been conducted at the assembly level using high-energy heavy-ion beams at the NASA Space Radiation Laboratory (NSRL), 200 MeV protons at the Massachusetts General Hospital’s Francis H. Burr Proton Therapy Center (MGH), and 1 MeV gamma rays at the NASA Goddard Space Flight Center’s Radiation Effects Facility (GSFC REF).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The NAND flash memories onboard were configured in single-level cell (SLC) or triple-level cell (TLC) by the manufacturer, and in the case of the Micron device, provisioned from TLC to SLC in certain devices before heavy-ion testing.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "The SEE and TID test flows are depicted in Fig. 4 and Fig. 5. In each case, test data was 1,024 (SEE) or 4,096 (TID) random locations each written with 1,024 kB of pseudorandom data.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasRadiation rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Radiation."
+  ],
+  "mappings": [
+    {
+      "label": "Radiation",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Radiation",
+      "mapping_decision": "exact",
+      "notes": "Radiation is explicitly mentioned and fits under ExternalFactors."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "SLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "mapping_decision": "exact",
+      "notes": "SLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "Temperature",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned and fits under ExternalFactors."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Solid State Drive Radiation Assurance With Active Testing.pdf"
+}

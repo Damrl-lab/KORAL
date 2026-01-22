@@ -1,0 +1,235 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_3319e141 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range InterfaceType." .
+
+ssd:axiom_4b3e1283 a owl:Axiom ;
+    rdfs:comment "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_56dde479 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:axiom_64101cce a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_765491c7 a owl:Axiom ;
+    rdfs:comment "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_7b6a69ef a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_ca230699 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_ec61cad5 a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:axiom_ef2856ff a owl:Axiom ;
+    rdfs:comment "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/0f22246ff023428d94625ed1a762a816> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "We ran our experiments on three types of devices: two HDDs (SATA vs. SAS) and one (SATA) SSD." .
+
+<http://example.org/ssd/assertion/3a9c3119864a4887809f6544136e9b46> a ssd:Assertion ;
+    ssd:confidence 0.7 ;
+    ssd:objectLiteral "QD1" ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack." .
+
+<http://example.org/ssd/assertion/3e578cc72c9a40d5b9f0242c465ce058> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "4KB" ;
+    ssd:predicate ssd:hasBlockSize ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "For the three file systems above we experimented with the following nine parameters. (1) Block size." .
+
+<http://example.org/ssd/assertion/4131fb39f2da4f19822a6b77ba3c5fc6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E9_Btrfs ;
+    ssd:predicate ssd:hasFileSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We focused on three local file systems (Ext4, XFS, and Btrfs) which are used in many modern local and distributed environments." .
+
+<http://example.org/ssd/assertion/4494c74fe35146af90b0b4c9df3ce0cb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E8_XFS ;
+    ssd:predicate ssd:hasFileSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We focused on three local file systems (Ext4, XFS, and Btrfs) which are used in many modern local and distributed environments." .
+
+<http://example.org/ssd/assertion/54d60ff226eb4041a79dfc9fa5befb9e> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "Balanced" ;
+    ssd:predicate ssd:hasReadWriteMix ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack." .
+
+<http://example.org/ssd/assertion/6017a9aa04a54232b1e11539516055bd> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "We found that unpredictable layouts in Ext4 could cause over 16–19% of performance variation in some cases." .
+
+<http://example.org/ssd/assertion/71c03aa07e304931a33bfe149f5d2008> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E3_WorkloadProfile ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack." .
+
+<http://example.org/ssd/assertion/7cd097dae17b49c2b646a3bd32dd6cff> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "We ran our experiments on three types of devices: two HDDs (SATA vs. SAS) and one (SATA) SSD." .
+
+<http://example.org/ssd/assertion/9c6057fcee044979959ca9c494a4e52e> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "We analyzed latency variations from various aspects, and proposed a novel approach for quantifying the impacts of each operation type on overall performance variation." .
+
+<http://example.org/ssd/assertion/c6c43d206a2648e3a98083a304a9de95> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject tax:SSD ;
+    dct:source "We found that unpredictable layouts in Ext4 could cause over 16–19% of performance variation in some cases." .
+
+<http://example.org/ssd/assertion/e543022b8996435a844124076f60699c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_Ext4 ;
+    ssd:predicate ssd:hasFileSystem ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We first encountered such variations in experiments using Ext4: multiple runs of the same workload in a carefully controlled environment produced widely different performance results." .
+
+<http://example.org/ssd/assertion/f099255ae5624e2aa8a0c7aaa18dc56f> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "Mixed" ;
+    ssd:predicate ssd:hasAccessPattern ;
+    ssd:subject ssd:E3_WorkloadProfile ;
+    dct:source "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack." .
+
+<http://example.org/ssd/assertion/f49eaee59f4e4b69b45bf71a197eb081> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack." .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E7_Ext4 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "Ext4" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E8_XFS a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "XFS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:E9_Btrfs a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System>,
+        owl:Thing ;
+    rdfs:label "Btrfs" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%2520System> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS> rdfs:label "SAS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> rdfs:label "SATA" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasFileSystem ssd:E7_Ext4,
+        ssd:E8_XFS,
+        ssd:E9_Btrfs ;
+    ssd:hasWorkloadProfile ssd:E3_WorkloadProfile ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+ssd:E3_WorkloadProfile a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WorkloadProfile" ;
+    ssd:hasAccessPattern "Mixed" ;
+    ssd:hasBlockSize "4KB" ;
+    ssd:hasQueueDepth "QD1" ;
+    ssd:hasReadWriteMix "Balanced" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS>,
+        <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+

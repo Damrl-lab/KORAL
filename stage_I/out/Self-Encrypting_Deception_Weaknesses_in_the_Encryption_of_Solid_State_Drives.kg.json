@@ -1,0 +1,394 @@
+{
+  "paper_id": "self-encrypting-deception",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "SATA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E4",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E5",
+      "label": "M.2",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2"
+    },
+    {
+      "id": "E6",
+      "label": "2.5\"",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2"
+    },
+    {
+      "id": "E7",
+      "label": "Self-Encrypting Drive (SED)",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting Drive (SED)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting%20Drive%20%28SED%29"
+    },
+    {
+      "id": "E8",
+      "label": "TCG Opal",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/TCG Opal/Enterprise",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/TCG%20Opal/Enterprise"
+    },
+    {
+      "id": "E9",
+      "label": "Firmware Update",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Firmware%20Update"
+    },
+    {
+      "id": "E10",
+      "label": "Crucial MX100",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E11",
+      "label": "Crucial MX200",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E12",
+      "label": "Crucial MX300",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E13",
+      "label": "Sandisk X600",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E14",
+      "label": "Samsung 840 EVO",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E15",
+      "label": "Samsung 850 EVO",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E16",
+      "label": "Samsung 950 PRO",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E17",
+      "label": "Samsung T3",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E18",
+      "label": "Samsung T5",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E10",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E13",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasInterfaceType",
+      "o": "E3",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E16",
+      "p": "hasInterfaceType",
+      "o": "E4",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "hasFormFactor",
+      "o": "E6",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "hasFormFactor",
+      "o": "E6",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "hasFormFactor",
+      "o": "E6",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E13",
+      "p": "hasFormFactor",
+      "o": "E6",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "hasFormFactor",
+      "o": "E6",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasFormFactor",
+      "o": "E6",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E16",
+      "p": "hasFormFactor",
+      "o": "E5",
+      "evidence": "These drives were produced by three manufacturers between 2014 and 2018, and are both internal models using the SATA and NVMe interfaces (in a M.2 or 2.5\" traditional form factor).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Crucial (Micron) MX100 is a SA T A SSD released in 2014. It supports A T A security, as well as TCG Opal, both version 1 and 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "supports",
+      "o": "E8",
+      "evidence": "The Crucial (Micron) MX100 is a SA T A SSD released in 2014. It supports A T A security, as well as TCG Opal, both version 1 and 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Crucial MX200 is a SA T A SSD released in 2015. It is essentially an MX100 with some write performance advantages.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E11",
+      "p": "supports",
+      "o": "E8",
+      "evidence": "The Crucial MX200 is a SA T A SSD released in 2015. It is essentially an MX100 with some write performance advantages.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Crucial MX300 is a SA T A SSD released in 2016. Similar to both its predecessors, it supports the A T A security feature set, as well as TCG Opal version 1 and 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "supports",
+      "o": "E8",
+      "evidence": "The Crucial MX300 is a SA T A SSD released in 2016. Similar to both its predecessors, it supports the A T A security feature set, as well as TCG Opal version 1 and 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E13",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Sandisk X600 is a SA T A SSD released in December 2017. It is built around the same Marvell 88SS1074 controller as the Crucial MX300. The X600 supports both A T A security and TCG Opal version 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E13",
+      "p": "supports",
+      "o": "E8",
+      "evidence": "The Sandisk X600 is a SA T A SSD released in December 2017. It is built around the same Marvell 88SS1074 controller as the Crucial MX300. The X600 supports both A T A security and TCG Opal version 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Samsung 840 EVO is a SA T A SSD released in 2013. It supports A T A security, as well as TCG Opal version 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "supports",
+      "o": "E8",
+      "evidence": "The Samsung 840 EVO is a SA T A SSD released in 2013. It supports A T A security, as well as TCG Opal version 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Samsung 850 EVO is a SA T A SSD released in 2014. Similar to the 840 EVO, it supports TCG Opal version 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "supports",
+      "o": "E8",
+      "evidence": "The Samsung 850 EVO is a SA T A SSD released in 2014. Similar to the 840 EVO, it supports TCG Opal version 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E16",
+      "p": "supports",
+      "o": "E8",
+      "evidence": "The Samsung 950 PRO is an NVMe SSD released in late 2015. It supports TCG Opal version 2.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E17",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Samsung T3 portable SSD is an external drive connected through USB-3.1 Gen 1. It offers optional password protection through a proprietary command set.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E18",
+      "p": "supports",
+      "o": "E7",
+      "evidence": "The Samsung T5 portable SSD is the successor of the T3. It uses the same MGX controller found in the 850 EVO and the T3.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "hasFormFactor rdfs:domain SSD; rdfs:range FormFactor.",
+    "supports rdfs:domain SSD; rdfs:range Security."
+  ],
+  "mappings": [
+    {
+      "label": "SATA",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "mapping_decision": "exact",
+      "notes": "SATA is a direct match for the interface type."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a direct match for the interface type."
+    },
+    {
+      "label": "M.2",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/M.2",
+      "mapping_decision": "exact",
+      "notes": "M.2 is a direct match for the form factor."
+    },
+    {
+      "label": "2.5\"",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FormFactor/U.2",
+      "mapping_decision": "exact",
+      "notes": "2.5\" is a direct match for the form factor."
+    },
+    {
+      "label": "Self-Encrypting Drive (SED)",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/Self-Encrypting Drive (SED)",
+      "mapping_decision": "exact",
+      "notes": "Self-Encrypting Drive (SED) is a direct match for the security feature."
+    },
+    {
+      "label": "TCG Opal",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/Security/TCG Opal/Enterprise",
+      "mapping_decision": "exact",
+      "notes": "TCG Opal is a direct match for the security feature."
+    },
+    {
+      "label": "Firmware Update",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/Firmware Update",
+      "mapping_decision": "exact",
+      "notes": "Firmware Update is a direct match for the maintenance feature."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Self-Encrypting Deception Weaknesses in the Encryption of Solid State Drives.pdf"
+}

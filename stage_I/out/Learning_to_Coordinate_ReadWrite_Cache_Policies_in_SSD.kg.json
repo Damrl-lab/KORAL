@@ -1,0 +1,170 @@
+{
+  "paper_id": "Learning to Coordinate Read-Write Cache Policies in SSD",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "L-CoRW",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/CachingPolicies",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/CachingPolicies"
+    },
+    {
+      "id": "E3",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E4",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E5",
+      "label": "Write Amplification Factor",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E6",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E7",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E8",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E9",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "Experimental results on the latest block-level I/O traces show that L-CoRW significantly reduces the response time and tail latency by up to 48.6% and 33.7%, respectively, over the previous schemes with negligible cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "Experimental results on the latest block-level I/O traces show that L-CoRW significantly reduces the response time and tail latency by up to 48.6% and 33.7%, respectively, over the previous schemes with negligible cost.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "decreases",
+      "o": "E5",
+      "evidence": "Meanwhile, L-CoRW can reduce write amplification factor (WAF) by 9.6% to 24.7%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "Through some preliminary studies in realistic enterprise scale traces (see Section III), we find that the differences in I/O traffic and locality of the read and write requests for modern block-level I/O traces can be complementary.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "hasWorkloadProfile",
+      "o": "E7",
+      "evidence": "Through some preliminary studies in realistic enterprise scale traces (see Section III), we find that the differences in I/O traffic and locality of the read and write requests for modern block-level I/O traces can be complementary.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E8",
+      "evidence": "We find that burst I/O contains a large proportion of traffic, especially for read I/O.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E7",
+      "p": "hasReadWriteMix",
+      "o": "E9",
+      "evidence": "In addition, some aggressive caching policies also affect the SSD related properties, like WAF.",
+      "confidence": 0.7
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/CachingPolicies; rdfs:range SSD/MetricsHealthAndState/Performance.",
+    "decreases rdfs:domain SSD/InternalFirmwareAndLogic/CachingPolicies; rdfs:range SSD/MetricsHealthAndState/Endurance."
+  ],
+  "mappings": [
+    {
+      "label": "Average Latency",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Mapped to precise performance metric."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "Mapped to precise performance metric."
+    },
+    {
+      "label": "Write Amplification Factor",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "parent",
+      "notes": "Mapped under Endurance as it impacts SSD lifespan."
+    },
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "Mapped to specific deployment environment."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Mapped to specific workload profile."
+    },
+    {
+      "label": "Write-Heavy",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Mapped to specific workload profile."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Learning to Coordinate ReadWrite Cache Policies in SSD.pdf"
+}

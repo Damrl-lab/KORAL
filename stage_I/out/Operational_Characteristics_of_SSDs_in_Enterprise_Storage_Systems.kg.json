@@ -1,0 +1,201 @@
+{
+  "paper_id": "20th_USENIX_FAST22_Maneas",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Enterprise Storage System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment"
+    },
+    {
+      "id": "E3",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E4",
+      "label": "Wear Leveling",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E5",
+      "label": "DWPD",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance/DWPD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance/DWPD"
+    },
+    {
+      "id": "E6",
+      "label": "3D-TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E7",
+      "label": "SAS",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS"
+    },
+    {
+      "id": "E8",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E9",
+      "label": "WBC System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment"
+    },
+    {
+      "id": "E10",
+      "label": "AFF System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment"
+    },
+    {
+      "id": "E11",
+      "label": "Read/Write Ratio",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Our study is based on a rich collection of telemetry data from a large population of enterprise storage systems in production, comprising almost 2 million SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E6",
+      "evidence": "Our study’s SSD population comprises almost 2 million drives, which span 3 manufacturers, 20 different families, 2 interfaces (i.e., SAS and NVMe), and 4 major flash technologies, i.e., cMLC (consumer-class), eMLC (enterprise-class), 3D-TLC, and 3D-eTLC.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E7",
+      "evidence": "The last three rows involve SSDs with an NVMe storage interface, whereas all the other rows involve SAS drives.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasInterfaceType",
+      "o": "E8",
+      "evidence": "The last three rows involve SSDs with an NVMe storage interface, whereas all the other rows involve SAS drives.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "How effective are SSDs in production environments at wear leveling?",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "degradedBy",
+      "o": "E3",
+      "evidence": "Moreover, SSDs require background work, such as garbage collection and wear leveling, which generates write amplification and affects a drive’s performance and lifespan.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "hasReadWriteMix",
+      "o": "E11",
+      "evidence": "The median R/W ratio across the entire population is 4.1:1 and the 95th percentile is 150:1 (4.4× higher than for AFF).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E10",
+      "p": "hasReadWriteMix",
+      "o": "E11",
+      "evidence": "The median R/W ratio is 3.6:1 and the 95th percentile is 61:1.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "improves rdfs:domain SSD; rdfs:range MediaManagement/Wear Leveling.",
+    "degradedBy rdfs:domain SSD; rdfs:range MediaManagement/Garbage Collection.",
+    "hasReadWriteMix rdfs:domain DeploymentEnvironment; rdfs:range WorkloadProfile/ReadWriteMix."
+  ],
+  "mappings": [
+    {
+      "label": "Write Amplification",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a result of garbage collection processes."
+    },
+    {
+      "label": "Wear Leveling",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "mapping_decision": "exact",
+      "notes": "Wear leveling is directly mentioned and mapped to the taxonomy."
+    },
+    {
+      "label": "DWPD",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance/DWPD",
+      "mapping_decision": "exact",
+      "notes": "DWPD is a standard endurance metric in the taxonomy."
+    },
+    {
+      "label": "3D-TLC",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "3D-TLC is a specific type of TLC flash technology."
+    },
+    {
+      "label": "SAS",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS",
+      "mapping_decision": "exact",
+      "notes": "SAS is a specific interface type in the taxonomy."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a specific interface type in the taxonomy."
+    },
+    {
+      "label": "Read/Write Ratio",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "mapping_decision": "parent",
+      "notes": "Read/Write ratio is a component of workload profile."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Operational Characteristics of SSDs in Enterprise Storage Systems.pdf"
+}

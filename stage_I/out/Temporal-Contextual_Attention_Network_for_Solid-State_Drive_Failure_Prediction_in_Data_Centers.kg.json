@@ -1,0 +1,110 @@
+{
+  "paper_id": "10.1 109/ACCESS.2024.3482368",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "TCAN",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/DerivedIndicators",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/DerivedIndicators"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "Proactive strategies for predicting solid state drive(SSD) failures are imperative to ensure uninterrupted services in data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "Proactive strategies for predicting solid state drive(SSD) failures are imperative to ensure uninterrupted services in data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "In data centers, the deployment of SSDs has enabled the seamless handling of massive amount of data and complex computations.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "monitoredBy",
+      "o": "E4",
+      "evidence": "A widely employed scheme for predicting failure in the storage domain is the utilization of SMART(Self-Monitoring, Analysis and Reporting Technology), which encompasses various attributes that span SSD functionality.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E1",
+      "p": "failurePredictedBy",
+      "o": "E7",
+      "evidence": "In this study, we introduce a temporal-contextual attention network(TCAN), a pioneering method that integrates long short-term memory(LSTM) and transformer architectures to address the limitations of existing schemes.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "monitoredBy rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "failurePredictedBy rdfs:domain SSD; rdfs:range DerivedIndicators."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct external factor affecting SSDs."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Temporal-Contextual_Attention_Network_for_Solid-State_Drive_Failure_Prediction_in_Data_Centers.pdf"
+}

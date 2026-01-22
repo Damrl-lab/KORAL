@@ -1,0 +1,115 @@
+{
+  "paper_id": "Stavrinos2021",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "ZNS_SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "ZonedNamespaces",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces"
+    },
+    {
+      "id": "E4",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "WriteAmplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "ZNS is a new SSD interface that dominates the conventional block interface in nearly every way.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "Cloud and datacenter services demand low-latency access to massive datasets.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "ZNS SSDs dominate conventional devices in nearly every way: they are cheaper, expose a more useful abstraction to hosts, and may get better performance.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "reduces",
+      "o": "E6",
+      "evidence": "ZNS SSDs do not do garbage collection, since the erasure blocks in a zone are always completely invalidated and erased when the zone is reset.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/ZonedNamespaces.",
+    "improves rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance.",
+    "reduces rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Garbage Collection."
+  ],
+  "mappings": [
+    {
+      "label": "ZonedNamespaces",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces",
+      "mapping_decision": "exact",
+      "notes": "Zoned Namespaces is directly mentioned and fits the taxonomy."
+    },
+    {
+      "label": "Datacenter",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses datacenter environments explicitly."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "The paper discusses general performance improvements."
+    },
+    {
+      "label": "WriteAmplification",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a result of garbage collection."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Zoned Namespaces Make Work on Conventional SSDs Easier (position).pdf"
+}

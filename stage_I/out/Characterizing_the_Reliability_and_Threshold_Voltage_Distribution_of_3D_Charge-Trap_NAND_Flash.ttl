@@ -1,0 +1,163 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_210f17b9 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range SSD/MetricsHealthAndState/Reliability." .
+
+ssd:axiom_780f916a a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_79fc29c8 a owl:Axiom ;
+    rdfs:comment "impacts rdfs:domain SSD/ModelingTimeAndStateHistory/CoreConcepts; rdfs:range SSD/MetricsHealthAndState/Reliability." .
+
+ssd:axiom_86f5443d a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_b5efe0f3 a owl:Axiom ;
+    rdfs:comment "hasStructure rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure." .
+
+ssd:axiom_f7d8883f a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/406adeec48d445ab9f9e98a14d76faa4> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject ssd:E6_P_E_Cycles ;
+    dct:source "RBER increase as the growth of P/E cycles." .
+
+<http://example.org/ssd/assertion/47e89cb85ee948649f97714ea6df7878> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:predicate ssd:hasStructure ;
+    ssd:subject ssd:E1_3D_CT_TLC_NAND_Flash ;
+    dct:source "3D charge trap (CT) triple-level cell (TLC) NAND flash gradually becomes a mainstream storage component due to high storage capacity and performance." .
+
+<http://example.org/ssd/assertion/5f5b668d8fc64bb89fd73d8b6d6c2c5c> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "85" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We bake the chips to accelerate the speed of retention at 85°C, and we calculate the acceleration factor (AF) by the Arrhenius equation." .
+
+<http://example.org/ssd/assertion/8d7f4a709cef45b1978a2d38f87bc291> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E1_3D_CT_TLC_NAND_Flash ;
+    dct:source "The CT cell can improve the endurance, reliability and reduce the latencies of NAND flash, compared with FG." .
+
+<http://example.org/ssd/assertion/b674a5a29d224db7ad03e74c7922daeb> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    ssd:predicate ssd:impacts ;
+    ssd:subject ssd:E7_Vth_Shifting ;
+    dct:source "The Vth shifting will lead to RBER changes directly, it is critical for research the reliability of NAND flash." .
+
+<http://example.org/ssd/assertion/c432f24565c1478fb934db91a5a57c7b> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_CT_TLC_NAND_Flash ;
+    dct:source "Recent years, 3D TLC NAND flash is gradually widely used in data center, smart devices, and personal computers due to higher storage capacity than planar NAND flash." .
+
+<http://example.org/ssd/assertion/f2327188066549ef9c02c97e55a9b214> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_CT_TLC_NAND_Flash ;
+    dct:source "3D charge trap (CT) triple-level cell (TLC) NAND flash gradually becomes a mainstream storage component due to high storage capacity and performance." .
+
+ssd:E6_P_E_Cycles a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts>,
+        owl:Thing ;
+    rdfs:label "P/E Cycles" ;
+    ssd:impacts <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts> .
+
+ssd:E7_Vth_Shifting a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts>,
+        owl:Thing ;
+    rdfs:label "Vth Shifting" ;
+    ssd:impacts <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasTemperature "85" ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> rdfs:label "Reliability" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> rdfs:label "3D" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> .
+
+ssd:E1_3D_CT_TLC_NAND_Flash a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D CT TLC NAND Flash" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:hasStructure <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D> ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> rdfs:label "RBER" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+

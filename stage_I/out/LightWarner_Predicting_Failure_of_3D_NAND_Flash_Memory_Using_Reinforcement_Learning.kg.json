@@ -1,0 +1,199 @@
+{
+  "paper_id": "LightWarner: Predicting Failure of 3D NAND Flash Memory Using Reinforcement Learning",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E2",
+      "label": "LightWarner",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E3",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E4",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E5",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "Retention Time",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors"
+    },
+    {
+      "id": "E7",
+      "label": "P/E Cycles",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E8",
+      "label": "RBER",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER"
+    },
+    {
+      "id": "E9",
+      "label": "Uncorrectable Error",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E10",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E10",
+      "evidence": "The performance of LightWarner on six types of 3D flash chips.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E10",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "70",
+        "unit": "C"
+      },
+      "evidence": "We simulate the retention loss of 180 days at room temperature by baking flash chips under 70°C.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E10",
+      "p": "hasRetentionTime",
+      "o": "E6",
+      "evidence": "The retention test stops when the retention time achieves 15.7 h.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasReliability",
+      "o": "E4",
+      "evidence": "In 3D NAND flash memory, the reliability of storage cell is related to various factors, such as the temperature, the retention time, and the process variation.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "These errors cannot be corrected by ECC.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasEndurance",
+      "o": "E7",
+      "evidence": "The minimum number of P/E cycles that flash memory can withstand before a failure is the endurance of the flash memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasRBER",
+      "o": "E8",
+      "evidence": "The variation of RBER provides information related to NAND flash memory reliability degradation.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasUncorrectableError",
+      "o": "E9",
+      "evidence": "We take the emergence of uncorrectable errors when read operation as the failure in flash memory.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasRetentionTime rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:duration.",
+    "hasReliability rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability.",
+    "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC).",
+    "hasEndurance rdfs:domain SSD; rdfs:range MetricsHealthAndState/Endurance.",
+    "hasRBER rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability/UBER.",
+    "hasUncorrectableError rdfs:domain SSD; rdfs:range MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a factor affecting reliability."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a core metric discussed in relation to NAND flash memory."
+    },
+    {
+      "label": "Error Correction (ECC)",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "ECC is mentioned as a method for correcting errors."
+    },
+    {
+      "label": "Retention Time",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors",
+      "mapping_decision": "parent",
+      "notes": "Retention time is a factor affecting reliability, mapped under ExternalFactors."
+    },
+    {
+      "label": "P/E Cycles",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "mapping_decision": "parent",
+      "notes": "P/E Cycles are related to endurance."
+    },
+    {
+      "label": "RBER",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability/UBER",
+      "mapping_decision": "parent",
+      "notes": "RBER is a measure of reliability, mapped under UBER."
+    },
+    {
+      "label": "Uncorrectable Error",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "parent",
+      "notes": "Uncorrectable errors are a reliability concern."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "LightWarner_Predicting_Failure_of_3D_NAND_Flash_Memory_Using_Reinforcement_Learning.pdf"
+}

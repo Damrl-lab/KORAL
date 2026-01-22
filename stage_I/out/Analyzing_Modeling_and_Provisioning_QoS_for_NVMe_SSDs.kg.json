@@ -1,0 +1,286 @@
+{
+  "paper_id": "Analyzing, Modeling, and Provisioning QoS for NVMe SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "NVMe SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E3",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E4",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E5",
+      "label": "QD1",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1"
+    },
+    {
+      "id": "E6",
+      "label": "SPDK",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers"
+    },
+    {
+      "id": "E7",
+      "label": "POSIX",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers"
+    },
+    {
+      "id": "E8",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E9",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E10",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E11",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E12",
+      "label": "QEMU",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware"
+    },
+    {
+      "id": "E13",
+      "label": "Weighted Round Robin (WRR)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "E14",
+      "label": "Deficit Round Robin (DRR)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "NVMe-based SSDs have been emerging as the latest storage technology bridging the dreaded performance gap between hard disks and memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We run a random read workload with a queue depth of one (to nullify the effects of queuing delay).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasBlockSize",
+      "o": "E4",
+      "evidence": "We run a random read workload with a queue depth of one (to nullify the effects of queuing delay).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasQueueDepth",
+      "o": "E5",
+      "evidence": "We run a random read workload with a queue depth of one (to nullify the effects of queuing delay).",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesDriver",
+      "o": "E6",
+      "evidence": "Intel SPDK [18] is a userspace library built for applications with high-performance storage requirements.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "usesDriver",
+      "o": "E7",
+      "evidence": "Comparison of POSIX and SPDK.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "The standard allows flash storage devices such as SSDs to achieve profound improvements in latency and throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "The standard allows flash storage devices such as SSDs to achieve profound improvements in latency and throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E10",
+      "evidence": "The standard allows flash storage devices such as SSDs to achieve profound improvements in latency and throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E11",
+      "evidence": "The standard allows flash storage devices such as SSDs to achieve profound improvements in latency and throughput.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E12",
+      "p": "supports",
+      "o": "E13",
+      "evidence": "The QEMU NVMe emulator supports the entire NVMe command set.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E12",
+      "p": "supports",
+      "o": "E14",
+      "evidence": "We implement the DRR scheme in the QEMU NVMe emulator and show that it is much more effective in providing bandwidth guarantees to cloud users than WRR.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "usesDriver rdfs:domain SSD; rdfs:range HostIOStack.",
+    "improves rdfs:domain SSD; rdfs:range Performance.",
+    "supports rdfs:domain VirtualizationAndMultiTenancy; rdfs:range MediaManagement."
+  ],
+  "mappings": [
+    {
+      "label": "Random",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is directly mentioned in the paper."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB block size is directly mentioned in the paper."
+    },
+    {
+      "label": "QD1",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD1",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 1 is directly mentioned in the paper."
+    },
+    {
+      "label": "SPDK",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "mapping_decision": "exact",
+      "notes": "SPDK is a driver mentioned in the paper."
+    },
+    {
+      "label": "POSIX",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/Drivers",
+      "mapping_decision": "exact",
+      "notes": "POSIX is a driver mentioned in the paper."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a performance metric mentioned in the paper."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a performance metric mentioned in the paper."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Average latency is a performance metric mentioned in the paper."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "99th percentile latency is a performance metric mentioned in the paper."
+    },
+    {
+      "label": "QEMU",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/VirtualizationAndMultiTenancy/KVM/Hyper-V/VMware",
+      "mapping_decision": "exact",
+      "notes": "QEMU is a virtualization tool mentioned in the paper."
+    },
+    {
+      "label": "Weighted Round Robin (WRR)",
+      "entity_id": "E13",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "WRR is an arbitration scheme related to media management."
+    },
+    {
+      "label": "Deficit Round Robin (DRR)",
+      "entity_id": "E14",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "DRR is an arbitration scheme related to media management."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Analyzing, Modeling, and Provisioning QoS for NVMe SSDs.pdf"
+}

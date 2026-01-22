@@ -1,0 +1,107 @@
+{
+  "paper_id": "5",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D TLC NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "LDPC Decoding",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E4",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Error Correction Capability",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E7",
+      "label": "Frame Error Rate (FER)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "NAND flash memory is widely used in a variety of computer storage systems as non-volatile storage devices.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "For hard-decision decoding, the proposed new modes can significantly improve the decoder’s error correction capability compared with traditional solutions.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E3",
+      "p": "decreases",
+      "o": "E7",
+      "evidence": "The simulation shows that the proposed approach can reduce frame error rate (FER) for several orders of magnitude.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC).",
+    "decreases rdfs:domain SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range SSD/MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "3D TLC NAND Flash",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "3D TLC NAND Flash is a specific instance of TLC under FlashTechnology/CellType."
+    },
+    {
+      "label": "LDPC Decoding",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "LDPC Decoding is a specific instance of Error Correction (ECC)."
+    },
+    {
+      "label": "Frame Error Rate (FER)",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "FER is a measure of reliability."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Improving LDPC Decoding Performance for 3D TLC NAND Flash.pdf"
+}

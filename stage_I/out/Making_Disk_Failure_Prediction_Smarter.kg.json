@@ -1,0 +1,158 @@
+{
+  "paper_id": "FAST20_Lu",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E2",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E3",
+      "label": "Humidity",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity"
+    },
+    {
+      "id": "E4",
+      "label": "Vibration",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration"
+    },
+    {
+      "id": "E5",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E6",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E7",
+      "label": "DiskFailurePrediction",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/DerivedIndicators",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/DerivedIndicators"
+    },
+    {
+      "id": "E8",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E8",
+      "evidence": "Disks in close spatial neighborhoods are more likely to be affected by the same environmental factors, such as relative humidity and temperature, which are responsible for accelerating disk component failures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasDeploymentEnvironment",
+      "o": "E1",
+      "evidence": "This study covers the disk and server data measured and collected at a large data center.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasExternalFactor",
+      "o": "E2",
+      "evidence": "Disks in close spatial neighborhoods are more likely to be affected by the same environmental factors, such as relative humidity and temperature, which are responsible for accelerating disk component failures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasExternalFactor",
+      "o": "E3",
+      "evidence": "Disks in close spatial neighborhoods are more likely to be affected by the same environmental factors, such as relative humidity and temperature, which are responsible for accelerating disk component failures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasExternalFactor",
+      "o": "E4",
+      "evidence": "Notably, disks with physical proximity are likely to experience similar vibration levels.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "Traditionally, disk failure prediction works have largely focused on using SMART data for predicting disk failures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "uses",
+      "o": "E6",
+      "evidence": "We found that performance metrics, when combined with a traditional approach of using SMART attributes, may be more powerful than using SMART attributes alone, especially for hard-to-predict failures.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasExternalFactor rdfs:domain EnvironmentalAndOperationalContext; rdfs:range ExternalFactors.",
+    "uses rdfs:domain ModelingTimeAndStateHistory/DerivedIndicators; rdfs:range MetricsHealthAndState."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned as an environmental factor affecting disk failures."
+    },
+    {
+      "label": "Humidity",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Humidity",
+      "mapping_decision": "exact",
+      "notes": "Humidity is explicitly mentioned as an environmental factor affecting disk failures."
+    },
+    {
+      "label": "Vibration",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Vibration",
+      "mapping_decision": "exact",
+      "notes": "Vibration is explicitly mentioned as an environmental factor affecting disk failures."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "SMART attributes are used for disk failure prediction."
+    },
+    {
+      "label": "Performance",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "Performance metrics are used for disk failure prediction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Making_Disk_Failure_Prediction_Smarter.pdf"
+}

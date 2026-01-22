@@ -1,0 +1,132 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:E6_MC_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "MC-SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E7_SP_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "SP-SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:axiom_7e210493 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_cab2f011 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/63f3ccef002d46dcaea3fa6f85705239> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:objectLiteral "82.2" ;
+    ssd:predicate ssd:hasTemperature ;
+    ssd:subject ssd:E8_EC1 ;
+    dct:source "MR-SSD generates 71%, 49% and 54% higher temperature than SP-SSD for B-read ,BP-write andBA-write , respectively." .
+
+<http://example.org/ssd/assertion/88072717647b47d1939526f0c1758f8c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E8_EC1 ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E5_MR_SSD ;
+    dct:source "We observed MR-SSD has a device-level protection mechanism, which dynamically adjusts its power level based on temperature." .
+
+<http://example.org/ssd/assertion/9f55588099e6422d9b2bd4330af0a4a3> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%2520Throttling> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E5_MR_SSD ;
+    dct:source "When the heat-output of the many-resource SSD reaches 180°F, it begins to throttle power consumption by reducing the number of active internal resources in an attempt to cool down the device." .
+
+<http://example.org/ssd/assertion/f958d52c638c475aa41e32878fea375a> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E9_WP1 ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E8_EC1 ;
+    dct:source "We measured operating temperature of each SSD we tested based on 44 different I/O access patterns with two different device conditions (pristine vs. aged) and offer extensive empirical analyses." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> rdfs:label "Temperature" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature> .
+
+ssd:E5_MR_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "MR-SSD" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%2520Throttling> ;
+    ssd:operatesUnder ssd:E8_EC1 ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E9_WP1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile>,
+        owl:Thing ;
+    rdfs:label "WP1" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> rdfs:label "EnvironmentalAndOperationalContext" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> rdfs:label "WorkloadProfile" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile> .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%2520Throttling> rdfs:label "Thermal Throttling" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%2520Throttling> .
+
+ssd:E8_EC1 a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EC1" ;
+    ssd:hasTemperature "82.2" ;
+    ssd:hasWorkloadProfile ssd:E9_WP1 ;
+    ssd:unit "C" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+

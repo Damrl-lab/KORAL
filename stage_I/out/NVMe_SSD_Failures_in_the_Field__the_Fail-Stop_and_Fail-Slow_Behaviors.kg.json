@@ -1,0 +1,164 @@
+{
+  "paper_id": "2022_USENIX_ATC_NVMe_SSD_Failures",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "NVMe_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "3D-TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E5",
+      "label": "Fail-Slow Failure",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E6",
+      "label": "Fail-Stop Failure",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E7",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E8",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E9",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E10",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "NVMe SSD has become a staple in modern datacenters thanks to its high throughput and ultra-low latency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "NVMe SSD has become a staple in modern datacenters thanks to its high throughput and ultra-low latency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "An outstanding example is the wide adoption of 3D-TLC NAND in NVMe SSD for larger capacity.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "impactedBy",
+      "o": "E5",
+      "evidence": "More importantly, we discover that the ultra-low latency nature makes NVMe SSD much more likely to be impacted by fail-slow failures.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "impactedBy",
+      "o": "E6",
+      "evidence": "We study the fail-stop and fail-slow failures of NVMe SSDs deployed at Alibaba.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasTemperature",
+      "o": {
+        "@value": "30",
+        "unit": "C"
+      },
+      "evidence": "The denser bits per cell (i.e., TLC) shows lower reliability and the vertical stacking (i.e., 3D flash) can exhibit disparate behaviors or even opposite patterns (e.g., lower error rate under higher temperatures).",
+      "confidence": 0.7
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "A higher write amplification factor (i.e., NAND writes size divided by logical writes size) therefore indicates a more random and small-writes-dominant workload.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasAccessPattern",
+      "o": "E9",
+      "evidence": "A higher write amplification factor (i.e., NAND writes size divided by logical writes size) therefore indicates a more random and small-writes-dominant workload.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasReadWriteMix",
+      "o": "E10",
+      "evidence": "A higher write amplification factor (i.e., NAND writes size divided by logical writes size) therefore indicates a more random and small-writes-dominant workload.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "impactedBy rdfs:domain SSD; rdfs:range Reliability.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is explicitly mentioned in relation to error rates."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "NVMe SSD Failures in the Field_ the Fail-Stop and Fail-Slow Behaviors.pdf"
+}

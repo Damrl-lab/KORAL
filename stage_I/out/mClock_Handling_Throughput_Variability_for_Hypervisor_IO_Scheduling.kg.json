@@ -1,0 +1,255 @@
+{
+  "paper_id": "mClock_Handling_Throughput_Variability_for_HypervisorIO_Scheduling",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "Random",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E6",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "16KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB"
+    },
+    {
+      "id": "E8",
+      "label": "QD32",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32"
+    },
+    {
+      "id": "E9",
+      "label": "I/O Scheduler",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    },
+    {
+      "id": "E10",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E11",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E12",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E13",
+      "label": "VMware ESX Server",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem"
+    },
+    {
+      "id": "E14",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E15",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E16",
+      "label": "EXP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ModelingTimeAndStateHistory/CoreConcepts/State Snapshot",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%20Snapshot"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E14",
+      "evidence": "Our results indicate that these rich QoS controls are quite effective in isolating VM performance and providing better application latency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E14",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "The increasing trend towards server virtualization has elevated hypervisors to first class entities in today’s data-centers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E14",
+      "p": "hasWorkloadProfile",
+      "o": "E15",
+      "evidence": "The system administrator has carefully provisioned the resources (CPU and memory) needed by VM5, so that it can serve at least 400 orders per second.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E15",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "OLTP sends 8KB random IOs, 75% reads, and keeps 16 IOs pending at all times.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "OLTP sends 8KB random IOs, 75% reads, and keeps 16 IOs pending at all times.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasBlockSize",
+      "o": "E7",
+      "evidence": "OLTP sends 8KB random IOs, 75% reads, and keeps 16 IOs pending at all times.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E15",
+      "p": "hasQueueDepth",
+      "o": "E8",
+      "evidence": "The host was configured to keep 32 IOs pending per LUN at the array, which is the default setting.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E13",
+      "p": "hasIOPS",
+      "o": "E10",
+      "evidence": "The storage device had a capacity of about 1600 random reads per second.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E13",
+      "p": "hasAverageLatency",
+      "o": "E11",
+      "evidence": "RD and OLTP are latency-sensitive workloads, requiring a response time under 30ms.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E13",
+      "p": "hasThroughput",
+      "o": "E12",
+      "evidence": "The storage device had a capacity of about 1600 random reads per second.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E13",
+      "p": "uses",
+      "o": "E9",
+      "evidence": "We implemented mClock by modifying the SCSI scheduling layer in the IO stack of VMware ESX server hypervisor to construct our prototype.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "hasIOPS rdfs:domain HostSystem; rdfs:range Performance/IOPS.",
+    "hasAverageLatency rdfs:domain HostSystem; rdfs:range Performance/Average Latency.",
+    "hasThroughput rdfs:domain HostSystem; rdfs:range Performance/Throughput.",
+    "uses rdfs:domain HostSystem; rdfs:range I/O Scheduler."
+  ],
+  "mappings": [
+    {
+      "label": "Enterprise Server",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "mapping_decision": "exact",
+      "notes": "Enterprise Server is a direct match for the deployment environment described."
+    },
+    {
+      "label": "Random",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random access pattern is explicitly mentioned in the workload description."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "The workload is described as 75% reads, fitting the Read-Heavy category."
+    },
+    {
+      "label": "16KB",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB",
+      "mapping_decision": "exact",
+      "notes": "Block size of 16KB is directly mentioned in the workload."
+    },
+    {
+      "label": "QD32",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth/QD32",
+      "mapping_decision": "exact",
+      "notes": "Queue depth of 32 is explicitly stated."
+    },
+    {
+      "label": "I/O Scheduler",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "mapping_decision": "exact",
+      "notes": "I/O Scheduler is directly relevant to the mClock implementation."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "mClock Handling Throughput Variability for Hypervisor IO Scheduling.pdf"
+}

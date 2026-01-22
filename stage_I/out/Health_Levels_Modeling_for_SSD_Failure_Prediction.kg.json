@@ -1,0 +1,134 @@
+{
+  "paper_id": "Health Levels Modeling for SSD Failure Prediction",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E4",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E5",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E6",
+      "label": "MA1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "MB1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E8",
+      "label": "MC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "All six drive models are SATA SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "All six drive models are SATA SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "All six drive models are SATA SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasDeploymentEnvironment",
+      "o": "E3",
+      "evidence": "Solid State Drives (SSDs) are well known for their low latency capabilities and reliability over HDDs. Therefore, they have been widely used as a storage medium in modern data centers and households.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasTemperature",
+      "o": "E5",
+      "evidence": "Device Temperature, Total LBAs Written, and Total LBAs Read.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E6",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Although it can change for each manufacturer, commonly gathered data generally includes Raw Read Error Rate, Power On Hours, Power Cycles, Device Temperature, Total LBAs Written, and Total LBAs Read.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Although it can change for each manufacturer, commonly gathered data generally includes Raw Read Error Rate, Power On Hours, Power Cycles, Device Temperature, Total LBAs Written, and Total LBAs Read.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasDeviceType",
+      "o": "E4",
+      "evidence": "Although it can change for each manufacturer, commonly gathered data generally includes Raw Read Error Rate, Power On Hours, Power Cycles, Device Temperature, Total LBAs Written, and Total LBAs Read.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is directly mentioned as a SMART attribute."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Health_Levels_Modeling_for_SSD_Failure_Prediction.pdf"
+}

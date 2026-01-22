@@ -1,0 +1,101 @@
+{
+  "paper_id": "111012",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "SSD_Failure_Prediction_Model",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "Alibaba_SSDs_Dataset",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "The failure prediction methods for SSDs in data centers are based on the self-monitoring, analysis, and reporting technology (SMART) parameters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "hasDeploymentEnvironment",
+      "o": "E2",
+      "evidence": "Solid state drives (SSDs) have been widely deployed in storage systems over the last decade.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "usesDataset",
+      "o": "E5",
+      "evidence": "Finally, our proposed method was evaluated on the Alibaba's SSDs dataset.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "usesSMARTAttribute",
+      "o": "E3",
+      "evidence": "Currently, the failure prediction methods for SSDs in data centers are based on the self-monitoring, analysis, and reporting technology (SMART) parameters.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "usesDataset rdfs:domain SSD; rdfs:range Dataset.",
+    "usesSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions SSD deployment in data centers."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SMART parameters for failure prediction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "A_locally_weighted_multi-domain_collaborative_adaptation_for_failure_prediction_in_SSDs.pdf"
+}

@@ -1,0 +1,145 @@
+{
+  "paper_id": "SSD_Object_Based_Storage_Trim_Commands",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TRIM",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/TRIM"
+    },
+    {
+      "id": "E3",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning"
+    },
+    {
+      "id": "E4",
+      "label": "Random Workload",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random"
+    },
+    {
+      "id": "E5",
+      "label": "Object-Based Storage",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning"
+    },
+    {
+      "id": "E6",
+      "label": "SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E7",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E6",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "NAND flash solid state drives (SSDs) have become ubiquitous, appearing in small mobile electronics to large data centers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "We present a model for computing utilization and write amplification under a modified random workload including Write and Trim commands.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasAccessPattern",
+      "o": "E4",
+      "evidence": "We present a model for computing utilization and write amplification under a modified random workload including Write and Trim commands.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "uses",
+      "o": "E2",
+      "evidence": "The Trim command is a way for the file system to communicate to the SSD that certain data pages no longer need to be retained.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "Object based storage offers multiple advantages for systems using solid state storage devices.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "Object based storage offers multiple advantages for systems using solid state storage devices, leading to a lower write amplification and faster performance.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/Maintenance/TRIM.",
+    "uses rdfs:domain SSD; rdfs:range ConfigurationAndAdvancedParadigms/CapacityAndProvisioning.",
+    "improves rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Over-Provisioning."
+  ],
+  "mappings": [
+    {
+      "label": "TRIM",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/Maintenance/TRIM",
+      "mapping_decision": "exact",
+      "notes": "TRIM is explicitly mentioned and matches the taxonomy."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Over-Provisioning",
+      "mapping_decision": "parent",
+      "notes": "Write Amplification is related to Over-Provisioning in the taxonomy."
+    },
+    {
+      "label": "Random Workload",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern/Random",
+      "mapping_decision": "exact",
+      "notes": "Random workload is explicitly mentioned and matches the taxonomy."
+    },
+    {
+      "label": "Object-Based Storage",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning",
+      "mapping_decision": "parent",
+      "notes": "Object-Based Storage is related to Capacity and Provisioning."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Solid-State Disk Object-Based Storage with Trim Commands.pdf"
+}

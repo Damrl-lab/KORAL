@@ -1,0 +1,173 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_53b945d7 a owl:Axiom ;
+    rdfs:comment "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal." .
+
+ssd:axiom_5afdf141 a owl:Axiom ;
+    rdfs:comment "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth." .
+
+ssd:axiom_7a83b334 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_7f2dffb0 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD; rdfs:range Performance." .
+
+ssd:axiom_c82a38c7 a owl:Axiom ;
+    rdfs:comment "utilizes rdfs:domain SSD; rdfs:range ZonedNamespaces." .
+
+ssd:axiom_d92a93c9 a owl:Axiom ;
+    rdfs:comment "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/15a27b9fe91f40b2a2e8d86d3d5b3459> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "Zoned Namespace (ZNS) is an emerging interface for flash storage devices that provides such stability." .
+
+<http://example.org/ssd/assertion/1ca4c8372be24d3195b0d28c9c99bd00> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    ssd:predicate ssd:hasWorkloadProfile ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "The design of ZWAL relies on high write concurrency and throughput for small writes." .
+
+<http://example.org/ssd/assertion/413a87b29dae466e96e21f12debc2be8> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject tax:SSD ;
+    dct:source "We report up to 8.56 times higher throughput on the YCSB benchmark." .
+
+<http://example.org/ssd/assertion/47bee5b002b844578febe0190d5b529e> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:predicate ssd:hasQueueDepth ;
+    ssd:subject ssd:E2_EnvironmentalAndOperationalContext ;
+    dct:source "We configure ZWALs to issue zone appends at a maximum QD of 32." .
+
+<http://example.org/ssd/assertion/96316febe0c94469826e63d8aa1e8e61> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject tax:SSD ;
+    dct:source "We report up to 8.56 times higher throughput on the YCSB benchmark." .
+
+<http://example.org/ssd/assertion/c30b3443d3984bcd9051b1d0a93afd0f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Zoned Namespace (ZNS) is an emerging interface for flash storage devices that provides such stability." .
+
+<http://example.org/ssd/assertion/f2755877a5ab4a79868d445990547ef0> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E10_Zone_Append ;
+    ssd:predicate ssd:utilizes ;
+    ssd:subject tax:SSD ;
+    dct:source "The ZNS-specific zone append operation presents a solution, enhancing the throughput of small sequential writes." .
+
+<http://example.org/ssd/assertion/f65ea8aa271c42dea70978c11a9020ae> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E9_ZenFS ;
+    ssd:predicate ssd:integratesWith ;
+    ssd:subject ssd:E8_RocksDB ;
+    dct:source "We implement ZWALs in the state-of-the-art combination of RocksDB and ZenFS." .
+
+ssd:E8_RocksDB a <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529>,
+        owl:Thing ;
+    rdfs:label "RocksDB" ;
+    ssd:integratesWith ssd:E9_ZenFS ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E10_Zone_Append a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces>,
+        owl:Thing ;
+    rdfs:label "Zone Append" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> .
+
+ssd:E9_ZenFS a <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529>,
+        owl:Thing ;
+    rdfs:label "ZenFS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529> .
+
+ssd:degrades a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> rdfs:label "QD32" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> rdfs:label "Write-Heavy" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> rdfs:label "IOPS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+
+ssd:E2_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasQueueDepth <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth> ;
+    ssd:hasWorkloadProfile <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> rdfs:label "ZNS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/ZonedNamespaces> ;
+    ssd:operatesUnder ssd:E2_EnvironmentalAndOperationalContext ;
+    ssd:utilizes ssd:E10_Zone_Append ;
+    rdfs:isDefinedBy tax:SSD .
+

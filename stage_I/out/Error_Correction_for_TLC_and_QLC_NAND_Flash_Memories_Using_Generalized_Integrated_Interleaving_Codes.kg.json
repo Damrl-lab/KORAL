@@ -1,0 +1,155 @@
+{
+  "paper_id": "electronics11101585",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "QLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E4",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E6",
+      "label": "Temperature",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature"
+    },
+    {
+      "id": "E7",
+      "label": "Error Correction (ECC)",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E8",
+      "label": "Channel Capacity",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning"
+    },
+    {
+      "id": "E9",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E10",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E11",
+      "label": "QLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "operatesUnder",
+      "o": "E5",
+      "evidence": "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E10",
+      "evidence": "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E11",
+      "evidence": "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "This cell-wise encoding improves the achievable channel capacity compared with independent page-wise encoding.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E8",
+      "evidence": "This cell-wise encoding improves the achievable channel capacity compared with independent page-wise encoding.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "uses",
+      "o": "E7",
+      "evidence": "The growing error rates of triple-level cell (TLC) and quadruple-level cell (QLC) NAND flash memories have led to the application of error correction coding with soft-input decoding techniques in flash-based storage systems.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature fluctuations are mentioned as an external influence affecting reliability."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Error Correction for TLC and QLC NAND Flash Memories Using Generalized Integrated Interleaving Codes.pdf"
+}

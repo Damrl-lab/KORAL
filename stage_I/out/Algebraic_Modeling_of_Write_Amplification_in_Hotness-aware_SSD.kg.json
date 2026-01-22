@@ -1,0 +1,119 @@
+{
+  "paper_id": "SYSTOR_2015_Yang_Zhu",
+  "entities": [
+    {
+      "id": "SSD1",
+      "label": "SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "EC1",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "WP1",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "GC1",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "WA1",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement"
+    },
+    {
+      "id": "dChoice1",
+      "label": "d-Choice Algorithm",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "A1",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "SSD1",
+      "p": "operatesUnder",
+      "o": "EC1",
+      "evidence": "Garbage collection is essential to the endurance of NAND flash-based solid state drives (SSDs).",
+      "confidence": 0.9
+    },
+    {
+      "s": "EC1",
+      "p": "hasWorkloadProfile",
+      "o": "WP1",
+      "evidence": "Analytic modeling of garbage collection reveals the non-trivial relationship between endurance, a performance metric manifested as write amplification, and the algorithmic design variables, device configurations and workload characteristics.",
+      "confidence": 0.8
+    },
+    {
+      "s": "WP1",
+      "p": "hasAccessPattern",
+      "o": {
+        "@value": "Random",
+        "unit": "AccessPattern"
+      },
+      "evidence": "The simulation performed on a device with B= 32 and N= 131,072 is driven by a uniform workload of 20 million write requests.",
+      "confidence": 0.7
+    },
+    {
+      "s": "GC1",
+      "p": "improves",
+      "o": "A1",
+      "evidence": "We show that such a model retains the precision of predicting write amplification, with less than 5% error, while reducing the running time from several hours, as the case in previous model of ordinary differential equations, to merely a few seconds.",
+      "confidence": 0.85
+    },
+    {
+      "s": "dChoice1",
+      "p": "improves",
+      "o": "WA1",
+      "evidence": "To bridge this gap, we first employ the d-Choice selection algorithm that is demonstrated to provide an excellent trade-off between ease of use and GC performance.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "improves rdfs:domain Garbage Collection; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "GC1",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage collection is a key process in SSDs for reclaiming space."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "WA1",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a result of garbage collection processes."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Algebraic Modeling of Write Amplification in Hotness-aware SSD.pdf"
+}

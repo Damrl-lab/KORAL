@@ -1,0 +1,93 @@
+{
+  "paper_id": "Liu2017_3DNAND",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Charge Trap",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "Floating Gate",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E4",
+      "label": "Endurance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Endurance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Endurance"
+    },
+    {
+      "id": "E5",
+      "label": "Retention",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasFlashTechnology",
+      "o": "E2",
+      "evidence": "Two types of NAND flash technologies –charge-trap (CT) and floating-gate (FG) are presented in this paper to introduce NAND flash designs in detail.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasFlashTechnology",
+      "o": "E3",
+      "evidence": "Two types of NAND flash technologies –charge-trap (CT) and floating-gate (FG) are presented in this paper to introduce NAND flash designs in detail.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "degrades",
+      "o": "E4",
+      "evidence": "For CT-based NAND, the electrons are deeply trapped in the nitride storage layer. It is not easy to be de-trapped when erasing.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "For FG-based 3D NAND, because the FG layer is completely isolated by the TOX layer, the electrons can be stored for longer time due to this reliable structure with the weak leakage paths, and the retention performance is better than CT-based 3D NAND.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "hasFlashTechnology rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D.",
+    "degrades rdfs:domain SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D; rdfs:range SSD/MetricsHealthAndState/Endurance.",
+    "improves rdfs:domain SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D; rdfs:range SSD/MetricsHealthAndState/Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Charge Trap",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "Charge Trap is a specific type of 3D NAND flash technology."
+    },
+    {
+      "label": "Floating Gate",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "Floating Gate is a specific type of 3D NAND flash technology."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Analysis of 3D NAND technologies and comparison between charge-trap-based and floating-gate-based flash devices.pdf"
+}

@@ -1,0 +1,221 @@
+{
+  "paper_id": "SOML_Read_Rethinking_the_Read_Operation_Granularity_of_3D_NAND_SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "3D NAND",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "Samsung 960 Pro SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E5",
+      "label": "Samsung 950 Pro SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E6",
+      "label": "SOML Read Operation",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E7",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E8",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E9",
+      "label": "Read-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy"
+    },
+    {
+      "id": "E10",
+      "label": "4KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB"
+    },
+    {
+      "id": "E11",
+      "label": "8KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/8KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/8KB"
+    },
+    {
+      "id": "E12",
+      "label": "16KB",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB"
+    },
+    {
+      "id": "E13",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E14",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E4",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "To demonstrate this performance degradation, we compared the IOPS between two generations of 3D NAND SSDs: (1) a Samsung 950 pro SSD using 16 32GB chips and (2) a newer generation Samsung 960 pro SSD using 8 64GB chips.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "operatesUnder",
+      "o": "E7",
+      "evidence": "Our experimental results with various storage workloads indicate that, the SOML read-based SSD with 8 chips can outperform the baseline SSD with 16 chips.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E7",
+      "p": "hasWorkloadProfile",
+      "o": "E8",
+      "evidence": "Our experimental results with various storage workloads indicate that, the SOML read-based SSD with 8 chips can outperform the baseline SSD with 16 chips.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E8",
+      "p": "hasReadWriteMix",
+      "o": "E9",
+      "evidence": "The higher density SSD fails to outperform the previous generation 950 pro SSD in three read-intensive benchmarks (Iometer, CrystalDiskMark, and AS-SSD), due to the lower multi-chip parallelism.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E8",
+      "p": "hasBlockSize",
+      "o": "E10",
+      "evidence": "Our analysis reveals that the sizes (4KB or 8KB) of a majority of read requests are smaller than that (16KB) of a read operation.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasBlockSize",
+      "o": "E11",
+      "evidence": "Our analysis reveals that the sizes (4KB or 8KB) of a majority of read requests are smaller than that (16KB) of a read operation.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasBlockSize",
+      "o": "E12",
+      "evidence": "Our analysis reveals that the sizes (4KB or 8KB) of a majority of read requests are smaller than that (16KB) of a read operation.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E13",
+      "evidence": "Our experimental results with various storage workloads indicate that, the SOML read-based SSD with 8 chips can outperform the baseline SSD with 16 chips.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E6",
+      "p": "improves",
+      "o": "E14",
+      "evidence": "Our experiments with various workloads indicate that, on average, the overall performance of our SOML read-enabled system with 8 chips outperforms that of the baseline with 16 chips.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "3D NAND",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D NAND is explicitly mentioned and matches the taxonomy path."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is explicitly mentioned and matches the taxonomy path."
+    },
+    {
+      "label": "Read-Heavy",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Read-Heavy",
+      "mapping_decision": "exact",
+      "notes": "Read-Heavy is explicitly mentioned and matches the taxonomy path."
+    },
+    {
+      "label": "4KB",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/4KB",
+      "mapping_decision": "exact",
+      "notes": "4KB is explicitly mentioned and matches the taxonomy path."
+    },
+    {
+      "label": "8KB",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/8KB",
+      "mapping_decision": "exact",
+      "notes": "8KB is explicitly mentioned and matches the taxonomy path."
+    },
+    {
+      "label": "16KB",
+      "entity_id": "E12",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize/16KB",
+      "mapping_decision": "exact",
+      "notes": "16KB is explicitly mentioned and matches the taxonomy path."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Rethinking the Read Operation Granularity of 3D NAND Flash Memory.pdf"
+}

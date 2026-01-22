@@ -1,0 +1,247 @@
+{
+  "paper_id": "USENIX_FAST_2017_Performance_Variation",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E5",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E6",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E7",
+      "label": "Ext4",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E8",
+      "label": "XFS",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E9",
+      "label": "Btrfs",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/File System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/File%20System"
+    },
+    {
+      "id": "E10",
+      "label": "SATA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E11",
+      "label": "SAS",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasAccessPattern",
+      "o": {
+        "@value": "Mixed"
+      },
+      "evidence": "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasReadWriteMix",
+      "o": {
+        "@value": "Balanced"
+      },
+      "evidence": "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasBlockSize",
+      "o": {
+        "@value": "4KB"
+      },
+      "evidence": "For the three file systems above we experimented with the following nine parameters. (1) Block size.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "hasQueueDepth",
+      "o": {
+        "@value": "QD1"
+      },
+      "evidence": "We conducted many experiments using several popular workloads, file systems, and storage devices—and varied many parameters across the entire storage stack.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E10",
+      "evidence": "We ran our experiments on three types of devices: two HDDs (SATA vs. SAS) and one (SATA) SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E11",
+      "evidence": "We ran our experiments on three types of devices: two HDDs (SATA vs. SAS) and one (SATA) SSD.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "We found that unpredictable layouts in Ext4 could cause over 16–19% of performance variation in some cases.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "We analyzed latency variations from various aspects, and proposed a novel approach for quantifying the impacts of each operation type on overall performance variation.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "We found that unpredictable layouts in Ext4 could cause over 16–19% of performance variation in some cases.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E7",
+      "evidence": "We first encountered such variations in experiments using Ext4: multiple runs of the same workload in a carefully controlled environment produced widely different performance results.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E8",
+      "evidence": "We focused on three local file systems (Ext4, XFS, and Btrfs) which are used in many modern local and distributed environments.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasFileSystem",
+      "o": "E9",
+      "evidence": "We focused on three local file systems (Ext4, XFS, and Btrfs) which are used in many modern local and distributed environments.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range InterfaceType.",
+    "improves rdfs:domain SSD; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Temperature",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/ExternalFactors/Temperature",
+      "mapping_decision": "exact",
+      "notes": "Temperature is a direct factor in EnvironmentalAndOperationalContext."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a key performance metric discussed in the paper."
+    },
+    {
+      "label": "Latency",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Latency is a key performance metric discussed in the paper."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "IOPS is a key performance metric discussed in the paper."
+    },
+    {
+      "label": "SATA",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "mapping_decision": "exact",
+      "notes": "SATA is a specific interface type discussed in the paper."
+    },
+    {
+      "label": "SAS",
+      "entity_id": "E11",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SAS",
+      "mapping_decision": "exact",
+      "notes": "SAS is a specific interface type discussed in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "On the Performance Variation in Modern Storage Stacks.pdf"
+}

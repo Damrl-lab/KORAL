@@ -1,0 +1,124 @@
+{
+  "paper_id": "Program Error Rate-based Wear Leveling for NAND Flash Memory",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "TLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Enterprise Server",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise Server",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Enterprise%20Server"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "Write-Heavy",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix/Write-Heavy"
+    },
+    {
+      "id": "E7",
+      "label": "PER-WL",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%20Leveling"
+    },
+    {
+      "id": "E8",
+      "label": "Program Error Rate",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "NAND Flash memory has been widely used as storage devices from embedded systems to laptops, desktops, and datacenters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasDeploymentEnvironment",
+      "o": "E4",
+      "evidence": "NAND Flash memory has been widely used as storage devices from embedded systems to laptops, desktops, and datacenters.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E5",
+      "evidence": "We choose four realistic enterprise workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E5",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "Since Financial1, MSR-hm0 and MSR-proj0 workloads are write intensive, the effect of PER-based wear leveling is evident.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "usesWearLevelingScheme",
+      "o": "E7",
+      "evidence": "This paper proposes PER-WL, an efficient PER-based wear leveling scheme.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "usesMetric",
+      "o": "E8",
+      "evidence": "PER-WL explicitly uses PER information of blocks as equalization target.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "usesWearLevelingScheme rdfs:domain SSD; rdfs:range Wear Leveling.",
+    "usesMetric rdfs:domain Wear Leveling; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "Program Error Rate",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "parent",
+      "notes": "Program Error Rate is a specific type of reliability metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Program Error Rate-based Wear Leveling for NAND Flash Memory.pdf"
+}

@@ -1,0 +1,122 @@
+{
+  "paper_id": "Fan_2023_Sensors_3212",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "3D NAND Flash Memory",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E2",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E3",
+      "label": "Neighbor Wordline Interference",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E4",
+      "label": "Adaptive Bitline Voltage",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal Throttling",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal%20Throttling"
+    },
+    {
+      "id": "E5",
+      "label": "Channel Potential",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E2",
+      "evidence": "Furthermore, an adaptive Vblcountermeasure is proposed for 3D NAND memory arrays, which can significantly minimize the NWI of triple-level cells (TLC) in all state combinations.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E6",
+      "evidence": "NAND flash memory, as a non-volatile memory device, is the most widely used data storage method in modern sensor systems due to its fast access.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "impacts",
+      "o": "E5",
+      "evidence": "This suggests that a higher bitline voltage (Vbl) transmitted by the channel potential can restore the local DIBL effect, which is ever weakened by NWI.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E3",
+      "evidence": "Furthermore, an adaptive Vblcountermeasure is proposed for 3D NAND memory arrays, which can significantly minimize the NWI of triple-level cells (TLC) in all state combinations.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "impacts rdfs:domain InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC).",
+    "improves rdfs:domain InternalFirmwareAndLogic/ThermalManagement/Thermal Throttling; rdfs:range InternalFirmwareAndLogic/DataPath/Error Correction (ECC)."
+  ],
+  "mappings": [
+    {
+      "label": "3D NAND Flash Memory",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses 3D NAND flash memory specifically."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper focuses on triple-level cells (TLC) in 3D NAND."
+    },
+    {
+      "label": "Neighbor Wordline Interference",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "parent",
+      "notes": "NWI is a specific interference issue related to data path and error correction."
+    },
+    {
+      "label": "Adaptive Bitline Voltage",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/ThermalManagement/Thermal Throttling",
+      "mapping_decision": "parent",
+      "notes": "Adaptive bitline voltage is a control mechanism similar to thermal throttling."
+    },
+    {
+      "label": "Channel Potential",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "parent",
+      "notes": "Channel potential is related to data path and error correction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "3D NAND Flash_ Adaptive Bitline Voltage Countermeasure for Neighbor Wordline Interference.pdf"
+}

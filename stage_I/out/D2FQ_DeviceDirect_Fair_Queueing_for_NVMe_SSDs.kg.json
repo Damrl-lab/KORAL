@@ -1,0 +1,208 @@
+{
+  "paper_id": "D2FQ_USENIX_FAST21",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "NVMe SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "D2FQ",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    },
+    {
+      "id": "E4",
+      "label": "IOPS",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/IOPS"
+    },
+    {
+      "id": "E5",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E6",
+      "label": "Average Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E7",
+      "label": "99th Percentile Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%20Percentile%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "FIO",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO"
+    },
+    {
+      "id": "E9",
+      "label": "Linux Kernel",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/OS Integration",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/OS%20Integration"
+    },
+    {
+      "id": "E10",
+      "label": "Weighted Round-Robin (WRR)",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Modern high-performance SSDs can accommodate multiple independent I/O flows in multi-tenant computing environments such as cloud data centers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E4",
+      "evidence": "D2FQ provides fairness while saving CPU cycles by up to 45% as compared to MQFQ, a state-of-the-art fair queueing I/O scheduler.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "D2FQ outperforms other schedulers in terms of I/O latency, CPU utilization, and reaches the maximum storage bandwidth faster than the other I/O schedulers.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "D2FQ reduces the I/O latency by up to 35% and improving the I/O bandwidth by up to 54%.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "The queue selection policy is carefully designed to provide fairness while reducing tail latency as much as possible.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "uses",
+      "o": "E10",
+      "evidence": "D2FQ leverages the NVMe WRR feature but does not use it as it is.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "usedFor",
+      "o": "E3",
+      "evidence": "Using the FIO benchmark with various workload configurations, our scheme provides fairness while reducing CPU utilization by up to 45% as compared to MQFQ.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "implementedIn",
+      "o": "E9",
+      "evidence": "D2FQ is implemented in the Linux kernel and evaluated with various workloads.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Performance.",
+    "uses rdfs:domain InternalFirmwareAndLogic; rdfs:range InternalFirmwareAndLogic.",
+    "usedFor rdfs:domain EcosystemAndIntegrationContext/ValidationAndBenchmarks; rdfs:range InternalFirmwareAndLogic.",
+    "implementedIn rdfs:domain InternalFirmwareAndLogic; rdfs:range EcosystemAndIntegrationContext/HostIOStack/OS Integration."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses multi-tenant computing environments such as cloud data centers."
+    },
+    {
+      "label": "NVMe",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "The paper specifically mentions NVMe SSDs."
+    },
+    {
+      "label": "IOPS",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/IOPS",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses IOPS improvements."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in storage bandwidth."
+    },
+    {
+      "label": "Average Latency",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses reductions in I/O latency."
+    },
+    {
+      "label": "99th Percentile Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/99th Percentile Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses tail latency improvements."
+    },
+    {
+      "label": "FIO",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "mapping_decision": "exact",
+      "notes": "The paper uses FIO for benchmarking."
+    },
+    {
+      "label": "Linux Kernel",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/HostIOStack/OS Integration",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions implementation in the Linux kernel."
+    },
+    {
+      "label": "Weighted Round-Robin (WRR)",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses leveraging NVMe WRR."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "D2FQ DeviceDirect Fair Queueing for NVMe SSDs.pdf"
+}

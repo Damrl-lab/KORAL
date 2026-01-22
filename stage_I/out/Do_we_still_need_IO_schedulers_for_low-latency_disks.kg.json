@@ -1,0 +1,157 @@
+{
+  "paper_id": "Whitaker2023",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Intel Optane P4801X Series NVMe SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "Operating System",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    },
+    {
+      "id": "E4",
+      "label": "I/O Scheduler",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    },
+    {
+      "id": "E5",
+      "label": "Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "Energy Efficiency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState"
+    },
+    {
+      "id": "E7",
+      "label": "Ultra-Low Latency",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "Ubuntu 22.04",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    },
+    {
+      "id": "E9",
+      "label": "Linux Kernel 5.18",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/Operating System",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/Operating%20System"
+    },
+    {
+      "id": "E10",
+      "label": "none",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    },
+    {
+      "id": "E11",
+      "label": "mq-deadline",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    },
+    {
+      "id": "E12",
+      "label": "kyber",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    },
+    {
+      "id": "E13",
+      "label": "bfq",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/HostSystem/I/O Scheduler",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/HostSystem/I/O%20Scheduler"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "Our experiments were run on a Dell PowerEdge R230 (Intel Xeon E3-1230 quad core, eight threads, 3.4 GHz, 64 GB RAM) computer with an Intel Optane P4801X Series NVMe SSD as our storage device.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasOperatingSystem",
+      "o": "E8",
+      "evidence": "We installed Ubuntu 22.04 and upgraded the Linux kernel to 5.18.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasOperatingSystem",
+      "o": "E9",
+      "evidence": "We installed Ubuntu 22.04 and upgraded the Linux kernel to 5.18.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformance",
+      "o": "E7",
+      "evidence": "Ultra-low latency (ULL) storage is defined as having less than 10 μs access latency.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E10",
+      "evidence": "The microbenchmark results clearly indicate that IO scheduling hurts performance more than helps. For all cases shared in Figures 1 and 2, none yields either the best IO performance or ties with other schedulers.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "improvedBy",
+      "o": "E10",
+      "evidence": "Similar to the performance results, none also yields either the best energy efficiency, or ties with other schedulers.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasOperatingSystem rdfs:domain EnvironmentalAndOperationalContext; rdfs:range Operating System.",
+    "hasPerformance rdfs:domain SSD; rdfs:range Performance.",
+    "improvedBy rdfs:domain SSD; rdfs:range I/O Scheduler."
+  ],
+  "mappings": [
+    {
+      "label": "Ultra-Low Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "parent",
+      "notes": "Mapped to Average Latency as ULL is a specific case of low latency."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Do we still need IO schedulers for low-latency disks.pdf"
+}

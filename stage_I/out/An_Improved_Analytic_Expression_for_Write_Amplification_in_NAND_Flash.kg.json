@@ -1,0 +1,87 @@
+{
+  "paper_id": "arXiv:1110.4245v1",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "Over-Provisioning",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning"
+    },
+    {
+      "id": "E5",
+      "label": "Write Amplification",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "This paper gives an improved analytic expression for write amplification in NAND flash memory by finding the probability of a page being invalid over the block selected for garbage collection.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "degradedBy",
+      "o": "E4",
+      "evidence": "Increasing the amount of overprovisioning decreases write amplification.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E2",
+      "evidence": "Write amplification reduces the flash memory's lifetime and therefore should be minimized.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType.",
+    "degradedBy rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning.",
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection; rdfs:range SSD."
+  ],
+  "mappings": [
+    {
+      "label": "Over-Provisioning",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/CapacityAndProvisioning/Over-Provisioning",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses overprovisioning as a factor affecting write amplification."
+    },
+    {
+      "label": "Write Amplification",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "parent",
+      "notes": "Write amplification is a result of garbage collection processes."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "An Improved Analytic Expression for Write Amplification in NAND Flash.pdf"
+}

@@ -1,0 +1,177 @@
+{
+  "paper_id": "Managing_Array_of_SSDs",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E3",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E4",
+      "label": "RAID0",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0"
+    },
+    {
+      "id": "E5",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "FIO",
+      "type": "Class",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO"
+    },
+    {
+      "id": "E8",
+      "label": "PCIe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E9",
+      "label": "Intel 750",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "We observe that with just four SSDs the storage system bandwidth can be considerably higher than typical network bandwidth.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasWorkloadProfile",
+      "o": "E3",
+      "evidence": "The measurements are made at the storage host, without going through the network, and the numbers reported are averages of 5 executions of the same workload with Table 1: Comparison of commodity SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E8",
+      "evidence": "The RAID-0 volume with a chunk size of 64KB is created using LVM2.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E5",
+      "evidence": "The major source of such ineffectiveness is the effect of garbage collection (GC) operations within the SSD devices.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "uses",
+      "o": "E4",
+      "evidence": "We observe the write bandwidth of a RAID-0 configured SSD array comprising four identical 400GB capacity PCIe SSDs.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasPerformanceMetric",
+      "o": "E6",
+      "evidence": "We observe that, at first, the performance is at its peak at roughly 3.5GB/s, which is quite close to the ideal 3.6GB/s write bandwidth.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "benchmarkedBy",
+      "o": "E7",
+      "evidence": "The measurements are made at the storage host, without going through the network, and the numbers reported are averages of 5 executions of the same workload with Table 1: Comparison of commodity SSDs.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "hasInterfaceType",
+      "o": "E8",
+      "evidence": "For the storage server, we use a Dell R730 equipped with a Xeon E5-2609 CPU, 64GB DRAM, and four Intel 750 400GB NVMe SSDs.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasTemperature rdfs:domain EnvironmentalAndOperationalContext; rdfs:range xsd:decimal.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range xsd:string.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType.",
+    "uses rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic/MediaManagement/Garbage Collection.",
+    "hasPerformanceMetric rdfs:domain SSD; rdfs:range MetricsHealthAndState/Performance/Throughput.",
+    "benchmarkedBy rdfs:domain SSD; rdfs:range EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO.",
+    "hasInterfaceType rdfs:domain SSD; rdfs:range PhysicalHardwareAndArchitecture/InterfaceType."
+  ],
+  "mappings": [
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is explicitly mentioned in the paper."
+    },
+    {
+      "label": "RAID0",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy/RAID0",
+      "mapping_decision": "exact",
+      "notes": "RAID-0 is explicitly mentioned in the paper."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is explicitly mentioned in the paper."
+    },
+    {
+      "label": "FIO",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/EcosystemAndIntegrationContext/ValidationAndBenchmarks/FIO",
+      "mapping_decision": "exact",
+      "notes": "FIO is explicitly mentioned in the paper."
+    },
+    {
+      "label": "PCIe",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "PCIe is explicitly mentioned in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Managing Array of SSDs When the Storage Device is No Longer the Performance Bottleneck.pdf"
+}

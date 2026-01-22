@@ -1,0 +1,114 @@
+{
+  "paper_id": "Improving disk failure detection accuracy via data augmentation",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E3",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "MSGMD",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms"
+    },
+    {
+      "id": "E5",
+      "label": "FDR",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E6",
+      "label": "F1-Score",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "The disk failures affect the availability of cloud storage system and hurt the quality of service (QoS).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasSMARTAttribute",
+      "o": "E3",
+      "evidence": "The SMART (detailed in Section II-A) is short for Self-Monitoring, Analysis and Reporting Technology, which is widely implemented by manufacturers to monitor the health status of hard-disk-drives (HDD) and solid-state-drives (SSD).",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Experimental results on real-world datasets show that, through data augmentation, MSGMD can improve the FDR and F1-Score of the state-of-the-art disk failure detection model by 31.59% and 30.74% respectively on average.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Experimental results on real-world datasets show that, through data augmentation, MSGMD can improve the FDR and F1-Score of the state-of-the-art disk failure detection model by 31.59% and 30.74% respectively on average.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute.",
+    "improves rdfs:domain ConfigurationAndAdvancedParadigms; rdfs:range MetricsHealthAndState/Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses disk failures in cloud data centers."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SMART attributes for monitoring SSD health."
+    },
+    {
+      "label": "FDR",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "FDR is a performance metric related to failure detection rate."
+    },
+    {
+      "label": "F1-Score",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "parent",
+      "notes": "F1-Score is a performance metric related to the balance between precision and recall."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Improving_disk_failure_detection_accuracy_via_data_augmentation.pdf"
+}

@@ -1,0 +1,127 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_012ed5e1 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_2fdb456e a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC); rdfs:range SSD/MetricsHealthAndState/Performance/Throughput." .
+
+ssd:axiom_d3b68e7c a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF (RoCE, TCP, FC); rdfs:range SSD/MetricsHealthAndState/Performance/99th Percentile Latency." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/027e0a1c7ad84d4a8da7ee6c68520a3a> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%2520%2528RoCE%252C%2520TCP%252C%2520FC%2529> ;
+    dct:source "With appropriate NIC optimizations, we have observed a throughput increase by up to 42.5% and a decrease of the 95th percentile tail latency by up to 14.6%." .
+
+<http://example.org/ssd/assertion/164b042fccad4fab81cd15534e44ed6f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%2520%2528RoCE%252C%2520TCP%252C%2520FC%2529> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E4_Arm_based_Storage_Server ;
+    dct:source "It is highly appealing to integrate the two promising technologies together to build an efficient Arm-based storage server with NVMeoF." .
+
+<http://example.org/ssd/assertion/866c67d9b32442a2a788f879fb343dd9> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E7_NIC_Optimization ;
+    dct:source "In contrast to the common expectation, the NIC optimization, such as interrupt moderation, can substantially reduce the 95th percentile tail latency by up to 14.6% while improving the throughput by up to 42.5%." .
+
+<http://example.org/ssd/assertion/959616b3fa474744a7260c4a373cd814> a ssd:Assertion ;
+    ssd:confidence 0.95 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%2520%2528RoCE%252C%2520TCP%252C%2520FC%2529> ;
+    dct:source "With appropriate NIC optimizations, we have observed a throughput increase by up to 42.5% and a decrease of the 95th percentile tail latency by up to 14.6%." .
+
+<http://example.org/ssd/assertion/ac5122586fa2442aae15577e0b4abf9c> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E7_NIC_Optimization ;
+    dct:source "In contrast to the common expectation, the NIC optimization, such as interrupt moderation, can substantially reduce the 95th percentile tail latency by up to 14.6% while improving the throughput by up to 42.5%." .
+
+ssd:E4_Arm_based_Storage_Server a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter>,
+        owl:Thing ;
+    rdfs:label "Arm-based Storage Server" ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%2520%2528RoCE%252C%2520TCP%252C%2520FC%2529> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+tax:SSD rdfs:label "SSD" ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> rdfs:label "NVMe" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe> .
+
+ssd:E7_NIC_Optimization a <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement/Active%2520Power>,
+        owl:Thing ;
+    rdfs:label "NIC Optimization" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/PowerManagement/Active%2520Power> .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%2520%2528RoCE%252C%2520TCP%252C%2520FC%2529> rdfs:label "NVMeoF" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/Interconnects/NVMe-oF%2520%2528RoCE%252C%2520TCP%252C%2520FC%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> rdfs:label "95th Percentile Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/99th%2520Percentile%2520Latency> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> rdfs:label "Throughput" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput> .
+

@@ -1,0 +1,85 @@
+{
+  "paper_id": "10.1109/TPDS.2020.2985346",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E2",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "SMARTAttribute",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/SMARTAttribute"
+    },
+    {
+      "id": "E4",
+      "label": "Minority Disk Failure Prediction",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms"
+    },
+    {
+      "id": "E5",
+      "label": "TLDFP",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E1",
+      "evidence": "The storage system in large scale data centers is typically built upon thousands or even millions of disks, where disk failures constantly happen.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E2",
+      "p": "hasSMARTAttribute",
+      "o": "E3",
+      "evidence": "Recent trends have turned toward applying machine learning approaches based on disk SMART attributes for disk failure predictions.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "To address this challenge and improve the predictive performance for minority disks in large data centers, we propose a minority disk failure prediction model named TLDFP based on a transfer learning approach.",
+      "confidence": 0.85
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasSMARTAttribute rdfs:domain SSD; rdfs:range SMARTAttribute."
+  ],
+  "mappings": [
+    {
+      "label": "Datacenter",
+      "entity_id": "E1",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses SSDs in the context of large-scale data centers."
+    },
+    {
+      "label": "SMARTAttribute",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/MetricsHealthAndState/SMARTAttribute",
+      "mapping_decision": "parent",
+      "notes": "The paper refers to various SMART attributes for disk failure prediction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Minority_Disk_Failure_Prediction_Based_on_Transfer_Learning_in_Large_Data_Centers_of_Heterogeneous_Disk_Systems.pdf"
+}

@@ -1,0 +1,148 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_55f5ad00 a owl:Axiom ;
+    rdfs:comment "hasInterference rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/InternalFirmwareAndLogic/MediaManagement/Wear Leveling." .
+
+ssd:axiom_717e87e4 a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType." .
+
+ssd:axiom_7c5493eb a owl:Axiom ;
+    rdfs:comment "models rdfs:domain SSD/ModelingTimeAndStateHistory/CoreConcepts/State Snapshot; rdfs:range SSD." .
+
+ssd:axiom_974ebcf9 a owl:Axiom ;
+    rdfs:comment "hasVariation rdfs:domain EnvironmentalAndOperationalContext; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount." .
+
+ssd:axiom_a141af16 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/335505b1304c46ef840d96fec86a7fce> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E3_EnvironmentalAndOperationalContext ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "The Vth distribution is the synergistic result of multiple interferences and variations, such as Program/Erase cycle, data retention time, and read disturbance." .
+
+<http://example.org/ssd/assertion/457f99979b0c4a3d8a5eeabc1d4a0f61> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:hasInterference ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "The major interferences include Program/Erase (P/E) cycle, data retention (DR) time, and read disturbance." .
+
+<http://example.org/ssd/assertion/6a945a9bc239414187d2322fb97c121b> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:hasInterference ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "The major interferences include Program/Erase (P/E) cycle, data retention (DR) time, and read disturbance." .
+
+<http://example.org/ssd/assertion/7ba1dd69aa144aaaa988a1a063422aca> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_3D_NAND_Flash_Memory ;
+    dct:source "We select a 3D charge-trap (CT) TLC NAND flash memory to demonstrate the modeling methodology." .
+
+<http://example.org/ssd/assertion/960f81ce59ae49ed97755f6787383a87> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> ;
+    ssd:predicate ssd:hasVariation ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "Layer Variation (LV): 3D NAND flash memory introduces the exclusive LV dominated by the process variation among different layers." .
+
+<http://example.org/ssd/assertion/b5c675a62b1344bfb768f1a90d3fa614> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:predicate ssd:hasInterference ;
+    ssd:subject ssd:E3_EnvironmentalAndOperationalContext ;
+    dct:source "The major interferences include Program/Erase (P/E) cycle, data retention (DR) time, and read disturbance." .
+
+<http://example.org/ssd/assertion/d8d8fd55110d4bfc854334668bcf0ee6> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E1_3D_NAND_Flash_Memory ;
+    ssd:predicate ssd:models ;
+    ssd:subject ssd:E8_Neural_Network_Model ;
+    dct:source "We propose a machine learning-based Vth distribution modeling method." .
+
+ssd:E8_Neural_Network_Model a <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot>,
+        owl:Thing ;
+    rdfs:label "Neural Network Model" ;
+    ssd:models ssd:E1_3D_NAND_Flash_Memory ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ModelingTimeAndStateHistory/CoreConcepts/State%2520Snapshot> .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> rdfs:label "Layer Variation" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> .
+
+ssd:E1_3D_NAND_Flash_Memory a tax:SSD,
+        owl:Thing ;
+    rdfs:label "3D NAND Flash Memory" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder ssd:E3_EnvironmentalAndOperationalContext ;
+    rdfs:isDefinedBy tax:SSD .
+
+<http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> rdfs:label "Data Retention Time",
+        "Program/Erase Cycle",
+        "Read Disturbance" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> .
+
+ssd:E3_EnvironmentalAndOperationalContext a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext>,
+        owl:Thing ;
+    rdfs:label "EnvironmentalAndOperationalContext" ;
+    ssd:hasInterference <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Wear%2520Leveling> ;
+    ssd:hasVariation <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Manufacturing/LayerCount> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext> .
+

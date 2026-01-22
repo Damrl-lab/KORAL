@@ -1,0 +1,134 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_17379964 a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic/Maintenance; rdfs:range MetricsHealthAndState/Performance." .
+
+ssd:axiom_64f66ca1 a owl:Axiom ;
+    rdfs:comment "correlatesWith rdfs:domain MetricsHealthAndState/Performance; rdfs:range ConfigurationAndAdvancedParadigms/Security." .
+
+ssd:axiom_be1d9f9e a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_f563f8fb a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/040fcd86d1f44697b3c8fba19816a0ec> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_Polling_based_Sanitization ;
+    dct:source "To minimize the impacts on I/O latency and data security, this article proposes a polling-based scheduling approach for data sanitization in high-density SSDs." .
+
+<http://example.org/ssd/assertion/3c2d784816af42fd905121890d474fe2> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object ssd:E7_Embedded_Systems ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject ssd:E1_High_density_SSD ;
+    dct:source "Solid-state drives (SSDs) have replaced traditional hard-disk drives (HDDs) as the mainstream storage devices for resource-constrained environments such as embedded systems." .
+
+<http://example.org/ssd/assertion/4aea3535417e4f16b2bc0f8aa3aa259d> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> ;
+    ssd:predicate ssd:correlatesWith ;
+    ssd:subject ssd:E6_UTI ;
+    dct:source "A small value of UTI means less risk of data leakage in SSD devices." .
+
+<http://example.org/ssd/assertion/c836e1307ff74cd0a160210b37382998> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    ssd:predicate ssd:improves ;
+    ssd:subject ssd:E3_Polling_based_Sanitization ;
+    dct:source "Our proposal can decrease the negative effects of data sanitization in terms of the risk-performance index, which is a united time metric of I/O responsiveness and the unsafe time interval, by 16.34%, on average, compared to related sanitization methods." .
+
+<http://example.org/ssd/assertion/f003366391d74608a3358dd61c96439f> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject ssd:E1_High_density_SSD ;
+    dct:source "For example, a modern Trinary-Level Cell (TLC) can store up to 3-bits of information per cell." .
+
+ssd:E6_UTI a <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency>,
+        owl:Thing ;
+    rdfs:label "UTI" ;
+    ssd:correlatesWith <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E1_High_density_SSD a tax:SSD,
+        owl:Thing ;
+    rdfs:label "High-density SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> ;
+    ssd:operatesUnder ssd:E7_Embedded_Systems ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E3_Polling_based_Sanitization a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Background%2520Scrubbing>,
+        owl:Thing ;
+    rdfs:label "Polling-based Sanitization" ;
+    ssd:improves <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize>,
+        <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/Maintenance/Background%2520Scrubbing> .
+
+ssd:E7_Embedded_Systems a <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded>,
+        owl:Thing ;
+    rdfs:label "Embedded Systems" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Industrial/Embedded> .
+
+ssd:improves a owl:ObjectProperty .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> rdfs:label "TLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC> .
+
+<http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> rdfs:label "Data Security" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/Security/Secure%2520Erase/Sanitize> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> rdfs:label "I/O Latency" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%2520Latency> .
+

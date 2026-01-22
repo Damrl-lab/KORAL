@@ -1,0 +1,168 @@
+{
+  "paper_id": "Asymmetric RAID: Rethinking RAID for SSD",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Asymmetric-RAID",
+      "type": "Instance",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy"
+    },
+    {
+      "id": "E3",
+      "label": "NVMe",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe"
+    },
+    {
+      "id": "E4",
+      "label": "SATA",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA"
+    },
+    {
+      "id": "E5",
+      "label": "Datacenter",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter"
+    },
+    {
+      "id": "E6",
+      "label": "Throughput",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Throughput"
+    },
+    {
+      "id": "E7",
+      "label": "Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E8",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E9",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E8",
+      "evidence": "The explosive growth of data, driven by the era of big data, places significant stress on data center storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasDeploymentEnvironment",
+      "o": "E5",
+      "evidence": "The explosive growth of data, driven by the era of big data, places significant stress on data center storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E8",
+      "p": "hasWorkloadProfile",
+      "o": "E9",
+      "evidence": "We measure the latency distribution under read-only I/O workloads (i.e., 4 KiB sequential read) every morning when the server is idle.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E9",
+      "p": "hasBlockSize",
+      "o": {
+        "@value": "4",
+        "unit": "KB"
+      },
+      "evidence": "We measure the latency distribution under read-only I/O workloads (i.e., 4 KiB sequential read) every morning when the server is idle.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "Asym-RAID asymmetrically distributes data across the array to fully utilize the capacity of each SSD.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E7",
+      "evidence": "Recent studies have demonstrated that fail-slow drives can cause latency spikes of up to 3.65× in large-scale storage clusters.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E3",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The read throughput of the NVMe SSD outperforms the SATA SSD by 5.31× and 5.35× with 512 KiB and 1 MiB request sizes, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "degrades",
+      "o": "E6",
+      "evidence": "The read throughput of the NVMe SSD outperforms the SATA SSD by 5.31× and 5.35× with 512 KiB and 1 MiB request sizes, respectively.",
+      "confidence": 0.9
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeploymentEnvironment rdfs:domain EnvironmentalAndOperationalContext; rdfs:range DeploymentEnvironment.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "NVMe",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/NVMe",
+      "mapping_decision": "exact",
+      "notes": "NVMe is a precise match under InterfaceType."
+    },
+    {
+      "label": "SATA",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/InterfaceType/SATA",
+      "mapping_decision": "exact",
+      "notes": "SATA is a precise match under InterfaceType."
+    },
+    {
+      "label": "Throughput",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Throughput",
+      "mapping_decision": "exact",
+      "notes": "Throughput is a precise match under Performance."
+    },
+    {
+      "label": "Latency",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "Latency is a precise match under Performance."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Asymmetric‑RAID_ Rethinking RAID for SSD Heterogeneity.pdf"
+}

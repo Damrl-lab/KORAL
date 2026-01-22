@@ -1,0 +1,143 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssd: <http://example.org/ssd#> .
+@prefix tax: <http://example.org/ssd/taxonomy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ssd:axiom_03bf704e a owl:Axiom ;
+    rdfs:comment "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType." .
+
+ssd:axiom_072f044f a owl:Axiom ;
+    rdfs:comment "improvedBy rdfs:domain SSD; rdfs:range InternalFirmwareAndLogic." .
+
+ssd:axiom_324159e3 a owl:Axiom ;
+    rdfs:comment "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext." .
+
+ssd:axiom_a8fe267b a owl:Axiom ;
+    rdfs:comment "improves rdfs:domain InternalFirmwareAndLogic; rdfs:range MetricsHealthAndState/Reliability/UBER." .
+
+ssd:axiom_b286c64f a owl:Axiom ;
+    rdfs:comment "implementedIn rdfs:domain InternalFirmwareAndLogic; rdfs:range EcosystemAndIntegrationContext/HostIOStack/File Systems (NTFS, ext4, XFS, APFS)." .
+
+ssd:confidence a owl:DatatypeProperty .
+
+ssd:correlatesWith a owl:ObjectProperty .
+
+ssd:degradedBy a owl:DatatypeProperty .
+
+ssd:hasAccessPattern a owl:DatatypeProperty .
+
+ssd:hasBlockSize a owl:DatatypeProperty .
+
+ssd:hasEnvironment a owl:ObjectProperty .
+
+ssd:hasExternalFactor a owl:ObjectProperty .
+
+ssd:hasQueueDepth a owl:DatatypeProperty .
+
+ssd:hasReadWriteMix a owl:DatatypeProperty .
+
+ssd:hasRelativeHumidity a owl:DatatypeProperty .
+
+ssd:hasTemperature a owl:DatatypeProperty .
+
+ssd:hasWorkloadProfile a owl:ObjectProperty .
+
+ssd:impacts a owl:ObjectProperty .
+
+ssd:improves a owl:ObjectProperty .
+
+ssd:object a owl:ObjectProperty .
+
+ssd:percentile a owl:DatatypeProperty .
+
+ssd:predicate a owl:ObjectProperty .
+
+ssd:subject a owl:ObjectProperty .
+
+ssd:unit a owl:DatatypeProperty .
+
+<http://example.org/ssd/assertion/2cf645b684e7483481b42ecf0a0b98ad> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E7_ZippyDB ;
+    ssd:predicate ssd:implementedIn ;
+    ssd:subject ssd:E5_DIRECT ;
+    dct:source "We implemented DIRECT on two real-world storage systems: ZippyDB and HDFS." .
+
+<http://example.org/ssd/assertion/937031c3fcdf4045b4b585e2f3261a14> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object ssd:E6_HDFS ;
+    ssd:predicate ssd:implementedIn ;
+    ssd:subject ssd:E5_DIRECT ;
+    dct:source "We implemented DIRECT on two real-world storage systems: ZippyDB and HDFS." .
+
+<http://example.org/ssd/assertion/ac886417b97a465c8287cb75c2f3fb05> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    ssd:predicate ssd:degrades ;
+    ssd:subject ssd:E5_DIRECT ;
+    dct:source "DIRECT enables HDFS to tolerate a 10,000–100,000× higher bit error rate without experiencing application-visible errors." .
+
+<http://example.org/ssd/assertion/cd1abccc5bfd4d89b1e5e68b08c2d3de> a ssd:Assertion ;
+    ssd:confidence 0.85 ;
+    ssd:object ssd:E5_DIRECT ;
+    ssd:predicate ssd:improvedBy ;
+    ssd:subject tax:SSD ;
+    dct:source "DIRECT helps extend flash lifetimes." .
+
+<http://example.org/ssd/assertion/efd3b43423c24e3181b65f0a997c6975> a ssd:Assertion ;
+    ssd:confidence 0.9 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    ssd:predicate ssd:operatesUnder ;
+    ssd:subject tax:SSD ;
+    dct:source "Flash storage is the main storage medium in datacenters for hot data." .
+
+<http://example.org/ssd/assertion/f65e131047374cffb66cbb9146b30267> a ssd:Assertion ;
+    ssd:confidence 0.8 ;
+    ssd:object <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:predicate ssd:hasDeviceType ;
+    ssd:subject tax:SSD ;
+    dct:source "QLC was recently introduced as the next generation flash cell technology." .
+
+ssd:degrades a owl:ObjectProperty .
+
+ssd:hasDeviceType a owl:ObjectProperty .
+
+ssd:improvedBy a owl:DatatypeProperty .
+
+ssd:operatesUnder a owl:ObjectProperty .
+
+ssd:E6_HDFS a <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529>,
+        owl:Thing ;
+    rdfs:label "HDFS" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529> .
+
+ssd:E7_ZippyDB a <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529>,
+        owl:Thing ;
+    rdfs:label "ZippyDB" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EcosystemAndIntegrationContext/HostIOStack/File%2520Systems%2520%2528NTFS%252C%2520ext4%252C%2520XFS%252C%2520APFS%2529> .
+
+<http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> rdfs:label "Datacenter" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> .
+
+<http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> rdfs:label "UBER" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> .
+
+<http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> rdfs:label "QLC" ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> .
+
+tax:SSD rdfs:label "SSD" ;
+    ssd:hasDeviceType <http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/QLC> ;
+    ssd:improvedBy ssd:E5_DIRECT ;
+    ssd:operatesUnder <http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment/Datacenter> ;
+    rdfs:isDefinedBy tax:SSD .
+
+ssd:E5_DIRECT a <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic>,
+        owl:Thing ;
+    rdfs:label "DIRECT" ;
+    ssd:degrades <http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability/UBER> ;
+    ssd:implementedIn ssd:E6_HDFS,
+        ssd:E7_ZippyDB ;
+    rdfs:isDefinedBy <http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic> .
+

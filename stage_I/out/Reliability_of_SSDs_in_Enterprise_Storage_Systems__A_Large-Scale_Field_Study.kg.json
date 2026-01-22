@@ -1,0 +1,214 @@
+{
+  "paper_id": "Reliability_of_SSDs_in_Enterprise_Storage_Systems",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Enterprise Storage System",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/DeploymentEnvironment"
+    },
+    {
+      "id": "E3",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    },
+    {
+      "id": "E4",
+      "label": "3D",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D"
+    },
+    {
+      "id": "E5",
+      "label": "Firmware Version",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion"
+    },
+    {
+      "id": "E6",
+      "label": "RAID",
+      "type": "Class",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy"
+    },
+    {
+      "id": "E7",
+      "label": "Reliability",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E8",
+      "label": "Annual Replacement Rate",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E9",
+      "label": "Predictive Failures",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E10",
+      "label": "Unresponsive Drive",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E11",
+      "label": "Lost Writes",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    },
+    {
+      "id": "E12",
+      "label": "SCSI Error",
+      "type": "Instance",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Reliability"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E1",
+      "p": "operatesUnder",
+      "o": "E2",
+      "evidence": "This article presents the first large-scale field study of NAND-based SSDs in enterprise storage systems.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasDeviceType",
+      "o": "E3",
+      "evidence": "The drives comprise three different manufacturers, 18 different models, 12 different capacities, and all major flash technologies (SLC, cMLC, eMLC, 3D-TLC).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasStructure",
+      "o": "E4",
+      "evidence": "The drives comprise three different manufacturers, 18 different models, 12 different capacities, and all major flash technologies (SLC, cMLC, eMLC, 3D-TLC).",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasFirmwareVersion",
+      "o": "E5",
+      "evidence": "The data allows us to study a large number of factors that were not studied in prior works, including the effect of firmware versions.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E1",
+      "p": "usesRAID",
+      "o": "E6",
+      "evidence": "Reliability is ensured through (single-, double-, or triple-parity) RAID, instead of replication or distributed storage codes.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E1",
+      "p": "hasReliabilityMetric",
+      "o": "E8",
+      "evidence": "The average ARR across the entire population is 0.22%, but rates vary widely depending on the drive model.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E8",
+      "evidence": "One-third of replacements are associated with one of the most severe reason types (i.e., SCSI errors), but on the other hand, one-third of drive replacements are merely preventative based on predictions.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E10",
+      "p": "correlatesWith",
+      "o": "E8",
+      "evidence": "The most severe category is category SL4, which comprises those situations where drives become completely unresponsive.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E11",
+      "p": "correlatesWith",
+      "o": "E8",
+      "evidence": "Category SL3 refers to drive replacements that are taking place when the system suspects the drive to have lost a write.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E12",
+      "p": "correlatesWith",
+      "o": "E8",
+      "evidence": "The single most common reason type are SCSI errors, which are responsible for ∼42% of all replacements.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "hasFirmwareVersion rdfs:domain SSD; rdfs:range Controller/FirmwareVersion.",
+    "usesRAID rdfs:domain SSD; rdfs:range RAIDAndRedundancy.",
+    "hasReliabilityMetric rdfs:domain SSD; rdfs:range Reliability."
+  ],
+  "mappings": [
+    {
+      "label": "TLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "TLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "3D",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/Structure/3D",
+      "mapping_decision": "exact",
+      "notes": "3D is a specific structure under FlashTechnology."
+    },
+    {
+      "label": "Firmware Version",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/Controller/FirmwareVersion",
+      "mapping_decision": "exact",
+      "notes": "Firmware Version is a specific aspect of the Controller."
+    },
+    {
+      "label": "RAID",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/ConfigurationAndAdvancedParadigms/RAIDAndRedundancy",
+      "mapping_decision": "exact",
+      "notes": "RAID is a redundancy configuration under ConfigurationAndAdvancedParadigms."
+    },
+    {
+      "label": "Reliability",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Reliability is a key metric under MetricsHealthAndState."
+    },
+    {
+      "label": "Annual Replacement Rate",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Reliability",
+      "mapping_decision": "exact",
+      "notes": "Annual Replacement Rate is a specific reliability metric."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Reliability of SSDs in Enterprise Storage Systems_ A Large-Scale Field Study.pdf"
+}

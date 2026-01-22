@@ -1,0 +1,120 @@
+{
+  "paper_id": "IEEE_JOURNAL_ON_SELECTED_AREAS_IN_COMMUNICATIONS_VOL_32_NO_5_MAY_2014",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "LDPC Decoding",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E3",
+      "label": "SLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC"
+    },
+    {
+      "id": "E4",
+      "label": "MLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC"
+    },
+    {
+      "id": "E5",
+      "label": "Enhanced Precision",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    },
+    {
+      "id": "E6",
+      "label": "Mutual Information Maximization",
+      "type": "Instance",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/DataPath/Error%20Correction%20%28ECC%29"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E5",
+      "evidence": "Enhanced precision through multiple reads is crucial to successfully reaping the benefits of LDPC coding in Flash memory.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E5",
+      "p": "improves",
+      "o": "E6",
+      "evidence": "The word-line voltages are optimized by maximizing the mutual information (MI) of the quantized channel.",
+      "confidence": 0.85
+    },
+    {
+      "s": "E3",
+      "p": "hasDeviceType",
+      "o": "E1",
+      "evidence": "The original NAND Flash uses only two levels. This is called single-level-cell (SLC) Flash.",
+      "confidence": 0.95
+    },
+    {
+      "s": "E4",
+      "p": "hasDeviceType",
+      "o": "E1",
+      "evidence": "Devices currently available using four levels are called multi-level-cell (MLC) Flash.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "improves rdfs:domain SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC); rdfs:range SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC).",
+    "hasDeviceType rdfs:domain SSD; rdfs:range SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType."
+  ],
+  "mappings": [
+    {
+      "label": "LDPC Decoding",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "LDPC Decoding is a form of error correction."
+    },
+    {
+      "label": "SLC",
+      "entity_id": "E3",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/SLC",
+      "mapping_decision": "exact",
+      "notes": "SLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "MLC",
+      "entity_id": "E4",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/MLC",
+      "mapping_decision": "exact",
+      "notes": "MLC is a specific cell type under FlashTechnology."
+    },
+    {
+      "label": "Enhanced Precision",
+      "entity_id": "E5",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "Enhanced precision is related to error correction improvements."
+    },
+    {
+      "label": "Mutual Information Maximization",
+      "entity_id": "E6",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/DataPath/Error Correction (ECC)",
+      "mapping_decision": "exact",
+      "notes": "Mutual Information Maximization is a method to optimize error correction."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "Enhanced Precision Through Multiple Reads for LDPC Decoding of Hard Drives and Flash Memories.pdf"
+}

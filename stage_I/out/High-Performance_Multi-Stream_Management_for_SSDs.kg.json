@@ -1,0 +1,168 @@
+{
+  "paper_id": "electronics2021_10_486",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "Multi-Stream SSD",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "WorkloadProfile",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E5",
+      "label": "AccessPattern",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/AccessPattern"
+    },
+    {
+      "id": "E6",
+      "label": "ReadWriteMix",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/ReadWriteMix"
+    },
+    {
+      "id": "E7",
+      "label": "BlockSize",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/BlockSize"
+    },
+    {
+      "id": "E8",
+      "label": "QueueDepth",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile/QueueDepth"
+    },
+    {
+      "id": "E9",
+      "label": "Garbage Collection",
+      "type": "Class",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/InternalFirmwareAndLogic/MediaManagement/Garbage%20Collection"
+    },
+    {
+      "id": "E10",
+      "label": "Write Amplification Factor (WAF)",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E3",
+      "evidence": "The objective of a multi-stream SSD is to group data by their expected lifetimes and store each group of data in a separate area called a stream to minimize the frequency of wasteful copy-back and initialization operations.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E3",
+      "p": "hasWorkloadProfile",
+      "o": "E4",
+      "evidence": "Our study aims to reduce the internal copying operation of the GC process, the core purpose of multi-stream, and to present the applicability of the proposed method through experiments with various workloads.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasAccessPattern",
+      "o": "E5",
+      "evidence": "We conducted experiments with workloads having different profiles, such as mail servers and databases.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasReadWriteMix",
+      "o": "E6",
+      "evidence": "We analyzed more details on the I/O types for each workload, as shown in Table 3.",
+      "confidence": 0.7
+    },
+    {
+      "s": "E4",
+      "p": "hasBlockSize",
+      "o": "E7",
+      "evidence": "In our experiments, the number of files, file creation size, and append-write size were set to 7500, 40 kB, and 16 kB, respectively.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E4",
+      "p": "hasQueueDepth",
+      "o": "E8",
+      "evidence": "The WAF is calculated using the following formula.",
+      "confidence": 0.6
+    },
+    {
+      "s": "E2",
+      "p": "improves",
+      "o": "E9",
+      "evidence": "The proposed algorithm reduces the WAF by 12% over MQ in Varmail and 11% over FStream in Varmail_nj by not only separating the synchronous-create and synchronous-append operations but also effectively classifying synchronous-append with various intervals.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E9",
+      "p": "correlatesWith",
+      "o": "E10",
+      "evidence": "Therefore, GC adversely affects the lifetime and performance of a SSD owing to the extra write operations, even though it improves storage utilization.",
+      "confidence": 0.8
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasAccessPattern rdfs:domain WorkloadProfile; rdfs:range AccessPattern.",
+    "hasReadWriteMix rdfs:domain WorkloadProfile; rdfs:range ReadWriteMix.",
+    "hasBlockSize rdfs:domain WorkloadProfile; rdfs:range BlockSize.",
+    "hasQueueDepth rdfs:domain WorkloadProfile; rdfs:range QueueDepth.",
+    "improves rdfs:domain SSD; rdfs:range MediaManagement/Garbage Collection.",
+    "correlatesWith rdfs:domain MediaManagement/Garbage Collection; rdfs:range Performance."
+  ],
+  "mappings": [
+    {
+      "label": "Multi-Stream SSD",
+      "entity_id": "E2",
+      "taxonomy_path": "SSD",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses a specific type of SSD that uses multi-stream management."
+    },
+    {
+      "label": "Garbage Collection",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/InternalFirmwareAndLogic/MediaManagement/Garbage Collection",
+      "mapping_decision": "exact",
+      "notes": "Garbage Collection is a well-defined concept in SSD media management."
+    },
+    {
+      "label": "Write Amplification Factor (WAF)",
+      "entity_id": "E10",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "WAF is a performance metric directly discussed in the paper."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "High-Performance Multi-Stream Management for SSDs.pdf"
+}

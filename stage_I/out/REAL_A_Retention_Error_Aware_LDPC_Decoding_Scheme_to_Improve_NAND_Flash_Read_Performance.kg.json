@@ -1,0 +1,140 @@
+{
+  "paper_id": "REAL: A Retention Error Aware LDPC Decoding Scheme to Improve NAND Flash Read Performance",
+  "entities": [
+    {
+      "id": "E1",
+      "label": "SSD",
+      "type": "Class",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E2",
+      "label": "MLC_SSD_1",
+      "type": "Instance",
+      "taxonomy_path": "SSD",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD"
+    },
+    {
+      "id": "E3",
+      "label": "EnvironmentalAndOperationalContext",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E4",
+      "label": "EC1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext"
+    },
+    {
+      "id": "E5",
+      "label": "WorkloadProfile",
+      "type": "Class",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E6",
+      "label": "WP1",
+      "type": "Instance",
+      "taxonomy_path": "SSD/EnvironmentalAndOperationalContext/WorkloadProfile",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/EnvironmentalAndOperationalContext/WorkloadProfile"
+    },
+    {
+      "id": "E7",
+      "label": "Read Performance",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance"
+    },
+    {
+      "id": "E8",
+      "label": "LDPC Decoding Latency",
+      "type": "Class",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/MetricsHealthAndState/Performance/Average%20Latency"
+    },
+    {
+      "id": "E9",
+      "label": "TLC",
+      "type": "Class",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "taxonomy_uri": "http://example.org/ssd/taxonomy/SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC"
+    }
+  ],
+  "triples": [
+    {
+      "s": "E2",
+      "p": "operatesUnder",
+      "o": "E4",
+      "evidence": "NAND flash with the advantages of high performance, large storage capacity, low power consumption, shock resistance, and non-volatility is widely used in various computer systems and consumer electronics products as a storage device.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E4",
+      "p": "hasWorkloadProfile",
+      "o": "E6",
+      "evidence": "NAND flash with the advantages of high performance, large storage capacity, low power consumption, shock resistance, and non-volatility is widely used in various computer systems and consumer electronics products as a storage device.",
+      "confidence": 0.8
+    },
+    {
+      "s": "E2",
+      "p": "hasDeviceType",
+      "o": "E9",
+      "evidence": "each cell is capable of storing more bits information (i.e., 2 bits and 3 bits per cell with multi-level cell (MLC) and triple-level cell (TLC) respectively)",
+      "confidence": 0.95
+    },
+    {
+      "s": "E8",
+      "p": "degrades",
+      "o": "E7",
+      "evidence": "directly using LDPC codes with belief propagation (BP) decoding algorithm introduces non-trivial overhead of decoding latency and hence significantly degrades the read performance of NAND flash.",
+      "confidence": 0.9
+    },
+    {
+      "s": "E7",
+      "p": "improvedBy",
+      "o": {
+        "@value": "0.2644",
+        "unit": "percent"
+      },
+      "evidence": "Our simulation results show that the proposed REAL scheme can reduce the LDPC decoding latency by 26.44% and 33.05%, compared with the Logarithm Domain Min-Sum (LD-MS) and Probability Domain BP (PD-BP) schemes, respectively.",
+      "confidence": 0.95
+    }
+  ],
+  "axioms": [
+    "operatesUnder rdfs:domain SSD; rdfs:range EnvironmentalAndOperationalContext.",
+    "hasWorkloadProfile rdfs:domain EnvironmentalAndOperationalContext; rdfs:range WorkloadProfile.",
+    "hasDeviceType rdfs:domain SSD; rdfs:range FlashTechnology/CellType.",
+    "degrades rdfs:domain Performance; rdfs:range Performance.",
+    "improvedBy rdfs:domain Performance; rdfs:range xsd:decimal."
+  ],
+  "mappings": [
+    {
+      "label": "Read Performance",
+      "entity_id": "E7",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance",
+      "mapping_decision": "exact",
+      "notes": "The paper discusses improvements in read performance."
+    },
+    {
+      "label": "LDPC Decoding Latency",
+      "entity_id": "E8",
+      "taxonomy_path": "SSD/MetricsHealthAndState/Performance/Average Latency",
+      "mapping_decision": "exact",
+      "notes": "The paper specifically addresses latency related to LDPC decoding."
+    },
+    {
+      "label": "TLC",
+      "entity_id": "E9",
+      "taxonomy_path": "SSD/PhysicalHardwareAndArchitecture/FlashTechnology/CellType/TLC",
+      "mapping_decision": "exact",
+      "notes": "The paper mentions TLC as a type of NAND flash."
+    }
+  ],
+  "new_concepts": [],
+  "paper_original_filename": "REAL A Retention Error Aware LDPC Decoding Scheme to Improve NAND Flash Read Performance.pdf"
+}
