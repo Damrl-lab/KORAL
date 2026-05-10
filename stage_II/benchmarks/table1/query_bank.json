@@ -1,0 +1,2560 @@
+{
+  "version": 4,
+  "queries": [
+    {
+      "id": "predict_failure_and_performance",
+      "task": "predictive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "ENV",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "predictive",
+      "question": "Given this SSD sample, predict whether the SSD is likely to fail within the target horizon and, when applicable, estimate the expected performance degradation such as tail-latency impact.",
+      "retrieval_terms": [
+        "SSD failure prediction",
+        "tail latency",
+        "time to failure",
+        "SMART",
+        "environment",
+        "workload"
+      ]
+    },
+    {
+      "id": "desc_smart_health_overview",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe the overall health meaning of the SMART evidence in this SSD sample.",
+      "retrieval_terms": [
+        "SMART health",
+        "SSD failure",
+        "media errors",
+        "wear"
+      ],
+      "ground_truth": "The SSD should be described using the combined SMART pattern, not a single attribute. Rising media-error, interface-error, wear, age, and read/write-pressure attributes together are stronger evidence than any isolated counter."
+    },
+    {
+      "id": "desc_smart_workload_risk",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "workload",
+      "question": "Describe how the workload context changes the risk interpretation of this SMART sample.",
+      "retrieval_terms": [
+        "Alibaba workload",
+        "write-dominant",
+        "SMART risk",
+        "SSD reliability"
+      ],
+      "ground_truth": "A write-dominant Alibaba workload should be interpreted as higher failure exposure than a read-dominant one. The Alibaba field study shows write-heavy services stress endurance and make abnormal SMART trends more operationally important."
+    },
+    {
+      "id": "desc_smart_correlation_limits",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe the limits of using SMART attributes alone to reason about correlated SSD failures.",
+      "retrieval_terms": [
+        "correlated SSD failures",
+        "SMART limits",
+        "Alibaba"
+      ],
+      "ground_truth": "SMART attributes are useful for local health assessment but insufficient by themselves to explain intra-node or intra-rack correlated failures. Placement, same-model concentration, workload, and recovery policy must be considered together."
+    },
+    {
+      "id": "desc_smart_static_context",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe how static SSD context such as flash type or controller policies should be interpreted together with dynamic SMART signals.",
+      "retrieval_terms": [
+        "flash type",
+        "controller policy",
+        "SMART context"
+      ],
+      "ground_truth": "Static SSD context such as flash type and controller policies should be treated as modifiers of the SMART interpretation. They explain why two drives with similar counters can have different risk, latency, or lifetime behavior."
+    },
+    {
+      "id": "desc_smart_interface_errors",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe what interface-path SMART anomalies imply for this SSD sample.",
+      "retrieval_terms": [
+        "UCRC",
+        "interface errors",
+        "controller path",
+        "SSD"
+      ],
+      "ground_truth": "Interface-path SMART signals such as UDMA CRC errors should be interpreted as possible link, cable, connector, or controller-path instability rather than pure media damage. They still matter because repeated path errors can precede service disruption."
+    },
+    {
+      "id": "desc_smart_media_endurance",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe how media wear and endurance-related SMART attributes should be interpreted in this SSD sample.",
+      "retrieval_terms": [
+        "wear leveling",
+        "media wearout",
+        "SSD endurance"
+      ],
+      "ground_truth": "Wear-oriented SMART attributes and lifetime indicators should be read as endurance context. Growing wear, wear-range imbalance, or media-wearout pressure lowers confidence even before the SSD reaches a hard fail-stop event."
+    },
+    {
+      "id": "desc_smart_write_pressure",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe how write pressure should influence the interpretation of this SMART sample.",
+      "retrieval_terms": [
+        "blocks written",
+        "write pressure",
+        "garbage collection",
+        "SMART"
+      ],
+      "ground_truth": "Write pressure matters because blocks written, write-heavy application mix, and garbage-collection stress accelerate wear-related risk. In field studies, write-dominant behavior is associated with higher overall SSD failure exposure."
+    },
+    {
+      "id": "desc_smart_age_and_life",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe how SSD age or lifetime usage should influence the interpretation of this SMART sample.",
+      "retrieval_terms": [
+        "power-on hours",
+        "SSD age",
+        "lifetime risk"
+      ],
+      "ground_truth": "Power-on age is a real risk amplifier. Older SSDs are more likely to participate in short-interval correlated failures, so age should strengthen the interpretation of otherwise moderate SMART warnings."
+    },
+    {
+      "id": "desc_smart_failure_warning_strength",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe how strong the current SMART warning signal should be considered.",
+      "retrieval_terms": [
+        "SMART warning",
+        "failure evidence",
+        "SSD"
+      ],
+      "ground_truth": "The warning strength comes from persistence and combination. A single weak anomaly is less convincing, but rising media, interface, and wear counters together are actionable evidence rather than background noise."
+    },
+    {
+      "id": "desc_smart_trend_vs_snapshot",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe why a temporal SMART trend is more informative than a single SMART snapshot.",
+      "retrieval_terms": [
+        "SMART trend",
+        "outliers",
+        "temporal window",
+        "SSD"
+      ],
+      "ground_truth": "A temporal SMART trend is more informative than a single snapshot. Slopes, repeated outliers, and sustained counter growth indicate deteriorating behavior more reliably than one isolated reading."
+    },
+    {
+      "id": "desc_smart_failslow_gap",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe why SMART evidence can miss or lag fail-slow SSD behavior.",
+      "retrieval_terms": [
+        "fail-slow",
+        "SMART gap",
+        "SSD service degradation"
+      ],
+      "ground_truth": "SMART should not be treated as a perfect fail-slow detector. An SSD can show service degradation, latency inflation, or intermittent faults before a dramatic SMART spike appears."
+    },
+    {
+      "id": "desc_smart_feature_priority",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Describe which SMART attributes are usually the most informative for SSD failure interpretation.",
+      "retrieval_terms": [
+        "SMART features",
+        "reallocated sectors",
+        "uncorrectable errors",
+        "wear"
+      ],
+      "ground_truth": "The most informative SMART signals are the ones tied to media errors, reallocation, interface reliability, age, and wear. Read/write volume counters add workload context, while purely static counters are weaker by themselves."
+    },
+    {
+      "id": "desc_workload_app_interpretation",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "workload",
+      "question": "Describe how the Alibaba application tag should be used to interpret this SSD sample.",
+      "retrieval_terms": [
+        "Alibaba app",
+        "service class",
+        "workload proxy"
+      ],
+      "ground_truth": "The Alibaba application tag should be used as a workload proxy. It helps separate write-dominant services from read-dominant ones so the same SMART window can be interpreted with the right operational context."
+    },
+    {
+      "id": "desc_workload_write_service_risk",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "workload",
+      "question": "Describe why a write-heavy service should be considered riskier than a read-heavy one for this SSD sample.",
+      "retrieval_terms": [
+        "write-heavy service",
+        "SSD wear",
+        "Alibaba"
+      ],
+      "ground_truth": "A workload with sustained writes or heavier update pressure should be described as having greater service risk than a read-oriented one. The extra write stress increases wear and makes future SMART anomalies more consequential."
+    },
+    {
+      "id": "desc_smart_env_compound_risk",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "multimodal",
+      "question": "Describe how SMART anomalies and environmental stress should be interpreted together in this sample.",
+      "retrieval_terms": [
+        "SMART plus environment",
+        "compound SSD risk",
+        "temperature",
+        "humidity",
+        "vibration"
+      ],
+      "ground_truth": "When SMART anomalies appear together with a harsh environment, the operator should describe the case as compound risk. The SMART view captures device health, while temperature, humidity, or vibration explain extra performance and reliability pressure."
+    },
+    {
+      "id": "desc_workload_env_compound_penalty",
+      "task": "descriptive",
+      "dataset_types": [
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "multimodal",
+      "question": "Describe how workload pressure and environmental stress combine in this SSD sample.",
+      "retrieval_terms": [
+        "workload plus environment",
+        "write path",
+        "compound penalty"
+      ],
+      "ground_truth": "When a demanding workload runs during environmental stress, the combined effect is worse than reading either signal alone. Write-heavy traffic amplifies the latency and endurance penalty created by temperature, humidity, or vibration exposure."
+    },
+    {
+      "id": "desc_ft_flash_reliability_tradeoff",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "group": "flash_type",
+      "question": "Describe the reliability tradeoff associated with the flash type used in this SSD sample.",
+      "retrieval_terms": [
+        "flash type",
+        "TLC",
+        "QLC",
+        "endurance"
+      ],
+      "ground_truth": "Flash type changes the reliability tradeoff. Lower-bit-density flash is generally more robust, while TLC, QLC, and higher-density media offer capacity at the cost of tighter endurance and error margins."
+    },
+    {
+      "id": "desc_ft_temperature_sensitivity",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "group": "flash_type",
+      "question": "Describe how flash type changes the expected environmental sensitivity of this SSD sample.",
+      "retrieval_terms": [
+        "flash type sensitivity",
+        "temperature",
+        "humidity",
+        "TLC",
+        "MLC"
+      ],
+      "ground_truth": "Flash type also changes environmental sensitivity. TLC tends to show stronger temperature-related behavior, while MLC can show particularly visible humidity-driven tail-latency penalties in the experimental study."
+    },
+    {
+      "id": "desc_alg_gc_tradeoff",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "group": "algorithms",
+      "question": "Describe the performance-lifetime tradeoff associated with the controller garbage-collection policy in this SSD sample.",
+      "retrieval_terms": [
+        "garbage collection",
+        "write amplification",
+        "SSD policy"
+      ],
+      "ground_truth": "Garbage-collection policy should be described as a performance-lifetime tradeoff. A more aggressive policy can control space pressure and latency spikes, but it may also increase write amplification and consume endurance."
+    },
+    {
+      "id": "desc_alg_wear_leveling_tradeoff",
+      "task": "descriptive",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "group": "algorithms",
+      "question": "Describe the tradeoff associated with the wear-leveling policy in this SSD sample.",
+      "retrieval_terms": [
+        "wear leveling",
+        "latency tradeoff",
+        "SSD policy"
+      ],
+      "ground_truth": "Wear-leveling policy should be described as a balance problem. Strong leveling can improve lifetime fairness across blocks, but it can also introduce extra movement, latency, and write amplification if applied too aggressively."
+    },
+    {
+      "id": "desc_env_runtime_effect",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe the immediate runtime effect of this temperature or humidity condition on SSD performance.",
+      "retrieval_terms": [
+        "temperature",
+        "humidity",
+        "runtime effect",
+        "SSD performance"
+      ],
+      "ground_truth": "This condition should be described as an immediate runtime stressor on SSD performance. The explanation should focus on how temperature or humidity changes tail latency or bandwidth while the exposure is happening.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_post_impact",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe whether this temperature or humidity condition can leave a post-impact effect after the exposure ends.",
+      "retrieval_terms": [
+        "post-impact",
+        "temperature",
+        "humidity",
+        "SSD"
+      ],
+      "ground_truth": "Temperature and humidity exposure can leave post-impact after the environment returns to nominal conditions. High humidity is especially likely to leave lingering latency or bandwidth degradation, and some high-temperature cases can do so as well.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_bandwidth_latency_tradeoff",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe the bandwidth-versus-latency tradeoff associated with this environmental condition.",
+      "retrieval_terms": [
+        "bandwidth",
+        "tail latency",
+        "temperature",
+        "humidity"
+      ],
+      "ground_truth": "The main tradeoff is that some high-temperature points can improve average bandwidth, while humidity increases and post-impact episodes can hurt tail latency and make the write path more fragile than the read path.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_device_sensitivity",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe how SSD type or flash type changes the sensitivity to this environmental condition.",
+      "retrieval_terms": [
+        "device sensitivity",
+        "TLC",
+        "MLC",
+        "environment"
+      ],
+      "ground_truth": "Sensitivity should be described in device terms. TLC devices tend to react strongly to temperature, while MLC can show especially visible humidity-driven tail-latency penalties.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_high_temp_gain",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe why high temperature can sometimes improve bandwidth yet still be risky for SSDs.",
+      "retrieval_terms": [
+        "high temperature",
+        "bandwidth gain",
+        "SSD risk"
+      ],
+      "ground_truth": "A high-temperature operating point can improve average bandwidth for some TLC cases, but that should be interpreted as a conditional throughput gain rather than proof that heat is harmless.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_high_humidity_penalty",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe the penalty caused by high humidity for SSD performance and reliability.",
+      "retrieval_terms": [
+        "high humidity",
+        "tail latency",
+        "post-impact",
+        "SSD"
+      ],
+      "ground_truth": "High humidity is the clearest environmental penalty in this study. It worsens tail latency, can leave post-impact after the exposure ends, and is more dangerous for the write path than for the read path.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_write_vs_read_path",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe how this environmental condition affects write I/O differently from read I/O.",
+      "retrieval_terms": [
+        "write path",
+        "read path",
+        "temperature",
+        "humidity"
+      ],
+      "ground_truth": "This condition should be described as more damaging to write I/O than to read I/O. The study reports stronger write-path degradation under temperature and humidity stress.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_abrupt_change_behavior",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe why abrupt temperature or humidity transitions deserve explicit attention.",
+      "retrieval_terms": [
+        "abrupt change",
+        "temperature",
+        "humidity",
+        "SSD"
+      ],
+      "ground_truth": "Abrupt environmental transitions should be treated as first-class events. Even when a transition briefly improves one metric, it still changes SSD behavior enough to justify operational attention.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_recovery_expectation",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe what kind of recovery should be expected after this environmental stress ends.",
+      "retrieval_terms": [
+        "recovery",
+        "post-impact",
+        "environment"
+      ],
+      "ground_truth": "Recovery after the exposure is partial rather than guaranteed. Runtime stress can fade quickly, but humidity- and heat-related post-impact may remain visible in latency, bandwidth, or later failures.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_env_postimpact_write_asymmetry",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Describe how post-impact behavior differs between the SSD write path and read path after environmental stress.",
+      "retrieval_terms": [
+        "post-impact write path",
+        "read path",
+        "humidity",
+        "temperature"
+      ],
+      "ground_truth": "Post-impact should be described as asymmetric. The write path remains the more vulnerable side after harsh environmental exposure, so persistent write degradation is more concerning than an equivalent read slowdown.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "desc_vib_short_term_tail",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe the short-term performance effect of this vibration condition, especially on tail latency.",
+      "retrieval_terms": [
+        "vibration",
+        "tail latency",
+        "short-term",
+        "SSD"
+      ],
+      "ground_truth": "This vibration condition should be described as a short-term tail-latency stressor. Read and write tail latency can degrade by more than 10%, and the worst short-term cases reported in the paper approach about 30%.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_orientation_effect",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe how vibration orientation changes the expected SSD performance impact.",
+      "retrieval_terms": [
+        "perpendicular vibration",
+        "parallel vibration",
+        "orientation",
+        "SSD"
+      ],
+      "ground_truth": "Orientation matters for vibration. Perpendicular vibration is typically worse than parallel vibration in the short term, and the gap between orientations can reach about 30% for tail-latency degradation.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_long_term_degradation",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe the long-term reliability and performance consequences if this vibration exposure persists.",
+      "retrieval_terms": [
+        "long-term vibration",
+        "bandwidth",
+        "tail latency",
+        "silent failures"
+      ],
+      "ground_truth": "If vibration persists, the condition should be described as a long-term reliability and performance problem, not just a transient slowdown. The study reports tail-latency degradation above 30% and up to about 45%, plus measurable bandwidth loss and eventual failure risk.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_hidden_smart_gap",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Explain why traditional SMART-style health indicators may miss the impact of this vibration condition.",
+      "retrieval_terms": [
+        "SMART gap",
+        "vibration",
+        "fail-slow",
+        "transient failures"
+      ],
+      "ground_truth": "This condition should be described as partially hidden from traditional health tools. Mean performance and SMART-style indicators can look mild even while tail latency degrades and fail-slow behavior develops.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_mean_vs_tail",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe the difference between mean-performance impact and tail-latency impact under this vibration condition.",
+      "retrieval_terms": [
+        "mean vs tail",
+        "vibration",
+        "tail latency",
+        "SSD"
+      ],
+      "ground_truth": "The important distinction is that tail latency worsens much more clearly than mean behavior. Average throughput or mean latency can understate service risk, so tail metrics are the better early signal.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_vendor_variability",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe why the effect of this vibration condition may vary across SSD vendors or flash implementations.",
+      "retrieval_terms": [
+        "vendor variability",
+        "vibration",
+        "MLC",
+        "TLC",
+        "SSD"
+      ],
+      "ground_truth": "Vendor and implementation sensitivity should be treated as real. Some SSDs show small impact in one regime, while others, especially on the write path, degrade much more noticeably under the same vibration class.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_post_effect",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe whether the impact of this vibration condition can persist even after vibration stops.",
+      "retrieval_terms": [
+        "post-effect",
+        "vibration",
+        "no-vibration phase",
+        "SSD"
+      ],
+      "ground_truth": "The impact can persist after the strongest vibration interval ends. Recovery toward baseline is possible, but long or repeated exposure can leave post-effects in bandwidth stability, tail latency, or recurrent transient faults.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_transient_fault_pattern",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe the transient-fault or fail-slow pattern associated with this vibration condition.",
+      "retrieval_terms": [
+        "transient fault",
+        "restart",
+        "fail-slow",
+        "vibration"
+      ],
+      "ground_truth": "The failure pattern should be described as fail-slow or transient rather than purely crash-stop. A device may stop serving correctly, recover after restart, and still continue with degraded performance or recurring faults.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "desc_vib_bandwidth_drop",
+      "task": "descriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Describe how this vibration condition affects mean bandwidth as exposure length increases.",
+      "retrieval_terms": [
+        "bandwidth drop",
+        "long-term vibration",
+        "SSD"
+      ],
+      "ground_truth": "As exposure length grows, mean bandwidth degradation becomes easier to see. The paper reports about a 10% drop in one long-term regime and more than 20% loss in a case involving transient failures between quiet phases.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_smart_monitor_replace",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend concrete operator actions for this SSD window, including monitoring, migration, and replacement urgency based on the observed SMART pattern.",
+      "retrieval_terms": [
+        "SMART remediation",
+        "migration",
+        "replacement",
+        "SSD risk management"
+      ],
+      "ground_truth": "Prioritize close SMART monitoring, verify whether abnormal counters keep rising, and migrate or replace the drive if media or interface errors continue to accumulate. The response should be concise, evidence-backed, and operational."
+    },
+    {
+      "id": "pres_smart_reduce_correlated_risk",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend actions that reduce correlated-failure exposure for this type of SSD sample at node or rack level.",
+      "retrieval_terms": [
+        "correlated SSD failures",
+        "same drive model",
+        "rack",
+        "node",
+        "redundancy"
+      ],
+      "ground_truth": "Reduce correlated-failure exposure by avoiding dense placement of same-model SSDs in the same node or rack, using stronger redundancy where possible, and preferring eager recovery over lazy recovery once failures are detected."
+    },
+    {
+      "id": "pres_smart_write_heavy_controls",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "What workload-management actions should an operator take if this SSD is under write-heavy pressure?",
+      "retrieval_terms": [
+        "write-dominant workload",
+        "rebalance",
+        "SSD reliability",
+        "Alibaba applications"
+      ],
+      "ground_truth": "If the workload remains write-heavy, rebalance or throttle writes, move latency-sensitive traffic away from the stressed drive, and shorten inspection intervals for media and interface counters."
+    },
+    {
+      "id": "pres_smart_static_policy_alignment",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend controller-policy or lifecycle-management actions that align the static SSD characteristics in this sample with safer operation.",
+      "retrieval_terms": [
+        "flash type",
+        "controller policy",
+        "lifecycle management"
+      ],
+      "ground_truth": "Treat static device descriptors as operational context and align policy conservatively. Tighten lifecycle thresholds for weaker flash or riskier policies, and do not apply a one-size-fits-all rule across dissimilar SSDs."
+    },
+    {
+      "id": "pres_smart_interface_sanitization",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend operator actions when SMART evidence suggests interface-path problems rather than purely media errors.",
+      "retrieval_terms": [
+        "interface path",
+        "cabling",
+        "UCRC",
+        "controller logs"
+      ],
+      "ground_truth": "Inspect the interface path first. Validate cabling, connectors, controller logs, and host-link integrity, then separate path issues from true media deterioration before escalating to replacement."
+    },
+    {
+      "id": "pres_smart_endurance_guardrails",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend endurance-management actions for an SSD sample that shows wear-related SMART pressure.",
+      "retrieval_terms": [
+        "endurance guardrails",
+        "wear leveling",
+        "media wearout"
+      ],
+      "ground_truth": "Add endurance guardrails. Reduce unnecessary writes, watch wear-related counters more frequently, and lower the replacement threshold once wear acceleration becomes clear."
+    },
+    {
+      "id": "pres_smart_data_migration_plan",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend when and how the operator should plan proactive data migration for this SSD sample.",
+      "retrieval_terms": [
+        "proactive migration",
+        "preemptive replacement",
+        "SMART"
+      ],
+      "ground_truth": "Plan preemptive migration while the SSD is still serving requests, validate that the warning is persistent across windows, and avoid waiting for a stronger but more disruptive failure signal."
+    },
+    {
+      "id": "pres_smart_rack_placement_review",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend placement or fleet-level actions if this SMART pattern appears in multiple similar SSDs.",
+      "retrieval_terms": [
+        "rack placement",
+        "same model",
+        "fleet risk"
+      ],
+      "ground_truth": "Review rack and node placement for same-model concentration, especially when the fleet shows repeated issues on similar SSDs. Diversity in placement and model mix reduces correlated-failure exposure."
+    },
+    {
+      "id": "pres_smart_spare_capacity_watch",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend how spare capacity or protection margin should be handled for this SSD sample.",
+      "retrieval_terms": [
+        "spare capacity",
+        "recovery headroom",
+        "redundancy"
+      ],
+      "ground_truth": "Increase operational safety margin by keeping spare capacity and recovery headroom available, and pair deteriorating drives with stronger redundancy or faster recovery policies instead of minimal protection."
+    },
+    {
+      "id": "pres_smart_trend_monitoring",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend how the operator should monitor SMART trends over time rather than isolated snapshots.",
+      "retrieval_terms": [
+        "trend monitoring",
+        "SMART slope",
+        "outliers"
+      ],
+      "ground_truth": "Monitor trends rather than snapshots. Track slopes, repeated outliers, and sustained counter growth, and escalate when the same abnormal pattern appears across consecutive windows."
+    },
+    {
+      "id": "pres_smart_failslow_triage",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend how the operator should triage possible fail-slow behavior when SMART evidence is weak or delayed.",
+      "retrieval_terms": [
+        "fail-slow triage",
+        "latency anomalies",
+        "SMART"
+      ],
+      "ground_truth": "Use service-level symptoms together with SMART. If latency inflation or intermittent faults appear before a strong SMART spike, treat the case as fail-slow risk and prepare migration, replacement, and closer runtime monitoring."
+    },
+    {
+      "id": "pres_smart_counter_priority",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Recommend which SMART attributes should receive the highest operational attention.",
+      "retrieval_terms": [
+        "SMART priorities",
+        "media errors",
+        "wear",
+        "interface"
+      ],
+      "ground_truth": "Prioritize counters tied to media errors, reallocation, interface reliability, age, and wear. Read and write volume metrics should be used as supporting workload context rather than the only trigger."
+    },
+    {
+      "id": "pres_workload_rebalance_by_app",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "workload",
+      "question": "Recommend how workload should be rebalanced based on the Alibaba application class in this sample.",
+      "retrieval_terms": [
+        "app-aware scheduling",
+        "Alibaba workload",
+        "rebalance"
+      ],
+      "ground_truth": "Use the application class to rebalance risk. Move the most write-intensive or latency-sensitive service away first, and keep less demanding traffic on the more stressed SSD if isolation is limited."
+    },
+    {
+      "id": "pres_workload_reduce_write_bursts",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "workload",
+      "question": "Recommend how the operator should reduce write bursts or write amplification for this workload-aware SSD sample.",
+      "retrieval_terms": [
+        "reduce write bursts",
+        "write amplification",
+        "workload"
+      ],
+      "ground_truth": "Reduce burstiness and write amplification where possible. Batch less aggressively, smooth the write path, and avoid coupling the drive with avoidable background work when the workload is already write-heavy."
+    },
+    {
+      "id": "pres_smart_env_compound_guardrails",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "multimodal",
+      "question": "Recommend operator guardrails when SMART warnings and environmental stress appear together.",
+      "retrieval_terms": [
+        "SMART plus environment",
+        "compound guardrails"
+      ],
+      "ground_truth": "Treat the case as compound risk. Tighten monitoring, reduce workload pressure, avoid prolonged environmental exposure, and lower the threshold for migration or replacement compared with a SMART-only case."
+    },
+    {
+      "id": "pres_workload_env_schedule_control",
+      "task": "prescriptive",
+      "dataset_types": [
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "multimodal",
+      "question": "Recommend how workload scheduling should change when demanding I/O runs under environmental stress.",
+      "retrieval_terms": [
+        "workload scheduling",
+        "environmental stress",
+        "SSD"
+      ],
+      "ground_truth": "Protect demanding workloads by moving them away from the stressed interval, reducing burstiness, and preferring the cleanest thermal and humidity envelope available."
+    },
+    {
+      "id": "pres_ft_flash_specific_lifecycle",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "group": "flash_type",
+      "question": "Recommend whether lifecycle and replacement policy should differ by flash type.",
+      "retrieval_terms": [
+        "flash-type policy",
+        "TLC",
+        "QLC",
+        "SSD lifecycle"
+      ],
+      "ground_truth": "Adjust lifecycle policy by flash type. Higher-density flash should be managed with tighter endurance guardrails and more conservative replacement thresholds than more robust low-density flash."
+    },
+    {
+      "id": "pres_ft_temperature_humidity_guardrails",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "group": "flash_type",
+      "question": "Recommend how temperature and humidity guardrails should differ by flash type.",
+      "retrieval_terms": [
+        "flash type guardrails",
+        "temperature",
+        "humidity"
+      ],
+      "ground_truth": "Different flash types need different guardrails. Use tighter temperature and humidity discipline for the more sensitive flash types instead of assuming the same environmental margin is safe for every SSD."
+    },
+    {
+      "id": "pres_alg_policy_tuning_review",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "group": "algorithms",
+      "question": "Recommend when controller policies should be reviewed or retuned for reliability and latency.",
+      "retrieval_terms": [
+        "controller retuning",
+        "GC policy",
+        "refresh policy"
+      ],
+      "ground_truth": "Review controller policy whenever latency spikes, write amplification, or wear imbalance become visible. Garbage collection, refresh, mapping, and retry settings should be revisited as a group rather than tuned in isolation."
+    },
+    {
+      "id": "pres_alg_gc_wl_balance",
+      "task": "prescriptive",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "group": "algorithms",
+      "question": "Recommend how the operator should balance garbage collection and wear leveling for safer operation.",
+      "retrieval_terms": [
+        "GC balance",
+        "wear leveling",
+        "SSD tuning"
+      ],
+      "ground_truth": "Balance garbage collection and wear leveling conservatively. Avoid policy extremes that suppress one problem only by creating another, such as lowering latency at the cost of excessive write amplification."
+    },
+    {
+      "id": "pres_env_humidity_mitigation",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend immediate mitigation actions for this humidity-related SSD condition.",
+      "retrieval_terms": [
+        "humidity mitigation",
+        "room conditions",
+        "SSD"
+      ],
+      "ground_truth": "Move the operating point back toward room conditions when humidity is high, avoid prolonged exposure, and treat high-humidity episodes as performance-risk events rather than harmless noise.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_thermal_window",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend how the operator should manage the SSD thermal window under this condition.",
+      "retrieval_terms": [
+        "thermal window",
+        "temperature guardrail",
+        "SSD"
+      ],
+      "ground_truth": "Keep the device inside vendor limits, use any high-temperature operating point only deliberately and temporarily, and avoid trading a short-term bandwidth gain for longer-term retention or post-impact risk.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_post_impact_monitoring",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend what should be monitored after this environmental exposure ends.",
+      "retrieval_terms": [
+        "post-impact monitoring",
+        "tail latency",
+        "bandwidth"
+      ],
+      "ground_truth": "After the exposure ends, continue monitoring tail latency, bandwidth, and unexpected failures because the experiments report post-impact after high humidity and some high-temperature exposures.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_write_heavy_scheduling",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend how write-heavy or latency-critical work should be scheduled under this environmental condition.",
+      "retrieval_terms": [
+        "write-heavy scheduling",
+        "latency-critical",
+        "environment"
+      ],
+      "ground_truth": "Protect write-heavy or latency-critical workloads by moving them away from the stressed interval, reducing burstiness, and preferring the cleanest thermal and humidity envelope available.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_room_condition_recovery",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend how the operator should return the SSD to room-condition operation after this stress.",
+      "retrieval_terms": [
+        "room recovery",
+        "stabilization",
+        "SSD"
+      ],
+      "ground_truth": "Return the system gradually toward room conditions, then validate that both runtime metrics and post-exposure metrics have stabilized before restoring full trust in the SSD.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_high_temp_guardrails",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend guardrails if a high-temperature operating point is intentionally used for performance.",
+      "retrieval_terms": [
+        "high temperature guardrails",
+        "bandwidth",
+        "SSD"
+      ],
+      "ground_truth": "If a high-temperature point is used for throughput reasons, treat it as a controlled exception. Cap duration, watch tail latency and wear indicators, and avoid pairing it with high humidity or write-heavy spikes.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_humidity_exposure_limit",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend how the operator should limit high-humidity exposure for SSDs.",
+      "retrieval_terms": [
+        "humidity exposure limit",
+        "environmental correction"
+      ],
+      "ground_truth": "Limit the duration and blast radius of high-humidity exposure by compartmentalizing affected equipment, rerouting sensitive work, and prioritizing environmental correction over tuning the SSD in place.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_flash_type_specific_policy",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend whether policy should differ by flash type under this environmental condition.",
+      "retrieval_terms": [
+        "flash type policy",
+        "TLC",
+        "MLC",
+        "temperature",
+        "humidity"
+      ],
+      "ground_truth": "Adjust policy by flash type. Treat TLC devices as especially temperature-sensitive and MLC devices as particularly vulnerable to humidity-driven tail-latency penalties rather than using a single uniform rule.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_post_event_validation",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend what should be validated before the SSD is considered safe after this environmental event.",
+      "retrieval_terms": [
+        "post-event validation",
+        "tail latency",
+        "error counters"
+      ],
+      "ground_truth": "Before fully trusting the SSD again, validate tail-latency behavior, bandwidth, error counters, and any evidence of post-impact. A nominal room-condition reading alone is not enough.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_env_write_path_priority",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Recommend how the operator should prioritize protection of the SSD write path under environmental stress.",
+      "retrieval_terms": [
+        "write path priority",
+        "environmental stress",
+        "SSD"
+      ],
+      "ground_truth": "Prioritize protection of the write path first. If only limited mitigation is possible, shield write-heavy or write-latency-critical traffic before protecting less sensitive read activity.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "pres_vib_isolate_latency_sensitive",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend operational actions to protect latency-sensitive workloads from this vibration condition.",
+      "retrieval_terms": [
+        "isolate workload",
+        "vibration",
+        "tail latency"
+      ],
+      "ground_truth": "Move latency-sensitive or write-heavy workloads away from the vibrating device when possible, or isolate the drive from the source. Use tail-latency behavior rather than average throughput alone to decide whether the SSD still meets its service target.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_orientation_mounting",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend physical or placement actions that reduce the orientation-sensitive impact of vibration.",
+      "retrieval_terms": [
+        "orientation",
+        "mounting",
+        "perpendicular vibration"
+      ],
+      "ground_truth": "Reduce the harmful vibration direction through better mounting, placement, and isolation, with special attention to avoiding perpendicular exposure. Treat chassis orientation and mechanical layout as operational reliability controls.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_monitor_tail_not_mean",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend what metrics should be monitored so the operator catches the impact of this vibration condition early.",
+      "retrieval_terms": [
+        "tail latency monitoring",
+        "mean versus tail",
+        "vibration"
+      ],
+      "ground_truth": "Monitor tail latency, bandwidth variability, restart events, and abrupt stop faults, because mean performance or SMART counters alone can hide the impact of vibration.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_prepare_failslow_recovery",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend recovery and escalation actions for the fail-slow or transient-failure patterns associated with this vibration condition.",
+      "retrieval_terms": [
+        "fail-slow recovery",
+        "restart validation",
+        "vibration"
+      ],
+      "ground_truth": "Prepare for fail-slow and transient-fault behavior by scheduling rapid migration, replacement, and post-restart validation. A restart may temporarily restore functionality, but it should not be treated as a durable fix.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_reduce_exposure_duration",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend how to reduce effective vibration exposure duration if the source cannot be removed immediately.",
+      "retrieval_terms": [
+        "reduce vibration exposure",
+        "quiet interval",
+        "SSD"
+      ],
+      "ground_truth": "If the source cannot be removed immediately, shorten effective exposure duration, reduce time spent under the strongest vibration, insert quiet intervals when operationally possible, and move the most sensitive workloads out first.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_validate_after_restart",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend what to validate after restarting an SSD that was affected by vibration.",
+      "retrieval_terms": [
+        "restart validation",
+        "vibration",
+        "bandwidth stability"
+      ],
+      "ground_truth": "After restart, validate tail-latency recovery, bandwidth stability, filesystem or controller errors, and whether the fault recurs under comparable load. Functional recovery alone is not enough to declare the SSD healthy.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_vendor_qualification",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend how vendor qualification or platform qualification should account for this vibration pattern.",
+      "retrieval_terms": [
+        "vendor qualification",
+        "orientation test",
+        "vibration"
+      ],
+      "ground_truth": "Qualification should include model-specific vibration tests across orientation, exposure length, and read/write mix instead of relying only on no-vibration averages.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_workload_derating",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend whether the workload should be derated or shifted while this vibration condition persists.",
+      "retrieval_terms": [
+        "workload derating",
+        "latency-sensitive",
+        "vibration"
+      ],
+      "ground_truth": "Derate the workload while the condition persists. Move latency-sensitive or write-heavy traffic away first, reduce burstiness, and lower service expectations on the affected SSD instead of assuming the nominal SLO still holds.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "pres_vib_facility_source_audit",
+      "task": "prescriptive",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Recommend how to audit or localize the likely facility or platform source of this vibration.",
+      "retrieval_terms": [
+        "facility audit",
+        "resonance",
+        "fans",
+        "vibration"
+      ],
+      "ground_truth": "Audit likely vibration sources systematically. Inspect mounting hardware, nearby fans or pumps, enclosure resonance, and neighboring drive activity so mitigation can target the mechanical source instead of only the symptom.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_smart_reduce_writes",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if this SSD sees less write pressure in the future.",
+      "retrieval_terms": [
+        "reduce writes",
+        "wear pressure",
+        "SSD"
+      ],
+      "scenario": "If this SSD sees less write pressure in the future, how should SSD behavior change?",
+      "ground_truth": "If the workload becomes less write-intensive, wear-related SMART pressure and overall failure exposure should decrease. The improvement is strongest when the starting point is clearly write-dominant."
+    },
+    {
+      "id": "whatif_smart_ageing_next_year",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if this SSD continues aging for another year without replacement.",
+      "retrieval_terms": [
+        "aging",
+        "power-on hours",
+        "SSD risk"
+      ],
+      "scenario": "If this SSD continues aging for another year without replacement, how should SSD behavior change?",
+      "ground_truth": "If the SSD accumulates more age and rated-life usage, correlated-failure risk should rise and short-interval failures should become more plausible."
+    },
+    {
+      "id": "whatif_smart_spread_same_model",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if similar same-model SSDs are spread across nodes and racks instead of densely colocated.",
+      "retrieval_terms": [
+        "same model spread",
+        "correlated failures",
+        "rack"
+      ],
+      "scenario": "If similar same-model SSDs are spread across nodes and racks instead of densely colocated, how should SSD behavior change?",
+      "ground_truth": "If same-model SSDs are spread across nodes and racks instead of densely colocated, correlated-failure exposure should decrease."
+    },
+    {
+      "id": "whatif_smart_eager_recovery",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if the system uses eager recovery instead of lazy recovery after an SSD failure.",
+      "retrieval_terms": [
+        "eager recovery",
+        "lazy recovery",
+        "Alibaba"
+      ],
+      "scenario": "If the system uses eager recovery instead of lazy recovery after an SSD failure, how should SSD behavior change?",
+      "ground_truth": "If the system switches from lazy recovery to eager recovery, reliability should improve under correlated failures because additional failures are more likely after the first one."
+    },
+    {
+      "id": "whatif_smart_fix_interface_path",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if the interface-path instability in this SSD sample is fully corrected.",
+      "retrieval_terms": [
+        "interface fix",
+        "UCRC",
+        "path stability"
+      ],
+      "scenario": "If the interface-path instability in this SSD sample is fully corrected, how should SSD behavior change?",
+      "ground_truth": "If the interface or host-link instability is removed, the warning should weaken substantially for path-driven anomalies, although any genuine media wear signal would remain."
+    },
+    {
+      "id": "whatif_smart_relieve_write_pressure",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if write pressure on this SSD is relieved but not eliminated.",
+      "retrieval_terms": [
+        "write pressure relief",
+        "SSD wear"
+      ],
+      "scenario": "If write pressure on this SSD is relieved but not eliminated, how should SSD behavior change?",
+      "ground_truth": "If write pressure is relieved, the SMART trend should look healthier over time and the SSD should age more slowly, even if the drive is not returned to a fully read-dominant profile."
+    },
+    {
+      "id": "whatif_smart_tighten_refresh_policy",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_AL"
+      ],
+      "group": "algorithms",
+      "question": "Analyze what happens if a more conservative refresh or retention policy is applied to this SSD.",
+      "retrieval_terms": [
+        "refresh policy",
+        "retention",
+        "SSD"
+      ],
+      "scenario": "If a more conservative refresh or retention policy is applied to this SSD, how should SSD behavior change?",
+      "ground_truth": "If refresh and background maintenance become more conservative, near-term reliability confidence should improve modestly, especially for aging or wear-stressed drives, but this does not remove workload and placement risk."
+    },
+    {
+      "id": "whatif_smart_preemptive_replacement",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if the operator replaces this SSD proactively before a hard failure occurs.",
+      "retrieval_terms": [
+        "preemptive replacement",
+        "risk reduction"
+      ],
+      "scenario": "If the operator replaces this SSD proactively before a hard failure occurs, how should SSD behavior change?",
+      "ground_truth": "If the operator replaces the drive proactively, local risk drops immediately and correlated exposure can also fall if the troubled drive is part of a concentrated same-model cluster."
+    },
+    {
+      "id": "whatif_smart_model_mix",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if the fleet mixes more SSD models instead of concentrating one model heavily.",
+      "retrieval_terms": [
+        "model mix",
+        "correlation",
+        "fleet diversity"
+      ],
+      "scenario": "If the fleet mixes more SSD models instead of concentrating one model heavily, how should SSD behavior change?",
+      "ground_truth": "If the fleet uses a more diverse model mix, common-mode failure exposure should decrease because fewer identical SSDs share the same failure modes in the same scope."
+    },
+    {
+      "id": "whatif_smart_error_counters_rise",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if media or interface error counters continue to rise in future windows.",
+      "retrieval_terms": [
+        "rising error counters",
+        "SMART trend",
+        "SSD"
+      ],
+      "scenario": "If media or interface error counters continue to rise in future windows, how should SSD behavior change?",
+      "ground_truth": "If media or interface counters keep rising across windows, the current warning should be treated as strengthening evidence rather than a transient anomaly, and replacement urgency should increase."
+    },
+    {
+      "id": "whatif_smart_failslow_without_hard_failure",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "group": "smart",
+      "question": "Analyze what happens if this SSD enters a fail-slow state without an immediate hard failure.",
+      "retrieval_terms": [
+        "fail-slow",
+        "latency inflation",
+        "SMART"
+      ],
+      "scenario": "If this SSD enters a fail-slow state without an immediate hard failure, how should SSD behavior change?",
+      "ground_truth": "If the SSD moves into fail-slow behavior without a hard fail-stop, user-visible latency risk should increase first, and the operator should not wait for a dramatic SMART collapse before acting."
+    },
+    {
+      "id": "whatif_workload_switch_to_write_heavy",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "workload",
+      "question": "Analyze what happens if the workload on this SSD becomes more write-heavy than it is today.",
+      "retrieval_terms": [
+        "write-heavy switch",
+        "Alibaba workload",
+        "SSD"
+      ],
+      "scenario": "If the workload on this SSD becomes more write-heavy than it is today, how should SSD behavior change?",
+      "ground_truth": "If the workload becomes more write-heavy, endurance pressure and the operational importance of abnormal SMART trends should increase."
+    },
+    {
+      "id": "whatif_workload_shift_to_read_heavy",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "workload",
+      "question": "Analyze what happens if the workload on this SSD shifts toward a more read-dominant pattern.",
+      "retrieval_terms": [
+        "read-heavy shift",
+        "Alibaba workload",
+        "SSD"
+      ],
+      "scenario": "If the workload on this SSD shifts toward a more read-dominant pattern, how should SSD behavior change?",
+      "ground_truth": "If the workload shifts toward a more read-dominant pattern, the SSD should see lower wear pressure and a safer reliability outlook than under an equally intense write-heavy service."
+    },
+    {
+      "id": "whatif_smart_env_hot_humid_with_warning",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "multimodal",
+      "question": "Analyze what happens if this SSD keeps showing SMART warnings while also entering a hotter or more humid environment.",
+      "retrieval_terms": [
+        "SMART plus hot humidity",
+        "compound risk"
+      ],
+      "scenario": "If this SSD keeps showing SMART warnings while also entering a hotter or more humid environment, how should SSD behavior change?",
+      "ground_truth": "If SMART warnings persist while temperature or humidity stress increases, the case should be treated as a compounded reliability and performance problem with a lower tolerance for waiting or partial mitigation."
+    },
+    {
+      "id": "whatif_workload_env_burst_during_humidity",
+      "task": "whatif",
+      "dataset_types": [
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "group": "multimodal",
+      "question": "Analyze what happens if a write-heavy workload spike occurs during high humidity or another hostile environmental episode.",
+      "retrieval_terms": [
+        "workload spike",
+        "humidity",
+        "compound SSD risk"
+      ],
+      "scenario": "If a write-heavy workload spike occurs during high humidity or another hostile environmental episode, how should SSD behavior change?",
+      "ground_truth": "If a write-heavy burst arrives during hostile environmental exposure, the service risk should rise more sharply than under either condition alone because the write path is the more vulnerable side."
+    },
+    {
+      "id": "whatif_ft_switch_tlc_to_mlc",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "group": "flash_type",
+      "question": "Analyze what happens if the SSD uses MLC-like flash characteristics instead of TLC-like ones.",
+      "retrieval_terms": [
+        "TLC to MLC",
+        "flash type",
+        "SSD"
+      ],
+      "scenario": "If the SSD uses MLC-like flash characteristics instead of TLC-like ones, how should SSD behavior change?",
+      "ground_truth": "If the same workload or environment is experienced by a more robust flash type such as MLC instead of TLC, endurance risk should ease, although temperature and humidity sensitivity will still depend on the exact condition."
+    },
+    {
+      "id": "whatif_ft_move_to_qlc",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "group": "flash_type",
+      "question": "Analyze what happens if the SSD uses a denser flash type such as QLC instead of a lower-density alternative.",
+      "retrieval_terms": [
+        "QLC",
+        "flash density",
+        "SSD"
+      ],
+      "scenario": "If the SSD uses a denser flash type such as QLC instead of a lower-density alternative, how should SSD behavior change?",
+      "ground_truth": "If the SSD moves to a denser flash type such as QLC, capacity efficiency improves but the reliability margin becomes tighter, so endurance and error sensitivity should be treated more conservatively."
+    },
+    {
+      "id": "whatif_alg_more_aggressive_gc",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "group": "algorithms",
+      "question": "Analyze what happens if garbage collection is made more aggressive for this SSD configuration.",
+      "retrieval_terms": [
+        "aggressive garbage collection",
+        "write amplification",
+        "SSD"
+      ],
+      "scenario": "If garbage collection is made more aggressive for this SSD configuration, how should SSD behavior change?",
+      "ground_truth": "If garbage collection becomes more aggressive, some latency spikes and space-pressure problems may ease, but write amplification and endurance cost can rise."
+    },
+    {
+      "id": "whatif_alg_static_to_hybrid_wl",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "group": "algorithms",
+      "question": "Analyze what happens if wear leveling changes from a weaker or static style to a better balanced hybrid policy.",
+      "retrieval_terms": [
+        "hybrid wear leveling",
+        "SSD lifetime"
+      ],
+      "scenario": "If wear leveling changes from a weaker or static style to a better balanced hybrid policy, how should SSD behavior change?",
+      "ground_truth": "If wear leveling moves toward a better balanced hybrid policy, lifetime fairness should improve, but the operator should still watch for extra background movement and latency overhead."
+    },
+    {
+      "id": "whatif_alg_page_to_block_mapping",
+      "task": "whatif",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "group": "algorithms",
+      "question": "Analyze what happens if the mapping policy becomes coarser, such as moving from page-level toward block-level behavior.",
+      "retrieval_terms": [
+        "FTL mapping",
+        "page-level",
+        "block-level",
+        "SSD"
+      ],
+      "scenario": "If the mapping policy becomes coarser, such as moving from page-level toward block-level behavior, how should SSD behavior change?",
+      "ground_truth": "If mapping becomes coarser, controller memory cost may fall, but the system should expect less flexibility and potentially worse fine-grained performance behavior under mixed workloads."
+    },
+    {
+      "id": "whatif_env_reduce_humidity",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if humidity is reduced toward room conditions.",
+      "retrieval_terms": [
+        "reduce humidity",
+        "tail latency",
+        "SSD"
+      ],
+      "scenario": "If humidity is reduced toward room conditions, how should SSD behavior change?",
+      "ground_truth": "If humidity is reduced toward room conditions, tail latency should improve and bandwidth should recover relative to high-humidity operation. The experiments show that decreasing humidity improves SSD behavior.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_raise_temperature",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if temperature rises into a controlled high-temperature range.",
+      "retrieval_terms": [
+        "raise temperature",
+        "bandwidth",
+        "TLC"
+      ],
+      "scenario": "If temperature rises into a controlled high-temperature range, how should SSD behavior change?",
+      "ground_truth": "If temperature rises into a controlled high-temperature range, some TLC cases may show higher average bandwidth, but operators should expect a tradeoff with higher endurance and post-impact risk.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_restore_room_conditions",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if the SSD is returned to room conditions after this exposure.",
+      "retrieval_terms": [
+        "restore room conditions",
+        "post-impact",
+        "SSD"
+      ],
+      "scenario": "If the SSD is returned to room conditions after this exposure, how should SSD behavior change?",
+      "ground_truth": "Returning to room conditions should remove the runtime component of the stress, but not all damage vanishes immediately. Partial recovery is more realistic than assuming full recovery.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_reverse_direction",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if the environmental direction is reversed, such as increasing humidity instead of decreasing it or cooling instead of heating.",
+      "retrieval_terms": [
+        "reverse direction",
+        "temperature",
+        "humidity"
+      ],
+      "scenario": "If the environmental direction is reversed, such as increasing humidity instead of decreasing it or cooling instead of heating, how should SSD behavior change?",
+      "ground_truth": "Reversing the environmental direction should reverse the broad performance trend. More humidity generally worsens latency, lower humidity improves it, and temperature changes must still be interpreted together with flash type and post-impact risk.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_increase_humidity",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if humidity increases further under otherwise similar operating conditions.",
+      "retrieval_terms": [
+        "increase humidity",
+        "post-impact",
+        "write path"
+      ],
+      "scenario": "If humidity increases further under otherwise similar operating conditions, how should SSD behavior change?",
+      "ground_truth": "If humidity increases further, expect worse tail latency, a stronger chance of post-impact, and higher concern for write-path degradation.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_drop_temperature",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if the SSD is cooled while humidity stays comparable.",
+      "retrieval_terms": [
+        "drop temperature",
+        "bandwidth",
+        "SSD"
+      ],
+      "scenario": "If the SSD is cooled while humidity stays comparable, how should SSD behavior change?",
+      "ground_truth": "If the SSD is cooled while humidity stays comparable, any high-temperature throughput gain should weaken, and the result should be interpreted mainly through the tradeoff between immediate bandwidth and longer-term stress.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_extend_exposure",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if the same environmental exposure lasts much longer.",
+      "retrieval_terms": [
+        "extend exposure",
+        "post-impact",
+        "SSD"
+      ],
+      "scenario": "If the same environmental exposure lasts much longer, how should SSD behavior change?",
+      "ground_truth": "If the same environmental exposure lasts much longer, operator confidence should decrease because post-impact and eventual failure behavior become more plausible than in the short runtime experiments.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_switch_flash_type",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if the same condition is experienced by a different flash type, such as TLC versus MLC.",
+      "retrieval_terms": [
+        "flash type",
+        "temperature",
+        "humidity",
+        "TLC",
+        "MLC"
+      ],
+      "scenario": "If the same condition is experienced by a different flash type, such as TLC versus MLC, how should SSD behavior change?",
+      "ground_truth": "If the same condition is applied to a different flash type, sensitivity should shift. TLC tends to be more temperature-sensitive, while MLC can show especially visible humidity-driven tail-latency penalties.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_shift_write_to_read",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if the workload under this environmental condition becomes less write-heavy and more read-oriented.",
+      "retrieval_terms": [
+        "write to read shift",
+        "environment",
+        "SSD"
+      ],
+      "scenario": "If the workload under this environmental condition becomes less write-heavy and more read-oriented, how should SSD behavior change?",
+      "ground_truth": "If the workload becomes less write-heavy under the same environmental condition, the performance penalty should ease because the experiments indicate write I/O is more affected than read I/O.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_env_high_humidity_after_heat",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "temp_hum",
+      "question": "Analyze what happens if high humidity follows a prior high-temperature episode.",
+      "retrieval_terms": [
+        "high humidity after heat",
+        "compound post-impact",
+        "SSD"
+      ],
+      "scenario": "If high humidity follows a prior high-temperature episode, how should SSD behavior change?",
+      "ground_truth": "If high humidity follows a prior high-temperature episode, the operator should expect a worse post-impact outlook than from either episode alone because the SSD is exposed to back-to-back stress mechanisms.",
+      "row_factors_any": [
+        "temperature",
+        "humidity"
+      ]
+    },
+    {
+      "id": "whatif_vib_remove_vibration",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if this vibration source is removed.",
+      "retrieval_terms": [
+        "remove vibration",
+        "baseline",
+        "tail latency"
+      ],
+      "scenario": "If this vibration source is removed, how should SSD behavior change?",
+      "ground_truth": "If the vibration source is removed, tail latency should move back toward the no-vibration baseline and bandwidth should stabilize. Recovery should be strongest if the issue was mainly a short-term runtime effect.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_parallel_vs_perpendicular",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if the same vibration exposure is applied with a different orientation.",
+      "retrieval_terms": [
+        "parallel",
+        "perpendicular",
+        "vibration"
+      ],
+      "scenario": "If the same vibration exposure is applied with a different orientation, how should SSD behavior change?",
+      "ground_truth": "If the same vibration exposure switches between parallel and perpendicular orientation, severity should shift with it. Perpendicular vibration is usually worse in the short term, while parallel vibration can still become harmful once exposure is prolonged.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_prolong_exposure",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if this vibration exposure persists for much longer.",
+      "retrieval_terms": [
+        "prolong vibration exposure",
+        "tail latency",
+        "bandwidth"
+      ],
+      "scenario": "If this vibration exposure persists for much longer, how should SSD behavior change?",
+      "ground_truth": "If the exposure persists much longer, expect substantially worse tail latency, clearer mean-bandwidth loss, and a higher chance of fail-slow, silent, or transient-fault behavior.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_restart_after_transient_fault",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if an SSD under this vibration condition is restarted after a transient fault.",
+      "retrieval_terms": [
+        "restart after fault",
+        "vibration",
+        "SSD"
+      ],
+      "scenario": "If an SSD under this vibration condition is restarted after a transient fault, how should SSD behavior change?",
+      "ground_truth": "A restart after a transient vibration-related fault may restore functionality in the near term, but it should not be treated as a full fix. Longer-term performance risk remains elevated if the vibration source persists.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_lower_intensity",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if the vibration intensity is reduced but not eliminated.",
+      "retrieval_terms": [
+        "lower vibration intensity",
+        "tail latency"
+      ],
+      "scenario": "If the vibration intensity is reduced but not eliminated, how should SSD behavior change?",
+      "ground_truth": "If vibration intensity is reduced but not eliminated, the severity profile should improve but not disappear. Tail-latency risk should ease first, while long-term reliability concerns remain until the mechanical stress is fully controlled.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_shift_to_parallel",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if the dominant vibration orientation shifts toward the less harmful direction.",
+      "retrieval_terms": [
+        "shift to parallel",
+        "orientation",
+        "vibration"
+      ],
+      "scenario": "If the dominant vibration orientation shifts toward the less harmful direction, how should SSD behavior change?",
+      "ground_truth": "If the dominant vibration direction moves closer to the less harmful parallel case, performance risk should decrease, especially for short-term tail latency. The SSD still remains vulnerable if exposure continues for a long duration.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_move_latency_workload",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if latency-sensitive traffic is moved away while vibration persists.",
+      "retrieval_terms": [
+        "move workload",
+        "latency-sensitive",
+        "vibration"
+      ],
+      "scenario": "If latency-sensitive traffic is moved away while vibration persists, how should SSD behavior change?",
+      "ground_truth": "If latency-sensitive or write-heavy traffic is moved away while vibration persists, user-visible service risk should drop immediately even though the SSD itself remains mechanically stressed.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_repeat_short_bursts",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if the SSD experiences repeated short vibration bursts instead of one long episode.",
+      "retrieval_terms": [
+        "repeated bursts",
+        "post-effect",
+        "vibration"
+      ],
+      "scenario": "If the SSD experiences repeated short vibration bursts instead of one long episode, how should SSD behavior change?",
+      "ground_truth": "Repeated short bursts should be treated as more dangerous than one isolated blip because they can create intermittent post-effects that are hard to catch with average metrics.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    },
+    {
+      "id": "whatif_vib_no_action",
+      "task": "whatif",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "group": "vibration",
+      "question": "Analyze what happens if the operator takes no action and leaves the SSD under the present vibration condition.",
+      "retrieval_terms": [
+        "no action",
+        "vibration",
+        "premature failure"
+      ],
+      "scenario": "If the operator takes no action and leaves the SSD under the present vibration condition, how should SSD behavior change?",
+      "ground_truth": "If no mitigation is applied while vibration continues, near-term tail-latency degradation should remain visible and the longer-term outlook should worsen toward bandwidth loss, fail-slow behavior, and premature failure.",
+      "row_factors_any": [
+        "vibration"
+      ]
+    }
+  ]
+}

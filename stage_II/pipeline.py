@@ -39,6 +39,131 @@ def _load_text(path: Path) -> str:
     except Exception:
         return ""
 
+
+def _resolve_first_existing(repo_root: Path, *candidates: Path) -> Path:
+    for candidate in candidates:
+        resolved = resolve_path(repo_root, candidate)
+        if resolved.exists():
+            return resolved
+    return resolve_path(repo_root, candidates[0])
+
+
+def _parse_extra_terms(raw: Any) -> List[str]:
+    if raw is None:
+        return []
+    if isinstance(raw, (list, tuple, set)):
+        return [str(x).strip() for x in raw if str(x).strip()]
+    s = str(raw).strip()
+    if not s:
+        return []
+    if s.startswith("[") and s.endswith("]"):
+        try:
+            arr = json.loads(s)
+            if isinstance(arr, list):
+                return [str(x).strip() for x in arr if str(x).strip()]
+        except Exception:
+            pass
+    parts = [p.strip() for p in s.replace("|", ";").split(";")]
+    return [p for p in parts if p]
+
+
+def _task_query_text(row: Dict[str, Any], task: str) -> Optional[str]:
+    for key in (f"{task}_query", "query_text"):
+        val = row.get(key)
+        if val is not None and str(val).strip():
+            return str(val).strip()
+    return None
+
+
+def _row_tail_latency_target(row: Dict[str, Any]) -> Tuple[Optional[float], Optional[str]]:
+    for key, unit in (
+        ("tail_latency_ms", "ms"),
+        ("tail_latency", "ms"),
+        ("tail_latency_change_pct", "pct_change"),
+    ):
+        if key not in row:
+            continue
+        val = row.get(key)
+        if val is None or str(val).strip() == "":
+            continue
+        try:
+            return float(val), unit
+        except Exception:
+            continue
+    return None, None
+
+
+def _out_tail_latency_prediction(out: Dict[str, Any], unit: Optional[str]) -> Optional[float]:
+    candidates: List[str] = []
+    if unit == "pct_change":
+        candidates.extend(["predicted_tail_latency_pct", "predicted_tail_latency_ms"])
+    else:
+        candidates.extend(["predicted_tail_latency_ms", "predicted_tail_latency_pct"])
+    for key in candidates:
+        val = out.get(key)
+        if val is None or str(val).strip() == "":
+            continue
+        try:
+            return float(val)
+        except Exception:
+            continue
+    return None
+
+
+def _recommendations_to_text(value: Any) -> Optional[str]:
+    if value is None:
+        return None
+    if isinstance(value, str):
+        text = value.strip()
+        return text or None
+    if not isinstance(value, list):
+        text = str(value).strip()
+        return text or None
+    parts: List[str] = []
+    for rec in value:
+        if isinstance(rec, dict):
+            action = str(rec.get("action", "")).strip()
+            justification = str(rec.get("justification", "")).strip()
+            priority = str(rec.get("priority", "")).strip()
+            text = action
+            if justification:
+                text = f"{text}: {justification}" if text else justification
+            if priority:
+                text = f"[{priority}] {text}" if text else f"[{priority}]"
+            if text:
+                parts.append(text)
+        else:
+            text = str(rec).strip()
+            if text:
+                parts.append(text)
+    return " ".join(parts) if parts else None
+
+
+def _task_text_output(task: str, out: Dict[str, Any]) -> Optional[str]:
+    if task == "descriptive":
+        text = out.get("summary")
+        return str(text).strip() if text is not None and str(text).strip() else None
+    if task == "prescriptive":
+        return _recommendations_to_text(out.get("recommendations"))
+    if task == "whatif":
+        for key in ("analysis", "summary"):
+            text = out.get(key)
+            if text is not None and str(text).strip():
+                return str(text).strip()
+        return None
+    return None
+
+
+def _unique_preserve_order(items: List[str]) -> List[str]:
+    seen = set()
+    out = []
+    for item in items:
+        if item in seen:
+            continue
+        seen.add(item)
+        out.append(item)
+    return out
+
 def _infer_query_terms(ir: Dict[str, Any]) -> List[str]:
     terms = []
     if "env" in ir:
@@ -78,13 +203,24 @@ class Stage2Runner:
         self.repo_root = cfg.repo_root
 
         # Load base system guidance (optional)
-        self.base_cot = _load_text(resolve_path(self.repo_root, Path("ssd_cot_prompt.txt")))
+        cot_path = _resolve_first_existing(
+            self.repo_root,
+            Path("ssd_cot_prompt.txt"),
+            Path("stage_I/ssd_cot_prompt.txt"),
+        )
+        self.base_cot = _load_text(cot_path)
 
         # LLM client
         self.llm = OpenAIChatClient(model=cfg.model)
 
         # Literature KG
-        self.lit = LiteratureKG(resolve_path(self.repo_root, cfg.global_kg_ttl_path))
+        lit_path = _resolve_first_existing(
+            self.repo_root,
+            cfg.global_kg_ttl_path,
+            Path("stage_I/out/global_knowledge_graph.ttl"),
+            Path("stage_I/global_knowledge_graph.ttl"),
+        )
+        self.lit = LiteratureKG(lit_path)
         try:
             self.lit.load()
         except Exception:
@@ -140,7 +276,7 @@ class Stage2Runner:
                 (data_kg_dir / f"{sample_id}.ttl").write_text(dk.ttl, encoding="utf-8")
 
             # Literature retrieval
-            terms = _infer_query_terms(ir)
+            terms = _unique_preserve_order(_infer_query_terms(ir) + _parse_extra_terms(row.get("retrieval_terms")))
             lit_evidence = self.lit.retrieve(terms, limit=8)
             lit_payload = [{"id": e.id, "text": e.text, "source": e.source} for e in lit_evidence]
 
@@ -154,6 +290,7 @@ class Stage2Runner:
                     "label": int(row.get("failure") or row.get("label") or 0) if str(row.get("failure") or row.get("label") or 0).strip() != "" else 0,
                     "ttf_days": row.get("ttf_days") if "ttf_days" in row else (row.get("ttf") if "ttf" in row else None),
                     "tail_latency_ms": row.get("tail_latency_ms") if "tail_latency_ms" in row else (row.get("tail_latency") if "tail_latency" in row else None),
+                    "tail_latency_change_pct": row.get("tail_latency_change_pct") if "tail_latency_change_pct" in row else None,
                 },
                 "IR": ir,
                 "DataKG_refs": sorted(list(dk.refs)),
@@ -171,15 +308,16 @@ class Stage2Runner:
 
             # Execute tasks
             for task in tasks:
+                question = _task_query_text(row, task)
                 if task == "predictive":
-                    user = predictive_user_prompt(sample_payload)
+                    user = predictive_user_prompt(sample_payload, question=question)
                 elif task == "descriptive":
-                    user = descriptive_user_prompt(sample_payload)
+                    user = descriptive_user_prompt(sample_payload, question=question)
                 elif task == "prescriptive":
-                    user = prescriptive_user_prompt(sample_payload)
+                    user = prescriptive_user_prompt(sample_payload, question=question)
                 elif task == "whatif":
                     scenario = str(row.get("whatif_scenario") or _default_whatif_scenario(ir))
-                    user = whatif_user_prompt(sample_payload, scenario)
+                    user = whatif_user_prompt(sample_payload, scenario, question=question)
                 else:
                     raise ValueError(f"Unknown task: {task}")
 
@@ -206,9 +344,13 @@ class Stage2Runner:
                 m = {"sample_id": sample_id, "task": task}
                 # FiP / CFV
                 if task in ("descriptive", "prescriptive"):
-                    m["FiP"] = faithfulness_precision(parsed, available_refs)
+                    fip = faithfulness_precision(parsed, available_refs)
+                    m["FiP"] = fip
+                    parsed["FiP"] = fip
                 if task == "whatif":
-                    m["CFV"] = counterfactual_validity(parsed, direction_lookup=None)
+                    cfv = counterfactual_validity(parsed, direction_lookup=None)
+                    m["CFV"] = cfv
+                    parsed["CFV"] = cfv
                 metrics_rows.append(m)
 
                 # polite pacing
@@ -248,34 +390,35 @@ class Stage2Runner:
         tl_pred = []
         for _, row in df_in.iterrows():
             sid = str(row.get("sample_id") or row.get("window_id") or row.get("id") or f"s{_}")
-            gt = row.get("failure", None)
-            if gt is None:
-                gt = row.get("label", None)
-            if gt is None:
-                continue
-            gt = int(gt)
             out = lookup.get((sid, "predictive"))
             if not out:
                 continue
-            yp = out.get("predicted_failure", None)
-            if yp is None:
-                continue
-            y_true.append(gt)
-            y_pred.append(int(yp))
+            gt = row.get("failure", None)
+            if gt is None:
+                gt = row.get("label", None)
+            if gt is not None and str(gt).strip() != "":
+                try:
+                    yp = out.get("predicted_failure", None)
+                    if yp is not None and str(yp).strip() != "":
+                        y_true.append(int(gt))
+                        y_pred.append(int(yp))
+                except Exception:
+                    pass
 
-            # regression optional
-            if "ttf_days" in row and out.get("predicted_ttf_days", None) is not None:
+            ttf_gt = row.get("ttf_days", row.get("ttf", None))
+            ttf_out = out.get("predicted_ttf_days", None)
+            if ttf_gt is not None and str(ttf_gt).strip() != "" and ttf_out is not None and str(ttf_out).strip() != "":
                 try:
-                    ttf_true.append(float(row["ttf_days"]))
-                    ttf_pred.append(float(out["predicted_ttf_days"]))
+                    ttf_true.append(float(ttf_gt))
+                    ttf_pred.append(float(ttf_out))
                 except Exception:
                     pass
-            if "tail_latency_ms" in row and out.get("predicted_tail_latency_ms", None) is not None:
-                try:
-                    tl_true.append(float(row["tail_latency_ms"]))
-                    tl_pred.append(float(out["predicted_tail_latency_ms"]))
-                except Exception:
-                    pass
+
+            tl_gt, tl_unit = _row_tail_latency_target(row)
+            tl_out = _out_tail_latency_prediction(out, tl_unit)
+            if tl_gt is not None and tl_out is not None:
+                tl_true.append(float(tl_gt))
+                tl_pred.append(float(tl_out))
 
         pred_metrics = {}
         if y_true and y_pred:
@@ -292,7 +435,7 @@ class Stage2Runner:
             pred_metrics["TL_MSE"] = mse(tl_true, tl_pred)
 
         # Text metrics: require reference columns
-        def text_metrics(task: str, ref_col: str, gen_key: str) -> Dict[str, Any]:
+        def text_metrics(task: str, ref_col: str) -> Dict[str, Any]:
             b4s, rls = [], []
             fips, cfvs = [], []
             for _, row in df_in.iterrows():
@@ -303,10 +446,7 @@ class Stage2Runner:
                 out = lookup.get((sid, task))
                 if not out:
                     continue
-                gen = out.get(gen_key, None)
-                if gen is None:
-                    # fallback fields
-                    gen = out.get("analysis") if task == "whatif" else out.get("summary")
+                gen = _task_text_output(task, out)
                 if gen is None:
                     continue
                 b4s.append(bleu4(str(gen), str(ref)))
@@ -328,9 +468,9 @@ class Stage2Runner:
             outm["n_ref"] = int(len(b4s))
             return outm
 
-        desc = text_metrics("descriptive", "ref_descriptive", "summary")
-        pres = text_metrics("prescriptive", "ref_prescriptive", "recommendations")
-        wif = text_metrics("whatif", "ref_whatif", "analysis")
+        desc = text_metrics("descriptive", "ref_descriptive")
+        pres = text_metrics("prescriptive", "ref_prescriptive")
+        wif = text_metrics("whatif", "ref_whatif")
 
         return {
             "predictive": pred_metrics,

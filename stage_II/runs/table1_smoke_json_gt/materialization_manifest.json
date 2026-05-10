@@ -1,0 +1,27 @@
+{
+  "ENV": {
+    "input_csv": "/Users/manu/Desktop/KORAL/dataset/env/env_effects.csv",
+    "tasks": {
+      "predictive": {
+        "status": "materialized",
+        "benchmark_csv": "/Users/manu/Desktop/KORAL/stage_II/runs/table1_smoke_json_gt/benchmarks/env_predictive.csv",
+        "rows": 21
+      },
+      "descriptive": {
+        "status": "materialized",
+        "benchmark_csv": "/Users/manu/Desktop/KORAL/stage_II/runs/table1_smoke_json_gt/benchmarks/env_descriptive.csv",
+        "rows": 189
+      },
+      "prescriptive": {
+        "status": "materialized",
+        "benchmark_csv": "/Users/manu/Desktop/KORAL/stage_II/runs/table1_smoke_json_gt/benchmarks/env_prescriptive.csv",
+        "rows": 178
+      },
+      "whatif": {
+        "status": "materialized",
+        "benchmark_csv": "/Users/manu/Desktop/KORAL/stage_II/runs/table1_smoke_json_gt/benchmarks/env_whatif.csv",
+        "rows": 189
+      }
+    }
+  }
+}

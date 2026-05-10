@@ -170,6 +170,18 @@ stage_II/runs/<RUN_NAME>/
   data_kg_ttl/<sample_id>.ttl   (if rdflib available)
 ```
 
+## Generate Table I Benchmarks
+
+Use the curated Table I query bank to materialize per-sample descriptive, prescriptive, and what-if references from the three source papers:
+
+```bash
+python stage_II/scripts/run_table1.py \
+  --dataset ENV=dataset/env/env_effects.csv \
+  --materialize_only
+```
+
+To run KORAL inference and aggregate a Table I-style CSV, omit `--materialize_only` and add any prepared dataset mappings such as `SMART_ALIBABA=...`, `SMART_WORKLOAD=...`, or `SMART_ENV=...`.
+
 ---
 
 # Stage II Fleet Mode: Collective analysis

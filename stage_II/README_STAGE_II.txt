@@ -51,6 +51,18 @@ stage_II/runs/<RUN_NAME>/
   metrics_summary.json
   data_kg_ttl/<sample_id>.ttl   (if rdflib available)
 
+Table I benchmark materialization
+---------------------------------
+Use the curated query bank and ground-truth templates:
+
+python stage_II/scripts/run_table1.py \
+  --dataset ENV=dataset/env/env_effects.csv \
+  --materialize_only
+
+This writes benchmark CSVs with per-query references. Omit
+--materialize_only to also run KORAL inference and aggregate a
+Table I-style results CSV.
+
 ------------------------------------------------
 B) Fleet mode (Table II style)
 ------------------------------------------------

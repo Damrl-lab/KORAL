@@ -38,6 +38,8 @@ class Stage2Config:
 
                 # Environmental-only
                 "ENV": Path("dataset/env/env_effects.csv"),
+                "ENV_FT": Path("dataset/env/env_ft.csv"),
+                "ENV_AL": Path("dataset/env/env_al.csv"),
 
                 # Paired/tripled modalities
                 "SMART_WORKLOAD": Path("dataset/alibaba/test_data/smart_workload.csv"),
