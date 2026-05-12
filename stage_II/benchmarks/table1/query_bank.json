@@ -48,7 +48,7 @@
         "media errors",
         "wear"
       ],
-      "ground_truth": "The SSD should be described using the combined SMART pattern, not a single attribute. Rising media-error, interface-error, wear, age, and read/write-pressure attributes together are stronger evidence than any isolated counter."
+      "ground_truth": "{smart_health_sentence} {smart_workload_sentence} {smart_limit_sentence}"
     },
     {
       "id": "desc_smart_workload_risk",
@@ -65,7 +65,7 @@
         "SMART risk",
         "SSD reliability"
       ],
-      "ground_truth": "A write-dominant Alibaba workload should be interpreted as higher failure exposure than a read-dominant one. The Alibaba field study shows write-heavy services stress endurance and make abnormal SMART trends more operationally important."
+      "ground_truth": "{smart_workload_sentence} {smart_write_pressure_sentence}"
     },
     {
       "id": "desc_smart_correlation_limits",
@@ -86,7 +86,7 @@
         "SMART limits",
         "Alibaba"
       ],
-      "ground_truth": "SMART attributes are useful for local health assessment but insufficient by themselves to explain intra-node or intra-rack correlated failures. Placement, same-model concentration, workload, and recovery policy must be considered together."
+      "ground_truth": "{smart_limit_sentence}"
     },
     {
       "id": "desc_smart_static_context",
@@ -102,7 +102,7 @@
         "controller policy",
         "SMART context"
       ],
-      "ground_truth": "Static SSD context such as flash type and controller policies should be treated as modifiers of the SMART interpretation. They explain why two drives with similar counters can have different risk, latency, or lifetime behavior."
+      "ground_truth": "{smart_static_sentence}"
     },
     {
       "id": "desc_smart_interface_errors",
@@ -124,7 +124,7 @@
         "controller path",
         "SSD"
       ],
-      "ground_truth": "Interface-path SMART signals such as UDMA CRC errors should be interpreted as possible link, cable, connector, or controller-path instability rather than pure media damage. They still matter because repeated path errors can precede service disruption."
+      "ground_truth": "{smart_interface_sentence}"
     },
     {
       "id": "desc_smart_media_endurance",
@@ -145,7 +145,7 @@
         "media wearout",
         "SSD endurance"
       ],
-      "ground_truth": "Wear-oriented SMART attributes and lifetime indicators should be read as endurance context. Growing wear, wear-range imbalance, or media-wearout pressure lowers confidence even before the SSD reaches a hard fail-stop event."
+      "ground_truth": "{smart_endurance_sentence}"
     },
     {
       "id": "desc_smart_write_pressure",
@@ -167,7 +167,7 @@
         "garbage collection",
         "SMART"
       ],
-      "ground_truth": "Write pressure matters because blocks written, write-heavy application mix, and garbage-collection stress accelerate wear-related risk. In field studies, write-dominant behavior is associated with higher overall SSD failure exposure."
+      "ground_truth": "{smart_write_pressure_sentence}"
     },
     {
       "id": "desc_smart_age_and_life",
@@ -188,7 +188,7 @@
         "SSD age",
         "lifetime risk"
       ],
-      "ground_truth": "Power-on age is a real risk amplifier. Older SSDs are more likely to participate in short-interval correlated failures, so age should strengthen the interpretation of otherwise moderate SMART warnings."
+      "ground_truth": "{smart_age_sentence}"
     },
     {
       "id": "desc_smart_failure_warning_strength",
@@ -209,7 +209,7 @@
         "failure evidence",
         "SSD"
       ],
-      "ground_truth": "The warning strength comes from persistence and combination. A single weak anomaly is less convincing, but rising media, interface, and wear counters together are actionable evidence rather than background noise."
+      "ground_truth": "{smart_warning_sentence}"
     },
     {
       "id": "desc_smart_trend_vs_snapshot",
@@ -231,7 +231,7 @@
         "temporal window",
         "SSD"
       ],
-      "ground_truth": "A temporal SMART trend is more informative than a single snapshot. Slopes, repeated outliers, and sustained counter growth indicate deteriorating behavior more reliably than one isolated reading."
+      "ground_truth": "{smart_trend_sentence}"
     },
     {
       "id": "desc_smart_failslow_gap",
@@ -252,7 +252,7 @@
         "SMART gap",
         "SSD service degradation"
       ],
-      "ground_truth": "SMART should not be treated as a perfect fail-slow detector. An SSD can show service degradation, latency inflation, or intermittent faults before a dramatic SMART spike appears."
+      "ground_truth": "{smart_failslow_sentence}"
     },
     {
       "id": "desc_smart_feature_priority",
@@ -274,7 +274,7 @@
         "uncorrectable errors",
         "wear"
       ],
-      "ground_truth": "The most informative SMART signals are the ones tied to media errors, reallocation, interface reliability, age, and wear. Read/write volume counters add workload context, while purely static counters are weaker by themselves."
+      "ground_truth": "{smart_feature_priority_sentence}"
     },
     {
       "id": "desc_workload_app_interpretation",
@@ -290,7 +290,7 @@
         "service class",
         "workload proxy"
       ],
-      "ground_truth": "The Alibaba application tag should be used as a workload proxy. It helps separate write-dominant services from read-dominant ones so the same SMART window can be interpreted with the right operational context."
+      "ground_truth": "{workload_app_interpretation_sentence}"
     },
     {
       "id": "desc_workload_write_service_risk",
@@ -306,7 +306,7 @@
         "SSD wear",
         "Alibaba"
       ],
-      "ground_truth": "A workload with sustained writes or heavier update pressure should be described as having greater service risk than a read-oriented one. The extra write stress increases wear and makes future SMART anomalies more consequential."
+      "ground_truth": "{workload_write_service_risk_sentence}"
     },
     {
       "id": "desc_smart_env_compound_risk",
@@ -324,7 +324,7 @@
         "humidity",
         "vibration"
       ],
-      "ground_truth": "When SMART anomalies appear together with a harsh environment, the operator should describe the case as compound risk. The SMART view captures device health, while temperature, humidity, or vibration explain extra performance and reliability pressure."
+      "ground_truth": "{smart_health_sentence} {smart_env_compound_sentence}"
     },
     {
       "id": "desc_workload_env_compound_penalty",
@@ -340,7 +340,7 @@
         "write path",
         "compound penalty"
       ],
-      "ground_truth": "When a demanding workload runs during environmental stress, the combined effect is worse than reading either signal alone. Write-heavy traffic amplifies the latency and endurance penalty created by temperature, humidity, or vibration exposure."
+      "ground_truth": "{workload_env_compound_sentence}"
     },
     {
       "id": "desc_ft_flash_reliability_tradeoff",
@@ -357,7 +357,7 @@
         "QLC",
         "endurance"
       ],
-      "ground_truth": "Flash type changes the reliability tradeoff. Lower-bit-density flash is generally more robust, while TLC, QLC, and higher-density media offer capacity at the cost of tighter endurance and error margins."
+      "ground_truth": "{flash_tradeoff_sentence}"
     },
     {
       "id": "desc_ft_temperature_sensitivity",
@@ -375,7 +375,7 @@
         "TLC",
         "MLC"
       ],
-      "ground_truth": "Flash type also changes environmental sensitivity. TLC tends to show stronger temperature-related behavior, while MLC can show particularly visible humidity-driven tail-latency penalties in the experimental study."
+      "ground_truth": "{flash_temperature_sensitivity_sentence}"
     },
     {
       "id": "desc_alg_gc_tradeoff",
@@ -391,7 +391,7 @@
         "write amplification",
         "SSD policy"
       ],
-      "ground_truth": "Garbage-collection policy should be described as a performance-lifetime tradeoff. A more aggressive policy can control space pressure and latency spikes, but it may also increase write amplification and consume endurance."
+      "ground_truth": "{alg_gc_tradeoff_sentence}"
     },
     {
       "id": "desc_alg_wear_leveling_tradeoff",
@@ -407,7 +407,7 @@
         "latency tradeoff",
         "SSD policy"
       ],
-      "ground_truth": "Wear-leveling policy should be described as a balance problem. Strong leveling can improve lifetime fairness across blocks, but it can also introduce extra movement, latency, and write amplification if applied too aggressively."
+      "ground_truth": "{alg_wear_leveling_tradeoff_sentence}"
     },
     {
       "id": "desc_env_runtime_effect",
@@ -893,7 +893,7 @@
         "replacement",
         "SSD risk management"
       ],
-      "ground_truth": "Prioritize close SMART monitoring, verify whether abnormal counters keep rising, and migrate or replace the drive if media or interface errors continue to accumulate. The response should be concise, evidence-backed, and operational."
+      "ground_truth": "{smart_monitor_replace_recommendation}"
     },
     {
       "id": "pres_smart_reduce_correlated_risk",
@@ -916,7 +916,7 @@
         "node",
         "redundancy"
       ],
-      "ground_truth": "Reduce correlated-failure exposure by avoiding dense placement of same-model SSDs in the same node or rack, using stronger redundancy where possible, and preferring eager recovery over lazy recovery once failures are detected."
+      "ground_truth": "{smart_reduce_correlated_risk_recommendation}"
     },
     {
       "id": "pres_smart_write_heavy_controls",
@@ -938,7 +938,7 @@
         "SSD reliability",
         "Alibaba applications"
       ],
-      "ground_truth": "If the workload remains write-heavy, rebalance or throttle writes, move latency-sensitive traffic away from the stressed drive, and shorten inspection intervals for media and interface counters."
+      "ground_truth": "{smart_write_heavy_controls_recommendation}"
     },
     {
       "id": "pres_smart_static_policy_alignment",
@@ -954,7 +954,7 @@
         "controller policy",
         "lifecycle management"
       ],
-      "ground_truth": "Treat static device descriptors as operational context and align policy conservatively. Tighten lifecycle thresholds for weaker flash or riskier policies, and do not apply a one-size-fits-all rule across dissimilar SSDs."
+      "ground_truth": "{smart_static_policy_recommendation}"
     },
     {
       "id": "pres_smart_interface_sanitization",
@@ -976,7 +976,7 @@
         "UCRC",
         "controller logs"
       ],
-      "ground_truth": "Inspect the interface path first. Validate cabling, connectors, controller logs, and host-link integrity, then separate path issues from true media deterioration before escalating to replacement."
+      "ground_truth": "{smart_interface_recommendation}"
     },
     {
       "id": "pres_smart_endurance_guardrails",
@@ -997,7 +997,7 @@
         "wear leveling",
         "media wearout"
       ],
-      "ground_truth": "Add endurance guardrails. Reduce unnecessary writes, watch wear-related counters more frequently, and lower the replacement threshold once wear acceleration becomes clear."
+      "ground_truth": "{smart_endurance_recommendation}"
     },
     {
       "id": "pres_smart_data_migration_plan",
@@ -1018,7 +1018,7 @@
         "preemptive replacement",
         "SMART"
       ],
-      "ground_truth": "Plan preemptive migration while the SSD is still serving requests, validate that the warning is persistent across windows, and avoid waiting for a stronger but more disruptive failure signal."
+      "ground_truth": "{smart_migration_recommendation}"
     },
     {
       "id": "pres_smart_rack_placement_review",
@@ -1039,7 +1039,7 @@
         "same model",
         "fleet risk"
       ],
-      "ground_truth": "Review rack and node placement for same-model concentration, especially when the fleet shows repeated issues on similar SSDs. Diversity in placement and model mix reduces correlated-failure exposure."
+      "ground_truth": "{smart_placement_recommendation}"
     },
     {
       "id": "pres_smart_spare_capacity_watch",
@@ -1060,7 +1060,7 @@
         "recovery headroom",
         "redundancy"
       ],
-      "ground_truth": "Increase operational safety margin by keeping spare capacity and recovery headroom available, and pair deteriorating drives with stronger redundancy or faster recovery policies instead of minimal protection."
+      "ground_truth": "{smart_spare_capacity_recommendation}"
     },
     {
       "id": "pres_smart_trend_monitoring",
@@ -1081,7 +1081,7 @@
         "SMART slope",
         "outliers"
       ],
-      "ground_truth": "Monitor trends rather than snapshots. Track slopes, repeated outliers, and sustained counter growth, and escalate when the same abnormal pattern appears across consecutive windows."
+      "ground_truth": "{smart_trend_monitoring_recommendation}"
     },
     {
       "id": "pres_smart_failslow_triage",
@@ -1102,7 +1102,7 @@
         "latency anomalies",
         "SMART"
       ],
-      "ground_truth": "Use service-level symptoms together with SMART. If latency inflation or intermittent faults appear before a strong SMART spike, treat the case as fail-slow risk and prepare migration, replacement, and closer runtime monitoring."
+      "ground_truth": "{smart_failslow_triage_recommendation}"
     },
     {
       "id": "pres_smart_counter_priority",
@@ -1124,7 +1124,7 @@
         "wear",
         "interface"
       ],
-      "ground_truth": "Prioritize counters tied to media errors, reallocation, interface reliability, age, and wear. Read and write volume metrics should be used as supporting workload context rather than the only trigger."
+      "ground_truth": "{smart_counter_priority_recommendation}"
     },
     {
       "id": "pres_workload_rebalance_by_app",
@@ -1140,7 +1140,7 @@
         "Alibaba workload",
         "rebalance"
       ],
-      "ground_truth": "Use the application class to rebalance risk. Move the most write-intensive or latency-sensitive service away first, and keep less demanding traffic on the more stressed SSD if isolation is limited."
+      "ground_truth": "{workload_rebalance_recommendation}"
     },
     {
       "id": "pres_workload_reduce_write_bursts",
@@ -1156,7 +1156,7 @@
         "write amplification",
         "workload"
       ],
-      "ground_truth": "Reduce burstiness and write amplification where possible. Batch less aggressively, smooth the write path, and avoid coupling the drive with avoidable background work when the workload is already write-heavy."
+      "ground_truth": "{workload_reduce_bursts_recommendation}"
     },
     {
       "id": "pres_smart_env_compound_guardrails",
@@ -1171,7 +1171,7 @@
         "SMART plus environment",
         "compound guardrails"
       ],
-      "ground_truth": "Treat the case as compound risk. Tighten monitoring, reduce workload pressure, avoid prolonged environmental exposure, and lower the threshold for migration or replacement compared with a SMART-only case."
+      "ground_truth": "{smart_env_compound_recommendation}"
     },
     {
       "id": "pres_workload_env_schedule_control",
@@ -1187,7 +1187,7 @@
         "environmental stress",
         "SSD"
       ],
-      "ground_truth": "Protect demanding workloads by moving them away from the stressed interval, reducing burstiness, and preferring the cleanest thermal and humidity envelope available."
+      "ground_truth": "{workload_env_schedule_recommendation}"
     },
     {
       "id": "pres_ft_flash_specific_lifecycle",
@@ -1204,7 +1204,7 @@
         "QLC",
         "SSD lifecycle"
       ],
-      "ground_truth": "Adjust lifecycle policy by flash type. Higher-density flash should be managed with tighter endurance guardrails and more conservative replacement thresholds than more robust low-density flash."
+      "ground_truth": "{flash_lifecycle_recommendation}"
     },
     {
       "id": "pres_ft_temperature_humidity_guardrails",
@@ -1220,7 +1220,7 @@
         "temperature",
         "humidity"
       ],
-      "ground_truth": "Different flash types need different guardrails. Use tighter temperature and humidity discipline for the more sensitive flash types instead of assuming the same environmental margin is safe for every SSD."
+      "ground_truth": "{flash_guardrails_recommendation}"
     },
     {
       "id": "pres_alg_policy_tuning_review",
@@ -1236,7 +1236,7 @@
         "GC policy",
         "refresh policy"
       ],
-      "ground_truth": "Review controller policy whenever latency spikes, write amplification, or wear imbalance become visible. Garbage collection, refresh, mapping, and retry settings should be revisited as a group rather than tuned in isolation."
+      "ground_truth": "{alg_policy_review_recommendation}"
     },
     {
       "id": "pres_alg_gc_wl_balance",
@@ -1252,7 +1252,7 @@
         "wear leveling",
         "SSD tuning"
       ],
-      "ground_truth": "Balance garbage collection and wear leveling conservatively. Avoid policy extremes that suppress one problem only by creating another, such as lowering latency at the cost of excessive write amplification."
+      "ground_truth": "{alg_gc_wl_balance_recommendation}"
     },
     {
       "id": "pres_env_humidity_mitigation",
@@ -1723,7 +1723,7 @@
         "SSD"
       ],
       "scenario": "If this SSD sees less write pressure in the future, how should SSD behavior change?",
-      "ground_truth": "If the workload becomes less write-intensive, wear-related SMART pressure and overall failure exposure should decrease. The improvement is strongest when the starting point is clearly write-dominant."
+      "ground_truth": "{smart_reduce_writes_analysis}"
     },
     {
       "id": "whatif_smart_ageing_next_year",
@@ -1745,7 +1745,7 @@
         "SSD risk"
       ],
       "scenario": "If this SSD continues aging for another year without replacement, how should SSD behavior change?",
-      "ground_truth": "If the SSD accumulates more age and rated-life usage, correlated-failure risk should rise and short-interval failures should become more plausible."
+      "ground_truth": "{smart_ageing_analysis}"
     },
     {
       "id": "whatif_smart_spread_same_model",
@@ -1767,7 +1767,7 @@
         "rack"
       ],
       "scenario": "If similar same-model SSDs are spread across nodes and racks instead of densely colocated, how should SSD behavior change?",
-      "ground_truth": "If same-model SSDs are spread across nodes and racks instead of densely colocated, correlated-failure exposure should decrease."
+      "ground_truth": "{smart_spread_model_analysis}"
     },
     {
       "id": "whatif_smart_eager_recovery",
@@ -1789,7 +1789,7 @@
         "Alibaba"
       ],
       "scenario": "If the system uses eager recovery instead of lazy recovery after an SSD failure, how should SSD behavior change?",
-      "ground_truth": "If the system switches from lazy recovery to eager recovery, reliability should improve under correlated failures because additional failures are more likely after the first one."
+      "ground_truth": "{smart_eager_recovery_analysis}"
     },
     {
       "id": "whatif_smart_fix_interface_path",
@@ -1811,7 +1811,7 @@
         "path stability"
       ],
       "scenario": "If the interface-path instability in this SSD sample is fully corrected, how should SSD behavior change?",
-      "ground_truth": "If the interface or host-link instability is removed, the warning should weaken substantially for path-driven anomalies, although any genuine media wear signal would remain."
+      "ground_truth": "{smart_fix_interface_analysis}"
     },
     {
       "id": "whatif_smart_relieve_write_pressure",
@@ -1832,7 +1832,7 @@
         "SSD wear"
       ],
       "scenario": "If write pressure on this SSD is relieved but not eliminated, how should SSD behavior change?",
-      "ground_truth": "If write pressure is relieved, the SMART trend should look healthier over time and the SSD should age more slowly, even if the drive is not returned to a fully read-dominant profile."
+      "ground_truth": "{smart_relieve_write_pressure_analysis}"
     },
     {
       "id": "whatif_smart_tighten_refresh_policy",
@@ -1848,7 +1848,7 @@
         "SSD"
       ],
       "scenario": "If a more conservative refresh or retention policy is applied to this SSD, how should SSD behavior change?",
-      "ground_truth": "If refresh and background maintenance become more conservative, near-term reliability confidence should improve modestly, especially for aging or wear-stressed drives, but this does not remove workload and placement risk."
+      "ground_truth": "{smart_refresh_policy_analysis}"
     },
     {
       "id": "whatif_smart_preemptive_replacement",
@@ -1869,7 +1869,7 @@
         "risk reduction"
       ],
       "scenario": "If the operator replaces this SSD proactively before a hard failure occurs, how should SSD behavior change?",
-      "ground_truth": "If the operator replaces the drive proactively, local risk drops immediately and correlated exposure can also fall if the troubled drive is part of a concentrated same-model cluster."
+      "ground_truth": "{smart_preemptive_replacement_analysis}"
     },
     {
       "id": "whatif_smart_model_mix",
@@ -1891,7 +1891,7 @@
         "fleet diversity"
       ],
       "scenario": "If the fleet mixes more SSD models instead of concentrating one model heavily, how should SSD behavior change?",
-      "ground_truth": "If the fleet uses a more diverse model mix, common-mode failure exposure should decrease because fewer identical SSDs share the same failure modes in the same scope."
+      "ground_truth": "{smart_model_mix_analysis}"
     },
     {
       "id": "whatif_smart_error_counters_rise",
@@ -1913,7 +1913,7 @@
         "SSD"
       ],
       "scenario": "If media or interface error counters continue to rise in future windows, how should SSD behavior change?",
-      "ground_truth": "If media or interface counters keep rising across windows, the current warning should be treated as strengthening evidence rather than a transient anomaly, and replacement urgency should increase."
+      "ground_truth": "{smart_error_counters_rise_analysis}"
     },
     {
       "id": "whatif_smart_failslow_without_hard_failure",
@@ -1935,7 +1935,7 @@
         "SMART"
       ],
       "scenario": "If this SSD enters a fail-slow state without an immediate hard failure, how should SSD behavior change?",
-      "ground_truth": "If the SSD moves into fail-slow behavior without a hard fail-stop, user-visible latency risk should increase first, and the operator should not wait for a dramatic SMART collapse before acting."
+      "ground_truth": "{smart_failslow_no_hard_failure_analysis}"
     },
     {
       "id": "whatif_workload_switch_to_write_heavy",
@@ -1952,7 +1952,7 @@
         "SSD"
       ],
       "scenario": "If the workload on this SSD becomes more write-heavy than it is today, how should SSD behavior change?",
-      "ground_truth": "If the workload becomes more write-heavy, endurance pressure and the operational importance of abnormal SMART trends should increase."
+      "ground_truth": "{workload_switch_write_heavy_analysis}"
     },
     {
       "id": "whatif_workload_shift_to_read_heavy",
@@ -1969,7 +1969,7 @@
         "SSD"
       ],
       "scenario": "If the workload on this SSD shifts toward a more read-dominant pattern, how should SSD behavior change?",
-      "ground_truth": "If the workload shifts toward a more read-dominant pattern, the SSD should see lower wear pressure and a safer reliability outlook than under an equally intense write-heavy service."
+      "ground_truth": "{workload_shift_read_heavy_analysis}"
     },
     {
       "id": "whatif_smart_env_hot_humid_with_warning",
@@ -1985,7 +1985,7 @@
         "compound risk"
       ],
       "scenario": "If this SSD keeps showing SMART warnings while also entering a hotter or more humid environment, how should SSD behavior change?",
-      "ground_truth": "If SMART warnings persist while temperature or humidity stress increases, the case should be treated as a compounded reliability and performance problem with a lower tolerance for waiting or partial mitigation."
+      "ground_truth": "{smart_env_hot_humid_analysis}"
     },
     {
       "id": "whatif_workload_env_burst_during_humidity",
@@ -2002,7 +2002,7 @@
         "compound SSD risk"
       ],
       "scenario": "If a write-heavy workload spike occurs during high humidity or another hostile environmental episode, how should SSD behavior change?",
-      "ground_truth": "If a write-heavy burst arrives during hostile environmental exposure, the service risk should rise more sharply than under either condition alone because the write path is the more vulnerable side."
+      "ground_truth": "{workload_env_burst_analysis}"
     },
     {
       "id": "whatif_ft_switch_tlc_to_mlc",
@@ -2019,7 +2019,7 @@
         "SSD"
       ],
       "scenario": "If the SSD uses MLC-like flash characteristics instead of TLC-like ones, how should SSD behavior change?",
-      "ground_truth": "If the same workload or environment is experienced by a more robust flash type such as MLC instead of TLC, endurance risk should ease, although temperature and humidity sensitivity will still depend on the exact condition."
+      "ground_truth": "{flash_switch_to_mlc_analysis}"
     },
     {
       "id": "whatif_ft_move_to_qlc",
@@ -2036,7 +2036,7 @@
         "SSD"
       ],
       "scenario": "If the SSD uses a denser flash type such as QLC instead of a lower-density alternative, how should SSD behavior change?",
-      "ground_truth": "If the SSD moves to a denser flash type such as QLC, capacity efficiency improves but the reliability margin becomes tighter, so endurance and error sensitivity should be treated more conservatively."
+      "ground_truth": "{flash_move_to_qlc_analysis}"
     },
     {
       "id": "whatif_alg_more_aggressive_gc",
@@ -2053,7 +2053,7 @@
         "SSD"
       ],
       "scenario": "If garbage collection is made more aggressive for this SSD configuration, how should SSD behavior change?",
-      "ground_truth": "If garbage collection becomes more aggressive, some latency spikes and space-pressure problems may ease, but write amplification and endurance cost can rise."
+      "ground_truth": "{alg_more_aggressive_gc_analysis}"
     },
     {
       "id": "whatif_alg_static_to_hybrid_wl",
@@ -2069,7 +2069,7 @@
         "SSD lifetime"
       ],
       "scenario": "If wear leveling changes from a weaker or static style to a better balanced hybrid policy, how should SSD behavior change?",
-      "ground_truth": "If wear leveling moves toward a better balanced hybrid policy, lifetime fairness should improve, but the operator should still watch for extra background movement and latency overhead."
+      "ground_truth": "{alg_static_to_hybrid_wl_analysis}"
     },
     {
       "id": "whatif_alg_page_to_block_mapping",
@@ -2087,7 +2087,7 @@
         "SSD"
       ],
       "scenario": "If the mapping policy becomes coarser, such as moving from page-level toward block-level behavior, how should SSD behavior change?",
-      "ground_truth": "If mapping becomes coarser, controller memory cost may fall, but the system should expect less flexibility and potentially worse fine-grained performance behavior under mixed workloads."
+      "ground_truth": "{alg_page_to_block_analysis}"
     },
     {
       "id": "whatif_env_reduce_humidity",

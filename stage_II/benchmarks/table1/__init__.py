@@ -119,8 +119,8 @@ def _build_context(row: Dict[str, Any], dataset_type: str, smart_cols: List[str]
     flash_type = _infer_flash_type(row, device_type)
     algorithms = _infer_algorithms(row)
     app_tag = _text(row.get("app"))
-    workload = _text(row.get("workload")) or app_tag
-    workload_profile = _infer_workload_profile(app_tag, smart_by_attr)
+    workload = _text(row.get("workload_profile")) or _text(row.get("workload")) or app_tag
+    workload_profile = _infer_workload_profile(app_tag, smart_by_attr, workload)
     age_years = _infer_age_years(smart_by_attr)
     smart_signals = _top_smart_signals(smart_by_attr, age_years, workload_profile)
     smart_risk = _smart_risk_label(smart_by_attr, age_years, workload_profile)
@@ -448,8 +448,15 @@ def _smart_reduce_correlated_risk_recommendation(context: Dict[str, Any]) -> str
 
 
 def _smart_write_heavy_controls_recommendation(context: Dict[str, Any]) -> str:
+    profile = context.get("workload_profile", "mixed or unclear")
+    if profile == "write-dominant":
+        opening = "Because the workload is already write-dominant, rebalance or throttle writes"
+    elif profile == "read-dominant":
+        opening = "If the workload drifts away from its current read-dominant profile, rebalance or throttle writes early"
+    else:
+        opening = "If write pressure remains meaningful, rebalance or throttle writes"
     return (
-        f"If the workload remains {context.get('workload_profile')}, rebalance or throttle writes, move latency-sensitive traffic away from stressed drives, and shorten inspection intervals for media and interface counters. "
+        f"{opening}, move latency-sensitive traffic away from stressed drives, and shorten inspection intervals for media and interface counters. "
         "The Alibaba study indicates write-dominant workloads create higher overall SSD failure exposure than read-dominant ones."
     )
 
@@ -491,9 +498,34 @@ def _smart_spare_capacity_recommendation(context: Dict[str, Any]) -> str:
     )
 
 
-def _smart_reduce_writes_analysis(context: Dict[str, Any]) -> str:
+def _smart_trend_monitoring_recommendation(context: Dict[str, Any]) -> str:
     return (
-        f"If the workload becomes less write-intensive than the current {context.get('workload_profile')}, wear-related SMART pressure and overall failure exposure should decrease. "
+        f"Monitor trends rather than snapshots. Track slopes, repeated outliers, and sustained counter growth, and escalate from {_monitoring_urgency(context)} monitoring if the same abnormal pattern persists across consecutive windows."
+    )
+
+
+def _smart_failslow_triage_recommendation(context: Dict[str, Any]) -> str:
+    return (
+        "Use service-level symptoms together with SMART. If latency inflation or intermittent faults appear before a strong SMART spike, treat the case as fail-slow risk and prepare migration, replacement, and closer runtime monitoring."
+    )
+
+
+def _smart_counter_priority_recommendation(context: Dict[str, Any]) -> str:
+    return (
+        "Prioritize counters tied to media errors, reallocation, interface reliability, age, and wear. Read and write volume metrics should be used as supporting workload context rather than the only trigger."
+    )
+
+
+def _smart_reduce_writes_analysis(context: Dict[str, Any]) -> str:
+    profile = context.get("workload_profile", "mixed or unclear")
+    if profile == "write-dominant":
+        baseline = "the current write-dominant profile"
+    elif profile == "read-dominant":
+        baseline = "the current read-dominant profile"
+    else:
+        baseline = "the current mixed or unclear profile"
+    return (
+        f"If the workload becomes less write-intensive than {baseline}, wear-related SMART pressure and overall failure exposure should decrease. "
         "The improvement is strongest when the starting point is clearly write-dominant."
     )
 
@@ -540,7 +572,7 @@ def _smart_preemptive_replacement_analysis(context: Dict[str, Any]) -> str:
 def _smart_health_sentence(context: Dict[str, Any]) -> str:
     signals = context.get("smart_signals") or ["the available SMART window does not expose a single dominant media-error spike"]
     return (
-        f"This window should be described as {context.get('smart_risk')} reliability risk. "
+        f"This window should be described as {_smart_risk_phrase(context)}. "
         f"Key evidence includes {signals[0]}"
         + (f", {signals[1]}" if len(signals) > 1 else "")
         + (f", and {signals[2]}" if len(signals) > 2 else "")
@@ -580,6 +612,255 @@ def _smart_static_clause(context: Dict[str, Any]) -> str:
     if context.get("algorithms"):
         parts.append("controller policies " + ", ".join(context["algorithms"]))
     return " and ".join(parts) if parts else "the available flash/controller descriptors"
+
+
+def _smart_risk_phrase(context: Dict[str, Any]) -> str:
+    risk = str(context.get("smart_risk") or "").strip()
+    if risk == "elevated":
+        return "an elevated reliability risk pattern"
+    if risk == "moderate":
+        return "a moderate reliability risk pattern"
+    if risk:
+        return f"a {risk} reliability picture"
+    return "an uncertain reliability picture"
+
+
+def _smart_trend_sentence(context: Dict[str, Any]) -> str:
+    return (
+        "A temporal SMART trend is more informative than a single snapshot because slopes, repeated outliers, and sustained counter growth show deterioration more reliably than one isolated reading."
+    )
+
+
+def _smart_failslow_sentence(context: Dict[str, Any]) -> str:
+    return (
+        "SMART should not be treated as a perfect fail-slow detector. An SSD can show latency inflation, intermittent faults, or service degradation before a dramatic SMART collapse appears."
+    )
+
+
+def _smart_feature_priority_sentence(context: Dict[str, Any]) -> str:
+    return (
+        "The highest-priority SMART evidence usually comes from media errors, reallocation, interface reliability, age, and wear. Read and write volume counters provide supporting workload context rather than a standalone trigger."
+    )
+
+
+def _smart_relieve_write_pressure_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If write pressure is relieved but not eliminated, the SMART trajectory should look healthier over time and aging pressure should ease, even if the drive does not become fully read-dominant."
+    )
+
+
+def _smart_model_mix_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If the fleet mixes more SSD models instead of concentrating one model heavily, common-mode failure exposure should decrease because fewer identical drives share the same failure mode in the same scope."
+    )
+
+
+def _smart_error_counters_rise_analysis(context: Dict[str, Any]) -> str:
+    urgency = _monitoring_urgency(context)
+    return (
+        f"If media or interface error counters continue to rise across future windows, the current warning should be treated as strengthening evidence rather than a transient anomaly, and {urgency} monitoring should escalate toward migration or replacement."
+    )
+
+
+def _smart_failslow_no_hard_failure_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If the SSD enters fail-slow behavior without an immediate hard fail-stop, user-visible latency risk should increase first, and the operator should not wait for a dramatic SMART collapse before acting."
+    )
+
+
+def _workload_app_interpretation_sentence(context: Dict[str, Any]) -> str:
+    workload = context.get("workload")
+    profile = context.get("workload_profile", "mixed or unclear")
+    if workload:
+        return (
+            f"The workload tag {workload} should be used as an operational proxy for a {profile} service pattern so the SMART evidence is interpreted with the correct read/write context."
+        )
+    return (
+        f"The workload should be interpreted as {profile}, using application or read/write evidence as a proxy so the SMART window is not judged in isolation."
+    )
+
+
+def _workload_write_service_risk_sentence(context: Dict[str, Any]) -> str:
+    profile = context.get("workload_profile", "mixed or unclear")
+    if profile == "write-dominant":
+        return (
+            "Because this sample already looks write-dominant, it should be treated as higher service risk than a comparable read-oriented workload. Extra write stress accelerates wear and makes abnormal SMART trends more operationally important."
+        )
+    if profile == "read-dominant":
+        return (
+            "A more write-heavy service would be riskier than this read-dominant profile because sustained writes accelerate wear and make abnormal SMART trends more consequential."
+        )
+    return (
+        "A sustained write-heavy service should be treated as riskier than a read-oriented one because extra write stress accelerates wear and makes future SMART anomalies more consequential."
+    )
+
+
+def _workload_rebalance_recommendation(context: Dict[str, Any]) -> str:
+    workload = context.get("workload")
+    profile = context.get("workload_profile", "mixed or unclear")
+    if workload:
+        return (
+            f"Use workload class {workload} to rebalance risk: move the most write-intensive or latency-sensitive traffic away first, especially when the current profile looks {profile}."
+        )
+    return (
+        f"Use the workload profile to rebalance risk: move the most write-intensive or latency-sensitive traffic away first when the current service pattern looks {profile}."
+    )
+
+
+def _workload_reduce_bursts_recommendation(context: Dict[str, Any]) -> str:
+    profile = context.get("workload_profile", "mixed or unclear")
+    return (
+        f"Reduce burstiness and write amplification where possible. Smooth the write path, avoid unnecessary background work, and shorten inspection intervals when the workload remains {profile}."
+    )
+
+
+def _workload_switch_write_heavy_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If the workload becomes more write-heavy than it is today, endurance pressure and the operational importance of abnormal SMART trends should increase."
+    )
+
+
+def _workload_shift_read_heavy_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If the workload shifts toward a more read-dominant pattern, the SSD should see lower wear pressure and a safer reliability outlook than under an equally intense write-heavy service."
+    )
+
+
+def _smart_env_compound_sentence(context: Dict[str, Any]) -> str:
+    return (
+        f"When SMART warnings appear together with {_env_condition_clause(context)}, the case should be described as compound risk. The SMART view captures device health, while the environment adds extra performance and reliability pressure."
+    )
+
+
+def _workload_env_compound_sentence(context: Dict[str, Any]) -> str:
+    return (
+        f"When a {context.get('workload_profile', 'mixed or unclear')} workload runs during {_env_condition_clause(context)}, the combined penalty should be treated as worse than reading either signal alone."
+    )
+
+
+def _smart_env_compound_recommendation(context: Dict[str, Any]) -> str:
+    return (
+        f"Treat the case as compound risk. Tighten monitoring, reduce workload pressure, avoid prolonged exposure to {_env_condition_clause(context)}, and lower the threshold for migration or replacement compared with a SMART-only case."
+    )
+
+
+def _workload_env_schedule_recommendation(context: Dict[str, Any]) -> str:
+    return (
+        f"Protect demanding workloads by moving them away from intervals with {_env_condition_clause(context)}, reducing burstiness, and preferring the cleanest operating envelope available."
+    )
+
+
+def _smart_env_hot_humid_analysis(context: Dict[str, Any]) -> str:
+    return (
+        f"If SMART warnings persist while {_env_condition_clause(context)} becomes harsher, the case should be treated as a compounded reliability and performance problem with lower tolerance for waiting or partial mitigation."
+    )
+
+
+def _workload_env_burst_analysis(context: Dict[str, Any]) -> str:
+    return (
+        f"If a write-heavy burst arrives during {_env_condition_clause(context)}, service risk should rise more sharply than under either condition alone because the write path is the more vulnerable side."
+    )
+
+
+def _flash_tradeoff_sentence(context: Dict[str, Any]) -> str:
+    flash = _flash_label(context)
+    return (
+        f"Flash type changes the reliability tradeoff. {flash} should be interpreted as a capacity-versus-endurance choice rather than a neutral detail, with denser media generally carrying tighter endurance and error margins."
+    )
+
+
+def _flash_temperature_sensitivity_sentence(context: Dict[str, Any]) -> str:
+    flash = _flash_label(context)
+    return (
+        f"Flash type also changes environmental sensitivity. {flash} should be evaluated with flash-specific temperature and humidity guardrails instead of assuming every SSD reacts the same way."
+    )
+
+
+def _flash_lifecycle_recommendation(context: Dict[str, Any]) -> str:
+    flash = _flash_label(context)
+    return (
+        f"Adjust lifecycle and replacement policy for {flash}. Higher-density flash should be managed with tighter endurance guardrails and more conservative replacement thresholds than more robust low-density media."
+    )
+
+
+def _flash_guardrails_recommendation(context: Dict[str, Any]) -> str:
+    flash = _flash_label(context)
+    return (
+        f"Use flash-specific environmental guardrails for {flash}. Apply tighter temperature and humidity discipline for more sensitive media instead of assuming one shared margin is safe for every SSD."
+    )
+
+
+def _flash_switch_to_mlc_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If the same workload or environment is experienced by a more robust flash type such as MLC instead of TLC-like media, endurance risk should ease, although temperature and humidity sensitivity will still depend on the exact condition."
+    )
+
+
+def _flash_move_to_qlc_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If the SSD moves to a denser flash type such as QLC, capacity efficiency improves but the reliability margin becomes tighter, so endurance and error sensitivity should be treated more conservatively."
+    )
+
+
+def _alg_gc_tradeoff_sentence(context: Dict[str, Any]) -> str:
+    return (
+        f"Garbage-collection policy should be described as a performance-lifetime tradeoff. The current context ({_algorithms_label(context)}) may relieve space pressure and some latency spikes, but aggressive background work can also increase write amplification."
+    )
+
+
+def _alg_wear_leveling_tradeoff_sentence(context: Dict[str, Any]) -> str:
+    return (
+        f"Wear-leveling policy should be described as a balancing problem. In the current controller context ({_algorithms_label(context)}), stronger leveling can improve lifetime fairness across blocks but may also introduce extra movement and latency overhead."
+    )
+
+
+def _alg_policy_review_recommendation(context: Dict[str, Any]) -> str:
+    return (
+        f"Review controller policy whenever latency spikes, write amplification, or wear imbalance become visible. In the current setup ({_algorithms_label(context)}), garbage collection, refresh, mapping, and retry settings should be revisited as a group rather than tuned in isolation."
+    )
+
+
+def _alg_gc_wl_balance_recommendation(context: Dict[str, Any]) -> str:
+    return (
+        f"Balance garbage collection and wear leveling conservatively in the current controller setup ({_algorithms_label(context)}). Avoid policy extremes that suppress one problem only by creating another, such as lowering latency at the cost of excessive write amplification."
+    )
+
+
+def _alg_more_aggressive_gc_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If garbage collection becomes more aggressive, some latency spikes and space-pressure problems may ease, but write amplification and endurance cost can rise."
+    )
+
+
+def _alg_static_to_hybrid_wl_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If wear leveling moves toward a better balanced hybrid policy, lifetime fairness should improve, but the operator should still watch for extra background movement and latency overhead."
+    )
+
+
+def _alg_page_to_block_analysis(context: Dict[str, Any]) -> str:
+    return (
+        "If mapping becomes coarser, controller memory cost may fall, but the system should expect less flexibility and potentially worse fine-grained performance behavior under mixed workloads."
+    )
+
+
+def _flash_label(context: Dict[str, Any]) -> str:
+    return str(context.get("flash_type") or "the current flash type")
+
+
+def _algorithms_label(context: Dict[str, Any]) -> str:
+    algs = context.get("algorithms") or []
+    return ", ".join(algs) if algs else "the current controller-policy mix"
+
+
+def _env_condition_clause(context: Dict[str, Any]) -> str:
+    factor = str(context.get("factor_text") or "").strip()
+    if factor:
+        return factor.replace("+", " and ")
+    condition = _text(context.get("condition"))
+    if condition:
+        return condition
+    return "the current environmental stress"
 
 
 def _env_runtime_sentence(context: Dict[str, Any]) -> str:
@@ -1055,13 +1336,25 @@ def _monitoring_urgency(context: Dict[str, Any]) -> str:
     return "routine but evidence-backed"
 
 
-def _infer_workload_profile(app_tag: Optional[str], smart_by_attr: Dict[str, Dict[str, Any]]) -> str:
+def _infer_workload_profile(
+    app_tag: Optional[str],
+    smart_by_attr: Dict[str, Dict[str, Any]],
+    workload_text: Optional[str] = None,
+) -> str:
     if app_tag:
         tag = app_tag.strip().upper()
         if tag in WRITE_DOMINANT_APPS:
             return "write-dominant"
         if tag in READ_DOMINANT_APPS:
             return "read-dominant"
+    if workload_text:
+        text = workload_text.strip().lower()
+        if "write-dominant" in text:
+            return "write-dominant"
+        if "read-dominant" in text:
+            return "read-dominant"
+        if "mixed" in text or "unclear" in text:
+            return "mixed or unclear"
     written = _to_float((smart_by_attr.get("r_241") or {}).get("median"))
     read = _to_float((smart_by_attr.get("r_242") or {}).get("median"))
     if written is not None and read is not None:
