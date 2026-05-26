@@ -35,6 +35,11 @@ SMART_LABELS = {
     "r_242": "blocks read",
 }
 
+DATASET_PROFILE_HINTS = {
+    "SMART_ALIBABA": "smart.csv",
+    "SMART_WORKLOAD": "smart_workload_1000.csv",
+}
+
 
 def load_query_bank(path: Optional[Path] = None) -> List[Dict[str, Any]]:
     query_path = Path(path) if path is not None else QUERY_BANK_PATH
@@ -76,6 +81,10 @@ def materialize_table1_task_inputs(
             row["benchmark_task"] = task
             row["benchmark_query_id"] = query["id"]
             row["benchmark_query_group"] = query.get("group", "")
+            row["benchmark_dataset_profile"] = DATASET_PROFILE_HINTS.get(dataset_type, dataset_type.lower())
+            row["benchmark_ground_truth_mode"] = (
+                "dataset_label" if task == "predictive" else "row_aligned_reference"
+            )
             row["retrieval_terms"] = json.dumps(
                 _unique_preserve_order(query.get("retrieval_terms", []) + _contextual_terms(context)),
                 ensure_ascii=False,
