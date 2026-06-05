@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "datasets": {
+    "SMART_ALIBABA": {
+      "input_csv": "dataset/alibaba/test_data/smart.csv",
+      "rows": 1000,
+      "tasks": {
+        "predictive": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_alibaba_predictive.csv",
+          "rows": 1000,
+          "unique_base_samples": 1000,
+          "unique_queries": 1
+        },
+        "descriptive": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_alibaba_descriptive.csv",
+          "rows": 10000,
+          "unique_base_samples": 1000,
+          "unique_queries": 10
+        },
+        "prescriptive": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_alibaba_prescriptive.csv",
+          "rows": 11000,
+          "unique_base_samples": 1000,
+          "unique_queries": 11
+        },
+        "whatif": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_alibaba_whatif.csv",
+          "rows": 10000,
+          "unique_base_samples": 1000,
+          "unique_queries": 10
+        }
+      }
+    },
+    "SMART_WORKLOAD": {
+      "input_csv": "dataset/alibaba/test_data/smart_workload.csv",
+      "rows": 1000,
+      "tasks": {
+        "predictive": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_workload_predictive.csv",
+          "rows": 1000,
+          "unique_base_samples": 1000,
+          "unique_queries": 1
+        },
+        "descriptive": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_workload_descriptive.csv",
+          "rows": 13000,
+          "unique_base_samples": 1000,
+          "unique_queries": 13
+        },
+        "prescriptive": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_workload_prescriptive.csv",
+          "rows": 13000,
+          "unique_base_samples": 1000,
+          "unique_queries": 13
+        },
+        "whatif": {
+          "csv": "stage_II/benchmarks/table1/corpora/smart_workload_whatif.csv",
+          "rows": 12000,
+          "unique_base_samples": 1000,
+          "unique_queries": 12
+        }
+      }
+    }
+  },
+  "notes": [
+    "These are compact pre-materialized benchmark corpora intended for inspection, sharing, and reuse.",
+    "Predictive corpus rows use dataset labels and regression targets from the source CSVs.",
+    "Descriptive, prescriptive, and what-if corpus rows carry the row-aligned reference text produced from query_bank.json and the materialization helpers."
+  ]
+}

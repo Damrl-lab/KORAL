@@ -23,6 +23,7 @@ from stage_II.utils.io import ensure_dir, read_csv, write_csv, write_json
 
 TABLE1_DATASET_LABELS = {
     "SMART_ALIBABA": "Alibaba",
+    "SMART_ALIBABA_FIG7": "Alibaba",
     "SMART_GOOGLE": "Google",
     "ENV": "Exp. Studies",
     "SMART_WORKLOAD": "Alibaba",

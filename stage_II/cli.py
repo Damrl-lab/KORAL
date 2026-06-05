@@ -12,7 +12,7 @@ from stage_II.pipeline import Stage2Runner
 def main():
     ap = argparse.ArgumentParser(description="KORAL Stage II (operational analysis + evaluation)")
     ap.add_argument("--dataset_type", type=str, required=True,
-                    help="Dataset type key (e.g., SMART_ALIBABA, SMART_GOOGLE, ENV, SMART_WORKLOAD, SMART_ENV, WORKLOAD_ENV, SMART_ENV_WORKLOAD, SMART_FT, SMART_AL).")
+                    help="Dataset type key (e.g., SMART_ALIBABA, SMART_ALIBABA_FIG7, SMART_GOOGLE, ENV, SMART_WORKLOAD, SMART_ENV, WORKLOAD_ENV, SMART_ENV_WORKLOAD, SMART_FT, SMART_AL).")
     ap.add_argument("--input_csv", type=str, default=None,
                     help="Optional explicit path to input CSV. If omitted, uses a default path for dataset_type.")
     ap.add_argument("--tasks", type=str, default="predictive,descriptive,prescriptive,whatif",
@@ -72,8 +72,14 @@ if __name__ == "__main__":
 #    - global_knowledge_graph.ttl
 #    - ssd_cot_prompt.txt
 #
-# 3) Run:
+# 3) Run SMART-only:
 #    python -m stage_II.cli --dataset_type SMART_ALIBABA --input_csv dataset/alibaba/test_data/smart.csv --tasks predictive,descriptive,prescriptive,whatif --limit_rows 50
+#
+#    Run SMART+Workload:
+#    python -m stage_II.cli --dataset_type SMART_WORKLOAD --input_csv dataset/alibaba/test_data/smart_workload.csv --tasks predictive,descriptive,prescriptive,whatif --limit_rows 50
+#
+#    Run matched Figure 7 SMART-only predictive comparison:
+#    python -m stage_II.cli --dataset_type SMART_ALIBABA_FIG7 --tasks predictive --limit_rows 50
 #
 # 4) Outputs appear in:
 #    stage_II/runs/<RUN_NAME>/

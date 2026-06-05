@@ -14,6 +14,9 @@ Usage:
 
 Optional:
   --refs_csv <path>  (cohort-level references for BLEU/ROUGE; otherwise only FiP/CFV computed)
+
+Dataset CSV paths are resolved from stage_II/config.py. The SMART_WORKLOAD
+default points to dataset/alibaba/test_data/smart_workload.csv.
 """
 
 from __future__ import annotations

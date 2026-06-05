@@ -42,6 +42,22 @@ How to run (per-sample)
      --limit_rows 100 \
      --out_name demo_smart
 
+   For SMART+Workload Alibaba, use:
+   python -m stage_II.cli \
+     --dataset_type SMART_WORKLOAD \
+     --input_csv dataset/alibaba/test_data/smart_workload.csv \
+     --tasks predictive,descriptive,prescriptive,whatif \
+     --limit_rows 100 \
+     --out_name demo_smart_workload
+
+   For Figure 7-style SMART-only predictive comparison on the same rows as
+   the workload-aware package, use:
+   python -m stage_II.cli \
+     --dataset_type SMART_ALIBABA_FIG7 \
+     --tasks predictive \
+     --limit_rows 100 \
+     --out_name fig7_smart_compare
+
 Outputs (per-sample)
 --------------------
 stage_II/runs/<RUN_NAME>/
@@ -62,6 +78,11 @@ python stage_II/scripts/run_table1.py \
 This writes benchmark CSVs with per-query references. Omit
 --materialize_only to also run KORAL inference and aggregate a
 Table I-style results CSV.
+
+Committed compact corpora and query-coverage manifests live at:
+
+- `stage_II/benchmarks/table1/corpora/`
+- `stage_II/benchmarks/table1/query_coverage.json`
 
 ------------------------------------------------
 B) Fleet mode (Table II style)
@@ -98,6 +119,21 @@ python -m stage_II.fleet_cli \
   --num_cohorts 5 \
   --out_name fleet_alibaba_100x5
 
+For SMART+Workload Alibaba, use:
+
+python -m stage_II.fleet_cli \
+  --dataset_type SMART_WORKLOAD \
+  --input_csv dataset/alibaba/test_data/smart_workload.csv \
+  --tasks predictive,descriptive,prescriptive,whatif \
+  --cohort_size 100 \
+  --num_cohorts 5 \
+  --out_name fleet_smart_workload_100x5
+
+If you need the matched SMART-only Figure 7 split for baseline predictors,
+the packaged sample IDs and predictive corpus are under:
+
+- `stage_II/benchmarks/fig7/`
+
 Fleet outputs
 -------------
 stage_II/runs/<RUN_NAME>/
@@ -112,12 +148,17 @@ Table II results generation (all 3 datasets)
 Use the provided script (stage_II/scripts/run_table2_fleet.py):
 
 python stage_II/scripts/run_table2_fleet.py \
-  --alibaba_csv dataset/alibaba/test_data/smart.csv \
-  --google_csv dataset/google/test_data/smart.csv \
-  --workload_csv dataset/alibaba/test_data/smart_workload.csv \
   --cohort_size 100 \
   --num_cohorts 5 \
-  --out_name table2_fleet
+  --out_dir_name table2_fleet
+
+The script uses dataset defaults from stage_II/config.py, where
+SMART_WORKLOAD now points to:
+  dataset/alibaba/test_data/smart_workload.csv
+
+To regenerate the packaged Alibaba evaluation assets, run:
+
+python stage_II/scripts/package_alibaba_eval_assets.py
 
 This creates:
   stage_II/runs/table2_fleet/table_II_fleet_results.csv
@@ -132,3 +173,13 @@ Notes on input CSV schema
     - optional regression: 'ttf_days' and 'tail_latency_ms'
 - Workload (SMART_WORKLOAD):
     - expects 'app' column (Alibaba workload tag)
+- Packaged Alibaba split guidance:
+- `smart.csv`: standalone SMART-only 1000-row set
+- `smart_workload.csv`: standalone SMART+Workload 1000-row set
+- `fig7_smart.csv`: SMART-only matched split derived from `smart_workload.csv`
+
+Reference packages committed in the repo:
+- `dataset/alibaba/test_data/evaluation_package.json`
+- `stage_II/benchmarks/fig7/`
+- `stage_II/benchmarks/table1/corpora/`
+- `stage_II/benchmarks/table1/query_coverage.json`

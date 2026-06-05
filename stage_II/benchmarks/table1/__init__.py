@@ -37,7 +37,12 @@ SMART_LABELS = {
 
 DATASET_PROFILE_HINTS = {
     "SMART_ALIBABA": "smart.csv",
-    "SMART_WORKLOAD": "smart_workload_1000.csv",
+    "SMART_ALIBABA_FIG7": "fig7_smart.csv",
+    "SMART_WORKLOAD": "smart_workload.csv",
+}
+
+DATASET_TYPE_QUERY_ALIASES = {
+    "SMART_ALIBABA_FIG7": "SMART_ALIBABA",
 }
 
 
@@ -59,9 +64,10 @@ def materialize_table1_task_inputs(
         return base_df
 
     smart_cols = infer_smart_columns(list(base_df.columns))
+    resolved_dataset_type = DATASET_TYPE_QUERY_ALIASES.get(dataset_type, dataset_type)
     queries = [
         q for q in load_query_bank(query_bank_path)
-        if q.get("task") == task and dataset_type in q.get("dataset_types", [])
+        if q.get("task") == task and resolved_dataset_type in q.get("dataset_types", [])
     ]
     rows: List[Dict[str, Any]] = []
 

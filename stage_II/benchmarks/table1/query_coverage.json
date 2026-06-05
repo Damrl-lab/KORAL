@@ -1,0 +1,3091 @@
+{
+  "version": 1,
+  "query_count": 118,
+  "dataset_query_counts": {
+    "ENV": 58,
+    "ENV_AL": 65,
+    "ENV_FT": 64,
+    "SMART_AL": 42,
+    "SMART_ALIBABA": 32,
+    "SMART_ENV": 92,
+    "SMART_ENV_WORKLOAD": 102,
+    "SMART_FT": 40,
+    "SMART_GOOGLE": 32,
+    "SMART_WORKLOAD": 39,
+    "WORKLOAD_ENV": 61
+  },
+  "subsystem_query_counts": {
+    "age_lifecycle": 25,
+    "correlated_failure_and_placement": 11,
+    "fail_slow_or_latency": 39,
+    "humidity": 22,
+    "interface_or_link": 5,
+    "media_endurance": 16,
+    "predictive_reliability": 1,
+    "static_device_context": 20,
+    "thermal": 19,
+    "vibration": 27,
+    "workload_pressure": 24
+  },
+  "smart_workload_scope_summary": {
+    "query_count": 39,
+    "query_ids": [
+      "predict_failure_and_performance",
+      "desc_smart_health_overview",
+      "desc_smart_workload_risk",
+      "desc_smart_correlation_limits",
+      "desc_smart_interface_errors",
+      "desc_smart_media_endurance",
+      "desc_smart_write_pressure",
+      "desc_smart_age_and_life",
+      "desc_smart_failure_warning_strength",
+      "desc_smart_trend_vs_snapshot",
+      "desc_smart_failslow_gap",
+      "desc_smart_feature_priority",
+      "desc_workload_app_interpretation",
+      "desc_workload_write_service_risk",
+      "pres_smart_monitor_replace",
+      "pres_smart_reduce_correlated_risk",
+      "pres_smart_write_heavy_controls",
+      "pres_smart_interface_sanitization",
+      "pres_smart_endurance_guardrails",
+      "pres_smart_data_migration_plan",
+      "pres_smart_rack_placement_review",
+      "pres_smart_spare_capacity_watch",
+      "pres_smart_trend_monitoring",
+      "pres_smart_failslow_triage",
+      "pres_smart_counter_priority",
+      "pres_workload_rebalance_by_app",
+      "pres_workload_reduce_write_bursts",
+      "whatif_smart_reduce_writes",
+      "whatif_smart_ageing_next_year",
+      "whatif_smart_spread_same_model",
+      "whatif_smart_eager_recovery",
+      "whatif_smart_fix_interface_path",
+      "whatif_smart_relieve_write_pressure",
+      "whatif_smart_preemptive_replacement",
+      "whatif_smart_model_mix",
+      "whatif_smart_error_counters_rise",
+      "whatif_smart_failslow_without_hard_failure",
+      "whatif_workload_switch_to_write_heavy",
+      "whatif_workload_shift_to_read_heavy"
+    ],
+    "subsystem_query_counts": {
+      "age_lifecycle": 8,
+      "correlated_failure_and_placement": 8,
+      "fail_slow_or_latency": 4,
+      "interface_or_link": 5,
+      "media_endurance": 5,
+      "predictive_reliability": 1,
+      "workload_pressure": 12
+    },
+    "note": "SMART_WORKLOAD queries cover SMART plus workload reasoning and also touch media endurance, interface/link issues, age/lifecycle, fail-slow, and correlated-failure scope. They are not limited to thermal or electrical-only reasoning."
+  },
+  "queries": [
+    {
+      "id": "predict_failure_and_performance",
+      "task": "predictive",
+      "group": "predictive",
+      "question": "Given this SSD sample, predict whether the SSD is likely to fail within the target horizon and, when applicable, estimate the expected performance degradation such as tail-latency impact.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "ENV",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "predictive_reliability",
+        "interface_or_link",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_health_overview",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe the overall health meaning of the SMART evidence in this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_workload_risk",
+      "task": "descriptive",
+      "group": "workload",
+      "question": "Describe how the workload context changes the risk interpretation of this SMART sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_correlation_limits",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe the limits of using SMART attributes alone to reason about correlated SSD failures.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_static_context",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe how static SSD context such as flash type or controller policies should be interpreted together with dynamic SMART signals.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_interface_errors",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe what interface-path SMART anomalies imply for this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "interface_or_link"
+      ],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "desc_smart_media_endurance",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe how media wear and endurance-related SMART attributes should be interpreted in this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "media_endurance"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_write_pressure",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe how write pressure should influence the interpretation of this SMART sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_age_and_life",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe how SSD age or lifetime usage should influence the interpretation of this SMART sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_failure_warning_strength",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe how strong the current SMART warning signal should be considered.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "desc_smart_trend_vs_snapshot",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe why a temporal SMART trend is more informative than a single SMART snapshot.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "desc_smart_failslow_gap",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe why SMART evidence can miss or lag fail-slow SSD behavior.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_feature_priority",
+      "task": "descriptive",
+      "group": "smart",
+      "question": "Describe which SMART attributes are usually the most informative for SSD failure interpretation.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "desc_workload_app_interpretation",
+      "task": "descriptive",
+      "group": "workload",
+      "question": "Describe how the Alibaba application tag should be used to interpret this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_workload_write_service_risk",
+      "task": "descriptive",
+      "group": "workload",
+      "question": "Describe why a write-heavy service should be considered riskier than a read-heavy one for this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_smart_env_compound_risk",
+      "task": "descriptive",
+      "group": "multimodal",
+      "question": "Describe how SMART anomalies and environmental stress should be interpreted together in this sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "desc_workload_env_compound_penalty",
+      "task": "descriptive",
+      "group": "multimodal",
+      "question": "Describe how workload pressure and environmental stress combine in this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_ft_flash_reliability_tradeoff",
+      "task": "descriptive",
+      "group": "flash_type",
+      "question": "Describe the reliability tradeoff associated with the flash type used in this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "FLASH_TYPE"
+      ],
+      "subsystem_families": [
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_ft_temperature_sensitivity",
+      "task": "descriptive",
+      "group": "flash_type",
+      "question": "Describe how flash type changes the expected environmental sensitivity of this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "FLASH_TYPE"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_alg_gc_tradeoff",
+      "task": "descriptive",
+      "group": "algorithms",
+      "question": "Describe the performance-lifetime tradeoff associated with the controller garbage-collection policy in this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_alg_wear_leveling_tradeoff",
+      "task": "descriptive",
+      "group": "algorithms",
+      "question": "Describe the tradeoff associated with the wear-leveling policy in this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "media_endurance",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_runtime_effect",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe the immediate runtime effect of this temperature or humidity condition on SSD performance.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "media_endurance",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_post_impact",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe whether this temperature or humidity condition can leave a post-impact effect after the exposure ends.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_bandwidth_latency_tradeoff",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe the bandwidth-versus-latency tradeoff associated with this environmental condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "age_lifecycle",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_device_sensitivity",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe how SSD type or flash type changes the sensitivity to this environmental condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "fail_slow_or_latency",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_high_temp_gain",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe why high temperature can sometimes improve bandwidth yet still be risky for SSDs.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_high_humidity_penalty",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe the penalty caused by high humidity for SSD performance and reliability.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "humidity",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_write_vs_read_path",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe how this environmental condition affects write I/O differently from read I/O.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_abrupt_change_behavior",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe why abrupt temperature or humidity transitions deserve explicit attention.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_recovery_expectation",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe what kind of recovery should be expected after this environmental stress ends.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "humidity",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_env_postimpact_write_asymmetry",
+      "task": "descriptive",
+      "group": "temp_hum",
+      "question": "Describe how post-impact behavior differs between the SSD write path and read path after environmental stress.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "desc_vib_short_term_tail",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe the short-term performance effect of this vibration condition, especially on tail latency.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_orientation_effect",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe how vibration orientation changes the expected SSD performance impact.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_long_term_degradation",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe the long-term reliability and performance consequences if this vibration exposure persists.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_hidden_smart_gap",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Explain why traditional SMART-style health indicators may miss the impact of this vibration condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_mean_vs_tail",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe the difference between mean-performance impact and tail-latency impact under this vibration condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "age_lifecycle",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_vendor_variability",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe why the effect of this vibration condition may vary across SSD vendors or flash implementations.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_post_effect",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe whether the impact of this vibration condition can persist even after vibration stops.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_transient_fault_pattern",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe the transient-fault or fail-slow pattern associated with this vibration condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "desc_vib_bandwidth_drop",
+      "task": "descriptive",
+      "group": "vibration",
+      "question": "Describe how this vibration condition affects mean bandwidth as exposure length increases.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_monitor_replace",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend concrete operator actions for this SSD window, including monitoring, migration, and replacement urgency based on the observed SMART pattern.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_reduce_correlated_risk",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend actions that reduce correlated-failure exposure for this type of SSD sample at node or rack level.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_write_heavy_controls",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "What workload-management actions should an operator take if this SSD is under write-heavy pressure?",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "workload_pressure",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_static_policy_alignment",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend controller-policy or lifecycle-management actions that align the static SSD characteristics in this sample with safer operation.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_interface_sanitization",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend operator actions when SMART evidence suggests interface-path problems rather than purely media errors.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "interface_or_link",
+        "media_endurance"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_endurance_guardrails",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend endurance-management actions for an SSD sample that shows wear-related SMART pressure.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "media_endurance",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_data_migration_plan",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend when and how the operator should plan proactive data migration for this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "pres_smart_rack_placement_review",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend placement or fleet-level actions if this SMART pattern appears in multiple similar SSDs.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_spare_capacity_watch",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend how spare capacity or protection margin should be handled for this SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "pres_smart_trend_monitoring",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend how the operator should monitor SMART trends over time rather than isolated snapshots.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "pres_smart_failslow_triage",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend how the operator should triage possible fail-slow behavior when SMART evidence is weak or delayed.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_counter_priority",
+      "task": "prescriptive",
+      "group": "smart",
+      "question": "Recommend which SMART attributes should receive the highest operational attention.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "pres_workload_rebalance_by_app",
+      "task": "prescriptive",
+      "group": "workload",
+      "question": "Recommend how workload should be rebalanced based on the Alibaba application class in this sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_workload_reduce_write_bursts",
+      "task": "prescriptive",
+      "group": "workload",
+      "question": "Recommend how the operator should reduce write bursts or write amplification for this workload-aware SSD sample.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_smart_env_compound_guardrails",
+      "task": "prescriptive",
+      "group": "multimodal",
+      "question": "Recommend operator guardrails when SMART warnings and environmental stress appear together.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "pres_workload_env_schedule_control",
+      "task": "prescriptive",
+      "group": "multimodal",
+      "question": "Recommend how workload scheduling should change when demanding I/O runs under environmental stress.",
+      "scenario": "",
+      "dataset_types": [
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_ft_flash_specific_lifecycle",
+      "task": "prescriptive",
+      "group": "flash_type",
+      "question": "Recommend whether lifecycle and replacement policy should differ by flash type.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "correlated_failure_and_placement",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_ft_temperature_humidity_guardrails",
+      "task": "prescriptive",
+      "group": "flash_type",
+      "question": "Recommend how temperature and humidity guardrails should differ by flash type.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "FLASH_TYPE"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_alg_policy_tuning_review",
+      "task": "prescriptive",
+      "group": "algorithms",
+      "question": "Recommend when controller policies should be reviewed or retuned for reliability and latency.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "fail_slow_or_latency",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_alg_gc_wl_balance",
+      "task": "prescriptive",
+      "group": "algorithms",
+      "question": "Recommend how the operator should balance garbage collection and wear leveling for safer operation.",
+      "scenario": "",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "media_endurance",
+        "age_lifecycle",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_humidity_mitigation",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend immediate mitigation actions for this humidity-related SSD condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "humidity",
+        "media_endurance"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_thermal_window",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend how the operator should manage the SSD thermal window under this condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_post_impact_monitoring",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend what should be monitored after this environmental exposure ends.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_write_heavy_scheduling",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend how write-heavy or latency-critical work should be scheduled under this environmental condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "workload_pressure",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_room_condition_recovery",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend how the operator should return the SSD to room-condition operation after this stress.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "pres_env_high_temp_guardrails",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend guardrails if a high-temperature operating point is intentionally used for performance.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "media_endurance",
+        "workload_pressure",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_humidity_exposure_limit",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend how the operator should limit high-humidity exposure for SSDs.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "humidity"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_flash_type_specific_policy",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend whether policy should differ by flash type under this environmental condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "fail_slow_or_latency",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_post_event_validation",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend what should be validated before the SSD is considered safe after this environmental event.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_env_write_path_priority",
+      "task": "prescriptive",
+      "group": "temp_hum",
+      "question": "Recommend how the operator should prioritize protection of the SSD write path under environmental stress.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "workload_pressure",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_isolate_latency_sensitive",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend operational actions to protect latency-sensitive workloads from this vibration condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "workload_pressure",
+        "age_lifecycle",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_orientation_mounting",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend physical or placement actions that reduce the orientation-sensitive impact of vibration.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_monitor_tail_not_mean",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend what metrics should be monitored so the operator catches the impact of this vibration condition early.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_prepare_failslow_recovery",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend recovery and escalation actions for the fail-slow or transient-failure patterns associated with this vibration condition.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "age_lifecycle",
+        "fail_slow_or_latency",
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_reduce_exposure_duration",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend how to reduce effective vibration exposure duration if the source cannot be removed immediately.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "media_endurance",
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_validate_after_restart",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend what to validate after restarting an SSD that was affected by vibration.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_vendor_qualification",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend how vendor qualification or platform qualification should account for this vibration pattern.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_workload_derating",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend whether the workload should be derated or shifted while this vibration condition persists.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "workload_pressure",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "pres_vib_facility_source_audit",
+      "task": "prescriptive",
+      "group": "vibration",
+      "question": "Recommend how to audit or localize the likely facility or platform source of this vibration.",
+      "scenario": "",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_reduce_writes",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if this SSD sees less write pressure in the future.",
+      "scenario": "If this SSD sees less write pressure in the future, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_ageing_next_year",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if this SSD continues aging for another year without replacement.",
+      "scenario": "If this SSD continues aging for another year without replacement, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_spread_same_model",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if similar same-model SSDs are spread across nodes and racks instead of densely colocated.",
+      "scenario": "If similar same-model SSDs are spread across nodes and racks instead of densely colocated, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_eager_recovery",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if the system uses eager recovery instead of lazy recovery after an SSD failure.",
+      "scenario": "If the system uses eager recovery instead of lazy recovery after an SSD failure, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_fix_interface_path",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if the interface-path instability in this SSD sample is fully corrected.",
+      "scenario": "If the interface-path instability in this SSD sample is fully corrected, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "interface_or_link"
+      ],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "whatif_smart_relieve_write_pressure",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if write pressure on this SSD is relieved but not eliminated.",
+      "scenario": "If write pressure on this SSD is relieved but not eliminated, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_tighten_refresh_policy",
+      "task": "whatif",
+      "group": "algorithms",
+      "question": "Analyze what happens if a more conservative refresh or retention policy is applied to this SSD.",
+      "scenario": "If a more conservative refresh or retention policy is applied to this SSD, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_preemptive_replacement",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if the operator replaces this SSD proactively before a hard failure occurs.",
+      "scenario": "If the operator replaces this SSD proactively before a hard failure occurs, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "correlated_failure_and_placement"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_model_mix",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if the fleet mixes more SSD models instead of concentrating one model heavily.",
+      "scenario": "If the fleet mixes more SSD models instead of concentrating one model heavily, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "whatif_smart_error_counters_rise",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if media or interface error counters continue to rise in future windows.",
+      "scenario": "If media or interface error counters continue to rise in future windows, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "interface_or_link",
+        "media_endurance"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_failslow_without_hard_failure",
+      "task": "whatif",
+      "group": "smart",
+      "question": "Analyze what happens if this SSD enters a fail-slow state without an immediate hard failure.",
+      "scenario": "If this SSD enters a fail-slow state without an immediate hard failure, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ALIBABA",
+        "SMART_GOOGLE",
+        "SMART_WORKLOAD",
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD",
+        "SMART_FT",
+        "SMART_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "media_endurance",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_workload_switch_to_write_heavy",
+      "task": "whatif",
+      "group": "workload",
+      "question": "Analyze what happens if the workload on this SSD becomes more write-heavy than it is today.",
+      "scenario": "If the workload on this SSD becomes more write-heavy than it is today, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_workload_shift_to_read_heavy",
+      "task": "whatif",
+      "group": "workload",
+      "question": "Analyze what happens if the workload on this SSD shifts toward a more read-dominant pattern.",
+      "scenario": "If the workload on this SSD shifts toward a more read-dominant pattern, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_WORKLOAD",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_smart_env_hot_humid_with_warning",
+      "task": "whatif",
+      "group": "multimodal",
+      "question": "Analyze what happens if this SSD keeps showing SMART warnings while also entering a hotter or more humid environment.",
+      "scenario": "If this SSD keeps showing SMART warnings while also entering a hotter or more humid environment, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "whatif_workload_env_burst_during_humidity",
+      "task": "whatif",
+      "group": "multimodal",
+      "question": "Analyze what happens if a write-heavy workload spike occurs during high humidity or another hostile environmental episode.",
+      "scenario": "If a write-heavy workload spike occurs during high humidity or another hostile environmental episode, how should SSD behavior change?",
+      "dataset_types": [
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT"
+      ],
+      "subsystem_families": [
+        "humidity",
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_ft_switch_tlc_to_mlc",
+      "task": "whatif",
+      "group": "flash_type",
+      "question": "Analyze what happens if the SSD uses MLC-like flash characteristics instead of TLC-like ones.",
+      "scenario": "If the SSD uses MLC-like flash characteristics instead of TLC-like ones, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "FLASH_TYPE"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "whatif_ft_move_to_qlc",
+      "task": "whatif",
+      "group": "flash_type",
+      "question": "Analyze what happens if the SSD uses a denser flash type such as QLC instead of a lower-density alternative.",
+      "scenario": "If the SSD uses a denser flash type such as QLC instead of a lower-density alternative, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_FT",
+        "ENV_FT"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "FLASH_TYPE"
+      ],
+      "subsystem_families": [
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_alg_more_aggressive_gc",
+      "task": "whatif",
+      "group": "algorithms",
+      "question": "Analyze what happens if garbage collection is made more aggressive for this SSD configuration.",
+      "scenario": "If garbage collection is made more aggressive for this SSD configuration, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_alg_static_to_hybrid_wl",
+      "task": "whatif",
+      "group": "algorithms",
+      "question": "Analyze what happens if wear leveling changes from a weaker or static style to a better balanced hybrid policy.",
+      "scenario": "If wear leveling changes from a weaker or static style to a better balanced hybrid policy, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "media_endurance",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_alg_page_to_block_mapping",
+      "task": "whatif",
+      "group": "algorithms",
+      "question": "Analyze what happens if the mapping policy becomes coarser, such as moving from page-level toward block-level behavior.",
+      "scenario": "If the mapping policy becomes coarser, such as moving from page-level toward block-level behavior, how should SSD behavior change?",
+      "dataset_types": [
+        "SMART_AL",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "ENVIRONMENT",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "age_lifecycle",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_reduce_humidity",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if humidity is reduced toward room conditions.",
+      "scenario": "If humidity is reduced toward room conditions, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "humidity",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_raise_temperature",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if temperature rises into a controlled high-temperature range.",
+      "scenario": "If temperature rises into a controlled high-temperature range, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "media_endurance",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_restore_room_conditions",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if the SSD is returned to room conditions after this exposure.",
+      "scenario": "If the SSD is returned to room conditions after this exposure, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "media_endurance",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_reverse_direction",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if the environmental direction is reversed, such as increasing humidity instead of decreasing it or cooling instead of heating.",
+      "scenario": "If the environmental direction is reversed, such as increasing humidity instead of decreasing it or cooling instead of heating, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "fail_slow_or_latency",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_increase_humidity",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if humidity increases further under otherwise similar operating conditions.",
+      "scenario": "If humidity increases further under otherwise similar operating conditions, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "humidity",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_drop_temperature",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if the SSD is cooled while humidity stays comparable.",
+      "scenario": "If the SSD is cooled while humidity stays comparable, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "media_endurance"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_extend_exposure",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if the same environmental exposure lasts much longer.",
+      "scenario": "If the same environmental exposure lasts much longer, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [],
+      "exercises_beyond_thermal_or_interface": false
+    },
+    {
+      "id": "whatif_env_switch_flash_type",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if the same condition is experienced by a different flash type, such as TLC versus MLC.",
+      "scenario": "If the same condition is experienced by a different flash type, such as TLC versus MLC, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity",
+        "fail_slow_or_latency",
+        "static_device_context"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_shift_write_to_read",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if the workload under this environmental condition becomes less write-heavy and more read-oriented.",
+      "scenario": "If the workload under this environmental condition becomes less write-heavy and more read-oriented, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "workload_pressure"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_env_high_humidity_after_heat",
+      "task": "whatif",
+      "group": "temp_hum",
+      "question": "Analyze what happens if high humidity follows a prior high-temperature episode.",
+      "scenario": "If high humidity follows a prior high-temperature episode, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "thermal",
+        "humidity"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_remove_vibration",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if this vibration source is removed.",
+      "scenario": "If this vibration source is removed, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_parallel_vs_perpendicular",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if the same vibration exposure is applied with a different orientation.",
+      "scenario": "If the same vibration exposure is applied with a different orientation, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_prolong_exposure",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if this vibration exposure persists for much longer.",
+      "scenario": "If this vibration exposure persists for much longer, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_restart_after_transient_fault",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if an SSD under this vibration condition is restarted after a transient fault.",
+      "scenario": "If an SSD under this vibration condition is restarted after a transient fault, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_lower_intensity",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if the vibration intensity is reduced but not eliminated.",
+      "scenario": "If the vibration intensity is reduced but not eliminated, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_shift_to_parallel",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if the dominant vibration orientation shifts toward the less harmful direction.",
+      "scenario": "If the dominant vibration orientation shifts toward the less harmful direction, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_move_latency_workload",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if latency-sensitive traffic is moved away while vibration persists.",
+      "scenario": "If latency-sensitive traffic is moved away while vibration persists, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "media_endurance",
+        "workload_pressure",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_repeat_short_bursts",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if the SSD experiences repeated short vibration bursts instead of one long episode.",
+      "scenario": "If the SSD experiences repeated short vibration bursts instead of one long episode, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "workload_pressure",
+        "age_lifecycle"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    },
+    {
+      "id": "whatif_vib_no_action",
+      "task": "whatif",
+      "group": "vibration",
+      "question": "Analyze what happens if the operator takes no action and leaves the SSD under the present vibration condition.",
+      "scenario": "If the operator takes no action and leaves the SSD under the present vibration condition, how should SSD behavior change?",
+      "dataset_types": [
+        "ENV",
+        "SMART_ENV",
+        "WORKLOAD_ENV",
+        "SMART_ENV_WORKLOAD",
+        "ENV_FT",
+        "ENV_AL"
+      ],
+      "modalities": [
+        "SMART",
+        "WORKLOAD",
+        "ENVIRONMENT",
+        "FLASH_TYPE",
+        "CONTROLLER_POLICY"
+      ],
+      "subsystem_families": [
+        "vibration",
+        "fail_slow_or_latency"
+      ],
+      "exercises_beyond_thermal_or_interface": true
+    }
+  ]
+}

@@ -5,8 +5,12 @@
       "default_input_csv": "dataset/alibaba/test_data/smart.csv",
       "benchmark_scope": "SMART-only Alibaba evaluation rows"
     },
+    "SMART_ALIBABA_FIG7": {
+      "default_input_csv": "dataset/alibaba/test_data/fig7_smart.csv",
+      "benchmark_scope": "SMART-only matched Figure 7 split derived from the SMART+Workload rows"
+    },
     "SMART_WORKLOAD": {
-      "default_input_csv": "dataset/alibaba/test_data/smart_workload_1000.csv",
+      "default_input_csv": "dataset/alibaba/test_data/smart_workload.csv",
       "benchmark_scope": "SMART plus workload Alibaba evaluation rows with row-aligned non-predictive ground truth"
     }
   },

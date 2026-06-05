@@ -1,0 +1,9 @@
+{
+  "input_source_csv": "dataset/alibaba/test_data/smart_workload.csv",
+  "matched_smart_only_csv": "dataset/alibaba/test_data/fig7_smart.csv",
+  "sample_ids_csv": "stage_II/benchmarks/fig7/fig7_sample_ids.csv",
+  "predictive_corpus_csv": "stage_II/benchmarks/fig7/fig7_predictive_corpus.csv",
+  "row_count": 1000,
+  "same_sample_ids_as_workload_csv": true,
+  "note": "This SMART-only matched split is derived from smart_workload.csv by blanking workload labels while preserving the same 1000 rows."
+}

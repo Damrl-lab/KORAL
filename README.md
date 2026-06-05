@@ -120,6 +120,12 @@ For Table II fleet evaluation, you only need these **three prepared datasets**:
 - **Google SMART**
 - **SMART + Workload** (Alibaba with `app`)
 
+For the packaged Alibaba evaluation assets, the repo now includes:
+- `dataset/alibaba/test_data/smart.csv` for the standalone SMART-only path
+- `dataset/alibaba/test_data/smart_workload.csv` for the fused SMART+Workload path
+- `dataset/alibaba/test_data/fig7_smart.csv` for the SMART-only matched Figure 7 split derived from the workload-aware rows
+- `dataset/alibaba/test_data/evaluation_package.json` describing row counts, balance, and split relationships
+
 ---
 
 # Stage II: Per-sample analysis
@@ -159,6 +165,30 @@ python -m stage_II.cli \
   --out_name demo_smart_alibaba
 ```
 
+For SMART+Workload Alibaba, use:
+
+```bash
+python -m stage_II.cli \
+  --dataset_type SMART_WORKLOAD \
+  --input_csv dataset/alibaba/test_data/smart_workload.csv \
+  --tasks predictive,descriptive,prescriptive,whatif \
+  --model gpt-4o \
+  --limit_rows 100 \
+  --out_name demo_smart_workload
+```
+
+For a Figure 7-style SMART-only predictive comparison on the same 1000 rows as
+the workload-aware package, use:
+
+```bash
+python -m stage_II.cli \
+  --dataset_type SMART_ALIBABA_FIG7 \
+  --tasks predictive \
+  --model gpt-4o \
+  --limit_rows 100 \
+  --out_name fig7_smart_compare
+```
+
 Outputs go to:
 
 ```text
@@ -172,7 +202,7 @@ stage_II/runs/<RUN_NAME>/
 
 ## Generate Table I Benchmarks
 
-Use the curated Table I query bank to materialize per-sample descriptive, prescriptive, and what-if references from the three source papers:
+Use the curated Table I query bank to materialize per-sample descriptive, prescriptive, and what-if references:
 
 ```bash
 python stage_II/scripts/run_table1.py \
@@ -181,6 +211,10 @@ python stage_II/scripts/run_table1.py \
 ```
 
 To run KORAL inference and aggregate a Table I-style CSV, omit `--materialize_only` and add any prepared dataset mappings such as `SMART_ALIBABA=...`, `SMART_WORKLOAD=...`, or `SMART_ENV=...`.
+
+Committed benchmark support files are available at:
+- `stage_II/benchmarks/table1/corpora/` for the pre-materialized SMART-only and SMART+Workload corpora
+- `stage_II/benchmarks/table1/query_coverage.json` for modality and subsystem coverage labels per query
 
 ---
 
@@ -209,6 +243,18 @@ python -m stage_II.fleet_cli \
   --out_name fleet_alibaba_100x5
 ```
 
+For SMART+Workload Alibaba, use:
+
+```bash
+python -m stage_II.fleet_cli \
+  --dataset_type SMART_WORKLOAD \
+  --input_csv dataset/alibaba/test_data/smart_workload.csv \
+  --tasks predictive,descriptive,prescriptive,whatif \
+  --cohort_size 100 \
+  --num_cohorts 5 \
+  --out_name fleet_smart_workload_100x5
+```
+
 Fleet outputs go to:
 
 ```text
@@ -226,17 +272,20 @@ Use the script under `stage_II/scripts/`:
 
 ```bash
 python stage_II/scripts/run_table2_fleet.py \
-  --alibaba_csv dataset/alibaba/test_data/smart.csv \
-  --google_csv dataset/google/test_data/smart.csv \
-  --workload_csv dataset/alibaba/test_data/smart_workload.csv \
   --cohort_size 100 \
   --num_cohorts 5 \
-  --out_name table2_fleet
+  --out_dir_name table2_fleet
 ```
 
 This writes:
 - `stage_II/runs/table2_fleet/table_II_fleet_results.csv`
 - and per-dataset fleet run folders under `stage_II/runs/table2_fleet/` (or nested depending on script settings).
+
+To regenerate the packaged Alibaba evaluation assets, run:
+
+```bash
+python stage_II/scripts/package_alibaba_eval_assets.py
+```
 
 ---
 

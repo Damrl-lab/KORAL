@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "files": {
+    "smart_csv": {
+      "path": "dataset/alibaba/test_data/smart.csv",
+      "role": "Standalone SMART-only Alibaba 1000-row evaluation set.",
+      "rows": 1000,
+      "failure_counts": {
+        "0": 500,
+        "1": 500
+      },
+      "unique_disk_id": 1000,
+      "top_app_counts": {
+        "": 1000
+      }
+    },
+    "smart_workload_csv": {
+      "path": "dataset/alibaba/test_data/smart_workload.csv",
+      "role": "Standalone SMART+Workload Alibaba 1000-row evaluation set.",
+      "rows": 1000,
+      "failure_counts": {
+        "1": 500,
+        "0": 500
+      },
+      "unique_disk_id": 1000,
+      "top_app_counts": {
+        "WSM": 716,
+        "RM": 196,
+        "WS": 30,
+        "WPS": 25,
+        "DB": 12,
+        "SS": 10,
+        "NAS": 8,
+        "DAE": 3
+      }
+    },
+    "fig7_smart_csv": {
+      "path": "dataset/alibaba/test_data/fig7_smart.csv",
+      "role": "SMART-only matched split derived from smart_workload.csv for Figure 7-style predictive baseline comparison.",
+      "rows": 1000,
+      "failure_counts": {
+        "1": 500,
+        "0": 500
+      },
+      "unique_disk_id": 1000,
+      "top_app_counts": {
+        "": 1000
+      }
+    }
+  },
+  "notes": [
+    "smart.csv and smart_workload.csv are different balanced 1000-row sample sets.",
+    "fig7_smart.csv preserves the same 1000 windows as smart_workload.csv but blanks the workload label so baseline predictors can run on a SMART-only view of the exact same rows.",
+    "Use smart.csv for the legacy SMART-only packaging path, smart_workload.csv for fused SMART+Workload evaluation, and fig7_smart.csv for apples-to-apples Figure 7 style predictive baseline comparison on the workload-matched rows."
+  ]
+}

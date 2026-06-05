@@ -34,6 +34,7 @@ class Stage2Config:
             self.dataset_type_to_csv = {
                 # SMART-only
                 "SMART_ALIBABA": Path("dataset/alibaba/test_data/smart.csv"),
+                "SMART_ALIBABA_FIG7": Path("dataset/alibaba/test_data/fig7_smart.csv"),
                 "SMART_GOOGLE": Path("dataset/google/test_data/smart.csv"),
 
                 # Environmental-only
