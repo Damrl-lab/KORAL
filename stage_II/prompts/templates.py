@@ -51,6 +51,8 @@ Produce JSON with:
 
 Rules:
 - Keep rationale brief.
+- Treat the sample as unlabeled. Infer failure and any regression targets only
+  from the provided IR, DataKG refs, and literature evidence.
 - If the sample includes a tail-latency percentage-change target, use `predicted_tail_latency_pct`.
 - If the sample includes an absolute tail-latency target in milliseconds, use `predicted_tail_latency_ms`.
 - Every atomic claim MUST cite at least one ref_id from IR/DataKG (e.g., "IR:AF_r_233") or literature (e.g., "LIT_3").
