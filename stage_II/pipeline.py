@@ -154,6 +154,23 @@ def _task_text_output(task: str, out: Dict[str, Any]) -> Optional[str]:
     return None
 
 
+def _coerce_binary_prediction(value: Any) -> Optional[int]:
+    if value is None:
+        return None
+    text = str(value).strip().lower()
+    if not text:
+        return None
+    if text in {"0", "false", "no"}:
+        return 0
+    if text in {"1", "true", "yes"}:
+        return 1
+    try:
+        num = int(float(text))
+    except Exception:
+        return None
+    return num if num in (0, 1) else None
+
+
 def _unique_preserve_order(items: List[str]) -> List[str]:
     seen = set()
     out = []
@@ -287,10 +304,11 @@ class Stage2Runner:
                     "dataset": row.get("dataset_type") or row.get("dataset") or None,
                     "disk_id": row.get("disk_id") or row.get("drive_id") or None,
                     "ds": row.get("ds") or row.get("date") or None,
-                    "label": int(row.get("failure") or row.get("label") or 0) if str(row.get("failure") or row.get("label") or 0).strip() != "" else 0,
-                    "ttf_days": row.get("ttf_days") if "ttf_days" in row else (row.get("ttf") if "ttf" in row else None),
-                    "tail_latency_ms": row.get("tail_latency_ms") if "tail_latency_ms" in row else (row.get("tail_latency") if "tail_latency" in row else None),
-                    "tail_latency_change_pct": row.get("tail_latency_change_pct") if "tail_latency_change_pct" in row else None,
+                    # Keep prompt-visible metadata free of supervision targets.
+                    # Predictive labels and regression targets are used only for
+                    # offline scoring in _aggregate().
+                    "model": row.get("model") or None,
+                    "app": row.get("app") or None,
                 },
                 "IR": ir,
                 "DataKG_refs": sorted(list(dk.refs)),
@@ -388,25 +406,36 @@ class Stage2Runner:
         ttf_pred = []
         tl_true = []
         tl_pred = []
+        n_labeled = 0
+        n_binary_failure_predictions = 0
+        n_null_or_invalid_failure_predictions = 0
+        n_missing_predictive_outputs = 0
         for _, row in df_in.iterrows():
             sid = str(row.get("sample_id") or row.get("window_id") or row.get("id") or f"s{_}")
             out = lookup.get((sid, "predictive"))
-            if not out:
-                continue
             gt = row.get("failure", None)
             if gt is None:
                 gt = row.get("label", None)
             if gt is not None and str(gt).strip() != "":
                 try:
-                    yp = out.get("predicted_failure", None)
-                    if yp is not None and str(yp).strip() != "":
-                        y_true.append(int(gt))
-                        y_pred.append(int(yp))
+                    n_labeled += 1
+                    if not out:
+                        n_missing_predictive_outputs += 1
+                    yp = _coerce_binary_prediction(out.get("predicted_failure", None) if out else None)
+                    if yp is None:
+                        n_null_or_invalid_failure_predictions += 1
+                    else:
+                        n_binary_failure_predictions += 1
+                    # Score over the full labeled set. Null, invalid, or missing
+                    # predictions count as a non-failure prediction and are
+                    # surfaced explicitly in the summary for transparency.
+                    y_true.append(int(gt))
+                    y_pred.append(0 if yp is None else int(yp))
                 except Exception:
                     pass
 
             ttf_gt = row.get("ttf_days", row.get("ttf", None))
-            ttf_out = out.get("predicted_ttf_days", None)
+            ttf_out = out.get("predicted_ttf_days", None) if out else None
             if ttf_gt is not None and str(ttf_gt).strip() != "" and ttf_out is not None and str(ttf_out).strip() != "":
                 try:
                     ttf_true.append(float(ttf_gt))
@@ -415,7 +444,7 @@ class Stage2Runner:
                     pass
 
             tl_gt, tl_unit = _row_tail_latency_target(row)
-            tl_out = _out_tail_latency_prediction(out, tl_unit)
+            tl_out = _out_tail_latency_prediction(out or {}, tl_unit)
             if tl_gt is not None and tl_out is not None:
                 tl_true.append(float(tl_gt))
                 tl_pred.append(float(tl_out))
@@ -428,6 +457,13 @@ class Stage2Runner:
                 "R": conf.recall(),
                 "A": conf.accuracy(),
                 "TP": conf.tp, "FP": conf.fp, "FN": conf.fn, "TN": conf.tn,
+                "n_labeled": int(n_labeled),
+                "n_binary_failure_predictions": int(n_binary_failure_predictions),
+                "n_null_or_invalid_failure_predictions": int(n_null_or_invalid_failure_predictions),
+                "n_missing_predictive_outputs": int(n_missing_predictive_outputs),
+                "null_or_invalid_failure_prediction_rate": (float(n_null_or_invalid_failure_predictions) / float(n_labeled)) if n_labeled else None,
+                "missing_predictive_output_rate": (float(n_missing_predictive_outputs) / float(n_labeled)) if n_labeled else None,
+                "predictive_eval_policy": "Predictive classification is scored over the full labeled set. Null, invalid, or missing predicted_failure outputs are counted as 0 and reported separately.",
             }
         if ttf_true and ttf_pred:
             pred_metrics["TTF_MSE"] = mse(ttf_true, ttf_pred)
