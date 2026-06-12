@@ -58,6 +58,13 @@ How to run (per-sample)
      --limit_rows 100 \
      --out_name fig7_smart_compare
 
+   Predictive evaluation note:
+   - `failure`, `label`, `ttf_days`, and tail-latency targets are stripped from
+     the LLM-visible payload before prompt construction.
+   - Precision/recall/accuracy are scored over the full labeled split.
+   - Null, invalid, or missing `predicted_failure` outputs are counted as 0 and
+     reported separately in the summary.
+
 Outputs (per-sample)
 --------------------
 stage_II/runs/<RUN_NAME>/
