@@ -21,6 +21,15 @@ The matched Figure 7 SMART-only split is stored at:
 
 This file is derived from `dataset/alibaba/test_data/smart_workload.csv` so that SMART-only baselines and SMART+Workload methods can be compared on the same 1000 windows.
 
+## Evaluation Note
+
+The predictive labels in `fig7_predictive_corpus.csv` are evaluation targets, not
+prompt inputs. The Stage II predictive pipeline strips `failure`, `label`,
+`ttf_days`, and tail-latency targets from the LLM-visible payload before the
+prompt is built, and predictive classification metrics are scored over the full
+labeled split. Null, invalid, or missing `predicted_failure` outputs are counted
+as `0` and reported explicitly in the summary.
+
 ## Example Command
 
 ```bash
